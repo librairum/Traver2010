@@ -4132,8 +4132,8 @@ namespace Fac.UI.Win
         {
             SubPlantilla subplantilla = new SubPlantilla();
             subplantilla.FAC03CODEMP = Logueo.CodigoEmpresa;
-            List<SubPlantilla> lista =  SubPlantillaLogic.Instance.TraeSubPlantilla(subplantilla, 
-                                                          "FAC03COD", txtsubplantilla.Text.Trim());
+            List<SubPlantilla> lista =  SubPlantillaLogic.Instance.TraeSubPlantilla(subplantilla,
+                                                          "FAC03COD", tipoDocumento + txtsubplantilla.Text.Trim());
             if (lista.Count == 0) return;
 
             txtsubplantilla.Text =  Util.convertiracadena(lista[0].FAC03COD).Trim();

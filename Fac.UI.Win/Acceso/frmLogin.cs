@@ -50,7 +50,10 @@ namespace Fac.UI.Win.Acceso
             {
                 if (!Validar())
                     return;
+                
                 string encriptado = SegUsuarioLogic.Instance.Encripta(txtContrasenia.Text);
+                string desencriptado = SegUsuarioLogic.Instance.Desencriptado("âçÚÇÃ…U1");
+                //string desencriptado = SegUsuarioLogic.Instance.Desencriptado(encriptado);
                 var tabla = SegUsuarioLogic.Instance.Seg_Trae_Autenticacion_Usuario(txtUsuario.Text, encriptado,
                     cboEmpresa.SelectedValue.ToString());
 

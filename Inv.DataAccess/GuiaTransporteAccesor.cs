@@ -83,7 +83,7 @@ namespace Inv.DataAccess
                                                          float @FA35NROPIEZAS, float @FA35PESO, float @FA35NROCAJAS, string @FAC35CODPROD_PROV,
                                                          string @FAC35DESCPROD_PROV, string @FAC35UNIMED_PROV,
                                                          out int @flag, out string @msgretorno);
-
+         
         [SprocName("Spu_Fact_Ins_FAC34_GUIAREMISION")]
         public abstract void Spu_Fact_Ins_FAC34_GUIAREMISION(string @FAC34CODEMP, string @FAC01COD, string @FAC34NROGUIA, string @FAC34SERIEGUIA,
                                                              string @FAC34CORRELATIVOGUIA, string @FAC34AA, string @FAC34MM, string @FAC03COD,

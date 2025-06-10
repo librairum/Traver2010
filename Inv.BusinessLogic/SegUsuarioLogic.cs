@@ -162,6 +162,27 @@ namespace Inv.BusinessLogic
             return cRetorno.Trim();
         }
 
+
+        public string Desencriptado(string cClaveEncriptada)
+        {
+            if (string.IsNullOrEmpty(cClaveEncriptada) || cClaveEncriptada.Length < 2)
+            {
+                return cClaveEncriptada; // No se puede desencriptar una cadena vacía o de un solo carácter
+            }
+
+            string cOriginal = "";
+            cOriginal += cClaveEncriptada.Substring(cClaveEncriptada.Length - 1, 1); // El último carácter es el último original
+
+            for (int i = cClaveEncriptada.Length - 2; i >= 0; i--)
+            {
+                int nEncriptado = Asc(cClaveEncriptada[i]);
+                int nSiguienteOriginal = Asc(cOriginal[0]);
+                int nOriginal = nEncriptado - nSiguienteOriginal;
+                cOriginal = Chr(nOriginal) + cOriginal;
+            }
+
+            return cOriginal;
+        }
         public List<SegUsuario> Seg_Trae_Autenticacion_Usuario(string NombreUsuario, string ClaveUsuario, string xcodigoEmpresa)
         {
             return Accessor.Seg_Trae_Autenticacion_Usuario(NombreUsuario, ClaveUsuario, xcodigoEmpresa);

@@ -146,3 +146,8 @@ C:\Users\sistemas\Documents\Visual Studio 2010\Projects\Traver2010\Inv.BusinessE
 C:\Users\sistemas\Documents\Visual Studio 2010\Projects\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.csprojResolveAssemblyReference.cache
 C:\Users\sistemas\Documents\Visual Studio 2010\Projects\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.dll
 C:\Users\sistemas\Documents\Visual Studio 2010\Projects\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.pdb
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.BusinessEntities\bin\Debug\Inv.BusinessEntities.dll
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.BusinessEntities\bin\Debug\Inv.BusinessEntities.pdb
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.BusinessEntities\bin\Debug\BLToolkit.4.dll
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.dll
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.pdb

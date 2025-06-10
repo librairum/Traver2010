@@ -1802,7 +1802,8 @@ namespace Fac.UI.Win
             var codigosSeleccionados = new string[1];
             codigosSeleccionados[0] = tipodocumento + numerooguia;
             // Traer informacion dr guia para armar json
-            DataTable dt = Efact_GuiaLogic.Instance.Traer_GuiaElectronica(Logueo.CodigoEmpresa, Util.ConvertiraXML(codigosSeleccionados));
+            DataTable dt = Efact_GuiaLogic.Instance.Traer_GuiaElectronica(Logueo.CodigoEmpresa, 
+                Util.ConvertiraXML(codigosSeleccionados));
             string XML = Util.ConvertiraXML(codigosSeleccionados);
             // Armar el json
             string Motivo = dt.Rows[0]["Shipment_HandlingCode"].ToString();
@@ -18098,8 +18099,12 @@ namespace Fac.UI.Win
                 PartyIdentification PartyIdentificationclass = new PartyIdentification();
                 partyclass.PartyIdentification.Add(PartyIdentificationclass);
 
+                //Cuando es compra los datos del proveedor se toma lo de origen  
                 PartyIdentificationclass.ID = new List<ID>();
                 ID idsubclass = new ID();
+                //idsubclass._ = dt.Rows[0]["DespatchSupplierParty_Party_PartyIdentification_ID__"].ToString();
+                //idsubclass.schemeID = dt.Rows[0]["DespatchSupplierParty_Party_PartyIdentification_ID_schemeID"].ToString();
+                //codigo antiguo 03/04/2025
                 idsubclass._ = dt.Rows[0]["SellerSupplierParty_Party_PartyIdentification_ID__"].ToString();
                 idsubclass.schemeID = dt.Rows[0]["SellerSupplierParty_Party_PartyIdentification_ID_schemeID"].ToString();
                 PartyIdentificationclass.ID.Add(idsubclass);
@@ -20297,9 +20302,9 @@ namespace Fac.UI.Win
 
                 //asignar valor en blanco a estos campos y solo se guardar los datos del proveedor por el tipo de comrpar
                 // se guardar los datos dle proveedor 
-                _guia.FAC34CODPROV = "";
-                _guia.FAC34DESCPROV = "";
-                _guia.FAC34DIRECCPROV = "";
+                _guia.FAC34CODPROV = txtrucorigen.Text.Trim();
+                _guia.FAC34DESCPROV = txtrucorigenDes.Text.Trim();
+                _guia.FAC34DIRECCPROV = txtOriDirPartida.Text.Trim();
             }
             else 
             {
@@ -20761,6 +20766,7 @@ namespace Fac.UI.Win
 
 
                     /*codigo antiguoa*/
+                    
                     txtCodigoProv.Text = guia.FAC34CODPROV;
                     txtRazonSoProv.Text = guia.FAC34DESCPROV;
                     txtDomiProv.Text = guia.FAC34DIRECCPROV;

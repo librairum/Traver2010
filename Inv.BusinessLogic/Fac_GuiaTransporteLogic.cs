@@ -167,7 +167,9 @@ public void Spu_Fact_Upd_FAC35_DETGUIA(string @FAC35CODEMP, string @FAC01COD, st
                                                              cabeceraguia.FAC34OBSERVACION, cabeceraguia.FAC34ESTADO, cabeceraguia.FAC34FECHAINITRASLADO,
                                                              cabeceraguia.FAC34REFERENCIA, cabeceraguia.FAC34CONTENEDOR, cabeceraguia.FAC34PRECINTO,
                                                              cabeceraguia.FAC34FLAGORIPROD, cabeceraguia.FAC34CLICOD, cabeceraguia.FAC34OCTIPCOD,
-                                                             cabeceraguia.FAC34OCNRO, cabeceraguia.FAC34ESTADOPROCESOCOD, cabeceraguia.FAC34INDITRASLADOVEHICATM1,cabeceraguia.FAC34MODATRASLADO, cabeceraguia.FAC34CODPROV, cabeceraguia.FAC34DESCPROV,  cabeceraguia.FAC34DIRECCPROV, @xmldocrelacionados, out flag, out  mensaje);
+                                                             cabeceraguia.FAC34OCNRO, cabeceraguia.FAC34ESTADOPROCESOCOD, cabeceraguia.FAC34INDITRASLADOVEHICATM1,
+                                                             cabeceraguia.FAC34MODATRASLADO, cabeceraguia.FAC34CODPROV, cabeceraguia.FAC34DESCPROV,  
+                                                             cabeceraguia.FAC34DIRECCPROV, @xmldocrelacionados, out flag, out  mensaje);
             
         }
 

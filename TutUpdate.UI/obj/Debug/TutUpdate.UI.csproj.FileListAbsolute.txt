@@ -228,3 +228,13 @@ C:\Users\sistemas\Documents\Visual Studio 2010\Projects\Traver2010\TutUpdate.UI\
 C:\Users\sistemas\Documents\Visual Studio 2010\Projects\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csproj.GenerateResource.Cache
 C:\Users\sistemas\Documents\Visual Studio 2010\Projects\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.exe
 C:\Users\sistemas\Documents\Visual Studio 2010\Projects\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.pdb
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.exe.config
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.exe
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.pdb
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\bin\Debug\Microsoft.CSharp.dll
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csprojResolveAssemblyReference.cache
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.frmActualizacion.resources
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.Properties.Resources.resources
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csproj.GenerateResource.Cache
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.exe
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.pdb

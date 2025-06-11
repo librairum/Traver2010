@@ -151,3 +151,9 @@ D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.BusinessEntities\bin\Debug
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.BusinessEntities\bin\Debug\BLToolkit.4.dll
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.dll
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.pdb
+D:\trabajo\minera deisi\traver\github\Traver2010\Inv.BusinessEntities\bin\Debug\Inv.BusinessEntities.dll
+D:\trabajo\minera deisi\traver\github\Traver2010\Inv.BusinessEntities\bin\Debug\Inv.BusinessEntities.pdb
+D:\trabajo\minera deisi\traver\github\Traver2010\Inv.BusinessEntities\bin\Debug\BLToolkit.4.dll
+D:\trabajo\minera deisi\traver\github\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.csprojResolveAssemblyReference.cache
+D:\trabajo\minera deisi\traver\github\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.dll
+D:\trabajo\minera deisi\traver\github\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.pdb

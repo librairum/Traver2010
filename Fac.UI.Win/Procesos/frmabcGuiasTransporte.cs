@@ -22731,7 +22731,12 @@ namespace Fac.UI.Win
         {
             if (!string.IsNullOrEmpty(txtrucdestino.Text))
             {
-                obtenerDescripcion(enmAyuda.enmDestinatario, "");
+                //obtenerDescripcion(enmAyuda.enmDestinatario, "");
+
+                string rucDestinoDesc = "";
+                txtClienteCod.Text = txtrucdestino.Text.Trim();
+                GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtrucdestino.Text.Trim(), "CLIENTE", out rucDestinoDesc);
+                txtrucdestinnoDes.Text = rucDestinoDesc;
 
                 //string ClienteDesc = "";
                 //string ClienteFlagDescUsuario = "";
@@ -23180,6 +23185,11 @@ namespace Fac.UI.Win
                     GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtClienteCod.Text.Trim(), "CLIENTE", out ClienteDesc);
                     txtClienteDesc.Text = ClienteDesc;
 
+
+                    string rucDestinoDesc = "";
+                    txtClienteCod.Text = txtrucdestino.Text.Trim();
+                    GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtrucdestino.Text.Trim(), "CLIENTE", out rucDestinoDesc);
+                    txtrucdestinnoDes.Text = rucDestinoDesc;
 
                     GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtClienteCod.Text.Trim(), "CLIENTEFLAGDESC", out ClienteFlagDescUsuario);
                     chkflagproveedor.Checked = ClienteFlagDescUsuario == "1" ? true : false;

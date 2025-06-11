@@ -238,3 +238,13 @@ D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpda
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csproj.GenerateResource.Cache
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.exe
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.pdb
+D:\trabajo\minera deisi\traver\github\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.exe.config
+D:\trabajo\minera deisi\traver\github\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.exe
+D:\trabajo\minera deisi\traver\github\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.pdb
+D:\trabajo\minera deisi\traver\github\Traver2010\TutUpdate.UI\bin\Debug\Microsoft.CSharp.dll
+D:\trabajo\minera deisi\traver\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csprojResolveAssemblyReference.cache
+D:\trabajo\minera deisi\traver\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.frmActualizacion.resources
+D:\trabajo\minera deisi\traver\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.Properties.Resources.resources
+D:\trabajo\minera deisi\traver\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csproj.GenerateResource.Cache
+D:\trabajo\minera deisi\traver\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.exe
+D:\trabajo\minera deisi\traver\github\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.pdb

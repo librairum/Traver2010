@@ -139,23 +139,21 @@
             // 
             this.radPanel1.Controls.Add(this.gridControl);
             this.radPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radPanel1.Location = new System.Drawing.Point(0, 71);
-            this.radPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radPanel1.Location = new System.Drawing.Point(0, 33);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(1904, 918);
+            this.radPanel1.Size = new System.Drawing.Size(922, 458);
             this.radPanel1.TabIndex = 4;
             // 
             // gridControl
             // 
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl.Location = new System.Drawing.Point(0, 0);
-            this.gridControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             // 
             // 
             // 
             this.gridControl.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(1904, 918);
+            this.gridControl.Size = new System.Drawing.Size(922, 458);
             this.gridControl.TabIndex = 0;
             this.gridControl.Text = "radGridView1";
             this.gridControl.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.gridControl_CellFormatting);
@@ -166,8 +164,7 @@
             // 
             // popupCopiarDoc
             // 
-            this.popupCopiarDoc.Location = new System.Drawing.Point(34, 138);
-            this.popupCopiarDoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.popupCopiarDoc.Location = new System.Drawing.Point(23, 90);
             this.popupCopiarDoc.Name = "popupCopiarDoc";
             // 
             // popupCopiarDoc.PanelContainer
@@ -180,32 +177,29 @@
             this.popupCopiarDoc.PanelContainer.Controls.Add(this.cboCopiarPeriodo);
             this.popupCopiarDoc.PanelContainer.Controls.Add(this.radLabel38);
             this.popupCopiarDoc.PanelContainer.Controls.Add(this.txtCopiarSerie);
-            this.popupCopiarDoc.PanelContainer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.popupCopiarDoc.PanelContainer.Size = new System.Drawing.Size(414, 183);
-            this.popupCopiarDoc.Size = new System.Drawing.Size(416, 185);
+            this.popupCopiarDoc.PanelContainer.Size = new System.Drawing.Size(275, 118);
+            this.popupCopiarDoc.Size = new System.Drawing.Size(277, 120);
             this.popupCopiarDoc.TabIndex = 78;
             // 
             // txtCopiarDocNro
             // 
             this.txtCopiarDocNro.AutoSize = false;
             this.txtCopiarDocNro.Enabled = false;
-            this.txtCopiarDocNro.Location = new System.Drawing.Point(234, 105);
-            this.txtCopiarDocNro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCopiarDocNro.Location = new System.Drawing.Point(156, 68);
             this.txtCopiarDocNro.Multiline = true;
             this.txtCopiarDocNro.Name = "txtCopiarDocNro";
-            this.txtCopiarDocNro.Size = new System.Drawing.Size(165, 34);
+            this.txtCopiarDocNro.Size = new System.Drawing.Size(110, 22);
             this.txtCopiarDocNro.TabIndex = 76;
             // 
             // dtpCopiarFecha
             // 
             this.dtpCopiarFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpCopiarFecha.Location = new System.Drawing.Point(158, 142);
-            this.dtpCopiarFecha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpCopiarFecha.Location = new System.Drawing.Point(105, 92);
             this.dtpCopiarFecha.Name = "dtpCopiarFecha";
-            this.dtpCopiarFecha.Size = new System.Drawing.Size(242, 27);
+            this.dtpCopiarFecha.Size = new System.Drawing.Size(161, 20);
             this.dtpCopiarFecha.TabIndex = 75;
             this.dtpCopiarFecha.TabStop = false;
-            this.dtpCopiarFecha.Text = "1/03/2013";
+            this.dtpCopiarFecha.Text = "01/03/2013";
             this.dtpCopiarFecha.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             // 
             // radPanel2
@@ -217,9 +211,8 @@
             this.radPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.radPanel2.ForeColor = System.Drawing.Color.White;
             this.radPanel2.Location = new System.Drawing.Point(0, 0);
-            this.radPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.radPanel2.Name = "radPanel2";
-            this.radPanel2.Size = new System.Drawing.Size(414, 57);
+            this.radPanel2.Size = new System.Drawing.Size(275, 37);
             this.radPanel2.TabIndex = 0;
             this.radPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -228,10 +221,9 @@
             this.btnGuardarCopia.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnGuardarCopia.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarCopia.Image")));
             this.btnGuardarCopia.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGuardarCopia.Location = new System.Drawing.Point(312, 0);
-            this.btnGuardarCopia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnGuardarCopia.Location = new System.Drawing.Point(207, 0);
             this.btnGuardarCopia.Name = "btnGuardarCopia";
-            this.btnGuardarCopia.Size = new System.Drawing.Size(51, 57);
+            this.btnGuardarCopia.Size = new System.Drawing.Size(34, 37);
             this.btnGuardarCopia.TabIndex = 31;
             this.btnGuardarCopia.ThemeName = "Office2013Light";
             this.btnGuardarCopia.Click += new System.EventHandler(this.btnGuardarCopia_Click);
@@ -241,10 +233,9 @@
             this.btnCancelarCopia.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCancelarCopia.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarCopia.Image")));
             this.btnCancelarCopia.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancelarCopia.Location = new System.Drawing.Point(363, 0);
-            this.btnCancelarCopia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancelarCopia.Location = new System.Drawing.Point(241, 0);
             this.btnCancelarCopia.Name = "btnCancelarCopia";
-            this.btnCancelarCopia.Size = new System.Drawing.Size(51, 57);
+            this.btnCancelarCopia.Size = new System.Drawing.Size(34, 37);
             this.btnCancelarCopia.TabIndex = 15;
             this.btnCancelarCopia.ThemeName = "Office2013Light";
             this.btnCancelarCopia.Click += new System.EventHandler(this.btnCancelarCopia_Click);
@@ -254,51 +245,46 @@
             this.radLabel34.BackColor = System.Drawing.Color.SteelBlue;
             this.radLabel34.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radLabel34.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.radLabel34.Location = new System.Drawing.Point(14, 9);
-            this.radLabel34.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel34.Location = new System.Drawing.Point(9, 6);
             this.radLabel34.Name = "radLabel34";
-            this.radLabel34.Size = new System.Drawing.Size(184, 30);
+            this.radLabel34.Size = new System.Drawing.Size(124, 21);
             this.radLabel34.TabIndex = 4;
             this.radLabel34.Text = "Copiar documento";
             this.radLabel34.ThemeName = "ControlDefault";
             // 
             // radLabel40
             // 
-            this.radLabel40.Location = new System.Drawing.Point(82, 142);
-            this.radLabel40.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel40.Location = new System.Drawing.Point(55, 92);
             this.radLabel40.Name = "radLabel40";
-            this.radLabel40.Size = new System.Drawing.Size(60, 26);
+            this.radLabel40.Size = new System.Drawing.Size(41, 18);
             this.radLabel40.TabIndex = 74;
             this.radLabel40.Text = "Fecha :";
             // 
             // radLabel39
             // 
-            this.radLabel39.Location = new System.Drawing.Point(68, 72);
-            this.radLabel39.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel39.Location = new System.Drawing.Point(45, 47);
             this.radLabel39.Name = "radLabel39";
-            this.radLabel39.Size = new System.Drawing.Size(75, 26);
+            this.radLabel39.Size = new System.Drawing.Size(51, 18);
             this.radLabel39.TabIndex = 24;
             this.radLabel39.Text = "Periodo :";
             // 
             // cboCopiarPeriodo
             // 
             this.cboCopiarPeriodo.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            this.cboCopiarPeriodo.Location = new System.Drawing.Point(153, 69);
-            this.cboCopiarPeriodo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboCopiarPeriodo.Location = new System.Drawing.Point(102, 45);
             this.cboCopiarPeriodo.Name = "cboCopiarPeriodo";
             // 
             // 
             // 
             this.cboCopiarPeriodo.RootElement.Margin = new System.Windows.Forms.Padding(0);
-            this.cboCopiarPeriodo.Size = new System.Drawing.Size(246, 27);
+            this.cboCopiarPeriodo.Size = new System.Drawing.Size(164, 20);
             this.cboCopiarPeriodo.TabIndex = 73;
             // 
             // radLabel38
             // 
-            this.radLabel38.Location = new System.Drawing.Point(12, 102);
-            this.radLabel38.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel38.Location = new System.Drawing.Point(8, 66);
             this.radLabel38.Name = "radLabel38";
-            this.radLabel38.Size = new System.Drawing.Size(131, 26);
+            this.radLabel38.Size = new System.Drawing.Size(88, 18);
             this.radLabel38.TabIndex = 28;
             this.radLabel38.Text = "Serie / Numero :";
             // 
@@ -306,17 +292,15 @@
             // 
             this.txtCopiarSerie.AutoSize = false;
             this.txtCopiarSerie.Enabled = false;
-            this.txtCopiarSerie.Location = new System.Drawing.Point(153, 103);
-            this.txtCopiarSerie.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCopiarSerie.Location = new System.Drawing.Point(102, 67);
             this.txtCopiarSerie.Multiline = true;
             this.txtCopiarSerie.Name = "txtCopiarSerie";
-            this.txtCopiarSerie.Size = new System.Drawing.Size(72, 34);
+            this.txtCopiarSerie.Size = new System.Drawing.Size(48, 22);
             this.txtCopiarSerie.TabIndex = 29;
             // 
             // popupEstadoDocumento
             // 
-            this.popupEstadoDocumento.Location = new System.Drawing.Point(339, 137);
-            this.popupEstadoDocumento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.popupEstadoDocumento.Location = new System.Drawing.Point(226, 89);
             this.popupEstadoDocumento.Name = "popupEstadoDocumento";
             // 
             // popupEstadoDocumento.PanelContainer
@@ -328,9 +312,8 @@
             this.popupEstadoDocumento.PanelContainer.Controls.Add(this.radPanel3);
             this.popupEstadoDocumento.PanelContainer.Controls.Add(this.radLabel4);
             this.popupEstadoDocumento.PanelContainer.Controls.Add(this.txtObservacionEstadoDoc);
-            this.popupEstadoDocumento.PanelContainer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.popupEstadoDocumento.PanelContainer.Size = new System.Drawing.Size(410, 192);
-            this.popupEstadoDocumento.Size = new System.Drawing.Size(412, 194);
+            this.popupEstadoDocumento.PanelContainer.Size = new System.Drawing.Size(273, 124);
+            this.popupEstadoDocumento.Size = new System.Drawing.Size(275, 126);
             this.popupEstadoDocumento.TabIndex = 79;
             ((Telerik.WinControls.UI.RadScrollablePanelElement)(this.popupEstadoDocumento.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(1);
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.popupEstadoDocumento.GetChildAt(0).GetChildAt(1))).Width = 1F;
@@ -338,12 +321,11 @@
             // 
             // txtHoraEstadoDoc
             // 
-            this.txtHoraEstadoDoc.Location = new System.Drawing.Point(309, 58);
-            this.txtHoraEstadoDoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtHoraEstadoDoc.Location = new System.Drawing.Point(206, 38);
             this.txtHoraEstadoDoc.Mask = "00:00";
             this.txtHoraEstadoDoc.MaskType = Telerik.WinControls.UI.MaskType.Standard;
             this.txtHoraEstadoDoc.Name = "txtHoraEstadoDoc";
-            this.txtHoraEstadoDoc.Size = new System.Drawing.Size(88, 27);
+            this.txtHoraEstadoDoc.Size = new System.Drawing.Size(59, 20);
             this.txtHoraEstadoDoc.TabIndex = 1;
             this.txtHoraEstadoDoc.TabStop = false;
             this.txtHoraEstadoDoc.Text = "__:__";
@@ -351,32 +333,29 @@
             // 
             // radLabel3
             // 
-            this.radLabel3.Location = new System.Drawing.Point(248, 62);
-            this.radLabel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel3.Location = new System.Drawing.Point(165, 40);
             this.radLabel3.Name = "radLabel3";
-            this.radLabel3.Size = new System.Drawing.Size(45, 26);
+            this.radLabel3.Size = new System.Drawing.Size(31, 18);
             this.radLabel3.TabIndex = 77;
             this.radLabel3.Text = "Hora";
             // 
             // dtpFechaEstadoDoc
             // 
             this.dtpFechaEstadoDoc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaEstadoDoc.Location = new System.Drawing.Point(123, 62);
-            this.dtpFechaEstadoDoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpFechaEstadoDoc.Location = new System.Drawing.Point(82, 40);
             this.dtpFechaEstadoDoc.Name = "dtpFechaEstadoDoc";
-            this.dtpFechaEstadoDoc.Size = new System.Drawing.Size(126, 27);
+            this.dtpFechaEstadoDoc.Size = new System.Drawing.Size(84, 20);
             this.dtpFechaEstadoDoc.TabIndex = 0;
             this.dtpFechaEstadoDoc.TabStop = false;
-            this.dtpFechaEstadoDoc.Text = "1/03/2013";
+            this.dtpFechaEstadoDoc.Text = "01/03/2013";
             this.dtpFechaEstadoDoc.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             this.dtpFechaEstadoDoc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtpFechaEstadoDoc_KeyDown);
             // 
             // radLabel2
             // 
-            this.radLabel2.Location = new System.Drawing.Point(62, 62);
-            this.radLabel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel2.Location = new System.Drawing.Point(41, 40);
             this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(51, 26);
+            this.radLabel2.Size = new System.Drawing.Size(35, 18);
             this.radLabel2.TabIndex = 74;
             this.radLabel2.Text = "Fecha";
             // 
@@ -389,9 +368,8 @@
             this.radPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.radPanel3.ForeColor = System.Drawing.Color.White;
             this.radPanel3.Location = new System.Drawing.Point(0, 0);
-            this.radPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.radPanel3.Name = "radPanel3";
-            this.radPanel3.Size = new System.Drawing.Size(410, 57);
+            this.radPanel3.Size = new System.Drawing.Size(273, 37);
             this.radPanel3.TabIndex = 3;
             this.radPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -400,10 +378,9 @@
             this.btnGuardarEstadoDoc.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnGuardarEstadoDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarEstadoDoc.Image")));
             this.btnGuardarEstadoDoc.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGuardarEstadoDoc.Location = new System.Drawing.Point(308, 0);
-            this.btnGuardarEstadoDoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnGuardarEstadoDoc.Location = new System.Drawing.Point(205, 0);
             this.btnGuardarEstadoDoc.Name = "btnGuardarEstadoDoc";
-            this.btnGuardarEstadoDoc.Size = new System.Drawing.Size(51, 57);
+            this.btnGuardarEstadoDoc.Size = new System.Drawing.Size(34, 37);
             this.btnGuardarEstadoDoc.TabIndex = 0;
             this.btnGuardarEstadoDoc.ThemeName = "Office2013Light";
             this.btnGuardarEstadoDoc.Click += new System.EventHandler(this.btnGuardarEstadoDoc_Click);
@@ -413,10 +390,9 @@
             this.btnCancelarEstadoDoc.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCancelarEstadoDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarEstadoDoc.Image")));
             this.btnCancelarEstadoDoc.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancelarEstadoDoc.Location = new System.Drawing.Point(359, 0);
-            this.btnCancelarEstadoDoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancelarEstadoDoc.Location = new System.Drawing.Point(239, 0);
             this.btnCancelarEstadoDoc.Name = "btnCancelarEstadoDoc";
-            this.btnCancelarEstadoDoc.Size = new System.Drawing.Size(51, 57);
+            this.btnCancelarEstadoDoc.Size = new System.Drawing.Size(34, 37);
             this.btnCancelarEstadoDoc.TabIndex = 1;
             this.btnCancelarEstadoDoc.ThemeName = "Office2013Light";
             this.btnCancelarEstadoDoc.Click += new System.EventHandler(this.btnCancelarEstadoDoc_Click);
@@ -426,31 +402,28 @@
             this.radLabel1.BackColor = System.Drawing.Color.SteelBlue;
             this.radLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radLabel1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.radLabel1.Location = new System.Drawing.Point(14, 9);
-            this.radLabel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel1.Location = new System.Drawing.Point(9, 6);
             this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(214, 30);
+            this.radLabel1.Size = new System.Drawing.Size(144, 21);
             this.radLabel1.TabIndex = 2;
             this.radLabel1.Text = "Estado de documento";
             this.radLabel1.ThemeName = "ControlDefault";
             // 
             // radLabel4
             // 
-            this.radLabel4.Location = new System.Drawing.Point(12, 100);
-            this.radLabel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel4.Location = new System.Drawing.Point(8, 65);
             this.radLabel4.Name = "radLabel4";
-            this.radLabel4.Size = new System.Drawing.Size(101, 26);
+            this.radLabel4.Size = new System.Drawing.Size(68, 18);
             this.radLabel4.TabIndex = 28;
             this.radLabel4.Text = "Observacion";
             // 
             // txtObservacionEstadoDoc
             // 
             this.txtObservacionEstadoDoc.AutoSize = false;
-            this.txtObservacionEstadoDoc.Location = new System.Drawing.Point(123, 100);
-            this.txtObservacionEstadoDoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtObservacionEstadoDoc.Location = new System.Drawing.Point(82, 65);
             this.txtObservacionEstadoDoc.Multiline = true;
             this.txtObservacionEstadoDoc.Name = "txtObservacionEstadoDoc";
-            this.txtObservacionEstadoDoc.Size = new System.Drawing.Size(274, 83);
+            this.txtObservacionEstadoDoc.Size = new System.Drawing.Size(183, 54);
             this.txtObservacionEstadoDoc.TabIndex = 2;
             this.txtObservacionEstadoDoc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtObservacionEstadoDoc_KeyDown);
             // 
@@ -458,8 +431,7 @@
             // 
             this.popupImportar.AllowDrop = true;
             this.popupImportar.AutoSize = true;
-            this.popupImportar.Location = new System.Drawing.Point(36, 137);
-            this.popupImportar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.popupImportar.Location = new System.Drawing.Point(24, 89);
             this.popupImportar.Name = "popupImportar";
             // 
             // popupImportar.PanelContainer
@@ -469,9 +441,8 @@
             this.popupImportar.PanelContainer.Controls.Add(this.prVentanaImportado);
             this.popupImportar.PanelContainer.Controls.Add(this.radPanel5);
             this.popupImportar.PanelContainer.Controls.Add(this.rpTituloGeneralImportacion);
-            this.popupImportar.PanelContainer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.popupImportar.PanelContainer.Size = new System.Drawing.Size(2296, 852);
-            this.popupImportar.Size = new System.Drawing.Size(2298, 854);
+            this.popupImportar.PanelContainer.Size = new System.Drawing.Size(1020, 359);
+            this.popupImportar.Size = new System.Drawing.Size(1022, 361);
             this.popupImportar.TabIndex = 81;
             ((Telerik.WinControls.UI.RadScrollablePanelElement)(this.popupImportar.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(1);
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.popupImportar.GetChildAt(0).GetChildAt(1))).Width = 1F;
@@ -484,24 +455,22 @@
             this.rpVentanaValidado.Controls.Add(this.rpTituloValidado);
             this.rpVentanaValidado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rpVentanaValidado.ForeColor = System.Drawing.Color.White;
-            this.rpVentanaValidado.Location = new System.Drawing.Point(0, 309);
-            this.rpVentanaValidado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rpVentanaValidado.Location = new System.Drawing.Point(0, 201);
             this.rpVentanaValidado.Name = "rpVentanaValidado";
-            this.rpVentanaValidado.Size = new System.Drawing.Size(2296, 543);
+            this.rpVentanaValidado.Size = new System.Drawing.Size(1020, 158);
             this.rpVentanaValidado.TabIndex = 3;
             this.rpVentanaValidado.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvValidacion
             // 
             this.dgvValidacion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvValidacion.Location = new System.Drawing.Point(0, 43);
-            this.dgvValidacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvValidacion.Location = new System.Drawing.Point(0, 28);
             // 
             // 
             // 
             this.dgvValidacion.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.dgvValidacion.Name = "dgvValidacion";
-            this.dgvValidacion.Size = new System.Drawing.Size(2296, 500);
+            this.dgvValidacion.Size = new System.Drawing.Size(1020, 130);
             this.dgvValidacion.TabIndex = 1;
             this.dgvValidacion.Text = "radGridView1";
             // 
@@ -512,9 +481,8 @@
             this.rpTituloValidado.Dock = System.Windows.Forms.DockStyle.Top;
             this.rpTituloValidado.ForeColor = System.Drawing.Color.White;
             this.rpTituloValidado.Location = new System.Drawing.Point(0, 0);
-            this.rpTituloValidado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rpTituloValidado.Name = "rpTituloValidado";
-            this.rpTituloValidado.Size = new System.Drawing.Size(2296, 43);
+            this.rpTituloValidado.Size = new System.Drawing.Size(1020, 28);
             this.rpTituloValidado.TabIndex = 79;
             this.rpTituloValidado.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -523,10 +491,9 @@
             this.radLabel8.BackColor = System.Drawing.Color.Azure;
             this.radLabel8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radLabel8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.radLabel8.Location = new System.Drawing.Point(14, 6);
-            this.radLabel8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel8.Location = new System.Drawing.Point(9, 4);
             this.radLabel8.Name = "radLabel8";
-            this.radLabel8.Size = new System.Drawing.Size(192, 30);
+            this.radLabel8.Size = new System.Drawing.Size(129, 21);
             this.radLabel8.TabIndex = 2;
             this.radLabel8.Text = "Registros validados";
             this.radLabel8.ThemeName = "ControlDefault";
@@ -538,24 +505,22 @@
             this.prVentanaImportado.Controls.Add(this.radPanel4);
             this.prVentanaImportado.Dock = System.Windows.Forms.DockStyle.Top;
             this.prVentanaImportado.ForeColor = System.Drawing.Color.White;
-            this.prVentanaImportado.Location = new System.Drawing.Point(0, 83);
-            this.prVentanaImportado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.prVentanaImportado.Location = new System.Drawing.Point(0, 54);
             this.prVentanaImportado.Name = "prVentanaImportado";
-            this.prVentanaImportado.Size = new System.Drawing.Size(2296, 226);
+            this.prVentanaImportado.Size = new System.Drawing.Size(1020, 147);
             this.prVentanaImportado.TabIndex = 4;
             this.prVentanaImportado.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvImportacion
             // 
             this.dgvImportacion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvImportacion.Location = new System.Drawing.Point(0, 45);
-            this.dgvImportacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvImportacion.Location = new System.Drawing.Point(0, 29);
             // 
             // 
             // 
             this.dgvImportacion.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.dgvImportacion.Name = "dgvImportacion";
-            this.dgvImportacion.Size = new System.Drawing.Size(2296, 181);
+            this.dgvImportacion.Size = new System.Drawing.Size(1020, 118);
             this.dgvImportacion.TabIndex = 1;
             this.dgvImportacion.Text = "radGridView2";
             // 
@@ -566,9 +531,8 @@
             this.radPanel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.radPanel4.ForeColor = System.Drawing.Color.White;
             this.radPanel4.Location = new System.Drawing.Point(0, 0);
-            this.radPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.radPanel4.Name = "radPanel4";
-            this.radPanel4.Size = new System.Drawing.Size(2296, 45);
+            this.radPanel4.Size = new System.Drawing.Size(1020, 29);
             this.radPanel4.TabIndex = 80;
             this.radPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -577,10 +541,9 @@
             this.radLabel6.BackColor = System.Drawing.Color.Azure;
             this.radLabel6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radLabel6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.radLabel6.Location = new System.Drawing.Point(14, 8);
-            this.radLabel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel6.Location = new System.Drawing.Point(9, 5);
             this.radLabel6.Name = "radLabel6";
-            this.radLabel6.Size = new System.Drawing.Size(211, 30);
+            this.radLabel6.Size = new System.Drawing.Size(142, 21);
             this.radLabel6.TabIndex = 2;
             this.radLabel6.Text = "Registros importados";
             this.radLabel6.ThemeName = "ControlDefault";
@@ -592,10 +555,9 @@
             this.radPanel5.Controls.Add(this.btnImportarRegistros);
             this.radPanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.radPanel5.ForeColor = System.Drawing.Color.White;
-            this.radPanel5.Location = new System.Drawing.Point(0, 46);
-            this.radPanel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radPanel5.Location = new System.Drawing.Point(0, 30);
             this.radPanel5.Name = "radPanel5";
-            this.radPanel5.Size = new System.Drawing.Size(2296, 37);
+            this.radPanel5.Size = new System.Drawing.Size(1020, 24);
             this.radPanel5.TabIndex = 5;
             this.radPanel5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -604,10 +566,9 @@
             this.btnValidarImportar.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnValidarImportar.Image = ((System.Drawing.Image)(resources.GetObject("btnValidarImportar.Image")));
             this.btnValidarImportar.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnValidarImportar.Location = new System.Drawing.Point(51, 0);
-            this.btnValidarImportar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnValidarImportar.Location = new System.Drawing.Point(34, 0);
             this.btnValidarImportar.Name = "btnValidarImportar";
-            this.btnValidarImportar.Size = new System.Drawing.Size(51, 37);
+            this.btnValidarImportar.Size = new System.Drawing.Size(34, 24);
             this.btnValidarImportar.TabIndex = 4;
             this.btnValidarImportar.ThemeName = "Office2013Light";
             this.btnValidarImportar.Click += new System.EventHandler(this.btnValidar_Click);
@@ -618,9 +579,8 @@
             this.btnImportarRegistros.Image = ((System.Drawing.Image)(resources.GetObject("btnImportarRegistros.Image")));
             this.btnImportarRegistros.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnImportarRegistros.Location = new System.Drawing.Point(0, 0);
-            this.btnImportarRegistros.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnImportarRegistros.Name = "btnImportarRegistros";
-            this.btnImportarRegistros.Size = new System.Drawing.Size(51, 37);
+            this.btnImportarRegistros.Size = new System.Drawing.Size(34, 24);
             this.btnImportarRegistros.TabIndex = 3;
             this.btnImportarRegistros.ThemeName = "Office2013Light";
             this.btnImportarRegistros.Click += new System.EventHandler(this.btnImportarRegistros_Click);
@@ -634,9 +594,8 @@
             this.rpTituloGeneralImportacion.Dock = System.Windows.Forms.DockStyle.Top;
             this.rpTituloGeneralImportacion.ForeColor = System.Drawing.Color.White;
             this.rpTituloGeneralImportacion.Location = new System.Drawing.Point(0, 0);
-            this.rpTituloGeneralImportacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rpTituloGeneralImportacion.Name = "rpTituloGeneralImportacion";
-            this.rpTituloGeneralImportacion.Size = new System.Drawing.Size(2296, 46);
+            this.rpTituloGeneralImportacion.Size = new System.Drawing.Size(1020, 30);
             this.rpTituloGeneralImportacion.TabIndex = 4;
             this.rpTituloGeneralImportacion.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -645,10 +604,9 @@
             this.btnAceptarImportar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAceptarImportar.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptarImportar.Image")));
             this.btnAceptarImportar.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAceptarImportar.Location = new System.Drawing.Point(2194, 0);
-            this.btnAceptarImportar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAceptarImportar.Location = new System.Drawing.Point(952, 0);
             this.btnAceptarImportar.Name = "btnAceptarImportar";
-            this.btnAceptarImportar.Size = new System.Drawing.Size(51, 46);
+            this.btnAceptarImportar.Size = new System.Drawing.Size(34, 30);
             this.btnAceptarImportar.TabIndex = 3;
             this.btnAceptarImportar.ThemeName = "Office2013Light";
             this.btnAceptarImportar.Click += new System.EventHandler(this.btnAceptarImportar_Click);
@@ -658,10 +616,9 @@
             this.btnSalirImportar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSalirImportar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalirImportar.Image")));
             this.btnSalirImportar.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSalirImportar.Location = new System.Drawing.Point(2245, 0);
-            this.btnSalirImportar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSalirImportar.Location = new System.Drawing.Point(986, 0);
             this.btnSalirImportar.Name = "btnSalirImportar";
-            this.btnSalirImportar.Size = new System.Drawing.Size(51, 46);
+            this.btnSalirImportar.Size = new System.Drawing.Size(34, 30);
             this.btnSalirImportar.TabIndex = 1;
             this.btnSalirImportar.ThemeName = "Office2013Light";
             this.btnSalirImportar.Click += new System.EventHandler(this.btnCancelaImportar_Click);
@@ -671,24 +628,23 @@
             this.radLabel5.BackColor = System.Drawing.Color.SteelBlue;
             this.radLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radLabel5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.radLabel5.Location = new System.Drawing.Point(14, 9);
-            this.radLabel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel5.Location = new System.Drawing.Point(9, 6);
             this.radLabel5.Name = "radLabel5";
-            this.radLabel5.Size = new System.Drawing.Size(231, 30);
+            this.radLabel5.Size = new System.Drawing.Size(155, 21);
             this.radLabel5.TabIndex = 2;
             this.radLabel5.Text = "Proceso del documento";
             this.radLabel5.ThemeName = "ControlDefault";
             // 
             // frmGuiaTransportista
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 989);
+            this.ClientSize = new System.Drawing.Size(922, 491);
             this.Controls.Add(this.popupImportar);
             this.Controls.Add(this.popupEstadoDocumento);
             this.Controls.Add(this.popupCopiarDoc);
             this.Controls.Add(this.radPanel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmGuiaTransportista";
             // 
             // 

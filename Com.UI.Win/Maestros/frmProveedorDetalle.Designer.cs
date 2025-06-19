@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProveedorDetalle));
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.txttipdoc = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.lbltipdoc = new Telerik.WinControls.UI.RadTextBox();
@@ -84,6 +86,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtRubroVentas = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel13 = new Telerik.WinControls.UI.RadLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.radPanel4 = new Telerik.WinControls.UI.RadPanel();
+            this.pvCuentasBancarias = new Telerik.WinControls.UI.RadPageView();
+            this.pvCuentasBancariaDetalle = new Telerik.WinControls.UI.RadPageViewPage();
+            this.gridCuentasBancaria = new Telerik.WinControls.UI.RadGridView();
+            this.radCommandBar2 = new Telerik.WinControls.UI.RadCommandBar();
+            this.cmdBarDetalleProducto = new Telerik.WinControls.UI.CommandBarRowElement();
+            this.BarAddDel_Almacen = new Telerik.WinControls.UI.CommandBarStripElement();
+            this.cmdBarAgregar = new Telerik.WinControls.UI.CommandBarButton();
+            this.cmdBarEditar = new Telerik.WinControls.UI.CommandBarButton();
+            this.cmdBarEliminar = new Telerik.WinControls.UI.CommandBarButton();
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txttipdoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
@@ -129,6 +142,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCtaBancoDetraccion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRubroVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel13)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).BeginInit();
+            this.radPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pvCuentasBancarias)).BeginInit();
+            this.pvCuentasBancarias.SuspendLayout();
+            this.pvCuentasBancariaDetalle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCuentasBancaria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCuentasBancaria.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radCommandBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,7 +200,7 @@
             // radCommandBar1
             // 
             this.radCommandBar1.Margin = new System.Windows.Forms.Padding(3);
-            this.radCommandBar1.Size = new System.Drawing.Size(1019, 33);
+            this.radCommandBar1.Size = new System.Drawing.Size(1030, 33);
             this.radCommandBar1.TabIndex = 0;
             // 
             // commandBarRowElement1
@@ -187,7 +209,7 @@
             this.commandBarRowElement1.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.commandBarRowElement1.BorderColor3 = System.Drawing.Color.White;
             this.commandBarRowElement1.BorderColor4 = System.Drawing.Color.White;
-            this.commandBarRowElement1.Bounds = new System.Drawing.Rectangle(0, 0, 1017, 30);
+            this.commandBarRowElement1.Bounds = new System.Drawing.Rectangle(0, 0, 1028, 30);
             this.commandBarRowElement1.DrawText = false;
             this.commandBarRowElement1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.commandBarRowElement1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
@@ -197,7 +219,7 @@
             // txttipdoc
             // 
             this.txttipdoc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttipdoc.Location = new System.Drawing.Point(141, 51);
+            this.txttipdoc.Location = new System.Drawing.Point(140, 10);
             this.txttipdoc.Name = "txttipdoc";
             this.txttipdoc.Size = new System.Drawing.Size(32, 23);
             this.txttipdoc.TabIndex = 2;
@@ -205,7 +227,7 @@
             // 
             // radLabel1
             // 
-            this.radLabel1.Location = new System.Drawing.Point(45, 53);
+            this.radLabel1.Location = new System.Drawing.Point(44, 12);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(82, 18);
             this.radLabel1.TabIndex = 1;
@@ -214,7 +236,7 @@
             // lbltipdoc
             // 
             this.lbltipdoc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltipdoc.Location = new System.Drawing.Point(175, 51);
+            this.lbltipdoc.Location = new System.Drawing.Point(174, 10);
             this.lbltipdoc.Name = "lbltipdoc";
             this.lbltipdoc.Size = new System.Drawing.Size(115, 23);
             this.lbltipdoc.TabIndex = 3;
@@ -246,7 +268,7 @@
             // 
             this.txtFormaPagoCod.Enabled = false;
             this.txtFormaPagoCod.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFormaPagoCod.Location = new System.Drawing.Point(141, 75);
+            this.txtFormaPagoCod.Location = new System.Drawing.Point(140, 34);
             this.txtFormaPagoCod.Name = "txtFormaPagoCod";
             this.txtFormaPagoCod.Size = new System.Drawing.Size(32, 23);
             this.txtFormaPagoCod.TabIndex = 7;
@@ -254,7 +276,7 @@
             // 
             // radLabel2
             // 
-            this.radLabel2.Location = new System.Drawing.Point(58, 77);
+            this.radLabel2.Location = new System.Drawing.Point(57, 36);
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(69, 18);
             this.radLabel2.TabIndex = 6;
@@ -264,7 +286,7 @@
             // 
             this.txtFormaPagoDesc.Enabled = false;
             this.txtFormaPagoDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFormaPagoDesc.Location = new System.Drawing.Point(175, 75);
+            this.txtFormaPagoDesc.Location = new System.Drawing.Point(174, 34);
             this.txtFormaPagoDesc.Name = "txtFormaPagoDesc";
             this.txtFormaPagoDesc.Size = new System.Drawing.Size(368, 23);
             this.txtFormaPagoDesc.TabIndex = 8;
@@ -286,7 +308,7 @@
             this.radPanel1.Controls.Add(this.rbNoDomiciliado);
             this.radPanel1.Controls.Add(this.rbJuridica);
             this.radPanel1.Controls.Add(this.rbNatural);
-            this.radPanel1.Location = new System.Drawing.Point(548, 47);
+            this.radPanel1.Location = new System.Drawing.Point(547, 6);
             this.radPanel1.Name = "radPanel1";
             this.radPanel1.Size = new System.Drawing.Size(366, 27);
             this.radPanel1.TabIndex = 5;
@@ -295,7 +317,7 @@
             // 
             this.radPanel2.Controls.Add(this.rbSoles);
             this.radPanel2.Controls.Add(this.rbDolares);
-            this.radPanel2.Location = new System.Drawing.Point(549, 75);
+            this.radPanel2.Location = new System.Drawing.Point(548, 34);
             this.radPanel2.Name = "radPanel2";
             this.radPanel2.Size = new System.Drawing.Size(142, 23);
             this.radPanel2.TabIndex = 10;
@@ -324,14 +346,14 @@
             // 
             this.txtRazonSocial.Enabled = false;
             this.txtRazonSocial.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRazonSocial.Location = new System.Drawing.Point(141, 99);
+            this.txtRazonSocial.Location = new System.Drawing.Point(140, 58);
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Size = new System.Drawing.Size(551, 23);
             this.txtRazonSocial.TabIndex = 10;
             // 
             // radLabel3
             // 
-            this.radLabel3.Location = new System.Drawing.Point(57, 103);
+            this.radLabel3.Location = new System.Drawing.Point(56, 62);
             this.radLabel3.Name = "radLabel3";
             this.radLabel3.Size = new System.Drawing.Size(70, 18);
             this.radLabel3.TabIndex = 9;
@@ -339,7 +361,7 @@
             // 
             // radLabel4
             // 
-            this.radLabel4.Location = new System.Drawing.Point(141, 122);
+            this.radLabel4.Location = new System.Drawing.Point(140, 81);
             this.radLabel4.Name = "radLabel4";
             this.radLabel4.Size = new System.Drawing.Size(65, 18);
             this.radLabel4.TabIndex = 11;
@@ -349,7 +371,7 @@
             // 
             this.txtApPaterno.Enabled = false;
             this.txtApPaterno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApPaterno.Location = new System.Drawing.Point(141, 137);
+            this.txtApPaterno.Location = new System.Drawing.Point(140, 96);
             this.txtApPaterno.Name = "txtApPaterno";
             this.txtApPaterno.Size = new System.Drawing.Size(177, 23);
             this.txtApPaterno.TabIndex = 14;
@@ -358,14 +380,14 @@
             // 
             this.txtApMaterno.Enabled = false;
             this.txtApMaterno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApMaterno.Location = new System.Drawing.Point(324, 137);
+            this.txtApMaterno.Location = new System.Drawing.Point(323, 96);
             this.txtApMaterno.Name = "txtApMaterno";
             this.txtApMaterno.Size = new System.Drawing.Size(173, 23);
             this.txtApMaterno.TabIndex = 15;
             // 
             // radLabel5
             // 
-            this.radLabel5.Location = new System.Drawing.Point(324, 122);
+            this.radLabel5.Location = new System.Drawing.Point(323, 81);
             this.radLabel5.Name = "radLabel5";
             this.radLabel5.Size = new System.Drawing.Size(68, 18);
             this.radLabel5.TabIndex = 12;
@@ -375,14 +397,14 @@
             // 
             this.txtNombres.Enabled = false;
             this.txtNombres.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombres.Location = new System.Drawing.Point(501, 137);
+            this.txtNombres.Location = new System.Drawing.Point(500, 96);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(191, 23);
             this.txtNombres.TabIndex = 16;
             // 
             // radLabel6
             // 
-            this.radLabel6.Location = new System.Drawing.Point(501, 122);
+            this.radLabel6.Location = new System.Drawing.Point(500, 81);
             this.radLabel6.Name = "radLabel6";
             this.radLabel6.Size = new System.Drawing.Size(52, 18);
             this.radLabel6.TabIndex = 13;
@@ -393,7 +415,7 @@
             this.txtDireccion.AutoSize = false;
             this.txtDireccion.Enabled = false;
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(141, 162);
+            this.txtDireccion.Location = new System.Drawing.Point(142, 127);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(551, 65);
@@ -401,7 +423,7 @@
             // 
             // radLabel7
             // 
-            this.radLabel7.Location = new System.Drawing.Point(72, 169);
+            this.radLabel7.Location = new System.Drawing.Point(73, 134);
             this.radLabel7.Name = "radLabel7";
             this.radLabel7.Size = new System.Drawing.Size(55, 18);
             this.radLabel7.TabIndex = 17;
@@ -411,14 +433,14 @@
             // 
             this.txtAtencion.Enabled = false;
             this.txtAtencion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAtencion.Location = new System.Drawing.Point(515, 255);
+            this.txtAtencion.Location = new System.Drawing.Point(516, 220);
             this.txtAtencion.Name = "txtAtencion";
             this.txtAtencion.Size = new System.Drawing.Size(177, 23);
             this.txtAtencion.TabIndex = 29;
             // 
             // radLabel8
             // 
-            this.radLabel8.Location = new System.Drawing.Point(425, 257);
+            this.radLabel8.Location = new System.Drawing.Point(426, 222);
             this.radLabel8.Name = "radLabel8";
             this.radLabel8.Size = new System.Drawing.Size(88, 18);
             this.radLabel8.TabIndex = 28;
@@ -428,14 +450,14 @@
             // 
             this.txtCorreoEmail.Enabled = false;
             this.txtCorreoEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreoEmail.Location = new System.Drawing.Point(141, 281);
+            this.txtCorreoEmail.Location = new System.Drawing.Point(142, 246);
             this.txtCorreoEmail.Name = "txtCorreoEmail";
             this.txtCorreoEmail.Size = new System.Drawing.Size(551, 23);
             this.txtCorreoEmail.TabIndex = 31;
             // 
             // radLabel10
             // 
-            this.radLabel10.Location = new System.Drawing.Point(429, 231);
+            this.radLabel10.Location = new System.Drawing.Point(430, 196);
             this.radLabel10.Name = "radLabel10";
             this.radLabel10.Size = new System.Drawing.Size(70, 18);
             this.radLabel10.TabIndex = 22;
@@ -445,7 +467,7 @@
             // 
             this.txtEstadoSunatCod.Enabled = false;
             this.txtEstadoSunatCod.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstadoSunatCod.Location = new System.Drawing.Point(515, 229);
+            this.txtEstadoSunatCod.Location = new System.Drawing.Point(516, 194);
             this.txtEstadoSunatCod.Name = "txtEstadoSunatCod";
             this.txtEstadoSunatCod.Size = new System.Drawing.Size(43, 23);
             this.txtEstadoSunatCod.TabIndex = 23;
@@ -455,7 +477,7 @@
             // 
             this.txtEstadoSunatDesc.Enabled = false;
             this.txtEstadoSunatDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstadoSunatDesc.Location = new System.Drawing.Point(560, 229);
+            this.txtEstadoSunatDesc.Location = new System.Drawing.Point(561, 194);
             this.txtEstadoSunatDesc.Name = "txtEstadoSunatDesc";
             this.txtEstadoSunatDesc.Size = new System.Drawing.Size(132, 23);
             this.txtEstadoSunatDesc.TabIndex = 24;
@@ -464,7 +486,7 @@
             // 
             this.txtDomicilioDesc.Enabled = false;
             this.txtDomicilioDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDomicilioDesc.Location = new System.Drawing.Point(186, 255);
+            this.txtDomicilioDesc.Location = new System.Drawing.Point(187, 220);
             this.txtDomicilioDesc.Name = "txtDomicilioDesc";
             this.txtDomicilioDesc.Size = new System.Drawing.Size(228, 23);
             this.txtDomicilioDesc.TabIndex = 27;
@@ -474,7 +496,7 @@
             // 
             this.txtDomicilioCod.Enabled = false;
             this.txtDomicilioCod.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDomicilioCod.Location = new System.Drawing.Point(141, 255);
+            this.txtDomicilioCod.Location = new System.Drawing.Point(142, 220);
             this.txtDomicilioCod.Name = "txtDomicilioCod";
             this.txtDomicilioCod.Size = new System.Drawing.Size(43, 23);
             this.txtDomicilioCod.TabIndex = 26;
@@ -483,7 +505,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(94, 285);
+            this.label1.Location = new System.Drawing.Point(95, 250);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 30;
@@ -493,7 +515,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1, 259);
+            this.label2.Location = new System.Drawing.Point(2, 224);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 13);
             this.label2.TabIndex = 25;
@@ -503,7 +525,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(100, 234);
+            this.label3.Location = new System.Drawing.Point(101, 199);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 19;
@@ -513,7 +535,7 @@
             // 
             this.txtPaisDesc.Enabled = false;
             this.txtPaisDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPaisDesc.Location = new System.Drawing.Point(186, 229);
+            this.txtPaisDesc.Location = new System.Drawing.Point(187, 194);
             this.txtPaisDesc.Name = "txtPaisDesc";
             this.txtPaisDesc.Size = new System.Drawing.Size(230, 23);
             this.txtPaisDesc.TabIndex = 21;
@@ -523,7 +545,7 @@
             // 
             this.txtPaisCod.Enabled = false;
             this.txtPaisCod.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPaisCod.Location = new System.Drawing.Point(141, 229);
+            this.txtPaisCod.Location = new System.Drawing.Point(142, 194);
             this.txtPaisCod.Name = "txtPaisCod";
             this.txtPaisCod.Size = new System.Drawing.Size(43, 23);
             this.txtPaisCod.TabIndex = 20;
@@ -533,14 +555,14 @@
             // 
             this.txtRuc.Enabled = false;
             this.txtRuc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRuc.Location = new System.Drawing.Point(386, 51);
+            this.txtRuc.Location = new System.Drawing.Point(385, 10);
             this.txtRuc.Name = "txtRuc";
             this.txtRuc.Size = new System.Drawing.Size(156, 23);
             this.txtRuc.TabIndex = 5;
             // 
             // radLabel9
             // 
-            this.radLabel9.Location = new System.Drawing.Point(311, 53);
+            this.radLabel9.Location = new System.Drawing.Point(310, 12);
             this.radLabel9.Name = "radLabel9";
             this.radLabel9.Size = new System.Drawing.Size(69, 18);
             this.radLabel9.TabIndex = 4;
@@ -551,7 +573,7 @@
             this.txtTelefono.AutoSize = false;
             this.txtTelefono.Enabled = false;
             this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(802, 76);
+            this.txtTelefono.Location = new System.Drawing.Point(801, 35);
             this.txtTelefono.Multiline = true;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(205, 32);
@@ -559,7 +581,7 @@
             // 
             // radLabel11
             // 
-            this.radLabel11.Location = new System.Drawing.Point(748, 85);
+            this.radLabel11.Location = new System.Drawing.Point(747, 44);
             this.radLabel11.Name = "radLabel11";
             this.radLabel11.Size = new System.Drawing.Size(52, 18);
             this.radLabel11.TabIndex = 34;
@@ -569,14 +591,14 @@
             // 
             this.txtFax.Enabled = false;
             this.txtFax.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFax.Location = new System.Drawing.Point(802, 111);
+            this.txtFax.Location = new System.Drawing.Point(801, 70);
             this.txtFax.Name = "txtFax";
             this.txtFax.Size = new System.Drawing.Size(205, 23);
             this.txtFax.TabIndex = 37;
             // 
             // radLabel12
             // 
-            this.radLabel12.Location = new System.Drawing.Point(771, 115);
+            this.radLabel12.Location = new System.Drawing.Point(770, 74);
             this.radLabel12.Name = "radLabel12";
             this.radLabel12.Size = new System.Drawing.Size(25, 18);
             this.radLabel12.TabIndex = 36;
@@ -586,14 +608,14 @@
             // 
             this.txtCorreoDocEletronico.Enabled = false;
             this.txtCorreoDocEletronico.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreoDocEletronico.Location = new System.Drawing.Point(141, 306);
+            this.txtCorreoDocEletronico.Location = new System.Drawing.Point(142, 271);
             this.txtCorreoDocEletronico.Name = "txtCorreoDocEletronico";
             this.txtCorreoDocEletronico.Size = new System.Drawing.Size(551, 23);
             this.txtCorreoDocEletronico.TabIndex = 33;
             // 
             // radLabel14
             // 
-            this.radLabel14.Location = new System.Drawing.Point(717, 249);
+            this.radLabel14.Location = new System.Drawing.Point(718, 214);
             this.radLabel14.Name = "radLabel14";
             this.radLabel14.Size = new System.Drawing.Size(77, 18);
             this.radLabel14.TabIndex = 40;
@@ -602,7 +624,7 @@
             // dtpFechaRegistro
             // 
             this.dtpFechaRegistro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaRegistro.Location = new System.Drawing.Point(802, 248);
+            this.dtpFechaRegistro.Location = new System.Drawing.Point(803, 213);
             this.dtpFechaRegistro.Name = "dtpFechaRegistro";
             this.dtpFechaRegistro.Size = new System.Drawing.Size(96, 20);
             this.dtpFechaRegistro.TabIndex = 42;
@@ -616,7 +638,7 @@
             this.radPanel3.Controls.Add(this.chkAgenteCombustible);
             this.radPanel3.Controls.Add(this.chkAgenteRetenedor);
             this.radPanel3.Controls.Add(this.chkAgenteVentaInterna);
-            this.radPanel3.Location = new System.Drawing.Point(802, 161);
+            this.radPanel3.Location = new System.Drawing.Point(803, 126);
             this.radPanel3.Name = "radPanel3";
             this.radPanel3.Size = new System.Drawing.Size(205, 86);
             this.radPanel3.TabIndex = 42;
@@ -668,7 +690,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(718, 276);
+            this.label4.Location = new System.Drawing.Point(719, 241);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 43;
@@ -678,7 +700,7 @@
             // 
             this.txtCtaBancoDetraccion.Enabled = false;
             this.txtCtaBancoDetraccion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCtaBancoDetraccion.Location = new System.Drawing.Point(804, 270);
+            this.txtCtaBancoDetraccion.Location = new System.Drawing.Point(805, 235);
             this.txtCtaBancoDetraccion.Name = "txtCtaBancoDetraccion";
             this.txtCtaBancoDetraccion.Size = new System.Drawing.Size(203, 23);
             this.txtCtaBancoDetraccion.TabIndex = 44;
@@ -686,7 +708,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 310);
+            this.label5.Location = new System.Drawing.Point(6, 275);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 13);
             this.label5.TabIndex = 32;
@@ -696,70 +718,197 @@
             // 
             this.txtRubroVentas.Enabled = false;
             this.txtRubroVentas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRubroVentas.Location = new System.Drawing.Point(802, 135);
+            this.txtRubroVentas.Location = new System.Drawing.Point(801, 94);
             this.txtRubroVentas.Name = "txtRubroVentas";
             this.txtRubroVentas.Size = new System.Drawing.Size(205, 23);
             this.txtRubroVentas.TabIndex = 39;
             // 
             // radLabel13
             // 
-            this.radLabel13.Location = new System.Drawing.Point(725, 140);
+            this.radLabel13.Location = new System.Drawing.Point(724, 99);
             this.radLabel13.Name = "radLabel13";
             this.radLabel13.Size = new System.Drawing.Size(71, 18);
             this.radLabel13.TabIndex = 38;
             this.radLabel13.Text = "Rubro Venta:";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radPanel1);
+            this.panel1.Controls.Add(this.txtCtaBancoDetraccion);
+            this.panel1.Controls.Add(this.radLabel1);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.txtRubroVentas);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.txttipdoc);
+            this.panel1.Controls.Add(this.radPanel3);
+            this.panel1.Controls.Add(this.lbltipdoc);
+            this.panel1.Controls.Add(this.dtpFechaRegistro);
+            this.panel1.Controls.Add(this.radLabel13);
+            this.panel1.Controls.Add(this.radLabel14);
+            this.panel1.Controls.Add(this.txtCorreoDocEletronico);
+            this.panel1.Controls.Add(this.radLabel2);
+            this.panel1.Controls.Add(this.txtPaisDesc);
+            this.panel1.Controls.Add(this.txtFormaPagoCod);
+            this.panel1.Controls.Add(this.txtPaisCod);
+            this.panel1.Controls.Add(this.txtFormaPagoDesc);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.radPanel2);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.radLabel3);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtRazonSocial);
+            this.panel1.Controls.Add(this.txtDomicilioDesc);
+            this.panel1.Controls.Add(this.txtFax);
+            this.panel1.Controls.Add(this.txtDomicilioCod);
+            this.panel1.Controls.Add(this.radLabel4);
+            this.panel1.Controls.Add(this.txtEstadoSunatDesc);
+            this.panel1.Controls.Add(this.radLabel12);
+            this.panel1.Controls.Add(this.txtEstadoSunatCod);
+            this.panel1.Controls.Add(this.txtApPaterno);
+            this.panel1.Controls.Add(this.radLabel10);
+            this.panel1.Controls.Add(this.txtTelefono);
+            this.panel1.Controls.Add(this.txtCorreoEmail);
+            this.panel1.Controls.Add(this.radLabel5);
+            this.panel1.Controls.Add(this.txtAtencion);
+            this.panel1.Controls.Add(this.radLabel11);
+            this.panel1.Controls.Add(this.radLabel8);
+            this.panel1.Controls.Add(this.txtApMaterno);
+            this.panel1.Controls.Add(this.txtDireccion);
+            this.panel1.Controls.Add(this.txtRuc);
+            this.panel1.Controls.Add(this.radLabel7);
+            this.panel1.Controls.Add(this.radLabel6);
+            this.panel1.Controls.Add(this.radLabel9);
+            this.panel1.Controls.Add(this.txtNombres);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1030, 356);
+            this.panel1.TabIndex = 45;
+            // 
+            // radPanel4
+            // 
+            this.radPanel4.Controls.Add(this.pvCuentasBancarias);
+            this.radPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.radPanel4.Location = new System.Drawing.Point(0, 356);
+            this.radPanel4.Name = "radPanel4";
+            this.radPanel4.Size = new System.Drawing.Size(1030, 201);
+            this.radPanel4.TabIndex = 46;
+            this.radPanel4.TabStop = false;
+            // 
+            // pvCuentasBancarias
+            // 
+            this.pvCuentasBancarias.Controls.Add(this.pvCuentasBancariaDetalle);
+            this.pvCuentasBancarias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pvCuentasBancarias.Location = new System.Drawing.Point(0, 0);
+            this.pvCuentasBancarias.Name = "pvCuentasBancarias";
+            this.pvCuentasBancarias.SelectedPage = this.pvCuentasBancariaDetalle;
+            this.pvCuentasBancarias.ShowItemToolTips = false;
+            this.pvCuentasBancarias.Size = new System.Drawing.Size(1030, 201);
+            this.pvCuentasBancarias.TabIndex = 24;
+            this.pvCuentasBancarias.TabStop = false;
+            this.pvCuentasBancarias.Text = "Almacenes";
+            // 
+            // pvCuentasBancariaDetalle
+            // 
+            this.pvCuentasBancariaDetalle.Controls.Add(this.gridCuentasBancaria);
+            this.pvCuentasBancariaDetalle.Controls.Add(this.radCommandBar2);
+            this.pvCuentasBancariaDetalle.ItemSize = new System.Drawing.SizeF(107F, 28F);
+            this.pvCuentasBancariaDetalle.Location = new System.Drawing.Point(10, 37);
+            this.pvCuentasBancariaDetalle.Name = "pvCuentasBancariaDetalle";
+            this.pvCuentasBancariaDetalle.Size = new System.Drawing.Size(1009, 153);
+            this.pvCuentasBancariaDetalle.Text = "Cuentas bancarias";
+            this.pvCuentasBancariaDetalle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // gridCuentasBancaria
+            // 
+            this.gridCuentasBancaria.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gridCuentasBancaria.Location = new System.Drawing.Point(0, 30);
+            // 
+            // 
+            // 
+            gridViewTextBoxColumn1.HeaderText = "column1";
+            gridViewTextBoxColumn1.Name = "column1";
+            this.gridCuentasBancaria.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn1});
+            this.gridCuentasBancaria.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.gridCuentasBancaria.Name = "gridCuentasBancaria";
+            this.gridCuentasBancaria.Size = new System.Drawing.Size(1009, 123);
+            this.gridCuentasBancaria.TabIndex = 0;
+            this.gridCuentasBancaria.Text = "radGridView1";
+            this.gridCuentasBancaria.ThemeName = "Office2013Light";
+            this.gridCuentasBancaria.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridCuentasBancaria_KeyDown);
+            // 
+            // radCommandBar2
+            // 
+            this.radCommandBar2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.radCommandBar2.Location = new System.Drawing.Point(0, 0);
+            this.radCommandBar2.Name = "radCommandBar2";
+            this.radCommandBar2.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
+            this.cmdBarDetalleProducto});
+            this.radCommandBar2.Size = new System.Drawing.Size(1009, 30);
+            this.radCommandBar2.TabIndex = 1;
+            this.radCommandBar2.Text = "radCommandBar2";
+            // 
+            // cmdBarDetalleProducto
+            // 
+            this.cmdBarDetalleProducto.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmdBarDetalleProducto.MinSize = new System.Drawing.Size(25, 25);
+            this.cmdBarDetalleProducto.Name = "cmdBarDetalleProducto";
+            this.cmdBarDetalleProducto.Strips.AddRange(new Telerik.WinControls.UI.CommandBarStripElement[] {
+            this.BarAddDel_Almacen});
+            this.cmdBarDetalleProducto.Text = "";
+            this.cmdBarDetalleProducto.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // BarAddDel_Almacen
+            // 
+            this.BarAddDel_Almacen.Alignment = System.Drawing.ContentAlignment.TopRight;
+            this.BarAddDel_Almacen.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.BarAddDel_Almacen.DisplayName = "commandBarStripElement3";
+            this.BarAddDel_Almacen.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
+            this.cmdBarAgregar,
+            this.cmdBarEditar,
+            this.cmdBarEliminar});
+            this.BarAddDel_Almacen.Name = "BarAddDel_Almacen";
+            this.BarAddDel_Almacen.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // cmdBarAgregar
+            // 
+            this.cmdBarAgregar.AccessibleDescription = "Agregar";
+            this.cmdBarAgregar.AccessibleName = "Agregar";
+            this.cmdBarAgregar.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmdBarAgregar.DisplayName = "commandBarButton1";
+            this.cmdBarAgregar.Image = ((System.Drawing.Image)(resources.GetObject("cmdBarAgregar.Image")));
+            this.cmdBarAgregar.Name = "cmdBarAgregar";
+            this.cmdBarAgregar.Text = "Agregar";
+            this.cmdBarAgregar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // cmdBarEditar
+            // 
+            this.cmdBarEditar.AccessibleDescription = "Eliminar";
+            this.cmdBarEditar.AccessibleName = "Eliminar";
+            this.cmdBarEditar.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmdBarEditar.DisplayName = "commandBarButton1";
+            this.cmdBarEditar.Image = ((System.Drawing.Image)(resources.GetObject("cmdBarEditar.Image")));
+            this.cmdBarEditar.Name = "cmdBarEditar";
+            this.cmdBarEditar.Text = "Eliminar";
+            this.cmdBarEditar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // cmdBarEliminar
+            // 
+            this.cmdBarEliminar.AccessibleDescription = "Editar";
+            this.cmdBarEliminar.AccessibleName = "Editar";
+            this.cmdBarEliminar.DisplayName = "commandBarButton1";
+            this.cmdBarEliminar.Image = ((System.Drawing.Image)(resources.GetObject("cmdBarEliminar.Image")));
+            this.cmdBarEliminar.Name = "cmdBarEliminar";
+            this.cmdBarEliminar.Text = "Editar";
+            // 
             // frmProveedorDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1019, 341);
-            this.Controls.Add(this.txtCtaBancoDetraccion);
-            this.Controls.Add(this.txtRubroVentas);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.radLabel13);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.radPanel3);
-            this.Controls.Add(this.dtpFechaRegistro);
-            this.Controls.Add(this.radLabel14);
-            this.Controls.Add(this.txtCorreoDocEletronico);
-            this.Controls.Add(this.txtFax);
-            this.Controls.Add(this.radLabel12);
-            this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.radLabel11);
-            this.Controls.Add(this.txtRuc);
-            this.Controls.Add(this.radLabel9);
-            this.Controls.Add(this.txtPaisDesc);
-            this.Controls.Add(this.txtPaisCod);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtDomicilioDesc);
-            this.Controls.Add(this.txtDomicilioCod);
-            this.Controls.Add(this.txtEstadoSunatDesc);
-            this.Controls.Add(this.txtEstadoSunatCod);
-            this.Controls.Add(this.radLabel10);
-            this.Controls.Add(this.txtCorreoEmail);
-            this.Controls.Add(this.txtAtencion);
-            this.Controls.Add(this.radLabel8);
-            this.Controls.Add(this.txtDireccion);
-            this.Controls.Add(this.radLabel7);
-            this.Controls.Add(this.txtNombres);
-            this.Controls.Add(this.radLabel6);
-            this.Controls.Add(this.txtApMaterno);
-            this.Controls.Add(this.radLabel5);
-            this.Controls.Add(this.txtApPaterno);
-            this.Controls.Add(this.radLabel4);
-            this.Controls.Add(this.txtRazonSocial);
-            this.Controls.Add(this.radLabel3);
-            this.Controls.Add(this.radPanel2);
-            this.Controls.Add(this.radPanel1);
-            this.Controls.Add(this.txtFormaPagoDesc);
-            this.Controls.Add(this.txtFormaPagoCod);
-            this.Controls.Add(this.radLabel2);
-            this.Controls.Add(this.lbltipdoc);
-            this.Controls.Add(this.txttipdoc);
-            this.Controls.Add(this.radLabel1);
+            this.ClientSize = new System.Drawing.Size(1030, 557);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.radPanel4);
             this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "frmProveedorDetalle";
             // 
@@ -768,53 +917,9 @@
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "Proveedor Detalle";
             this.Load += new System.EventHandler(this.frmProveedorDetalle_Load);
+            this.Controls.SetChildIndex(this.radPanel4, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.radCommandBar1, 0);
-            this.Controls.SetChildIndex(this.radLabel1, 0);
-            this.Controls.SetChildIndex(this.txttipdoc, 0);
-            this.Controls.SetChildIndex(this.lbltipdoc, 0);
-            this.Controls.SetChildIndex(this.radLabel2, 0);
-            this.Controls.SetChildIndex(this.txtFormaPagoCod, 0);
-            this.Controls.SetChildIndex(this.txtFormaPagoDesc, 0);
-            this.Controls.SetChildIndex(this.radPanel1, 0);
-            this.Controls.SetChildIndex(this.radPanel2, 0);
-            this.Controls.SetChildIndex(this.radLabel3, 0);
-            this.Controls.SetChildIndex(this.txtRazonSocial, 0);
-            this.Controls.SetChildIndex(this.radLabel4, 0);
-            this.Controls.SetChildIndex(this.txtApPaterno, 0);
-            this.Controls.SetChildIndex(this.radLabel5, 0);
-            this.Controls.SetChildIndex(this.txtApMaterno, 0);
-            this.Controls.SetChildIndex(this.radLabel6, 0);
-            this.Controls.SetChildIndex(this.txtNombres, 0);
-            this.Controls.SetChildIndex(this.radLabel7, 0);
-            this.Controls.SetChildIndex(this.txtDireccion, 0);
-            this.Controls.SetChildIndex(this.radLabel8, 0);
-            this.Controls.SetChildIndex(this.txtAtencion, 0);
-            this.Controls.SetChildIndex(this.txtCorreoEmail, 0);
-            this.Controls.SetChildIndex(this.radLabel10, 0);
-            this.Controls.SetChildIndex(this.txtEstadoSunatCod, 0);
-            this.Controls.SetChildIndex(this.txtEstadoSunatDesc, 0);
-            this.Controls.SetChildIndex(this.txtDomicilioCod, 0);
-            this.Controls.SetChildIndex(this.txtDomicilioDesc, 0);
-            this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.txtPaisCod, 0);
-            this.Controls.SetChildIndex(this.txtPaisDesc, 0);
-            this.Controls.SetChildIndex(this.radLabel9, 0);
-            this.Controls.SetChildIndex(this.txtRuc, 0);
-            this.Controls.SetChildIndex(this.radLabel11, 0);
-            this.Controls.SetChildIndex(this.txtTelefono, 0);
-            this.Controls.SetChildIndex(this.radLabel12, 0);
-            this.Controls.SetChildIndex(this.txtFax, 0);
-            this.Controls.SetChildIndex(this.txtCorreoDocEletronico, 0);
-            this.Controls.SetChildIndex(this.radLabel14, 0);
-            this.Controls.SetChildIndex(this.dtpFechaRegistro, 0);
-            this.Controls.SetChildIndex(this.radPanel3, 0);
-            this.Controls.SetChildIndex(this.label5, 0);
-            this.Controls.SetChildIndex(this.radLabel13, 0);
-            this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.txtRubroVentas, 0);
-            this.Controls.SetChildIndex(this.txtCtaBancoDetraccion, 0);
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txttipdoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
@@ -863,6 +968,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCtaBancoDetraccion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRubroVentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel13)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).EndInit();
+            this.radPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pvCuentasBancarias)).EndInit();
+            this.pvCuentasBancarias.ResumeLayout(false);
+            this.pvCuentasBancariaDetalle.ResumeLayout(false);
+            this.pvCuentasBancariaDetalle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCuentasBancaria.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCuentasBancaria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radCommandBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -926,5 +1042,16 @@
         private System.Windows.Forms.CheckBox chkAgenteVentaInterna;
         private System.Windows.Forms.CheckBox chkAgenteRetenedor;
         private System.Windows.Forms.CheckBox chkBuenContribuyente;
+        private System.Windows.Forms.Panel panel1;
+        private Telerik.WinControls.UI.RadPanel radPanel4;
+        private Telerik.WinControls.UI.RadPageView pvCuentasBancarias;
+        private Telerik.WinControls.UI.RadPageViewPage pvCuentasBancariaDetalle;
+        private Telerik.WinControls.UI.RadGridView gridCuentasBancaria;
+        private Telerik.WinControls.UI.RadCommandBar radCommandBar2;
+        private Telerik.WinControls.UI.CommandBarRowElement cmdBarDetalleProducto;
+        private Telerik.WinControls.UI.CommandBarStripElement BarAddDel_Almacen;
+        private Telerik.WinControls.UI.CommandBarButton cmdBarAgregar;
+        private Telerik.WinControls.UI.CommandBarButton cmdBarEditar;
+        private Telerik.WinControls.UI.CommandBarButton cmdBarEliminar;
     }
 }

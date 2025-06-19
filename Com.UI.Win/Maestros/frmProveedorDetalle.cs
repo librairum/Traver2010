@@ -9,6 +9,8 @@ using Telerik.WinControls;
 using Telerik.WinControls.UI;
 using Inv.BusinessEntities;
 using Inv.BusinessLogic;
+using Inv.BusinessEntities.DTO;
+
 namespace Com.UI.Win
 {
     public partial class frmProveedorDetalle : frmBaseMante
@@ -309,6 +311,9 @@ namespace Com.UI.Win
             Estado = FrmParent.Estado;
             ConfiguracionFormulario(Estado);
             Cursor.Current = Cursors.Default;
+            crearColumnasCtabancaria();
+
+            cargarCtaBancaria(txtRuc.Text.Trim());
         }
 
         protected override void OnNuevo()
@@ -864,7 +869,88 @@ namespace Com.UI.Win
         }
 
 
+        #region "mantenimiento cuenta bancaria"
+        private void crearColumnasCtabancaria()
+        {
+            RadGridView Grid =  this.CreateGridVista(this.gridCuentasBancaria);
+            CreateGridColumn(Grid, "ccm04emp", "ccm04emp", 0, "", 90, false, false, false, false);
+            CreateGridColumn(Grid, "ccm04ctacod", "ccm04ctacod", 0, "", 90, false, false, false, false);
+            CreateGridColumn(Grid, "nomnbreProveedor", "nomnbreProveedor", 0, "", 300);
 
+            CreateGridColumn(Grid, "Idbanco", "ccm04idbanco", 0, "", 90);
+            CreateGridColumn(Grid, "nombre", "nombreBanco", 0, "", 150);
+            CreateGridColumn(Grid, "descripcion", "ccm04descripcion", 0, "", 90);
+
+            CreateGridColumn(Grid, "Cod.Oficina", "ccm04codigooficina", 0, "", 90);
+
+            CreateGridColumn(Grid, "Nro.Cta", "ccm04idcuenta", 0, "", 150);
+            CreateGridColumn(Grid, "CCI", "ccm04cci", 0, "", 150);
+
+            CreateGridColumn(Grid, "ccm04ctadefecto", "ccm04ctadefecto", 0, "", 70, false, true, false, false);
+            CreateGridColumn(Grid, "ctaxdefecto", "ctaxdefecto", 0, "", 70, false, true, true, false);
+
+
+            CreateGridColumn(Grid, "ccm04moneda", "ccm04moneda", 0, "", 90, false, false, false, false);
+            CreateGridColumn(Grid, "moneda", "moneda", 0, "", 100, false, true, true, false);
+
+            
+          
+
+
+
+        }
+        private void traerAyudaBanco() { 
+            
+        }
+        private void nuevoCtabancaria()
+        {
+            this.gridCuentasBancaria.Rows.AddNew();
+            GridViewRowInfo  fila = gridCuentasBancaria.CurrentRow;
+            
+
+        }
+
+        private void editaCtaBancaria() { 
+        
+        }
+
+        private void eliminaCtaBancaria() { 
+        
+        }
+
+        private void cargarCtaBancaria(string codigoProveedor) {
+            try
+            {
+
+                List<TraeProveedorCtaBco> lista =  CuentaCorrienteLogic.Instance.TraeProveedorCtaBco(Logueo.CodigoEmpresa, codigoProveedor);
+                this.gridCuentasBancaria.DataSource = lista;
+            }
+            catch (Exception ex) {
+                Util.ShowError(ex.Message);
+            }
+        }
+        #endregion
+
+        private void gridCuentasBancaria_KeyDown(object sender, KeyEventArgs e)
+        {
+            bool esSeleccionado = Util.IsCurrentColumn(gridCuentasBancaria.CurrentColumn, "nomnbreProveedor");
+            if (esSeleccionado)
+            {
+                frmBusqueda frm = new frmBusqueda(enmAyuda.enmEntidadBancaria);
+                if (this.Result != null) {
+                    if (this.Result.ToString() == "") return;
+
+                    string[] datos = frm.Result.ToString().Split('|');
+                    GridViewRowInfo fila = this.gridCuentasBancaria.CurrentRow;
+                    Util.SetValueCurrentCellText(fila, "ccm04ctacod", datos[0]);
+                    Util.SetValueCurrentCellText(fila, "nomnbreProveedor", datos[1]);
+
+                }
+                
+            }
+            
+
+        }
 
     }
 }

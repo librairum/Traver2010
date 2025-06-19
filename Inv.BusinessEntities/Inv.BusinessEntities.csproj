@@ -74,6 +74,9 @@
     <Compile Include="ContaGastosxEmpresaxLinea.cs" />
     <Compile Include="Compras\DocumentoOrdenCompra.cs" />
     <Compile Include="Compras\DocumentoOrdenCompraDetalle.cs" />
+    <Compile Include="DTO\TraeEntidadBancaria.cs" />
+    <Compile Include="DTO\TraeProveedorCtaBco.cs" />
+    <Compile Include="EntidadBancaria.cs" />
     <Compile Include="ImportarMP.cs" />
     <Compile Include="FAC89_SUBPLANTILLA_X_VOUCHER.cs" />
     <Compile Include="CuotasFactura.cs" />
@@ -106,6 +109,7 @@
     <Compile Include="Compras\ProvisionamientoOrdenCompra.cs" />
     <Compile Include="Compras\ProvisionamientoOrdenCompraDetalle.cs" />
     <Compile Include="Compras\CompraProveedoresPorArticulo.cs" />
+    <Compile Include="ProveedorCtaBco.cs" />
     <Compile Include="ProveedoresSunat.cs" />
     <Compile Include="ProvisionFactura.cs" />
     <Compile Include="Puertos.cs" />

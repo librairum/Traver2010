@@ -5,7 +5,7 @@ using System.Text;
 using Inv.BusinessEntities;
 using Inv.DataAccess;
 using System.Data;
-
+using Inv.BusinessEntities.DTO;
 namespace Inv.BusinessLogic
 {
     public class CuentaCorrienteLogic
@@ -164,7 +164,17 @@ namespace Inv.BusinessLogic
         { 
             return Accessor.Spu_Fac_Trae_ClientesConProdPropio(@ccm02emp, @ccm02tipana);
         }
-    
+
+
+        public List<TraeProveedorCtaBco> TraeProveedorCtaBco(string @codigoEmpresa, string @codigoProveedor)
+        {
+            return Accessor.TraeProveedorCtaBco(@codigoEmpresa, @codigoProveedor);
+        }
+
+        public List<TraeEntidadBancaria> TraeEntidadesBancarias(string @Ban01Empresa, string @Ban01Descripcion)
+        {
+            return Accessor.TraeEntidadesBancarias(@Ban01Empresa, @Ban01Descripcion);
+        }
         #endregion
         #region Accessor
         #region "Compras"

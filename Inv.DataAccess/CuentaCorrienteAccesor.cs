@@ -6,6 +6,7 @@ using BLToolkit.Data;
 using System;
 using Inv.BusinessEntities;
 using System.Data;
+using Inv.BusinessEntities.DTO;
 namespace Inv.DataAccess
 {
     public abstract class CuentaCorrienteAccesor: AccessorBase<CuentaCorrienteAccesor>
@@ -144,8 +145,12 @@ namespace Inv.DataAccess
         [SprocName("Spu_Com_Trae_CuentaCorriente")]
         public abstract DataTable ComprasTraeCuentaCorriente(string @cCodEmp, string @cTipAnal, string @cTipoFiltro, string @cFiltro);
 
+        [SprocName("Spu_Com_Trae_ProveedorCtaBco")]
+        public abstract List<TraeProveedorCtaBco> TraeProveedorCtaBco(string @codigoEmpresa, string @codigoProveedor);
 
-        
+        [SprocName("Spu_Ban_Trae_Bancos")]
+        public abstract List<TraeEntidadBancaria> TraeEntidadesBancarias(string @Ban01Empresa, string @Ban01Descripcion);
+
         #endregion
 
     }

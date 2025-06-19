@@ -6483,7 +6483,6 @@ D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.UI.Win\bin\Debug\BLToolkit
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.UI.Win\bin\Debug\Inv.DataAccess.dll
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.UI.Win\bin\Debug\Inv.BusinessEntities.pdb
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.UI.Win\bin\Debug\Inv.BusinessLogic.pdb
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.UI.Win\bin\Debug\C1.Win.C1FlexGrid.4.xml
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.UI.Win\bin\Debug\Inv.DataAccess.pdb
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.UI.Win\obj\Debug\Inv.UI.Win.csprojResolveAssemblyReference.cache
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010\Inv.UI.Win\obj\Debug\Inv.UI.Win.Acceso.frmCambiarClave.resources

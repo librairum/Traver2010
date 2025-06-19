@@ -373,14 +373,6 @@ namespace Com.UI.Win
                         datos[0], datos[1], datos[2], datos[3]);
 
                     break;
-   case enmAyuda.enmEntidadBancaria:
-
-                    CreateGridColumn(gridControl, "Ban01IdBanco", "Ban01IdBanco", 0, "", 70);
-                    CreateGridColumn(gridControl, "Ban01Descripcion", "Ban01Descripcion", 0, "", 150);
-
-                    this.gridControl.DataSource = CuentaCorrienteLogic.Instance.TraeEntidadesBancarias(Logueo.CodigoEmpresa, "");
-                    //CreateGridColumn(gridControl, "
-                    break;
                default:
                     break;
             }
@@ -580,12 +572,6 @@ namespace Com.UI.Win
                      Util.GetCurrentCellText(gridControl, "ImporteBruto") + "|" +
                     Util.GetCurrentCellText(gridControl, "Item") + "|" +
                      Util.GetCurrentCellText(gridControl, "Unidad");
- 				break;
-
-                case enmAyuda.enmEntidadBancaria:
-                    this.Result = 
-                    Util.GetCurrentCellText(gridControl, "Ban01IdBanco") + "|" +
-                        Util.GetCurrentCellText(gridControl, "Ban01IdBanco");
                     break;
                 default:
                     break;

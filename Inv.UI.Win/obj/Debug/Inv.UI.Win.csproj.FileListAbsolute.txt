@@ -6605,7 +6605,6 @@ D:\trabajo\minera deisi\traver\github\Traver2010\Inv.UI.Win\bin\Debug\BLToolkit.
 D:\trabajo\minera deisi\traver\github\Traver2010\Inv.UI.Win\bin\Debug\Inv.DataAccess.dll
 D:\trabajo\minera deisi\traver\github\Traver2010\Inv.UI.Win\bin\Debug\Inv.BusinessEntities.pdb
 D:\trabajo\minera deisi\traver\github\Traver2010\Inv.UI.Win\bin\Debug\Inv.BusinessLogic.pdb
-D:\trabajo\minera deisi\traver\github\Traver2010\Inv.UI.Win\bin\Debug\C1.Win.C1FlexGrid.4.xml
 D:\trabajo\minera deisi\traver\github\Traver2010\Inv.UI.Win\bin\Debug\Inv.DataAccess.pdb
 D:\trabajo\minera deisi\traver\github\Traver2010\Inv.UI.Win\obj\Debug\Inv.UI.Win.csprojResolveAssemblyReference.cache
 D:\trabajo\minera deisi\traver\github\Traver2010\Inv.UI.Win\obj\Debug\Inv.UI.Win.Acceso.frmCambiarClave.resources

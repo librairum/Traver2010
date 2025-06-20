@@ -629,7 +629,7 @@
             this.dtpFechaRegistro.Size = new System.Drawing.Size(96, 20);
             this.dtpFechaRegistro.TabIndex = 42;
             this.dtpFechaRegistro.TabStop = false;
-            this.dtpFechaRegistro.Text = "01/03/2013";
+            this.dtpFechaRegistro.Text = "1/03/2013";
             this.dtpFechaRegistro.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             // 
             // radPanel3
@@ -836,6 +836,9 @@
             this.gridCuentasBancaria.TabIndex = 0;
             this.gridCuentasBancaria.Text = "radGridView1";
             this.gridCuentasBancaria.ThemeName = "Office2013Light";
+            this.gridCuentasBancaria.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.gridCuentasBancaria_CellFormatting);
+            this.gridCuentasBancaria.CellBeginEdit += new Telerik.WinControls.UI.GridViewCellCancelEventHandler(this.gridCuentasBancaria_CellBeginEdit);
+            this.gridCuentasBancaria.CommandCellClick += new Telerik.WinControls.UI.CommandCellClickEventHandler(this.gridCuentasBancaria_CommandCellClick);
             this.gridCuentasBancaria.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridCuentasBancaria_KeyDown);
             // 
             // radCommandBar2
@@ -881,6 +884,7 @@
             this.cmdBarAgregar.Name = "cmdBarAgregar";
             this.cmdBarAgregar.Text = "Agregar";
             this.cmdBarAgregar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmdBarAgregar.Click += new System.EventHandler(this.cmdBarAgregar_Click);
             // 
             // cmdBarEditar
             // 
@@ -892,6 +896,7 @@
             this.cmdBarEditar.Name = "cmdBarEditar";
             this.cmdBarEditar.Text = "Eliminar";
             this.cmdBarEditar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmdBarEditar.Click += new System.EventHandler(this.cmdBarEditar_Click);
             // 
             // cmdBarEliminar
             // 

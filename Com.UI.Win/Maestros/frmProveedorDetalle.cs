@@ -32,6 +32,9 @@ namespace Com.UI.Win
         {
             InitializeComponent();
             FrmParent = padre;
+            Util.ConfigGridToEnterNavigation(this.gridCuentasBancaria);
+            gridCuentasBancaria.CellFormatting += new CellFormattingEventHandler(gridCuentasBancaria_CellFormatting);
+            Util.seleccionatFilaCompleta(gridCuentasBancaria);
         }
         private void SeleccionTipoPersona() {
             
@@ -309,6 +312,7 @@ namespace Com.UI.Win
             Cursor.Current = Cursors.WaitCursor;
 
             Estado = FrmParent.Estado;
+           
             ConfiguracionFormulario(Estado);
             Cursor.Current = Cursors.Default;
             crearColumnasCtabancaria();
@@ -877,51 +881,98 @@ namespace Com.UI.Win
             CreateGridColumn(Grid, "ccm04ctacod", "ccm04ctacod", 0, "", 90, false, false, false, false);
             CreateGridColumn(Grid, "nomnbreProveedor", "nomnbreProveedor", 0, "", 300);
 
-            CreateGridColumn(Grid, "Idbanco", "ccm04idbanco", 0, "", 90);
-            CreateGridColumn(Grid, "nombre", "nombreBanco", 0, "", 150);
-            CreateGridColumn(Grid, "descripcion", "ccm04descripcion", 0, "", 90);
+            CreateGridColumn(Grid, "Idbanco", "ccm04idbanco", 0, "", 90, false, true, true, false);
+            CreateGridColumn(Grid, "nombreBanco", "nombreBanco", 0, "", 150);
+            CreateGridColumn(Grid, "descripcion", "ccm04descripcion", 0, "", 90, false, true, true, false);
 
-            CreateGridColumn(Grid, "Cod.Oficina", "ccm04codigooficina", 0, "", 90);
+            CreateGridColumn(Grid, "Cod.Oficina", "ccm04codigooficina", 0, "", 90, false, true, true, false);
 
-            CreateGridColumn(Grid, "Nro.Cta", "ccm04idcuenta", 0, "", 150);
-            CreateGridColumn(Grid, "CCI", "ccm04cci", 0, "", 150);
+            CreateGridColumn(Grid, "Nro.Cta", "ccm04idcuenta", 0, "", 150, false, true, true, false);
+            CreateGridColumn(Grid, "CCI", "ccm04cci", 0, "", 150, false, true, true, false);
 
-            CreateGridColumn(Grid, "ccm04ctadefecto", "ccm04ctadefecto", 0, "", 70, false, true, false, false);
+            CreateGridColumn(Grid, "ccm04ctadefecto", "ccm04ctadefecto", 0, "", 70, false, true, true, false);
             CreateGridColumn(Grid, "ctaxdefecto", "ctaxdefecto", 0, "", 70, false, true, true, false);
 
 
             CreateGridColumn(Grid, "ccm04moneda", "ccm04moneda", 0, "", 90, false, false, false, false);
             CreateGridColumn(Grid, "moneda", "moneda", 0, "", 100, false, true, true, false);
 
-            
-          
-
-
-
+            CreateGridColumn(Grid, "flag", "flag", 0, "", 90, false, true, false, false);
+            CreateGridColumn(Grid, "flagBotones", "flagBotones", 0, "", 70, true, false, false);
+            Util.AddButtonsToGrid(Grid);
         }
+
         private void traerAyudaBanco() { 
             
         }
         private void nuevoCtabancaria()
         {
-            this.gridCuentasBancaria.Rows.AddNew();
-            GridViewRowInfo  fila = gridCuentasBancaria.CurrentRow;
             
+            GridViewRowInfo  fila = gridCuentasBancaria.CurrentRow;
+            try
+            {
+                if (gridCuentasBancaria.Rows.Count > 0) {
+                    if (gridCuentasBancaria.CurrentRow.Cells["flag"].Value != null) {
+                        Util.ShowError("Debe completar el registro actual");
+                        return;
+                    }
+                }
+                this.gridCuentasBancaria.Rows.AddNew();
+                Util.SetValueCurrentCellText(gridCuentasBancaria, "flag", "0");
+                Util.SetValueCurrentCellText(gridCuentasBancaria, "flagBotones", "E");
+                Util.SetValueCurrentCellText(gridCuentasBancaria, "ccm04emp", Logueo.CodigoEmpresa);
+                Util.SetValueCurrentCellText(gridCuentasBancaria, "ccm04ctacod", txtRuc.Text);
+                Util.SetValueCurrentCellText(gridCuentasBancaria, "nomnbreProveedor", txtRazonSocial.Text);
+                /*
+                 CreateGridColumn(Grid, "ccm04emp", "ccm04emp", 0, "", 90, false, false, false, false);
+            CreateGridColumn(Grid, "ccm04ctacod", "ccm04ctacod", 0, "", 90, false, false, false, false);
+            CreateGridColumn(Grid, "nomnbreProveedor", "nomnbreProveedor", 0, "", 300);
+                 */
+
+            }
+            catch (Exception ex) {
+                Util.ShowError("Error al agregar fila: " + ex.Message); 
+            }
 
         }
-
-        private void editaCtaBancaria() { 
         
+        private void cancelarCtaBancaria() {
+            try
+            {
+                cargarCtaBancaria(txtRuc.Text.Trim());
+            }
+            catch (Exception ex) {
+                Util.ShowError("Error al cancelar: " + ex.Message);
+            }
+            
         }
 
-        private void eliminaCtaBancaria() { 
-        
+        private void editaCtaBancaria() {
+            try
+            {
+                Util.SetValueCurrentCellText(gridCuentasBancaria, "flag", "1");
+                Util.SetValueCurrentCellText(gridCuentasBancaria, "flagBotones", "E");
+            }
+            catch (Exception ex) { 
+            
+            }
+            
         }
 
+        private void eliminaCtaBancaria() {
+            //ProveedorCtaBco entidad = new ProveedorCtaBco();
+            string codigoProveedor = txtRuc.Text;
+            cargarCtaBancaria(codigoProveedor);
+        }
+        private void guardarCtaBancaria() {
+
+            ProveedorCtaBco entidad = new ProveedorCtaBco();
+            
+            cargarCtaBancaria(entidad.ccm04ctacod);
+        }
         private void cargarCtaBancaria(string codigoProveedor) {
             try
             {
-
                 List<TraeProveedorCtaBco> lista =  CuentaCorrienteLogic.Instance.TraeProveedorCtaBco(Logueo.CodigoEmpresa, codigoProveedor);
                 this.gridCuentasBancaria.DataSource = lista;
             }
@@ -933,23 +984,190 @@ namespace Com.UI.Win
 
         private void gridCuentasBancaria_KeyDown(object sender, KeyEventArgs e)
         {
-            bool esSeleccionado = Util.IsCurrentColumn(gridCuentasBancaria.CurrentColumn, "nomnbreProveedor");
+            bool esSeleccionado = Util.IsCurrentColumn(gridCuentasBancaria.CurrentColumn, "nombreBanco");
             if (esSeleccionado)
             {
                 frmBusqueda frm = new frmBusqueda(enmAyuda.enmEntidadBancaria);
-                if (this.Result != null) {
-                    if (this.Result.ToString() == "") return;
+                frm.ShowDialog();
+
+
+                if (frm.Result != null)
+                {
+
+                    if (frm.Result.ToString() == "") return;
 
                     string[] datos = frm.Result.ToString().Split('|');
                     GridViewRowInfo fila = this.gridCuentasBancaria.CurrentRow;
-                    Util.SetValueCurrentCellText(fila, "ccm04ctacod", datos[0]);
-                    Util.SetValueCurrentCellText(fila, "nomnbreProveedor", datos[1]);
+                    Util.SetValueCurrentCellText(fila, "ccm04idbanco", datos[0]);
+                    Util.SetValueCurrentCellText(fila, "nombreBanco", datos[1]);
 
                 }
                 
             }
             
 
+        }
+        bool esNuevo = false;
+        private void cmdBarAgregar_Click(object sender, EventArgs e)
+        {
+            //esNuevo = true;
+            //gridCuentasBancaria.Rows.AddNew();
+            //GridViewRowInfo row = gridCuentasBancaria.CurrentRow;
+            nuevoCtabancaria();
+        }
+
+        private void cmdBarEditar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void gridCuentasBancaria_CellBeginEdit(object sender, GridViewCellCancelEventArgs e)
+        {
+            /*
+             ccm04idcuenta	
+ccm04cci	
+ccm04ctadefecto	
+ccm04descripcion	
+ccm04codigooficina	
+ccm04moneda
+             */
+            if (gridCuentasBancaria.Rows.Count == 0) return;
+            if(e.Row!= null)
+                if(Util.GetCurrentCellText(e.Row, "flag") == "")
+                    e.Cancel = true;
+
+        }
+
+
+
+        private void deshabilitarBotonProdDet(string nombre, GridCommandCellElement CommandCell)
+        {
+            GridCommandCellElement cellElement = CommandCell;
+            switch (nombre)
+            {
+                case "btnGrabarDet":
+
+                    cellElement.CommandButton.Image = Properties.Resources.save_disabled;
+                    cellElement.CommandButton.ImageAlignment = ContentAlignment.MiddleCenter;
+                    cellElement.CommandButton.Enabled = false;
+                    break;
+                case "btnCancelarDet":
+                    cellElement.CommandButton.Image = Properties.Resources.cancel_disabled;
+
+                    cellElement.CommandButton.ImageAlignment = ContentAlignment.MiddleCenter;
+                    cellElement.CommandButton.Enabled = false;
+                    break;
+                case "btnEliminarDet":
+                    cellElement.CommandButton.Image = Properties.Resources.delete_disabled;
+                    cellElement.CommandButton.ImageAlignment = ContentAlignment.MiddleCenter;
+                    cellElement.CommandButton.Enabled = false;
+                    break;
+                case "btnEditarDet":
+                    cellElement.CommandButton.Image = Properties.Resources.edited_disabled;
+                    cellElement.CommandButton.ImageAlignment = ContentAlignment.MiddleCenter;
+                    cellElement.CommandButton.Enabled = false;
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        private void habilitarBotonProdDet(string nombre, GridCommandCellElement CommandCell,
+            bool bGrabar, bool bCancelar, bool bEliminar, bool bEditar)
+        {
+            GridCommandCellElement cellElement = CommandCell;
+            switch (nombre)
+            {
+                case "btnGrabarDet":
+                    cellElement.CommandButton.Image = bGrabar ? Properties.Resources.save_enabled : Properties.Resources.save_disabled;
+                    cellElement.CommandButton.ImageAlignment = ContentAlignment.MiddleCenter;
+                    cellElement.CommandButton.Enabled = bGrabar;
+                    break;
+                case "btnCancelarDet":
+                    cellElement.CommandButton.Image = bCancelar ? Properties.Resources.cancel_enabled : Properties.Resources.cancel_disabled;
+                    cellElement.CommandButton.ImageAlignment = ContentAlignment.MiddleCenter;
+                    cellElement.CommandButton.Enabled = bCancelar;
+                    break;
+
+                case "btnEliminarDet":
+                    cellElement.CommandButton.Image = bEliminar ? Properties.Resources.delete_enabled : Properties.Resources.delete_disabled;
+                    cellElement.CommandButton.ImageAlignment = ContentAlignment.MiddleCenter;
+                    cellElement.CommandButton.Enabled = bEliminar;
+                    break;
+
+                case "btnEditarDet":
+                    cellElement.CommandButton.Image = bEditar ? Properties.Resources.edit_enabled : Properties.Resources.edited_disabled;
+                    cellElement.CommandButton.ImageAlignment = ContentAlignment.MiddleCenter;
+                    cellElement.CommandButton.Enabled = bEditar;
+                    break;
+
+
+                default:
+                    break;
+            }
+        }
+
+
+        private void gridCuentasBancaria_CellFormatting(object sender, CellFormattingEventArgs e)
+        {
+            try
+            {
+                GridCommandCellElement cellElement = e.CellElement as GridCommandCellElement;
+                if (cellElement == null) return;
+
+                if (e.CellElement.ColumnInfo is GridViewCommandColumn)
+                {
+
+                    RadButtonElement commandButton = ((RadButtonElement)((GridCommandCellElement)e.CellElement).Children[0]);
+
+                    if (Estado == FormEstate.View) { deshabilitarBotonProdDet(e.Column.Name, cellElement); return; }
+
+
+
+
+                    //if (gridControl.Rows[e.RowIndex].Cells["Orden"].Value == null) return;
+                    if (e.RowIndex == -1) return;
+
+                    //AGREGA LAS IMAGENES A LOS BOTONES DENTRO DE LA GRILLA
+                    if (gridCuentasBancaria.Rows[e.RowIndex].Cells["Flag"].Value == null)
+                    { habilitarBotonProdDet(e.Column.Name, cellElement, false, false, true, true); }
+                    else { habilitarBotonProdDet(e.Column.Name, cellElement, true, true, false, false); }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //Util.ShowError(ex.Message);
+            }
+
+        }
+
+        private void gridCuentasBancaria_CommandCellClick(object sender, EventArgs e)
+        {
+            if (this.gridCuentasBancaria.Columns["btnGrabarDet"].IsCurrent)
+            {
+                guardarCtaBancaria();
+            }
+
+            if (this.gridCuentasBancaria.Columns["btnEditarDet"].IsCurrent)
+            {
+                //editarDetProducto();
+                editaCtaBancaria();
+            }
+
+            if (this.gridCuentasBancaria.Columns["btnEliminarDet"].IsCurrent)
+            {
+                //EliminarDetProducto();
+                eliminaCtaBancaria();
+
+            }
+
+            if (this.gridCuentasBancaria.Columns["btnCancelarDet"].IsCurrent)
+            {
+                //cancelarDetProducto();
+                cancelarCtaBancaria();
+            }
         }
 
     }

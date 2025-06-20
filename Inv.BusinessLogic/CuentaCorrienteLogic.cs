@@ -175,6 +175,35 @@ namespace Inv.BusinessLogic
         {
             return Accessor.TraeEntidadesBancarias(@Ban01Empresa, @Ban01Descripcion);
         }
+
+
+
+        public void InsertaCtaBancaria(ProveedorCtaBco entidad, out int @flag, out string @mensaje)
+        {
+             Accessor.InsertaCtaBancaria(entidad.ccm04emp, entidad.ccm04ctacod, entidad.ccm04idbanco, 
+                entidad.ccm04idcuenta,entidad.ccm04cci, entidad.ccm04ctadefecto, entidad.ccm04descripcion, 
+                entidad.ccm04codigooficina, entidad.ccm04moneda, out @flag, out @mensaje);
+                
+        }
+
+        public void ActualizaCtaBancaria(ProveedorCtaBco entidad, out int @flag, out string @mensaje)
+        {
+            Accessor.ActualizaCtaBancaria(entidad.ccm04emp, entidad.ccm04ctacod, entidad.ccm04idbanco,
+                entidad.ccm04idcuenta, entidad.ccm04cci, entidad.ccm04ctadefecto, entidad.ccm04descripcion,
+                entidad.ccm04codigooficina, entidad.ccm04moneda, out @flag, out @mensaje);
+        }
+
+        public void EliminaCtabancaria(string @ccm04emp, string @ccm04ctacod,
+        string @ccm04idbanco, string @ccm04idcuenta, out int @flag, out string @mensaje)
+        {
+            Accessor.EliminaCtabancaria(@ccm04emp, @ccm04ctacod, @ccm04idbanco, 
+                @ccm04idcuenta, out @flag, out @mensaje);
+        }
+
+        //public abstract void ActualizaCtaBancaria(string @ccm04emp, string @ccm04ctacod,
+        //string @ccm04idbanco, string @ccm04idcuenta, out int @flag, out string @mensaje);
+
+
         #endregion
         #region Accessor
         #region "Compras"

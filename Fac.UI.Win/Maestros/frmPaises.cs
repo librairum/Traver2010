@@ -228,6 +228,7 @@ namespace Fac.UI.Win
                     if (gridControl.CurrentRow.Cells["flag"].Value != null)
                     {
                         Util.ShowAlert("Debe completar el registro actual");
+                        
                         return;
                     }
                 }
@@ -235,7 +236,7 @@ namespace Fac.UI.Win
 
                 GridViewRowInfo row = this.gridControl.CurrentRow;
 
-
+                
                 Util.SetValueCurrentCellText(gridControl, "flag", "0");
                 Util.SetValueCurrentCellText(gridControl, "flagBotones", "E");
                 Util.SetCellGridFocus(gridControl, "FAC51CODPAIS");

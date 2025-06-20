@@ -375,8 +375,8 @@ namespace Com.UI.Win
                     break;
    case enmAyuda.enmEntidadBancaria:
 
-                    CreateGridColumn(gridControl, "Ban01IdBanco", "Ban01IdBanco", 0, "", 70);
-                    CreateGridColumn(gridControl, "Ban01Descripcion", "Ban01Descripcion", 0, "", 150);
+                    CreateGridColumn(gridControl, "Id", "Ban01IdBanco", 0, "", 70);
+                    CreateGridColumn(gridControl, "Descripcion", "Ban01Descripcion", 0, "", 150);
 
                     this.gridControl.DataSource = CuentaCorrienteLogic.Instance.TraeEntidadesBancarias(Logueo.CodigoEmpresa, "");
                     //CreateGridColumn(gridControl, "
@@ -585,7 +585,7 @@ namespace Com.UI.Win
                 case enmAyuda.enmEntidadBancaria:
                     this.Result = 
                     Util.GetCurrentCellText(gridControl, "Ban01IdBanco") + "|" +
-                        Util.GetCurrentCellText(gridControl, "Ban01IdBanco");
+                        Util.GetCurrentCellText(gridControl, "Ban01Descripcion");
                     break;
                 default:
                     break;

@@ -20,7 +20,7 @@ namespace Inv.BusinessEntities.DTO
         public string nombreBanco	 {get;set;}
         public string nomnbreProveedor	 {get;set;}
         public string moneda	 {get;set;}
-        public string ctaxdefecto { get; set; }
+        public int ctaxdefecto { get; set; }
 
 
 

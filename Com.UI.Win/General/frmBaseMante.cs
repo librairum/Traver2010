@@ -802,7 +802,21 @@ namespace Com.UI.Win
 
 
         }
+        public void CreateGridChkColumn(RadGridView cv, string caption, string field, int visibleindex, string formatString, int withField = 0, bool readOnly = true,
+                                            bool allowEdit = false, bool visible = true)
+        {
+            Telerik.WinControls.UI.GridViewCheckBoxColumn newColumn = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            cv.MasterTemplate.Columns.Add(newColumn);
+            newColumn.HeaderText = caption;
+            newColumn.FieldName = field;
+            newColumn.Name = field;
 
+            newColumn.IsVisible = visible;
+            newColumn.ReadOnly = readOnly;
+            if (withField != 0)
+                newColumn.Width = withField;
+            newColumn.FormatString = formatString;
+        }
         protected Extensions Extensions
         {
             get { return this._extensions; }

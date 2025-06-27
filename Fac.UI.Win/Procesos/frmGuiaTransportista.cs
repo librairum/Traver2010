@@ -325,7 +325,12 @@ namespace Fac.UI.Win
                 //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.1
                 //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
                 //ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
-                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST");
+                #region "codigo original"
+                //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST");
+                #endregion
+                #region "codigo prueba"
+                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST_prueba");
+                #endregion
                 string urlpost1 = dt.Rows[0]["URL"].ToString();
 
                 DataTable usuario = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("USUARIO_EFACT");
@@ -387,7 +392,12 @@ namespace Fac.UI.Win
             string date = "";
             try
             {
-                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
+                #region "codigo original"
+                //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
+                #endregion
+                #region "codigo prueba"
+                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR_prueba");
+                #endregion
                 string url = dt.Rows[0]["URL"].ToString() + ticket;
                 //string url = "https://ose-qa-rest.efact.pe/api-efact-ose/v1/cdr/" + ticket;
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.2

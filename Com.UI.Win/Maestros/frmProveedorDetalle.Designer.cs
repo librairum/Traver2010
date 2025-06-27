@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProveedorDetalle));
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.txttipdoc = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
@@ -95,8 +94,6 @@
             this.cmdBarDetalleProducto = new Telerik.WinControls.UI.CommandBarRowElement();
             this.BarAddDel_Almacen = new Telerik.WinControls.UI.CommandBarStripElement();
             this.cmdBarAgregar = new Telerik.WinControls.UI.CommandBarButton();
-            this.cmdBarEditar = new Telerik.WinControls.UI.CommandBarButton();
-            this.cmdBarEliminar = new Telerik.WinControls.UI.CommandBarButton();
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txttipdoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
@@ -629,7 +626,7 @@
             this.dtpFechaRegistro.Size = new System.Drawing.Size(96, 20);
             this.dtpFechaRegistro.TabIndex = 42;
             this.dtpFechaRegistro.TabStop = false;
-            this.dtpFechaRegistro.Text = "1/03/2013";
+            this.dtpFechaRegistro.Text = "01/03/2013";
             this.dtpFechaRegistro.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             // 
             // radPanel3
@@ -821,23 +818,18 @@
             // 
             // gridCuentasBancaria
             // 
-            this.gridCuentasBancaria.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gridCuentasBancaria.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridCuentasBancaria.Location = new System.Drawing.Point(0, 30);
             // 
             // 
             // 
-            gridViewTextBoxColumn1.HeaderText = "column1";
-            gridViewTextBoxColumn1.Name = "column1";
-            this.gridCuentasBancaria.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1});
             this.gridCuentasBancaria.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.gridCuentasBancaria.Name = "gridCuentasBancaria";
             this.gridCuentasBancaria.Size = new System.Drawing.Size(1009, 123);
-            this.gridCuentasBancaria.TabIndex = 0;
+            this.gridCuentasBancaria.TabIndex = 36;
             this.gridCuentasBancaria.Text = "radGridView1";
-            this.gridCuentasBancaria.ThemeName = "Office2013Light";
-            this.gridCuentasBancaria.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.gridCuentasBancaria_CellFormatting);
             this.gridCuentasBancaria.CellBeginEdit += new Telerik.WinControls.UI.GridViewCellCancelEventHandler(this.gridCuentasBancaria_CellBeginEdit);
+            this.gridCuentasBancaria.CellEndEdit += new Telerik.WinControls.UI.GridViewCellEventHandler(this.gridCuentasBancaria_CellEndEdit);
             this.gridCuentasBancaria.CommandCellClick += new Telerik.WinControls.UI.CommandCellClickEventHandler(this.gridCuentasBancaria_CommandCellClick);
             this.gridCuentasBancaria.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridCuentasBancaria_KeyDown);
             // 
@@ -868,9 +860,7 @@
             this.BarAddDel_Almacen.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.BarAddDel_Almacen.DisplayName = "commandBarStripElement3";
             this.BarAddDel_Almacen.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
-            this.cmdBarAgregar,
-            this.cmdBarEditar,
-            this.cmdBarEliminar});
+            this.cmdBarAgregar});
             this.BarAddDel_Almacen.Name = "BarAddDel_Almacen";
             this.BarAddDel_Almacen.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
@@ -885,27 +875,6 @@
             this.cmdBarAgregar.Text = "Agregar";
             this.cmdBarAgregar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.cmdBarAgregar.Click += new System.EventHandler(this.cmdBarAgregar_Click);
-            // 
-            // cmdBarEditar
-            // 
-            this.cmdBarEditar.AccessibleDescription = "Eliminar";
-            this.cmdBarEditar.AccessibleName = "Eliminar";
-            this.cmdBarEditar.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.cmdBarEditar.DisplayName = "commandBarButton1";
-            this.cmdBarEditar.Image = ((System.Drawing.Image)(resources.GetObject("cmdBarEditar.Image")));
-            this.cmdBarEditar.Name = "cmdBarEditar";
-            this.cmdBarEditar.Text = "Eliminar";
-            this.cmdBarEditar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.cmdBarEditar.Click += new System.EventHandler(this.cmdBarEditar_Click);
-            // 
-            // cmdBarEliminar
-            // 
-            this.cmdBarEliminar.AccessibleDescription = "Editar";
-            this.cmdBarEliminar.AccessibleName = "Editar";
-            this.cmdBarEliminar.DisplayName = "commandBarButton1";
-            this.cmdBarEliminar.Image = ((System.Drawing.Image)(resources.GetObject("cmdBarEliminar.Image")));
-            this.cmdBarEliminar.Name = "cmdBarEliminar";
-            this.cmdBarEliminar.Text = "Editar";
             // 
             // frmProveedorDetalle
             // 
@@ -1051,12 +1020,11 @@
         private Telerik.WinControls.UI.RadPanel radPanel4;
         private Telerik.WinControls.UI.RadPageView pvCuentasBancarias;
         private Telerik.WinControls.UI.RadPageViewPage pvCuentasBancariaDetalle;
-        private Telerik.WinControls.UI.RadGridView gridCuentasBancaria;
+        //private Telerik.WinControls.UI.RadGridView gridCuentasBancaria;
         private Telerik.WinControls.UI.RadCommandBar radCommandBar2;
         private Telerik.WinControls.UI.CommandBarRowElement cmdBarDetalleProducto;
         private Telerik.WinControls.UI.CommandBarStripElement BarAddDel_Almacen;
         private Telerik.WinControls.UI.CommandBarButton cmdBarAgregar;
-        private Telerik.WinControls.UI.CommandBarButton cmdBarEditar;
-        private Telerik.WinControls.UI.CommandBarButton cmdBarEliminar;
+        public Telerik.WinControls.UI.RadGridView gridCuentasBancaria;
     }
 }

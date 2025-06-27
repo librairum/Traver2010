@@ -373,13 +373,20 @@ namespace Com.UI.Win
                         datos[0], datos[1], datos[2], datos[3]);
 
                     break;
-   case enmAyuda.enmEntidadBancaria:
+                case enmAyuda.enmEntidadBancaria:
 
                     CreateGridColumn(gridControl, "Id", "Ban01IdBanco", 0, "", 70);
                     CreateGridColumn(gridControl, "Descripcion", "Ban01Descripcion", 0, "", 150);
 
                     this.gridControl.DataSource = CuentaCorrienteLogic.Instance.TraeEntidadesBancarias(Logueo.CodigoEmpresa, "");
                     //CreateGridColumn(gridControl, "
+                    break;
+
+                case enmAyuda.enmTipoCuentaBancaria:
+                    CreateGridColumn(gridControl, "Id", "glo01codigo", 0, "", 70);
+                    CreateGridColumn(gridControl, "Descripcion", "glo01descripcion", 0, "", 150);
+                    this.gridControl.DataSource = GlobalLogic.Instance.TraeAyudaGlobal("72", "GLO", "", "*");
+                    
                     break;
                default:
                     break;
@@ -586,6 +593,11 @@ namespace Com.UI.Win
                     this.Result = 
                     Util.GetCurrentCellText(gridControl, "Ban01IdBanco") + "|" +
                         Util.GetCurrentCellText(gridControl, "Ban01Descripcion");
+                    break;
+
+
+                case enmAyuda.enmTipoCuentaBancaria:
+                    this.Result = Util.GetCurrentCellText(gridControl, "glo01codigo") + "|" + Util.GetCurrentCellText(gridControl, "glo01descripcion");
                     break;
                 default:
                     break;

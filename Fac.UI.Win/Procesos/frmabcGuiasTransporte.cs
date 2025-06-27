@@ -1058,11 +1058,17 @@ namespace Fac.UI.Win
                 //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.1
                 //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
                 //ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
-                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST");
+                #region "codigo original en funcionamiento"
+                //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST");
+                #endregion
+                #region "codigo de prueba"
+                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST_prueba");
+                #endregion
                 string urlpost1 = dt.Rows[0]["URL"].ToString();
 
                 DataTable usuario = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("USUARIO_EFACT");
-                DataTable password = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("CONTRASENA_EFACT");
+                //DataTable password = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("CONTRASENA_EFACT");
+                DataTable password = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("CONTRASENA_EFACT_PRUEBA");
                 string usuariodt = usuario.Rows[0]["URL"].ToString();
                 string passwordt = password.Rows[0]["URL"].ToString();
 
@@ -19728,8 +19734,12 @@ namespace Fac.UI.Win
             string access_token = POST_TOKEN();
             ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
 
-
-            DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_enviar_documento_obtener_ticket");
+            #region "codigo original funcionando"
+            //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_enviar_documento_obtener_ticket");
+            #endregion
+            #region "codigo prueba"
+            DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_enviar_documento_obtener_ticket_prueba");
+            #endregion
             string url_POST2 = dt.Rows[0]["URL"].ToString();
 
 
@@ -19794,8 +19804,12 @@ namespace Fac.UI.Win
                         if (code == "0") // si el json esta correcto, retorna ticket y se guarda en tabla response
                         {
                             string mensajesunat = "Pendiente";
-                            Efact_GuiaLogic.Instance.Insertar_EfactResponse(tipdocemisor, numerodumentoemisor, guia_tipo, guia_id, code, description, mensajesunat, "", "POST", "", out flag, out Mensaje);
-                            //MessageBox.Show(description);
+                            #region "codigo original"
+                            //Efact_GuiaLogic.Instance.Insertar_EfactResponse(tipdocemisor, numerodumentoemisor, guia_tipo, guia_id, code, description, mensajesunat, "", "POST", "", out flag, out Mensaje);
+                            #endregion
+                            #region "codigo prueba"
+                            MessageBox.Show(description);
+                            #endregion
                         }
 
                     }
@@ -19819,9 +19833,13 @@ namespace Fac.UI.Win
                                 description = deserealizar.description;
                                 string date = DateTime.Now.ToString();
                                 string metodo = "POST";
-                                Efact_GuiaLogic.Instance.Insertar_EfactErrorLog(numerodumentoemisor, guia_id, guia_tipo, tipdocemisor, code, description, date, metodo, out flag, out Mensaje);
-                                Efact_GuiaLogic.Instance.Insertar_EfactResponse(tipdocemisor, numerodumentoemisor, guia_tipo, guia_id, code, description, "ERROR:: POST_DOCUMENT", "", "POST", "ERROR EN EFACT", out flag, out Mensaje);
-                                //MessageBox.Show(""description);
+                                #region "codigo original funcionamiento"
+                                //Efact_GuiaLogic.Instance.Insertar_EfactErrorLog(numerodumentoemisor, guia_id, guia_tipo, tipdocemisor, code, description, date, metodo, out flag, out Mensaje);
+                                //Efact_GuiaLogic.Instance.Insertar_EfactResponse(tipdocemisor, numerodumentoemisor, guia_tipo, guia_id, code, description, "ERROR:: POST_DOCUMENT", "", "POST", "ERROR EN EFACT", out flag, out Mensaje);
+                                #endregion
+                                #region "codigo de prueba"
+                                MessageBox.Show(description);
+                                #endregion
                                 Util.ShowMessage("Error :: " + description, 1);
                                 return String.Empty;
                                 //MessageBox.Show(Mensaje);
@@ -19863,8 +19881,12 @@ namespace Fac.UI.Win
 
                 try
                 {
-
-                    DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
+                    #region "codigo original"
+                    //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
+                    #endregion
+                    #region "codigo prueba"
+                    DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR_prueba");
+                    #endregion
                     string url = dt.Rows[0]["URL"].ToString() + ticket_true;
                     //string url = "https://ose-qa-rest.efact.pe/api-efact-ose/v1/cdr/" + ticket;
                     ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.2
@@ -19981,7 +20003,12 @@ namespace Fac.UI.Win
 
             try
             {
-                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
+                #region"codigo original"
+                //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
+                #endregion
+                #region "codigo prueba"
+                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR_prueba");
+                #endregion
                 string url = dt.Rows[0]["URL"].ToString() + ticket;
                 //string url = "https://ose-qa-rest.efact.pe/api-efact-ose/v1/cdr/" + ticket;
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.2
@@ -20117,8 +20144,12 @@ namespace Fac.UI.Win
                 string nombre_pdf = tipdocemisor + numerodumentoemisor + guia_id;
 
                 string token = POST_TOKEN();
-
-                DataTable ServicioDT = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_PDF");
+                #region "codigo  original"
+                //DataTable ServicioDT = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_PDF");
+                #endregion
+                #region "codigo prueba"
+                DataTable ServicioDT = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_PDF_prueba");
+                #endregion
                 string url = ServicioDT.Rows[0]["URL"].ToString() + ticket;
 
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.2
@@ -23188,7 +23219,7 @@ namespace Fac.UI.Win
 
                     string rucDestinoDesc = "";
                     txtClienteCod.Text = txtrucdestino.Text.Trim();
-                    GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtrucdestino.Text.Trim(), "CLIENTE", out rucDestinoDesc);
+                    GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisDestinatario + txtrucdestino.Text.Trim(), "CLIENTE", out rucDestinoDesc);
                     txtrucdestinnoDes.Text = rucDestinoDesc;
 
                     GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtClienteCod.Text.Trim(), "CLIENTEFLAGDESC", out ClienteFlagDescUsuario);

@@ -316,7 +316,11 @@ namespace Com.UI.Win
             ConfiguracionFormulario(Estado);
             Cursor.Current = Cursors.Default;
             crearColumnasCtabancaria();
-
+            if (Estado == FormEstate.View || Estado == FormEstate.List)
+            {
+                cmdBarAgregar.Enabled = false;
+            }
+            
             cargarCtaBancaria(txtRuc.Text.Trim());
         }
 
@@ -879,29 +883,49 @@ namespace Com.UI.Win
             RadGridView Grid =  this.CreateGridVista(this.gridCuentasBancaria);
             CreateGridColumn(Grid, "ccm04emp", "ccm04emp", 0, "", 90, false, false, false, false);
             CreateGridColumn(Grid, "ccm04ctacod", "ccm04ctacod", 0, "", 90, false, false, false, false);
-            CreateGridColumn(Grid, "nomnbreProveedor", "nomnbreProveedor", 0, "", 300);
+            CreateGridColumn(Grid, "nomnbreProveedor", "nomnbreProveedor", 0, "", 300,true, false, false);
+            //tipo cuenta bancaria
+            CreateGridColumn(Grid, "ccm04tipocuenta", "ccm04tipocuenta", 0, "", 90, false, true, false, false);
+            CreateGridColumn(Grid, "TipoCuenta", "nombreTipoCuenta", 0, "", 90, true, false, true, false);
+            
 
-            CreateGridColumn(Grid, "Idbanco", "ccm04idbanco", 0, "", 90, false, true, true, false);
-            CreateGridColumn(Grid, "nombreBanco", "nombreBanco", 0, "", 150);
-            CreateGridColumn(Grid, "descripcion", "ccm04descripcion", 0, "", 90, false, true, true, false);
-
-            CreateGridColumn(Grid, "Cod.Oficina", "ccm04codigooficina", 0, "", 90, false, true, true, false);
-
+            //banco    
+            CreateGridColumn(Grid, "Idbanco", "ccm04idbanco", 0, "", 90, false, true, false, false);
+            CreateGridColumn(Grid, "nombreBanco", "nombreBanco", 0, "", 150,true, false, true, false);
+            
+            //tipo de analisis
+            CreateGridColumn(Grid, "Tip.Analisi", "ccm04tipana", 0, "", 90, true, false, false, false);
+            
+            //moneda
+            CreateGridColumn(Grid, "ccm04moneda", "ccm04moneda", 0, "", 90, false, false, false, false);
+            CreateGridColumn(Grid, "moneda", "moneda", 0, "", 100, true, true, true, false);
+            
             CreateGridColumn(Grid, "Nro.Cta", "ccm04idcuenta", 0, "", 150, false, true, true, false);
             CreateGridColumn(Grid, "CCI", "ccm04cci", 0, "", 150, false, true, true, false);
+            //sugerir descripcion de la concatenacion nombrebanco  + tipo
+            CreateGridColumn(Grid, "descripcion", "ccm04descripcion", 0, "", 200, false, true, true, false);
+            
+            CreateGridChkColumn(Grid, "ctaxdefecto", "ccm04ctadefecto", 0, "", 100, false, true);
+            
+            CreateGridColumn(Grid, "Cod.Oficina", "ccm04codigooficina", 0, "", 120, false, true, true, false);
 
+            
             //CreateGridColumn(Grid, "ccm04ctadefecto", "ccm04ctadefecto", 0, "", 70, false, true, true, false);
             
-            CreateGridColumn(Grid, "ccm04ctadefecto", "ccm04ctadefecto", 0, "", 70, false, true);
-            CreateGridChkColumn(Grid, "ctaxdefecto", "ctaxdefecto", 0, "", 70, false, true);
+            //CreateGridColumn(Grid, "ccm04ctadefecto", "ccm04ctadefecto", 0, "", 70, false, true);
+            //CreateGridChkColumn(Grid, "ctaxdefecto", "ctaxdefecto", 0, "", 70, false, true);
 
-            CreateGridColumn(Grid, "ccm04moneda", "ccm04moneda", 0, "", 90, false, false, false, false);
-            CreateGridColumn(Grid, "moneda", "moneda", 0, "", 100, true, false, true, false);
-
+            
             CreateGridColumn(Grid, "flag", "flag", 0, "", 90, false, true, false, false);
             CreateGridColumn(Grid, "flagBotones", "flagBotones", 0, "", 70, true, false, false);
 
             Util.AddButtonsToGrid(Grid);
+            //Util.ResaltarAyuda(gridCuentasBancaria, "nombreBanco");
+            //Util.ResaltarAyuda(gridCuentasBancaria, "nombreTipoCuenta");
+            //Util.ResaltarAyuda(gridCuentasBancaria, "moneda");
+            Util.ResaltarAyuda(gridCuentasBancaria.CurrentRow.Cells["moneda"]);
+
+
         }
 
         private void traerAyudaBanco() { 
@@ -920,6 +944,7 @@ namespace Com.UI.Win
                     }
                 }
                 this.gridCuentasBancaria.Rows.AddNew();
+                Util.SetValueCurrentCellText(gridCuentasBancaria, "ccm04tipana", "02");
                 Util.SetValueCurrentCellText(gridCuentasBancaria, "flag", "0");
                 Util.SetValueCurrentCellText(gridCuentasBancaria, "flagBotones", "E");
                 Util.SetValueCurrentCellText(gridCuentasBancaria, "ccm04emp", Logueo.CodigoEmpresa);
@@ -963,8 +988,31 @@ namespace Com.UI.Win
 
         private void eliminaCtaBancaria() {
             //ProveedorCtaBco entidad = new ProveedorCtaBco();
-            string codigoProveedor = txtRuc.Text;
-            cargarCtaBancaria(codigoProveedor);
+            try
+            {
+                string codigoProveedor = txtRuc.Text;
+                string idbanco = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04idbanco");
+                string idcuenta = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04idcuenta");
+                string tipAna = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04tipana");
+                string tipoCuenta = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04tipocuenta");
+                int flag = 0; string mensaje = "";
+                CuentaCorrienteLogic.Instance.EliminaCtabancaria(Logueo.CodigoEmpresa,
+                    codigoProveedor,idbanco, tipAna ,tipoCuenta,  idcuenta, out flag, out mensaje);
+                
+
+
+
+                Util.ShowMessage(mensaje, flag);
+                if (flag == 1)
+                {
+                    cargarCtaBancaria(codigoProveedor);
+                }
+            }
+            catch (Exception ex) {
+                Util.ShowError("Error al eliminar:" + ex.Message);
+            } 
+            
+            
         }
         private void guardarCtaBancaria() {
             try
@@ -976,10 +1024,21 @@ namespace Com.UI.Win
                 entidad.ccm04idbanco = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04idbanco");
                 entidad.ccm04descripcion = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04descripcion");
                 entidad.ccm04codigooficina = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04codigooficina");
-
+                entidad.ccm04tipana = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04tipana");
                 entidad.ccm04idcuenta = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04idcuenta");
                 entidad.ccm04cci = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04cci");
-                entidad.ccm04ctadefecto = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04ctadefecto");
+                entidad.ccm04tipocuenta = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04tipocuenta").Trim() ;
+                string ctaxdefectoValor = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04ctadefecto");
+
+
+                if (ctaxdefectoValor.Equals("1"))
+                {
+                    entidad.ccm04ctadefecto = "S";
+                }
+                else {
+                    entidad.ccm04ctadefecto = "N";
+                }
+                //entidad.ccm04ctadefecto = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04ctadefecto");
                 entidad.ccm04moneda = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04moneda");
                 int flag = 0; string mensaje = "";
                 string esNuevo = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "flag");
@@ -1021,7 +1080,8 @@ namespace Com.UI.Win
         {
             bool esSeleccionadoMoneda = Util.IsCurrentColumn(gridCuentasBancaria.CurrentColumn, "moneda");
             bool esSeleccionadoBanco = Util.IsCurrentColumn(gridCuentasBancaria.CurrentColumn, "nombreBanco");
-
+            bool esSeleccionadoTipoCuenta = Util.IsCurrentColumn(gridCuentasBancaria.CurrentColumn, "nombreTipoCuenta");
+            if (e.KeyValue != (char)Keys.F1) return;
             if (esSeleccionadoBanco)
             {
 
@@ -1060,6 +1120,20 @@ namespace Com.UI.Win
 
                 }
             }
+            else if (esSeleccionadoTipoCuenta) {
+                frmBusqueda frm = new frmBusqueda(enmAyuda.enmTipoCuentaBancaria);
+                frm.ShowDialog();
+                if (frm.Result != null) {
+                    if (frm.Result.ToString() == "") return;
+                    string[] datos = frm.Result.ToString().Split('|');
+                    GridViewRowInfo fila = this.gridCuentasBancaria.CurrentRow;
+                    Util.SetValueCurrentCellText(fila, "ccm04tipocuenta", datos[0]);
+                    Util.SetValueCurrentCellText(fila, "nombreTipoCuenta", datos[1]);
+                }
+            }
+
+
+
             
 
         }
@@ -1070,6 +1144,10 @@ namespace Com.UI.Win
             //gridCuentasBancaria.Rows.AddNew();
             //GridViewRowInfo row = gridCuentasBancaria.CurrentRow;
             nuevoCtabancaria();
+            Util.ResaltarAyuda(gridCuentasBancaria.CurrentRow.Cells["nombreTipoCuenta"]);
+            Util.ResaltarAyuda(gridCuentasBancaria.CurrentRow.Cells["nombreBanco"]);
+            Util.ResaltarAyuda(gridCuentasBancaria.CurrentRow.Cells["moneda"]);
+            
         }
 
         private void cmdBarEditar_Click(object sender, EventArgs e)
@@ -1204,6 +1282,7 @@ ccm04moneda
             if (this.gridCuentasBancaria.Columns["btnGrabarDet"].IsCurrent)
             {
                 guardarCtaBancaria();
+                
             }
 
             if (this.gridCuentasBancaria.Columns["btnEditarDet"].IsCurrent)
@@ -1225,6 +1304,25 @@ ccm04moneda
                 cancelarCtaBancaria();
             }
         }
+
+        private void gridCuentasBancaria_CellEndEdit(object sender, GridViewCellEventArgs e)
+        {
+            if (e.Column.Name.Equals("nombreTipoCuenta") |  e.Column.Name.Equals("nombreBanco") |
+                e.Column.Name.Equals("moneda") | e.Column.Name.Equals("ccm04idcuenta") ) 
+            {
+                string nomTipCuenta = "", nomBanco = "", moneda = "", idcuenta = "";
+                nomTipCuenta = Util.GetCurrentCellText(gridCuentasBancaria, "nombreTipoCuenta");
+                nomBanco = Util.GetCurrentCellText(gridCuentasBancaria, "nombreBanco");
+                moneda = Util.GetCurrentCellText(gridCuentasBancaria, "moneda");
+                idcuenta = Util.GetCurrentCellText(gridCuentasBancaria, "ccm04idcuenta");
+
+                Util.SetValueCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04descripcion", nomTipCuenta + " " + nomBanco + " " + moneda + " " + idcuenta);
+                //Util.SetValueCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04descripcion", "");
+
+            }
+        }
+
+        
 
     }
 }

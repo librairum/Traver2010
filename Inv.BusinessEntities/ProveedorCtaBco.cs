@@ -14,7 +14,9 @@ namespace Inv.BusinessEntities
 
         [MapField("ccm04ctacod")]
         public string ccm04ctacod	{get;set;}
-
+        
+        [MapField("ccm04tipana")]
+        public string ccm04tipana { get; set; }
 
         [MapField("ccm04idbanco")]
         public string ccm04idbanco	 {get;set;}
@@ -36,6 +38,9 @@ namespace Inv.BusinessEntities
 
         [MapField("ccm04moneda")]
         public string ccm04moneda { get; set; }
+
+        [MapField("ccm04tipocuenta")]
+        public string ccm04tipocuenta { get; set; }
 
     }
 }

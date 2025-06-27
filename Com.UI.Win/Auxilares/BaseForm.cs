@@ -262,7 +262,8 @@ namespace Com.UI.Win
         enmTipoTransaccionRetencion = 151,
         enmusuariologistica = 152,
         LugarDeEntra = 153,
-        enmEntidadBancaria = 154
+        enmEntidadBancaria = 154,
+        enmTipoCuentaBancaria = 155
     }
 
     public enum BaseRegBotonesDetalle

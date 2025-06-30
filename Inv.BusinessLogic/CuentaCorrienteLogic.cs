@@ -180,7 +180,7 @@ namespace Inv.BusinessLogic
 
         public void InsertaCtaBancaria(ProveedorCtaBco entidad, out int @flag, out string @mensaje)
         {
-             Accessor.InsertaCtaBancaria(entidad.ccm04emp, entidad.ccm04ctacod, entidad.ccm04idbanco, 
+             Accessor.InsertaCtaBancaria(entidad.ccm04emp, entidad.ccm04ctacod,entidad.ccm04tipana, entidad.ccm04tipocuenta , entidad.ccm04idbanco, 
                 entidad.ccm04idcuenta,entidad.ccm04cci, entidad.ccm04ctadefecto, entidad.ccm04descripcion, 
                 entidad.ccm04codigooficina, entidad.ccm04moneda, out @flag, out @mensaje);
                 
@@ -188,15 +188,16 @@ namespace Inv.BusinessLogic
 
         public void ActualizaCtaBancaria(ProveedorCtaBco entidad, out int @flag, out string @mensaje)
         {
-            Accessor.ActualizaCtaBancaria(entidad.ccm04emp, entidad.ccm04ctacod, entidad.ccm04idbanco,
+            Accessor.ActualizaCtaBancaria(entidad.ccm04emp, entidad.ccm04ctacod, entidad.ccm04tipana,
+                entidad.ccm04tipocuenta,entidad.ccm04idbanco,
                 entidad.ccm04idcuenta, entidad.ccm04cci, entidad.ccm04ctadefecto, entidad.ccm04descripcion,
                 entidad.ccm04codigooficina, entidad.ccm04moneda, out @flag, out @mensaje);
         }
 
-        public void EliminaCtabancaria(string @ccm04emp, string @ccm04ctacod,
-        string @ccm04idbanco, string @ccm04idcuenta, out int @flag, out string @mensaje)
+        public void EliminaCtabancaria(string @ccm04emp, string @ccm04ctacod, string @ccm04idbanco, string @ccm04tipana, string @ccm04tipocuenta,
+         string @ccm04idcuenta, out int @flag, out string @mensaje)
         {
-            Accessor.EliminaCtabancaria(@ccm04emp, @ccm04ctacod, @ccm04idbanco, 
+            Accessor.EliminaCtabancaria(@ccm04emp, @ccm04ctacod, @ccm04idbanco, @ccm04tipana, @ccm04tipocuenta,
                 @ccm04idcuenta, out @flag, out @mensaje);
         }
 

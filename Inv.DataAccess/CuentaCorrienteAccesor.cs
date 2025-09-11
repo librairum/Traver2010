@@ -152,20 +152,44 @@ namespace Inv.DataAccess
         public abstract List<TraeEntidadBancaria> TraeEntidadesBancarias(string @Ban01Empresa, string @Ban01Descripcion);
 
         [SprocName("spu_com_Ins_proveedorctabancaria")]
-        public abstract void InsertaCtaBancaria(string @ccm04emp,string @ccm04ctacod,
-        string @ccm04tipana, string @ccm04tipocuenta, string @ccm04idbanco, string @ccm04idcuenta, string @ccm04cci, 
-        string @ccm04ctadefecto, string @ccm04descripcion, string @ccm04codigooficina, 
-        string @ccm04moneda, out int @flag, out string @mensaje);
+        public abstract void InsertaCtaBancaria( 
+        string @ccm04emp	,
+        string @ccm04entidadcod	,
+        string @ccm04ctabcacod ,
+        string @ccm04tipana ,
+        string @ccm04tipocuenta ,
+        string @ccm04bancocod ,
+        string @ccm04nrocuenta	,
+        string @ccm04nrocuentacci	,
+        string @ccm04ctadefecto	,
+
+        string  @ccm04descripcion	,
+        string @ccm04oficinacod	,
+        string @ccm04moneda	
+        ,out int @flag, out string @mensaje);
 
         [SprocName("spu_com_Del_proveedorctabancaria")]
-        public abstract void EliminaCtabancaria(string @ccm04emp, string @ccm04ctacod,
-        string @ccm04idbanco, string @ccm04tipana, string @ccm04tipocuenta, string @ccm04idcuenta, out int @flag, out string @mensaje);
+        public abstract void EliminaCtabancaria(
+            string @ccm04emp  ,
+            string @ccm04entidadcod ,
+            string @ccm04ctabcacod  ,           
+            out int @flag, out string @mensaje);
 
         [SprocName("spu_com_Upd_proveedorctabancaria")]
-        public abstract void ActualizaCtaBancaria(string @ccm04emp,string @ccm04ctacod,
-        string @ccm04tipana, string @ccm04tipocuenta, string @ccm04idbanco, string @ccm04idcuenta, string @ccm04cci, 
-        string @ccm04ctadefecto, string @ccm04descripcion, string @ccm04codigooficina, 
-        string @ccm04moneda, out int @flag, out string @mensaje);
+        public abstract void ActualizaCtaBancaria(
+        string @ccm04emp	,
+        string @ccm04entidadcod	,
+        string @ccm04ctabcacod	,
+        string @ccm04tipana	,
+        string @ccm04tipocuenta	,
+        string @ccm04bancocod	,
+        string  @ccm04nrocuenta	,
+        string @ccm04nrocuentacci	,
+        string @ccm04ctadefecto	,
+        string @ccm04descripcion	,
+        string @ccm04oficinacod	,
+        string @ccm04moneda	,
+            out int @flag, out string @mensaje);
 
         
 

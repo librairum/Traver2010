@@ -1340,5 +1340,10 @@ namespace Fac.UI.Win
         {
             ActivaDatosPorTipoPersona();
         }
+
+        private void lblsituaciondomicilio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

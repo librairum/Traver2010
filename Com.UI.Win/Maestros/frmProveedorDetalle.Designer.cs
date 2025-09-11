@@ -646,7 +646,7 @@
             this.chkBuenContribuyente.BackColor = System.Drawing.Color.Transparent;
             this.chkBuenContribuyente.Location = new System.Drawing.Point(6, 25);
             this.chkBuenContribuyente.Name = "chkBuenContribuyente";
-            this.chkBuenContribuyente.Size = new System.Drawing.Size(127, 17);
+            this.chkBuenContribuyente.Size = new System.Drawing.Size(128, 17);
             this.chkBuenContribuyente.TabIndex = 1;
             this.chkBuenContribuyente.Text = "Buen contribuyente";
             this.chkBuenContribuyente.UseVisualStyleBackColor = false;
@@ -777,18 +777,18 @@
             this.panel1.Controls.Add(this.radLabel9);
             this.panel1.Controls.Add(this.txtNombres);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1030, 356);
+            this.panel1.Size = new System.Drawing.Size(1030, 392);
             this.panel1.TabIndex = 45;
             // 
             // radPanel4
             // 
             this.radPanel4.Controls.Add(this.pvCuentasBancarias);
             this.radPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.radPanel4.Location = new System.Drawing.Point(0, 356);
+            this.radPanel4.Location = new System.Drawing.Point(0, 425);
             this.radPanel4.Name = "radPanel4";
-            this.radPanel4.Size = new System.Drawing.Size(1030, 201);
+            this.radPanel4.Size = new System.Drawing.Size(1030, 132);
             this.radPanel4.TabIndex = 46;
             this.radPanel4.TabStop = false;
             // 
@@ -800,7 +800,7 @@
             this.pvCuentasBancarias.Name = "pvCuentasBancarias";
             this.pvCuentasBancarias.SelectedPage = this.pvCuentasBancariaDetalle;
             this.pvCuentasBancarias.ShowItemToolTips = false;
-            this.pvCuentasBancarias.Size = new System.Drawing.Size(1030, 201);
+            this.pvCuentasBancarias.Size = new System.Drawing.Size(1030, 132);
             this.pvCuentasBancarias.TabIndex = 24;
             this.pvCuentasBancarias.TabStop = false;
             this.pvCuentasBancarias.Text = "Almacenes";
@@ -812,7 +812,7 @@
             this.pvCuentasBancariaDetalle.ItemSize = new System.Drawing.SizeF(107F, 28F);
             this.pvCuentasBancariaDetalle.Location = new System.Drawing.Point(10, 37);
             this.pvCuentasBancariaDetalle.Name = "pvCuentasBancariaDetalle";
-            this.pvCuentasBancariaDetalle.Size = new System.Drawing.Size(1009, 153);
+            this.pvCuentasBancariaDetalle.Size = new System.Drawing.Size(1009, 84);
             this.pvCuentasBancariaDetalle.Text = "Cuentas bancarias";
             this.pvCuentasBancariaDetalle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -825,7 +825,7 @@
             // 
             this.gridCuentasBancaria.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.gridCuentasBancaria.Name = "gridCuentasBancaria";
-            this.gridCuentasBancaria.Size = new System.Drawing.Size(1009, 123);
+            this.gridCuentasBancaria.Size = new System.Drawing.Size(1009, 54);
             this.gridCuentasBancaria.TabIndex = 36;
             this.gridCuentasBancaria.Text = "radGridView1";
             this.gridCuentasBancaria.CellBeginEdit += new Telerik.WinControls.UI.GridViewCellCancelEventHandler(this.gridCuentasBancaria_CellBeginEdit);
@@ -892,8 +892,8 @@
             this.Text = "Proveedor Detalle";
             this.Load += new System.EventHandler(this.frmProveedorDetalle_Load);
             this.Controls.SetChildIndex(this.radPanel4, 0);
-            this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.radCommandBar1, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txttipdoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();

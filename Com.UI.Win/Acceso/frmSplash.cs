@@ -332,7 +332,7 @@ namespace Com.UI.Win
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error al descargar archivo:" + ex.Message);
                 string mensaje = "Instale o Actualice como administrador: " + Environment.NewLine + "Clic derecho sobre icono del programa -> Ejecutar como administrador";
                 MessageBox.Show(mensaje + " detalle: " + ex.Message, "Sistema");
                 //Application.Exit();

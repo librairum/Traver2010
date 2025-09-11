@@ -607,6 +607,7 @@
             this.lblsituaciondomicilio.TabStop = false;
             this.lblsituaciondomicilio.Tag = "0";
             this.lblsituaciondomicilio.ThemeName = "Office2013Light";
+            this.lblsituaciondomicilio.TextChanged += new System.EventHandler(this.lblsituaciondomicilio_TextChanged);
             // 
             // txtsituaciondomicilio
             // 

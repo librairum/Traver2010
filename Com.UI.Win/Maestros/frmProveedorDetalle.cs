@@ -882,7 +882,11 @@ namespace Com.UI.Win
         {
             RadGridView Grid =  this.CreateGridVista(this.gridCuentasBancaria);
             CreateGridColumn(Grid, "ccm04emp", "ccm04emp", 0, "", 90, false, false, false, false);
-            CreateGridColumn(Grid, "ccm04ctacod", "ccm04ctacod", 0, "", 90, false, false, false, false);
+            //id tabla
+            CreateGridColumn(Grid, "ccm04ctabcacod", "ccm04ctabcacod", 0, "", 90, false, false, false, false);
+            //ruc
+            CreateGridColumn(Grid, "ccm04entidadcod", "ccm04entidadcod", 0, "", 90, false, false, false, false);
+            //nom prov
             CreateGridColumn(Grid, "nomnbreProveedor", "nomnbreProveedor", 0, "", 300,true, false, false);
             //tipo cuenta bancaria
             CreateGridColumn(Grid, "ccm04tipocuenta", "ccm04tipocuenta", 0, "", 90, false, true, false, false);
@@ -890,7 +894,7 @@ namespace Com.UI.Win
             
 
             //banco    
-            CreateGridColumn(Grid, "Idbanco", "ccm04idbanco", 0, "", 90, false, true, false, false);
+            CreateGridColumn(Grid, "Idbanco", "ccm04bancocod", 0, "", 90, false, true, false, false);
             CreateGridColumn(Grid, "nombreBanco", "nombreBanco", 0, "", 150,true, false, true, false);
             
             //tipo de analisis
@@ -899,15 +903,16 @@ namespace Com.UI.Win
             //moneda
             CreateGridColumn(Grid, "ccm04moneda", "ccm04moneda", 0, "", 90, false, false, false, false);
             CreateGridColumn(Grid, "moneda", "moneda", 0, "", 100, true, true, true, false);
-            
-            CreateGridColumn(Grid, "Nro.Cta", "ccm04idcuenta", 0, "", 150, false, true, true, false);
-            CreateGridColumn(Grid, "CCI", "ccm04cci", 0, "", 150, false, true, true, false);
+            //nro cuenta de provoeedor
+            CreateGridColumn(Grid, "Nro.Cta", "ccm04nrocuenta", 0, "", 150, false, true, true, false);
+            //nro cuenta interbancaria proveedor
+            CreateGridColumn(Grid, "CCI", "ccm04nrocuentacci", 0, "", 150, false, true, true, false);
             //sugerir descripcion de la concatenacion nombrebanco  + tipo
             CreateGridColumn(Grid, "descripcion", "ccm04descripcion", 0, "", 200, false, true, true, false);
-            
+            //flag cta defecto
             CreateGridChkColumn(Grid, "ctaxdefecto", "ccm04ctadefecto", 0, "", 100, false, true);
-            
-            CreateGridColumn(Grid, "Cod.Oficina", "ccm04codigooficina", 0, "", 120, false, true, true, false);
+
+            CreateGridColumn(Grid, "Cod.Oficina", "ccm04oficinacod", 0, "", 120, false, true, true, false);
 
             
             //CreateGridColumn(Grid, "ccm04ctadefecto", "ccm04ctadefecto", 0, "", 70, false, true, true, false);
@@ -948,7 +953,7 @@ namespace Com.UI.Win
                 Util.SetValueCurrentCellText(gridCuentasBancaria, "flag", "0");
                 Util.SetValueCurrentCellText(gridCuentasBancaria, "flagBotones", "E");
                 Util.SetValueCurrentCellText(gridCuentasBancaria, "ccm04emp", Logueo.CodigoEmpresa);
-                Util.SetValueCurrentCellText(gridCuentasBancaria, "ccm04ctacod", txtRuc.Text);
+                Util.SetValueCurrentCellText(gridCuentasBancaria, "ccm04entidadcod", txtRuc.Text);
                 Util.SetValueCurrentCellText(gridCuentasBancaria, "nomnbreProveedor", txtRazonSocial.Text);
                 /*
                  CreateGridColumn(Grid, "ccm04emp", "ccm04emp", 0, "", 90, false, false, false, false);
@@ -991,13 +996,11 @@ namespace Com.UI.Win
             try
             {
                 string codigoProveedor = txtRuc.Text;
-                string idbanco = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04idbanco");
-                string idcuenta = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04idcuenta");
-                string tipAna = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04tipana");
-                string tipoCuenta = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04tipocuenta");
+                string ctabcaCod = Util.GetCurrentCellText(this.gridCuentasBancaria, "ccm04ctabcacod");
+                
                 int flag = 0; string mensaje = "";
                 CuentaCorrienteLogic.Instance.EliminaCtabancaria(Logueo.CodigoEmpresa,
-                    codigoProveedor,idbanco, tipAna ,tipoCuenta,  idcuenta, out flag, out mensaje);
+                    codigoProveedor, ctabcaCod, out flag, out mensaje);
                 
 
 
@@ -1020,13 +1023,13 @@ namespace Com.UI.Win
                 ProveedorCtaBco entidad = new ProveedorCtaBco();
                
                 entidad.ccm04emp = Logueo.CodigoEmpresa;
-                entidad.ccm04ctacod = txtRuc.Text.Trim();
-                entidad.ccm04idbanco = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04idbanco");
+                entidad.ccm04entidadcod = txtRuc.Text.Trim();
+                entidad.ccm04bancocod = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04bancocod");
                 entidad.ccm04descripcion = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04descripcion");
-                entidad.ccm04codigooficina = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04codigooficina");
+                entidad.ccm04oficinacod = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04oficinacod");
                 entidad.ccm04tipana = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04tipana");
-                entidad.ccm04idcuenta = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04idcuenta");
-                entidad.ccm04cci = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04cci");
+                entidad.ccm04nrocuenta = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04nrocuenta");
+                entidad.ccm04nrocuentacci = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04nrocuentacci");
                 entidad.ccm04tipocuenta = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04tipocuenta").Trim() ;
                 string ctaxdefectoValor = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04ctadefecto");
 
@@ -1044,11 +1047,13 @@ namespace Com.UI.Win
                 string esNuevo = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "flag");
                 if (esNuevo.Equals("0"))
                 {
+                    entidad.ccm04ctabcacod = "";
                     CuentaCorrienteLogic.Instance.InsertaCtaBancaria(entidad, out flag, out mensaje);
                     Util.ShowMessage(mensaje, flag);
                 }
                 else
                 {
+                    entidad.ccm04ctabcacod = Util.GetCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04ctabcacod");
                     CuentaCorrienteLogic.Instance.ActualizaCtaBancaria(entidad, out flag, out mensaje);
                     Util.ShowMessage(mensaje, flag);
                 }
@@ -1057,7 +1062,7 @@ namespace Com.UI.Win
                 //entidad.ccm04cci
                 //entidad.ccm04ctadefecto
                 //    entidad.ccm04moneda
-                cargarCtaBancaria(entidad.ccm04ctacod);
+                cargarCtaBancaria(entidad.ccm04entidadcod);
             }
             catch (Exception ex) {
                 Util.ShowError("Error en :" + ex.Message);
@@ -1098,7 +1103,7 @@ namespace Com.UI.Win
 
                     string[] datos = frm.Result.ToString().Split('|');
                     GridViewRowInfo fila = this.gridCuentasBancaria.CurrentRow;
-                    Util.SetValueCurrentCellText(fila, "ccm04idbanco", datos[0]);
+                    Util.SetValueCurrentCellText(fila, "ccm04bancocod", datos[0]);
                     Util.SetValueCurrentCellText(fila, "nombreBanco", datos[1]);
 
                 }
@@ -1308,13 +1313,13 @@ ccm04moneda
         private void gridCuentasBancaria_CellEndEdit(object sender, GridViewCellEventArgs e)
         {
             if (e.Column.Name.Equals("nombreTipoCuenta") |  e.Column.Name.Equals("nombreBanco") |
-                e.Column.Name.Equals("moneda") | e.Column.Name.Equals("ccm04idcuenta") ) 
+                e.Column.Name.Equals("moneda") | e.Column.Name.Equals("ccm04nrocuenta")) 
             {
                 string nomTipCuenta = "", nomBanco = "", moneda = "", idcuenta = "";
                 nomTipCuenta = Util.GetCurrentCellText(gridCuentasBancaria, "nombreTipoCuenta");
                 nomBanco = Util.GetCurrentCellText(gridCuentasBancaria, "nombreBanco");
                 moneda = Util.GetCurrentCellText(gridCuentasBancaria, "moneda");
-                idcuenta = Util.GetCurrentCellText(gridCuentasBancaria, "ccm04idcuenta");
+                idcuenta = Util.GetCurrentCellText(gridCuentasBancaria, "ccm04nrocuenta");
 
                 Util.SetValueCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04descripcion", nomTipCuenta + " " + nomBanco + " " + moneda + " " + idcuenta);
                 //Util.SetValueCurrentCellText(gridCuentasBancaria.CurrentRow, "ccm04descripcion", "");

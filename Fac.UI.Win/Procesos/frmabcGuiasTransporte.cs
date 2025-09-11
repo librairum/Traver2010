@@ -5735,8 +5735,8 @@ namespace Fac.UI.Win
                 despatch.LineCountNumeric.Add(linecountnumeric);
 
                 //9. AdditionalDocumentReference ***************
-                //despatch.AdditionalDocumentReference = new List<AdditionalDocumentReference>();
-                //AdditionalDocumentReference additional = new AdditionalDocumentReference();
+                ////despatch.AdditionalDocumentReference = new List<AdditionalDocumentReference>();
+                ////AdditionalDocumentReference additional = new AdditionalDocumentReference();
 
                 ////9.1 ID
                 //despatch.AdditionalDocumentReference.Add(additional);
@@ -16856,15 +16856,39 @@ namespace Fac.UI.Win
                 despatch.Note = new List<Note>();
                 Note note = new Note();
                 note._ = dt.Rows[0]["Note"].ToString();
-                if (note._ != "")
-                {
-                    despatch.Note.Add(note);
-                }
-                else
-                {
-                    despatch.Note = null;
-                }
 
+                //if (note._ != "")
+                //{
+                //    despatch.Note.Add(note);
+                //}
+                //else
+                //{
+                //    despatch.Note = null;
+                //}
+
+                //NUEVO
+                //ORDEN DE COMPRA
+
+                Note noteordencompra = new Note();
+                noteordencompra._ = dt.Rows[0]["Note_OCNRO"].ToString();
+                noteordencompra.languageID = dt.Rows[0]["languageID_OCNRO"].ToString(); 
+
+                //MARCA 
+                Note noteMARCA = new Note();
+                noteMARCA._ = dt.Rows[0]["Note_MARCA"].ToString();
+                noteMARCA.languageID = dt.Rows[0]["languageID_MARCA"].ToString(); ;
+
+                //MARCA 2
+                Note noteMARCA2 = new Note();
+                noteMARCA2._ = dt.Rows[0]["Note_MARCA2"].ToString();
+                noteMARCA2.languageID = dt.Rows[0]["languageID_MARCA2"].ToString(); ;
+                //END 
+
+
+                despatch.Note.Add(note);
+                despatch.Note.Add(noteordencompra);
+                despatch.Note.Add(noteMARCA);
+                despatch.Note.Add(noteMARCA2);
                 //8. LineCount  ***************
                 despatch.LineCountNumeric = new List<LineCountNumeric>();
                 LineCountNumeric linecountnumeric = new LineCountNumeric();
@@ -17178,11 +17202,6 @@ namespace Fac.UI.Win
                 CitySubdivisionName partySellerCitySubdivisionName = new CitySubdivisionName();
                 partySellerCitySubdivisionName._ = dt.Rows[0]["SellerSupplierParty_Party_PostalAddress_CitySubdivisionName__"].ToString();
 
-                //CITYNAME
-                partySellerPostaladdress.CityName = new List<CityName>();
-                CityName partySellerCityName = new CityName();
-                partySellerCityName._ = dt.Rows[0]["SellerSupplierParty_Party_PostalAddress_CityName__"].ToString();
-                partySellerPostaladdress.CityName.Add(partySellerCityName);
 
                 //COUNTRYSUBENTITY
                 partySellerPostaladdress.CountrySubentity = new List<CountrySubentity>();
@@ -17190,6 +17209,14 @@ namespace Fac.UI.Win
                 partySellerCountrySubentity._ = dt.Rows[0]["SellerSupplierParty_Party_PostalAddress_CountrySubentity__"].ToString();
                 partySellerPostaladdress.CountrySubentity.Add(partySellerCountrySubentity);
 
+
+                //CITYNAME
+                partySellerPostaladdress.CityName = new List<CityName>();
+                CityName partySellerCityName = new CityName();
+                partySellerCityName._ = dt.Rows[0]["SellerSupplierParty_Party_PostalAddress_CityName__"].ToString();
+                partySellerPostaladdress.CityName.Add(partySellerCityName);
+
+                
                 //DISTRICT 
                 partySellerPostaladdress.District = new List<District>();
                 District partySellerDistrict = new District();
@@ -17215,6 +17242,7 @@ namespace Fac.UI.Win
                 partySellerPartyLegalEntity.RegistrationName = new List<RegistrationName>();
                 RegistrationName partySellerPartyLegalEntityRegistrationName = new RegistrationName();
                 partySellerPartyLegalEntityRegistrationName._ = dt.Rows[0]["SellerSupplierParty_Party_PartyLegalEntity_RegistrationName_"].ToString();
+                partySellerPartyLegalEntity.RegistrationName.Add(partySellerPartyLegalEntityRegistrationName);
                 //END PARTYLEGALENTITY
 
 
@@ -17249,8 +17277,24 @@ namespace Fac.UI.Win
                 gross.unitCode = dt.Rows[0]["Shipment_GrossWeightMeasure_unitCode"].ToString();
                 shipment.GrossWeightMeasure.Add(gross);
 
+                //13.5 TotalTransportHandlingUnitQuantity
+                shipment.TotalTransportHandlingUnitQuantity = new List<TotalTransportHandlingUnitQuantity>();
+                TotalTransportHandlingUnitQuantity totaltransport = new TotalTransportHandlingUnitQuantity();
+                totaltransport._ = dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString();
+                shipment.TotalTransportHandlingUnitQuantity.Add(totaltransport);
+
                 //SpecialInstructions
-                if (dt.Rows[0]["INDICADORTRASLADOVEHICATM1"].ToString() == "1")
+                #region "codigo original"
+                //if (dt.Rows[0]["INDICADORTRASLADOVEHICATM1"].ToString() == "1")
+                //{
+
+                //    shipment.SpecialInstructions = new List<SpecialInstructions>();
+                //    SpecialInstructions shipmentSpecialInstrucions = new SpecialInstructions();
+                //    shipmentSpecialInstrucions._ = dt.Rows[0]["Shipment_SpecialInstructions_VehiculoM1oL__"].ToString();
+                //    shipment.SpecialInstructions.Add(shipmentSpecialInstrucions);
+                //}
+                #endregion
+                if (dt.Rows[0]["Shipment_SpecialInstructions_VehiculoM1oL__"].ToString() != "")
                 {
 
                     shipment.SpecialInstructions = new List<SpecialInstructions>();
@@ -17258,7 +17302,6 @@ namespace Fac.UI.Win
                     shipmentSpecialInstrucions._ = dt.Rows[0]["Shipment_SpecialInstructions_VehiculoM1oL__"].ToString();
                     shipment.SpecialInstructions.Add(shipmentSpecialInstrucions);
                 }
-
                 //END
                 //13.5 SHIPMENTSTAGE
                 shipment.ShipmentStage = new List<ShipmentStage>();
@@ -20291,27 +20334,39 @@ namespace Fac.UI.Win
                 _guia.FAC34MODATRASLADO = "02";
             }
 
-
-            if (txtcodmotivo.Text == "03")
+            if (esFlagProveedorDeisi == "N")
             {
-                //QUE OBTENGA DE LOS INPUTS DE PROVEEDOR                                 
-                // * codigo antiguo de actualizacion
-                //_guia.FAC34CODPROV = txtCodigoProv.Text.ToString().Trim();
-                //_guia.FAC34DESCPROV = txtRazonSoProv.Text.ToString().Trim();
-                //_guia.FAC34DIRECCPROV = txtDomiProv.Text.ToString().Trim();
-
-                //asignar valor en blanco a estos campos y solo se guardar los datos del proveedor por el tipo de comrpar
-                // se guardar los datos dle proveedor 
                 _guia.FAC34CODPROV = txtrucorigen.Text.Trim();
                 _guia.FAC34DESCPROV = txtrucorigenDes.Text.Trim();
                 _guia.FAC34DIRECCPROV = txtOriDirPartida.Text.Trim();
             }
-            else 
-            {
+            else {
                 _guia.FAC34CODPROV = "";
                 _guia.FAC34DESCPROV = "";
                 _guia.FAC34DIRECCPROV = "";
-            } 
+            }
+            #region "codigo antiguo"
+                //if (txtcodmotivo.Text == "03")
+                //{
+                //    //QUE OBTENGA DE LOS INPUTS DE PROVEEDOR                                 
+                //    // * codigo antiguo de actualizacion
+                //    //_guia.FAC34CODPROV = txtCodigoProv.Text.ToString().Trim();
+                //    //_guia.FAC34DESCPROV = txtRazonSoProv.Text.ToString().Trim();
+                //    //_guia.FAC34DIRECCPROV = txtDomiProv.Text.ToString().Trim();
+
+                //    //asignar valor en blanco a estos campos y solo se guardar los datos del proveedor por el tipo de comrpar
+                //    // se guardar los datos dle proveedor 
+                //    _guia.FAC34CODPROV = txtrucorigen.Text.Trim();
+                //    _guia.FAC34DESCPROV = txtrucorigenDes.Text.Trim();
+                //    _guia.FAC34DIRECCPROV = txtOriDirPartida.Text.Trim();
+                //}
+                //else 
+                //{
+                //    _guia.FAC34CODPROV = "";
+                //    _guia.FAC34DESCPROV = "";
+                //    _guia.FAC34DIRECCPROV = "";
+                //}
+            #endregion
         }
 
         //protected override void OnNuevo() 
@@ -21425,6 +21480,7 @@ namespace Fac.UI.Win
 
                             //debe traer datos de otros proveedores
                             frm = new frmBusqueda(enmAyuda.enmDestinatario);
+                            
 
                         }
                         else
@@ -21551,16 +21607,57 @@ namespace Fac.UI.Win
                 return false;
             }
 
-            if (txtrucorigen.Text == txtRucTransportista.Text && rbtPublico.IsChecked)
+            // motivo compra , proveedor Diesi NO 
+            if (esFlagProveedorDeisi == "S") 
             {
-                Util.ShowError("Ruc de origen es igual a Ruc del transportista, la modalidad de traslado es privada");
-                return false;
+
+                //para Transporte Publico: Ruc Origen <> Ruc Transportitsa
+                if (rbtPublico.IsChecked && txtrucorigen.Text == txtRucTransportista.Text)
+                {
+                    Util.ShowError("Para Transporte Publico, Ruc de origen debe ser Diferente a Ruc de transportista");
+                    return false;
+                }
+
+                //para Transporte Privado: Ruc Origen debe ser Igual  Ruc Transportitsa
+                if (rbtPrivado.IsChecked && txtrucorigen.Text != txtRucTransportista.Text)
+                {
+                    Util.ShowError("Para Transporte Privado, Ruc de origen debe ser igual  Ruc de transportista");
+                    return false;
+                }
             }
-            if (txtrucorigen.Text != txtRucTransportista.Text && rbtPrivado.IsChecked)
-            {
-                Util.ShowError("Ruc de origen es diferente a Ruc de transportista, la modalidad de traslado es publica");
-                return false;
+            else {
+                //motivo venta , proveedor Deisi SI
+                if (rbtPublico.IsChecked & txtrucdestino.Text == txtRucTransportista.Text) {
+                    Util.ShowError("Para Transporte Publico, Ruc de destino debe ser Diferente a Ruc de transportista");
+                    return false;
+                }
+                //para Transporte Privado: Ruc Origen debe ser Igual  Ruc Transportitsa
+                if (rbtPrivado.IsChecked && txtrucdestino.Text != txtRucTransportista.Text)
+                {
+                    Util.ShowError("Para Transporte Privado, Ruc de destino debe ser igual  Ruc de transportista");
+                    return false;
+                }
+
             }
+                //    //para Transporte Publico: Ruc Origen <> Ruc Transportitsa
+                //if (rbtPublico.IsChecked && txtrucdestino.Text == txtRucTransportista.Text)
+                //{
+                //    Util.ShowError("Para Transporte Publico, Ruc de origen debe ser Diferente a Ruc de transportista");
+                //    return false;
+                //}
+
+                ////para Transporte Privado: Ruc Origen debe ser Igual  Ruc Transportitsa
+                //if (rbtPrivado.IsChecked && txtrucdestino.Text != txtRucTransportista.Text)
+                //{
+                //    Util.ShowError("Para Transporte Privado, Ruc de origen debe ser igual  Ruc de transportista");
+                //    return false;
+                //}
+
+
+
+
+
+            
 
             if (string.IsNullOrEmpty(txtsubplantilla.Text.Trim())) { MessageBox.Show("Sub Plantilla No Valida"); txtsubplantilla.Focus(); return false; }
 
@@ -21622,7 +21719,7 @@ namespace Fac.UI.Win
 
                 if (string.IsNullOrEmpty(txtcodorigen.Text.Trim())) { MessageBox.Show("Establecimiento Origen No valido"); txtcodorigen.Focus(); return false; }
 
-                if (string.IsNullOrEmpty(txtsubplantillaDes.Text.Trim()) || txtsubplantillaDes.Text == "???") { MessageBox.Show("plantilla no  valida"); txtsubplantilla.Focus(); return false; }
+                //if (string.IsNullOrEmpty(txtsubplantillaDes.Text.Trim()) || txtsubplantillaDes.Text == "???") { MessageBox.Show("plantilla no  valida"); txtsubplantilla.Focus(); return false; }
 
 
                 if (string.IsNullOrEmpty(txttransportistaDes.Text.Trim()) || txttransportistaDes.Text == "???") { MessageBox.Show("Transportista No Valido"); txtRucTransportista.Focus(); return false; }

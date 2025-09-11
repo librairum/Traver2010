@@ -1657,7 +1657,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1260, 576);
+            this.ClientSize = new System.Drawing.Size(1260, 610);
             this.Controls.Add(this.btnAgregarReferencial);
             this.Controls.Add(this.PopupProveedor);
             this.Controls.Add(this.panelCabecera);
@@ -1677,7 +1677,7 @@
             this.Controls.Add(this.panelDestino);
             this.Controls.Add(this.rgpAnularGuiaRemision);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            //this.Name = "fabcGuiasTransporte";
+            this.Name = "fabcGuiasTransporte";
             // 
             // 
             // 

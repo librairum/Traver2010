@@ -22558,10 +22558,7 @@ namespace Fac.UI.Win
 
         private void txtcoddestino_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyValue == (char)Keys.F1)
-            {
-                cmdHelp_Click(enmAyuda.enmdestinaEstab);
-            }
+
         }
 
         private void txtcodorigen_KeyDown(object sender, KeyEventArgs e)
@@ -22832,7 +22829,7 @@ namespace Fac.UI.Win
 
                 string rucDestinoDesc = "";
                 txtClienteCod.Text = txtrucdestino.Text.Trim();
-                GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtrucdestino.Text.Trim(), "CLIENTE", out rucDestinoDesc);
+                GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisDestinatario + txtrucdestino.Text.Trim(), "CLIENTE", out rucDestinoDesc);
                 txtrucdestinnoDes.Text = rucDestinoDesc;
 
                 //string ClienteDesc = "";
@@ -23277,15 +23274,15 @@ namespace Fac.UI.Win
 
                     string ClienteDesc = "";
                     string ClienteFlagDescUsuario = "";
-
+                    //datos de la tabla cliente
                     txtClienteCod.Text = txtrucdestino.Text.Trim();
                     GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtClienteCod.Text.Trim(), "CLIENTE", out ClienteDesc);
                     txtClienteDesc.Text = ClienteDesc;
 
-
+                    //datos del destino , debe consulta a la tabla destino 
                     string rucDestinoDesc = "";
                     txtClienteCod.Text = txtrucdestino.Text.Trim();
-                    GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtrucdestino.Text.Trim(), "CLIENTE", out rucDestinoDesc);
+                    GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisDestinatario + txtrucdestino.Text.Trim(), "CLIENTE", out rucDestinoDesc);
                     txtrucdestinnoDes.Text = rucDestinoDesc;
 
                     GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtClienteCod.Text.Trim(), "CLIENTEFLAGDESC", out ClienteFlagDescUsuario);

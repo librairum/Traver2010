@@ -90,28 +90,24 @@
             // 
             resources.ApplyResources(this.radLabelElement3, "radLabelElement3");
             this.radLabelElement3.Name = "radLabelElement3";
-            this.radStatusStrip1.SetSpring(this.radLabelElement3, false);
             this.radLabelElement3.TextWrap = true;
             // 
             // lblUsuario
             // 
             resources.ApplyResources(this.lblUsuario, "lblUsuario");
             this.lblUsuario.Name = "lblUsuario";
-            this.radStatusStrip1.SetSpring(this.lblUsuario, false);
             this.lblUsuario.TextWrap = true;
             // 
             // commandBarSeparator1
             // 
             resources.ApplyResources(this.commandBarSeparator1, "commandBarSeparator1");
             this.commandBarSeparator1.Name = "commandBarSeparator1";
-            this.radStatusStrip1.SetSpring(this.commandBarSeparator1, false);
             this.commandBarSeparator1.VisibleInOverflowMenu = false;
             // 
             // radLabelElement4
             // 
             resources.ApplyResources(this.radLabelElement4, "radLabelElement4");
             this.radLabelElement4.Name = "radLabelElement4";
-            this.radStatusStrip1.SetSpring(this.radLabelElement4, false);
             this.radLabelElement4.TextWrap = true;
             this.radLabelElement4.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
             // 
@@ -119,21 +115,18 @@
             // 
             resources.ApplyResources(this.lblPerfil, "lblPerfil");
             this.lblPerfil.Name = "lblPerfil";
-            this.radStatusStrip1.SetSpring(this.lblPerfil, false);
             this.lblPerfil.TextWrap = true;
             // 
             // radLabelElement5
             // 
             resources.ApplyResources(this.radLabelElement5, "radLabelElement5");
             this.radLabelElement5.Name = "radLabelElement5";
-            this.radStatusStrip1.SetSpring(this.radLabelElement5, false);
             this.radLabelElement5.TextWrap = true;
             // 
             // lblNomEmpresa
             // 
             resources.ApplyResources(this.lblNomEmpresa, "lblNomEmpresa");
             this.lblNomEmpresa.Name = "lblNomEmpresa";
-            this.radStatusStrip1.SetSpring(this.lblNomEmpresa, false);
             this.lblNomEmpresa.TextWrap = true;
             // 
             // panel1

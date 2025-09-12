@@ -40,7 +40,12 @@ namespace Inv.UI.Win
                     cbbEliminar.Visibility = ElementVisibility.Visible;
                     commandBarSeparator1.Visibility = ElementVisibility.Visible;
                     break;
-
+                case BaseRegBotones.cbbGuardar:
+                    cbbGuardar.Visibility = ElementVisibility.Visible;
+                    break;
+                case BaseRegBotones.cbbCancelar:
+                    cbbCancelar.Visibility = ElementVisibility.Visible;
+                    break;
             }
         }
 

@@ -37,6 +37,8 @@ namespace Inv.UI.Win.Acceso
             //this.HabilitarBotones(ElementVisibility.Visible, ElementVisibility.Visible, ElementVisibility.Collapsed, ElementVisibility.Collapsed);
             //this.HabilitarBotones(true, true, false, false,false);
             //this.HabilitarRadBar(ElementVisibility.Visible, ElementVisibility.Collapsed);
+            OcultarBotones();
+            HabilitaBotonPorNombre(BaseRegBotones.cbbGuardar);
             txtUsuario.Text = Logueo.UserName;
             txtUsuario.Enabled = false;
                 FrmParent = padre;        

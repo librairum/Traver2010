@@ -35,8 +35,10 @@ namespace Com.UI.Win.Acceso
             OcultarBotones();
             txtUsuario.Text = Logueo.UserName;
             txtUsuario.Enabled = false;
-                FrmParent = padre;        
-            }
+                FrmParent = padre;
+                HabilitaBotonPorNombre(BaseRegBotones.cbbGuardar);
+                HabilitaBotonPorNombre(BaseRegBotones.cbbCancelar);
+         }
 
         private void cerrarFormulario() 
         {

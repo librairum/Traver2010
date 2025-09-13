@@ -1677,7 +1677,7 @@
             this.Controls.Add(this.panelDestino);
             this.Controls.Add(this.rgpAnularGuiaRemision);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "fabcGuiasTransporte";
+            //this.Name = "fabcGuiasTransporte";
             // 
             // 
             // 

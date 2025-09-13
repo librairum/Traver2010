@@ -22832,7 +22832,7 @@ namespace Fac.UI.Win
 
                 string rucDestinoDesc = "";
                 txtClienteCod.Text = txtrucdestino.Text.Trim();
-                GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtrucdestino.Text.Trim(), "CLIENTE", out rucDestinoDesc);
+                GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisDestinatario + txtrucdestino.Text.Trim(), "CLIENTE", out rucDestinoDesc);
                 txtrucdestinnoDes.Text = rucDestinoDesc;
 
                 //string ClienteDesc = "";
@@ -23277,15 +23277,15 @@ namespace Fac.UI.Win
 
                     string ClienteDesc = "";
                     string ClienteFlagDescUsuario = "";
-
+                    //datos de cliente asignado po defecton , incuido su descripcion
                     txtClienteCod.Text = txtrucdestino.Text.Trim();
                     GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtClienteCod.Text.Trim(), "CLIENTE", out ClienteDesc);
                     txtClienteDesc.Text = ClienteDesc;
 
-
+                    //analisis 15 destinatario
                     string rucDestinoDesc = "";
                     txtClienteCod.Text = txtrucdestino.Text.Trim();
-                    GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtrucdestino.Text.Trim(), "CLIENTE", out rucDestinoDesc);
+                    GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisDestinatario + txtrucdestino.Text.Trim(), "CLIENTE", out rucDestinoDesc);
                     txtrucdestinnoDes.Text = rucDestinoDesc;
 
                     GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtClienteCod.Text.Trim(), "CLIENTEFLAGDESC", out ClienteFlagDescUsuario);

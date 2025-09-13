@@ -331,7 +331,7 @@
             this.dtpFechaDoc.Size = new System.Drawing.Size(107, 23);
             this.dtpFechaDoc.TabIndex = 3;
             this.dtpFechaDoc.TabStop = false;
-            this.dtpFechaDoc.Text = "01/03/2013";
+            this.dtpFechaDoc.Text = "1/03/2013";
             this.dtpFechaDoc.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             this.dtpFechaDoc.ValueChanged += new System.EventHandler(this.dtpFechaDoc_ValueChanged);
             // 
@@ -1411,7 +1411,7 @@
             this.dtpFechaBaja.Size = new System.Drawing.Size(82, 20);
             this.dtpFechaBaja.TabIndex = 79;
             this.dtpFechaBaja.TabStop = false;
-            this.dtpFechaBaja.Text = "01/03/2013";
+            this.dtpFechaBaja.Text = "1/03/2013";
             this.dtpFechaBaja.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             // 
             // radLabel32
@@ -1657,7 +1657,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1260, 610);
+            this.ClientSize = new System.Drawing.Size(1260, 627);
             this.Controls.Add(this.btnAgregarReferencial);
             this.Controls.Add(this.PopupProveedor);
             this.Controls.Add(this.panelCabecera);

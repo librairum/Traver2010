@@ -292,3 +292,13 @@ D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLo
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\obj\Debug\Inv.BusinessLogic.csprojResolveAssemblyReference.cache
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\obj\Debug\Inv.BusinessLogic.dll
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\obj\Debug\Inv.BusinessLogic.pdb
+D:\trabajo\traver deisi\Traver2010\Inv.BusinessLogic\bin\Debug\Inv.BusinessLogic.dll
+D:\trabajo\traver deisi\Traver2010\Inv.BusinessLogic\bin\Debug\Inv.BusinessLogic.pdb
+D:\trabajo\traver deisi\Traver2010\Inv.BusinessLogic\bin\Debug\BLToolkit.4.dll
+D:\trabajo\traver deisi\Traver2010\Inv.BusinessLogic\bin\Debug\Inv.BusinessEntities.dll
+D:\trabajo\traver deisi\Traver2010\Inv.BusinessLogic\bin\Debug\Inv.DataAccess.dll
+D:\trabajo\traver deisi\Traver2010\Inv.BusinessLogic\bin\Debug\Inv.BusinessEntities.pdb
+D:\trabajo\traver deisi\Traver2010\Inv.BusinessLogic\bin\Debug\Inv.DataAccess.pdb
+D:\trabajo\traver deisi\Traver2010\Inv.BusinessLogic\obj\Debug\Inv.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\trabajo\traver deisi\Traver2010\Inv.BusinessLogic\obj\Debug\Inv.BusinessLogic.dll
+D:\trabajo\traver deisi\Traver2010\Inv.BusinessLogic\obj\Debug\Inv.BusinessLogic.pdb

@@ -163,6 +163,8 @@ D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEn
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\bin\Debug\BLToolkit.4.dll
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.dll
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.pdb
+<<<<<<< HEAD
+=======
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.csprojResolveAssemblyReference.cache
 D:\trabajo\traver deisi\Traver2010\Inv.BusinessEntities\bin\Debug\Inv.BusinessEntities.dll
 D:\trabajo\traver deisi\Traver2010\Inv.BusinessEntities\bin\Debug\Inv.BusinessEntities.pdb
@@ -176,3 +178,5 @@ D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010_nube\Traver201
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010_nube\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.dll
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010_nube\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.pdb
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010_nube\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.csprojResolveAssemblyReference.cache
+>>>>>>> e5c9c420b3478c1da3fd917b113680ed42ea6816
+>>>>>>> f1149c968adc23a01f9991c69e14c5d4e8a3fd05

@@ -23274,11 +23274,15 @@ namespace Fac.UI.Win
 
                     string ClienteDesc = "";
                     string ClienteFlagDescUsuario = "";
+
+                    //datos de cliente asignado po defecton , incuido su descripcion
                     //datos de la tabla cliente
                     txtClienteCod.Text = txtrucdestino.Text.Trim();
                     GlobalLogic.Instance.DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisCliente + txtClienteCod.Text.Trim(), "CLIENTE", out ClienteDesc);
                     txtClienteDesc.Text = ClienteDesc;
 
+
+                    //analisis 15 destinatario
                     //datos del destino , debe consulta a la tabla destino 
                     string rucDestinoDesc = "";
                     txtClienteCod.Text = txtrucdestino.Text.Trim();

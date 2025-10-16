@@ -262,7 +262,6 @@ D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\b
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.exe
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.pdb
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Debug\Microsoft.CSharp.dll
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csprojResolveAssemblyReference.cache
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.frmActualizacion.resources
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.Properties.Resources.resources
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csproj.GenerateResource.Cache
@@ -278,6 +277,7 @@ D:\trabajo\traver deisi\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.Propertie
 D:\trabajo\traver deisi\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csproj.GenerateResource.Cache
 D:\trabajo\traver deisi\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.exe
 D:\trabajo\traver deisi\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.pdb
+<<<<<<< HEAD
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010_nube\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.exe.config
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010_nube\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.exe
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010_nube\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.pdb
@@ -288,3 +288,6 @@ D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010_nube\Traver201
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010_nube\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csproj.GenerateResource.Cache
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010_nube\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.exe
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010_nube\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.pdb
+=======
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csprojResolveAssemblyReference.cache
+>>>>>>> f1149c968adc23a01f9991c69e14c5d4e8a3fd05

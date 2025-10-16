@@ -211,7 +211,7 @@
             this.rbTodo.Location = new System.Drawing.Point(416, 11);
             this.rbTodo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbTodo.Name = "rbTodo";
-            this.rbTodo.Size = new System.Drawing.Size(51, 17);
+            this.rbTodo.Size = new System.Drawing.Size(50, 17);
             this.rbTodo.TabIndex = 3;
             this.rbTodo.Text = "Todo";
             this.rbTodo.UseVisualStyleBackColor = true;
@@ -222,7 +222,7 @@
             this.label1.Location = new System.Drawing.Point(18, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Tipo :";
             // 
@@ -232,7 +232,7 @@
             this.rbOrdenTrabajo.Location = new System.Drawing.Point(258, 9);
             this.rbOrdenTrabajo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rbOrdenTrabajo.Name = "rbOrdenTrabajo";
-            this.rbOrdenTrabajo.Size = new System.Drawing.Size(99, 17);
+            this.rbOrdenTrabajo.Size = new System.Drawing.Size(98, 17);
             this.rbOrdenTrabajo.TabIndex = 1;
             this.rbOrdenTrabajo.Text = "Orden Trabajo";
             this.rbOrdenTrabajo.UseVisualStyleBackColor = true;

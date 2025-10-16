@@ -22558,7 +22558,10 @@ namespace Fac.UI.Win
 
         private void txtcoddestino_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyValue == (char)Keys.F1)
+            {
+                cmdHelp_Click(enmAyuda.enmdestinaEstab);
+            }
         }
 
         private void txtcodorigen_KeyDown(object sender, KeyEventArgs e)

@@ -1147,7 +1147,7 @@ namespace Prod.UI.Win.Procesos
             this.CreateGridColumn(grilla, "IN07SECUENCIA", "IN07SECUENCIA", 0, "", 0, true, false, false);
             this.CreateGridColumn(grilla, "Cod.Motivo", "IN07MOTIVOCOD", 0, "", 70, true, false, false);
             this.CreateGridColumn(grilla, "Motivo", "DesMotivo", 0, "", 60, false, true);
-
+            this.CreateGridColumn(grilla, "in07amarre", "in07amarre", 0, "", 60, false, true);
             string[] fieldstosummary = { "Operador", "Cantidad", "MTS2", "MTS3" };
             Util.AddGridSummarySum(gridControl, fieldstosummary);
             
@@ -2147,6 +2147,13 @@ namespace Prod.UI.Win.Procesos
                 Util.ShowAlert("Debe completar registro");
                 return;
             }
+            string amarre = Util.GetCurrentCellText(this.gridControl.CurrentRow, "in07amarre");
+            if (amarre.Equals("D"))
+            {
+                Util.ShowAlert("No se puede elminar/modificar el polvo de un producto resultante ," + Environment.NewLine
+                  + " elmine el origen");
+                return;
+            }
 
             try
             {
@@ -2195,6 +2202,13 @@ namespace Prod.UI.Win.Procesos
             if (HasRowToSave() > 0)
             {
                 Util.ShowAlert("Debe completar registro");
+                return;
+            }
+            string amarre = Util.GetCurrentCellText(this.gridControl.CurrentRow, "in07amarre");
+            //string amarre = gridControl.CurrentRow.Cells["in07amarre"].Value.ToString();
+            if (amarre.Equals("D")) {
+                Util.ShowAlert("No se puede elminar/modificar el polvo de un producto resultante ," + Environment.NewLine
+                  + " elmine el origen");
                 return;
             }
 
@@ -2647,13 +2661,61 @@ namespace Prod.UI.Win.Procesos
                     Util.ResaltarAyuda(rowInfo.Cells["CodigoArticulo"]);
                     Util.ResaltarAyuda(rowInfo.Cells["in07prodTurnoDesc"]);
                     //==== copiar la fila anterior de la grilla           
-                    int i = 0;
-                    foreach (GridViewCellInfo celda in gridControl.Rows[this.gridControl.CurrentRow.Index - 1].Cells)
-                    {
-                        this.gridControl.CurrentRow.Cells[i].Value = celda.Value;
-                        i++;
-                    }
 
+                     string codigoArticuloAnterior = "";
+                    codigoArticuloAnterior = gridControl.Rows[this.gridControl.CurrentRow.Index - 1].Cells["CodigoArticulo"].Value.ToString();
+                    int i = 0;
+                    if (codigoArticuloAnterior.Substring(0, 2) != "PT")
+                    {
+                        i = 0;
+                        foreach (GridViewCellInfo celda in gridControl.Rows[this.gridControl.CurrentRow.Index - 1].Cells)
+                        {
+                            this.gridControl.CurrentRow.Cells[i].Value = celda.Value;
+                            i++;
+                        }
+                    }
+                    //
+
+                    else
+                    {
+                        i = 0;
+                        foreach (GridViewCellInfo celda in gridControl.Rows[this.gridControl.CurrentRow.Index - 2].Cells)
+                        {
+                            this.gridControl.CurrentRow.Cells[i].Value = celda.Value;
+                            i++;
+                        }
+                    }
+                    ////validar si la ultima fila es polvo o producto resultante 
+                    //string codigoArticuloAnterior = "";
+                    //codigoArticuloAnterior = gridControl.Rows[this.gridControl.CurrentRow.Index - 1].Cells["CodigoArticulo"].Value.ToString();
+                    //if (codigoArticuloAnterior.Substring(0, 2) != "PT")
+                    //{
+                    //    int i = 0;
+                    //    foreach (GridViewCellInfo celda in gridControl.Rows[this.gridControl.CurrentRow.Index - 1].Cells)
+                    //    {
+                    //        this.gridControl.CurrentRow.Cells[i].Value = celda.Value;
+                    //        i++;
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    //buscar el productor anterior inmediato que no sea polvo
+                    //    int indiceFila = 0;
+                    //    foreach (GridViewRowInfo fila in gridControl.Rows) {
+                    //        string codigoArticulo = fila.Cells["CodigoArticulo"].Value.ToString();
+                    //        if (codigoArticulo.Substring(0, 2) != "PT") {
+                                
+                    //            int columnaIndice = 0;
+                    //            foreach (GridViewCellInfo celda in gridControl.Rows[indiceFila].Cells)
+                    //            {
+                    //                this.gridControl.CurrentRow.Cells[columnaIndice].Value = celda.Value;
+                    //                columnaIndice++;                                 
+                    //            }
+                    //        }
+                    //        indiceFila++;
+                    //        break;
+                    //    }
+                    //}
 
                     // ========================================= Asignando valores vacio o cero para la nueva fila  ========================================
                     rowInfo.Cells["Orden"].Value = 0;
@@ -3268,9 +3330,25 @@ namespace Prod.UI.Win.Procesos
         }
         private void gridMateriaPrima_CommandCellClick(object sender, EventArgs e)
         {
+          
             if (this.gridMateriaPrima.Columns["btnEliminarMat"].IsCurrent)
             {
-                EliminarMateriaPrima();
+                string flag = this.gridMateriaPrima.CurrentRow.Cells["flag"].Value.ToString();
+                
+                    if (flag == "S")
+                    {
+                        GridViewRowInfo fila =  this.gridMateriaPrima.CurrentRow;
+                        string codigoDocumento = "", tipoDocumento="", codigoProducto = "", nroCaja = "";
+                        codigoDocumento = fila.Cells["IN07DocIngCODDOC"].Value.ToString();
+                        tipoDocumento = fila.Cells["IN07DocIngTIPDOC"].Value.ToString();
+                        codigoProducto = fila.Cells["IN07DocIngKEY"].Value.ToString();
+                        nroCaja = fila.Cells["IN07NROCAJA"].Value.ToString();
+                        eliminarSaldo(tipoDocumento, codigoDocumento, codigoProducto, nroCaja);
+                    }
+                    else if (flag == "M")
+                    {
+                        EliminarMateriaPrima();
+                    }                                
             }
         }        
         private void gridMateriaPrima_KeyDown(object sender, KeyEventArgs e)
@@ -6148,6 +6226,17 @@ namespace Prod.UI.Win.Procesos
         private void TraerAyudaSaldoxBloque()
         { 
         }
+        private void eliminarSaldo(string tipoDocumento, 
+            string codigoDocumento, string codigoProducto, string nroCaja) {
+            double orden = 1;
+            string mensaje = "";
+            int flag = 0;
+            DocumentoLogic.Instance.EliminarSaldoxBloque(Logueo.CodigoEmpresa, Logueo.Anio, Logueo.Mes, tipoDocumento,
+                    codigoDocumento, codigoProducto, orden, nroCaja, out flag, out mensaje);
+            Util.ShowMessage(mensaje, flag);
+            CargarMPResumido();
+
+        }
         private void EliminarSaldoxBloque()
         {
             if (this.gridEscalla.Rows.Count == 0) { return; }
@@ -6227,7 +6316,10 @@ namespace Prod.UI.Win.Procesos
 
             //Si el flag es cero traer saldo x bloque desde la base de datos
             if (flag == 0)
+            {
                 TraerSaldoxBloque();
+                CargarMPResumido();
+            }
         }
         // ============================================== Boton para mostrar la ventan de insercion saldo x bloque ====================================================
         private void btnInsertarSaldoxBloque_Click(object sender, EventArgs e)
@@ -7249,6 +7341,7 @@ private bool flagResumenEdit = false; //  0 - > Asigna modo no editable ,1 -> As
 
             this.CreateGridColumn(GridResumenMP, "Area", "Area", 0, "{0:###,##0.00}", 70, true, false, true, true, "right");
             this.CreateGridColumn(GridResumenMP, "Volumen", "Volumen", 0, "{0:###,##0.00}", 70, true, false, true, true, "right");
+            this.CreateGridColumn(GridResumenMP, "flag", "flag", 0, "", 70, true, false, false, true, "right");
             this.gridMateriaPrima.MultiSelect = false;
             agregarBotonMateriaPrima();
 
@@ -7319,6 +7412,12 @@ private bool flagResumenEdit = false; //  0 - > Asigna modo no editable ,1 -> As
                 }
 
             }
+        }
+
+        private void btninformacionMerma_Click(object sender, EventArgs e)
+        {
+            string mensaje = "NOTA" + Environment.NewLine + "Merma acepta : {-5%; +5% }";
+            Util.ShowAlert(mensaje);
         }
              
     }

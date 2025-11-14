@@ -210,6 +210,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\RptLiquidacionMP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptLiquidacionMP.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RptTransacPPResValCostos.cs">
       <DependentUpon>RptTransacPPResValCostos.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -637,6 +643,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMDI.resx">
       <DependentUpon>frmMDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptLiquidacionMP.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptLiquidacionMP.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RptTransacPPResValCostos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

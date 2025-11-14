@@ -16,14 +16,14 @@ namespace Prod.UI.Win.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class RptProduccionXdiaDiario : ReportClass {
+    public class RptLiquidacionMP : ReportClass {
         
-        public RptProduccionXdiaDiario() {
+        public RptLiquidacionMP() {
         }
         
         public override string ResourceName {
             get {
-                return "RptProduccionXdiaDiario.rpt";
+                return "RptLiquidacionMP.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Prod.UI.Win.Reportes {
         
         public override string FullResourceName {
             get {
-                return "Prod.UI.Win.Reportes.RptProduccionXdiaDiario.rpt";
+                return "Prod.UI.Win.Reportes.RptLiquidacionMP.rpt";
             }
             set {
                 // Do nothing
@@ -82,17 +82,9 @@ namespace Prod.UI.Win.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection2 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[5];
+                return this.ReportDefinition.Sections[4];
             }
         }
         
@@ -114,7 +106,7 @@ namespace Prod.UI.Win.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_linea {
+        public CrystalDecisions.Shared.IParameterField Parameter_mes {
             get {
                 return this.DataDefinition.ParameterFields[2];
             }
@@ -122,41 +114,17 @@ namespace Prod.UI.Win.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_fechaini {
+        public CrystalDecisions.Shared.IParameterField Parameter_lineacod {
             get {
                 return this.DataDefinition.ParameterFields[3];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_fechafin {
-            get {
-                return this.DataDefinition.ParameterFields[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_flag {
-            get {
-                return this.DataDefinition.ParameterFields[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_XMLrango {
-            get {
-                return this.DataDefinition.ParameterFields[6];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedRptProduccionXdiaDiario : Component, ICachedReport {
+    public class CachedRptLiquidacionMP : Component, ICachedReport {
         
-        public CachedRptProduccionXdiaDiario() {
+        public CachedRptLiquidacionMP() {
         }
         
         [Browsable(false)]
@@ -193,7 +161,7 @@ namespace Prod.UI.Win.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            RptProduccionXdiaDiario rpt = new RptProduccionXdiaDiario();
+            RptLiquidacionMP rpt = new RptLiquidacionMP();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -260,7 +260,8 @@ namespace Inv.BusinessEntities
 
         [MapField("IN07CODTRAANTERIOR")]
         public string IN07CODTRAANTERIOR { get; set; }
-        
 
+        [MapField("IN07AMARRE")]
+        public string IN07AMARRE { get; set; }
     }
 }

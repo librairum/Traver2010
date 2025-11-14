@@ -72,8 +72,8 @@ namespace Inv.BusinessLogic
         
         //Se creo este metodo con el parametro tipoNatulera para filtrar los documento por movimiento y tipo de de naturaleza del mismo
         public List<TipoDocumento> TraerTipoDocumento2(string codigoEmpresa, string tipoMovimiento, string tipoNaturaleraza) {
-            //return Accessor.TraerTipoDocumento1(codigoEmpresa, "In12tipDoc"," In12TipMov = '" + tipoMovimiento + "'" + " And in12naturaleza = '" + tipoNaturaleraza + "'");
-            return Accessor.TraerTipoDocumento1(codigoEmpresa,tipoMovimiento,tipoNaturaleraza);
+            return Accessor.TraerTipoDocumento1(codigoEmpresa, "In12tipDoc", " In12TipMov = '" + tipoMovimiento + "'" + " And in12naturaleza = '" + tipoNaturaleraza + "'");
+            //return Accessor.TraerTipoDocumento1(codigoEmpresa, tipoMovimiento, tipoNaturaleraza);
         }
         public DataTable Trae_TipDocParaMov(string @In12CodEmp, string @in12naturaleza, string @in12TipMov) 
         {

@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetalleProduccion));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition9 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition10 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition11 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition12 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition13 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition14 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition15 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition16 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition17 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition18 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition19 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition20 = new Telerik.WinControls.UI.TableViewDefinition();
             this.office2013LightTheme1 = new Telerik.WinControls.Themes.Office2013LightTheme();
             this.rpTipoDocumento = new Telerik.WinControls.UI.RadPanel();
             this.txtDescripcionMaquina = new Telerik.WinControls.UI.RadTextBox();
@@ -182,6 +182,8 @@
             this.rpCabSaldos = new Telerik.WinControls.UI.RadPanel();
             this.btnRevisarSaldos = new Telerik.WinControls.UI.RadButton();
             this.radLabel22 = new Telerik.WinControls.UI.RadLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btninformacionMerma = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpTipoDocumento)).BeginInit();
             this.rpTipoDocumento.SuspendLayout();
@@ -648,7 +650,7 @@
             // 
             // 
             // 
-            this.gridOrdenTrabajo.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.gridOrdenTrabajo.MasterTemplate.ViewDefinition = tableViewDefinition11;
             this.gridOrdenTrabajo.Name = "gridOrdenTrabajo";
             this.gridOrdenTrabajo.Size = new System.Drawing.Size(527, 173);
             this.gridOrdenTrabajo.TabIndex = 0;
@@ -699,7 +701,7 @@
             // 
             // 
             // 
-            this.gridEscalla.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.gridEscalla.MasterTemplate.ViewDefinition = tableViewDefinition12;
             this.gridEscalla.Name = "gridEscalla";
             this.gridEscalla.NewRowEnterKeyMode = Telerik.WinControls.UI.RadGridViewNewRowEnterKeyMode.EnterMovesToNextCell;
             this.gridEscalla.Size = new System.Drawing.Size(680, 61);
@@ -869,7 +871,7 @@
             // 
             // 
             // 
-            this.gridMateriaPrima.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.gridMateriaPrima.MasterTemplate.ViewDefinition = tableViewDefinition13;
             this.gridMateriaPrima.Name = "gridMateriaPrima";
             this.gridMateriaPrima.Size = new System.Drawing.Size(817, 172);
             this.gridMateriaPrima.TabIndex = 0;
@@ -961,7 +963,7 @@
             // 
             // 
             // 
-            this.gridHorasMuerta.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.gridHorasMuerta.MasterTemplate.ViewDefinition = tableViewDefinition14;
             this.gridHorasMuerta.Name = "gridHorasMuerta";
             this.gridHorasMuerta.Size = new System.Drawing.Size(827, 131);
             this.gridHorasMuerta.TabIndex = 6;
@@ -1311,14 +1313,14 @@
             // 
             // 
             // 
-            gridViewTextBoxColumn1.EnableExpressionEditor = false;
-            gridViewTextBoxColumn1.HeaderText = "column1";
-            gridViewTextBoxColumn1.Name = "column1";
+            gridViewTextBoxColumn2.EnableExpressionEditor = false;
+            gridViewTextBoxColumn2.HeaderText = "column1";
+            gridViewTextBoxColumn2.Name = "column1";
             this.gridControl.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1});
+            gridViewTextBoxColumn2});
             this.gridControl.MasterTemplate.EnableGrouping = false;
             this.gridControl.MasterTemplate.EnableSorting = false;
-            this.gridControl.MasterTemplate.ViewDefinition = tableViewDefinition5;
+            this.gridControl.MasterTemplate.ViewDefinition = tableViewDefinition15;
             this.gridControl.Name = "gridControl";
             this.gridControl.Size = new System.Drawing.Size(1347, 254);
             this.gridControl.TabIndex = 4;
@@ -1356,7 +1358,7 @@
             // 
             // 
             // 
-            this.gridErroresDetalle.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            this.gridErroresDetalle.MasterTemplate.ViewDefinition = tableViewDefinition16;
             this.gridErroresDetalle.Name = "gridErroresDetalle";
             this.gridErroresDetalle.Size = new System.Drawing.Size(639, 127);
             this.gridErroresDetalle.TabIndex = 4;
@@ -1500,7 +1502,7 @@
             // 
             // 
             // 
-            this.gridExcel.MasterTemplate.ViewDefinition = tableViewDefinition7;
+            this.gridExcel.MasterTemplate.ViewDefinition = tableViewDefinition17;
             this.gridExcel.Name = "gridExcel";
             this.gridExcel.Size = new System.Drawing.Size(1284, 281);
             this.gridExcel.TabIndex = 0;
@@ -1517,7 +1519,7 @@
             // 
             // 
             // 
-            this.gridMensaje.MasterTemplate.ViewDefinition = tableViewDefinition8;
+            this.gridMensaje.MasterTemplate.ViewDefinition = tableViewDefinition18;
             this.gridMensaje.Name = "gridMensaje";
             this.gridMensaje.Size = new System.Drawing.Size(1284, 124);
             this.gridMensaje.TabIndex = 0;
@@ -1734,6 +1736,8 @@
             // 
             // rpMenuDetalle
             // 
+            this.rpMenuDetalle.Controls.Add(this.btninformacionMerma);
+            this.rpMenuDetalle.Controls.Add(this.label3);
             this.rpMenuDetalle.Controls.Add(this.btnInsertarSaldos);
             this.rpMenuDetalle.Controls.Add(this.btnResume);
             this.rpMenuDetalle.Controls.Add(this.btnInsertarErrores);
@@ -1812,11 +1816,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(338, 10);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 14;
-            this.label1.Text = "label1";
+            this.label1.Text = "Rendimiento";
             this.label1.Visible = false;
             // 
             // btnHoraMuerta
@@ -1964,7 +1968,7 @@
             // 
             // 
             // 
-            this.gridResumen.MasterTemplate.ViewDefinition = tableViewDefinition9;
+            this.gridResumen.MasterTemplate.ViewDefinition = tableViewDefinition19;
             this.gridResumen.Name = "gridResumen";
             this.gridResumen.Size = new System.Drawing.Size(803, 169);
             this.gridResumen.TabIndex = 2;
@@ -2028,7 +2032,7 @@
             // 
             // 
             // 
-            this.gridSaldos.MasterTemplate.ViewDefinition = tableViewDefinition10;
+            this.gridSaldos.MasterTemplate.ViewDefinition = tableViewDefinition20;
             this.gridSaldos.Name = "gridSaldos";
             this.gridSaldos.Size = new System.Drawing.Size(1283, 220);
             this.gridSaldos.TabIndex = 1;
@@ -2075,6 +2079,27 @@
             this.radLabel22.TabIndex = 4;
             this.radLabel22.Text = "SALDOS";
             this.radLabel22.ThemeName = "ControlDefault";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(159, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "merma:";
+            this.label3.Visible = false;
+            // 
+            // btninformacionMerma
+            // 
+            this.btninformacionMerma.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btninformacionMerma.Image = ((System.Drawing.Image)(resources.GetObject("btninformacionMerma.Image")));
+            this.btninformacionMerma.Location = new System.Drawing.Point(291, 0);
+            this.btninformacionMerma.Name = "btninformacionMerma";
+            this.btninformacionMerma.Size = new System.Drawing.Size(38, 28);
+            this.btninformacionMerma.TabIndex = 21;
+            this.btninformacionMerma.UseVisualStyleBackColor = false;
+            this.btninformacionMerma.Click += new System.EventHandler(this.btninformacionMerma_Click);
             // 
             // frmDetalleProduccion
             // 
@@ -2428,5 +2453,7 @@
         private Telerik.WinControls.UI.CommandBarButton cmbEliminarEscalla;
         private Telerik.WinControls.UI.RadButton btnInsertarSaldoxBloque;
         private Telerik.WinControls.UI.RadButton btnVerBloqueMerma;
+        private System.Windows.Forms.Button btninformacionMerma;
+        private System.Windows.Forms.Label label3;
     }
 }

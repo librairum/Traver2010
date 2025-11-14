@@ -76,6 +76,7 @@ namespace Inv.BusinessEntities
 
         [MapField("RedimientoRatio")]
         public double RedimientoRatio { get; set; }
-       
+
+        public string flag { get; set; }
     }
 }

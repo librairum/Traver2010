@@ -259,7 +259,10 @@ namespace Inv.BusinessLogic
                                                             @IN07CODALM, @XMLrango);
         }
 
-
+        public DataTable TraeSaldoMateriaPrima(string @empresa, string @anio, string @mes, string @lineacod)
+        {
+            return Accessor.TraeSaldoMateriaPrima(@empresa, @anio, @mes, @lineacod);
+        }
 
 
         #endregion

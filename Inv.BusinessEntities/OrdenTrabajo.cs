@@ -46,4 +46,10 @@ namespace Inv.BusinessEntities
         [MapField("DesTipoOT")]
         public string DesTipoOT { get; set; }
     }
+    //public class ReporteSaldoMateriaxOT
+    //{ 
+    //    //Spu_Inv_Trae_LiquidacionMateriaPrima
+    //    public string 
+    //}
+
 }

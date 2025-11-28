@@ -78,7 +78,7 @@
             // 
             // toolBar
             // 
-            this.toolBar.Size = new System.Drawing.Size(1171, 32);
+            this.toolBar.Size = new System.Drawing.Size(1171, 33);
             // 
             // radGroupBox3
             // 

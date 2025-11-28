@@ -132,6 +132,7 @@ namespace Inv.DataAccess
         [SprocName("Spu_Com_Trae_ComAyudaTiposDocumentos")]
         public abstract List<ComprasTipoDocumento> Spu_Com_Trae_ComAyudaTiposDocumentos(string @cEmpresa,string @cCampo,string @cFiltro);
 
-        
-}
+        [SprocName("Spu_Inv_Trae_LiquidacionMateriaPrima")]
+        public abstract DataTable TraeSaldoMateriaPrima(string @empresa, string @anio, string @mes, string @lineacod);
+    }
 }

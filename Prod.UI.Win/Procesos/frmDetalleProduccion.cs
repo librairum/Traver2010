@@ -254,6 +254,7 @@ namespace Prod.UI.Win.Procesos
             this.gridMateriaPrima.CurrentRowChanged += new CurrentRowChangedEventHandler(gridMateriaPrima_CurrentRowChanged);
             
             //this.gridControl.CurrentCell.
+            cargarTotalRendimientoyMerma();
         }
 
         void gridControl_GroupSummaryEvaluate(object sender, GroupSummaryEvaluationEventArgs e)
@@ -1152,6 +1153,7 @@ namespace Prod.UI.Win.Procesos
             Util.AddGridSummarySum(gridControl, fieldstosummary);
             
         }
+       
         // Traer los detalles de produccion filtrado por nro de orden de produccion.
         void cargarProductosDet()
         {
@@ -1163,6 +1165,15 @@ namespace Prod.UI.Win.Procesos
                 var lista = DocumentoLogic.Instance.TraerProduccionDetalle(Logueo.CodigoEmpresa, Logueo.Anio, Logueo.Mes, 
                                                                             txtCodTipoDocumento.Text.Trim(),txtNumeroDoc.Text.Trim(), ordenTrabajo);
                 this.gridControl.DataSource = lista;
+              
+
+                    //if (!valorVolumenProducido.Equals(""))
+                //{
+                //    this.lblMermavalor.Text = Convert.ToDouble(valorVolumenProducido).ToString() + "%";
+                //}
+                //if (!valorVolumenMateriaPrima.Equals("")) { 
+                //    this.lblMermavalor
+                //}
             }
             catch (Exception ex)
             {
@@ -1303,6 +1314,57 @@ namespace Prod.UI.Win.Procesos
             {
                 RadMessageBox.Show(ex.Message, "Sistema", MessageBoxButtons.OK, RadMessageIcon.Error);
             }
+        }
+
+        void cargarTotalRendimientoyMerma()
+        {
+            this.lblalertaProduccion.Text = "";
+            //valida si tiene consumido materia priam y tiene producto resultante
+            if (this.gridMateriaPrima.Rows.Count == 0 || this.gridControl.Rows.Count == 0) {
+                return;
+            }
+            string valorVolumenProducido =
+                  Util.convertiracadena(this.gridControl.MasterView.SummaryRows[0].Cells["MTS3"].Value);
+            string valorVolumenMateriaPrima =
+                Util.convertiracadena(this.gridMateriaPrima.MasterView.SummaryRows[0].Cells["Volumen"].Value);
+            valorVolumenMateriaPrima = valorVolumenMateriaPrima == "" ? "0" : valorVolumenMateriaPrima;
+            valorVolumenProducido = valorVolumenProducido == "" ? "0" : valorVolumenProducido;
+
+            double merma = 0, rendimiento = 0;
+            double volumenMateriaPrima = Convert.ToDouble(valorVolumenMateriaPrima);
+            double volumenProducido = Convert.ToDouble(valorVolumenProducido);
+        
+            this.lblMermavalor.Text = "0";
+            this.lblRendimientovalor.Text = "0";
+            
+            if (volumenProducido != 0 && volumenMateriaPrima != 0)
+            {
+                rendimiento = Math.Round((volumenProducido / volumenMateriaPrima), 2) * 100;
+                merma = Math.Round(((volumenMateriaPrima - volumenProducido) / volumenMateriaPrima), 2) * 100;
+                //Math.Truncate(
+                string mermaAceptada = "";
+                    
+                GlobalLogic.Instance.DameValorxDefecto(Logueo.CodigoEmpresa, "05", "00016", out mermaAceptada);
+                double valorMinimo = -1*Convert.ToDouble(mermaAceptada);
+                double valorMaximo = Convert.ToDouble(mermaAceptada);
+                if ((-1 * Convert.ToDouble(mermaAceptada)) <= merma && merma <= valorMaximo)
+                {
+                    this.lblMermavalor.Text = merma.ToString() + "%";
+                    this.lblRendimientovalor.Text = rendimiento.ToString() + "%";
+                    this.lblalertaProduccion.Text = "";
+                }
+                else {
+                    this.lblMermavalor.Text = merma.ToString() + "%";
+                    this.lblRendimientovalor.Text = rendimiento.ToString() + "%";
+                    this.lblalertaProduccion.Text = string.Format("Falta liquidar materia prima, la merma debe estar entre -{0}% y +{0}%",valorMaximo) ;
+       
+                    //GlobalLogic.Instance.TraerValorxDefecto(Logueo.CodigoEmpresa, "05",
+                }
+            
+                
+            }
+            
+            
         }
         #endregion
         //----------------------------------------------------------------------------CABECERA DE DOCUMENTO-----------------------------------------------------------
@@ -1502,6 +1564,11 @@ namespace Prod.UI.Win.Procesos
         #region "Controles de Cabecera Documento"
         private void frmDetalleProduccion_Load(object sender, EventArgs e)
         {
+            this.lblRendimientovalor.Text = "0%";
+            this.lblMermavalor.Text = "0%";
+            this.lblalertaProduccion.Text = "";
+            
+             //Convert.ToDouble(this.gridControl.MasterView.SummaryRows[0].Cells["MTS2"].Value);
             if (esEntrada)
             {
                 btnAdd.Enabled = (gridMateriaPrima.Rows.Count == 0) ? false : true;
@@ -2361,8 +2428,10 @@ namespace Prod.UI.Win.Procesos
             if (this.gridControl.Columns["btnCancelarDet"].IsCurrent)
             { cancelarDetProducto(); }
 
-            if (this.gridControl.Columns["btnEditarDet"].IsCurrent)
-            { editarDetProducto(); }
+            //if (this.gridControl.Columns["btnEditarDet"].IsCurrent)
+            //{ editarDetProducto(); }
+
+            this.cargarTotalRendimientoyMerma();
         }
         private void gridControl_CellFormatting(object sender, CellFormattingEventArgs e)
         {
@@ -2685,37 +2754,7 @@ namespace Prod.UI.Win.Procesos
                             i++;
                         }
                     }
-                    ////validar si la ultima fila es polvo o producto resultante 
-                    //string codigoArticuloAnterior = "";
-                    //codigoArticuloAnterior = gridControl.Rows[this.gridControl.CurrentRow.Index - 1].Cells["CodigoArticulo"].Value.ToString();
-                    //if (codigoArticuloAnterior.Substring(0, 2) != "PT")
-                    //{
-                    //    int i = 0;
-                    //    foreach (GridViewCellInfo celda in gridControl.Rows[this.gridControl.CurrentRow.Index - 1].Cells)
-                    //    {
-                    //        this.gridControl.CurrentRow.Cells[i].Value = celda.Value;
-                    //        i++;
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    //buscar el productor anterior inmediato que no sea polvo
-                    //    int indiceFila = 0;
-                    //    foreach (GridViewRowInfo fila in gridControl.Rows) {
-                    //        string codigoArticulo = fila.Cells["CodigoArticulo"].Value.ToString();
-                    //        if (codigoArticulo.Substring(0, 2) != "PT") {
-                                
-                    //            int columnaIndice = 0;
-                    //            foreach (GridViewCellInfo celda in gridControl.Rows[indiceFila].Cells)
-                    //            {
-                    //                this.gridControl.CurrentRow.Cells[columnaIndice].Value = celda.Value;
-                    //                columnaIndice++;                                 
-                    //            }
-                    //        }
-                    //        indiceFila++;
-                    //        break;
-                    //    }
-                    //}
+                    
 
                     // ========================================= Asignando valores vacio o cero para la nueva fila  ========================================
                     rowInfo.Cells["Orden"].Value = 0;
@@ -2749,7 +2788,7 @@ namespace Prod.UI.Win.Procesos
 
                     // ================================================== Enfocando la ultima fila  ==================================================
                     this.gridControl.CurrentRow = rowInfo;
-
+                    
                 }
             }
             catch (Exception)
@@ -2939,6 +2978,7 @@ namespace Prod.UI.Win.Procesos
                             gridMateriaPrima.Rows.Clear();
                             gridControl.Rows.Clear();
                         }
+                        this.cargarTotalRendimientoyMerma();
                        
                     }
                    
@@ -2974,7 +3014,7 @@ namespace Prod.UI.Win.Procesos
             
             //obtengo el codigo de una nueva OT            
             OrdenTrabajoLogic.Instance.TraerNumeroOT(Logueo.CodigoEmpresa, out codigo);
-            
+            this.lblalertaProduccion.Text = "";
             if (gridOrdenTrabajo.Rows.Count == 0)
             {
 
@@ -3036,7 +3076,8 @@ namespace Prod.UI.Win.Procesos
                 this.gridOrdenTrabajo.CurrentRow.Cells["productoObjetivo"].IsSelected = true;                
             }
             gridOrdenTrabajo.Focus();
-            SendKeys.Send("{TAB}"); 
+            SendKeys.Send("{TAB}");
+            this.cargarTotalRendimientoyMerma();
                                                             
         }
         private void gridOrdenTrabajo_CellMouseMove(object sender, MouseEventArgs e)
@@ -3082,7 +3123,7 @@ namespace Prod.UI.Win.Procesos
                 //Resaltar celdas de ayuda Color : Amarillo                
                 Util.ResaltarAyuda(this.gridMateriaPrima.CurrentRow.Cells["IN07CODALM"]);                
                 Util.ResaltarAyuda(this.gridMateriaPrima.CurrentRow.Cells["IN07NROCAJA"]);
-                
+
             }
             catch (Exception ex) { 
             
@@ -3333,8 +3374,9 @@ namespace Prod.UI.Win.Procesos
           
             if (this.gridMateriaPrima.Columns["btnEliminarMat"].IsCurrent)
             {
-                string flag = this.gridMateriaPrima.CurrentRow.Cells["flag"].Value.ToString();
-                
+                //string flag = this.gridMateriaPrima.CurrentRow.Cells["flag"].Value.ToString();
+                string flag = Util.convertiracadena(this.gridMateriaPrima.CurrentRow.Cells["flag"].Value);
+                if (!flag.Equals("")) { 
                     if (flag == "S")
                     {
                         GridViewRowInfo fila =  this.gridMateriaPrima.CurrentRow;
@@ -3344,11 +3386,14 @@ namespace Prod.UI.Win.Procesos
                         codigoProducto = fila.Cells["IN07DocIngKEY"].Value.ToString();
                         nroCaja = fila.Cells["IN07NROCAJA"].Value.ToString();
                         eliminarSaldo(tipoDocumento, codigoDocumento, codigoProducto, nroCaja);
+
                     }
                     else if (flag == "M")
                     {
                         EliminarMateriaPrima();
-                    }                                
+                    }
+                    this.cargarTotalRendimientoyMerma();
+                }
             }
         }        
         private void gridMateriaPrima_KeyDown(object sender, KeyEventArgs e)
@@ -3392,6 +3437,7 @@ namespace Prod.UI.Win.Procesos
 
             
             }
+            this.cargarTotalRendimientoyMerma();
 
         }        
         private void gridMateriaPrima_CellFormatting(object sender, CellFormattingEventArgs e)
@@ -3440,8 +3486,8 @@ namespace Prod.UI.Win.Procesos
             btnAddOT.Visible = false;
             btnAddMateria.Visible = false;
             btnAdd.Visible = false;
-            
-            
+
+            cargarTotalRendimientoyMerma();
         }
         void inserciondinamica()
         {
@@ -4827,7 +4873,7 @@ namespace Prod.UI.Win.Procesos
             hmd.PRO01HORAINICIO = horaInicio;
             string horaFin = this.txtHMHoraFin.Text;
             hmd.PRO01HORAFIN = horaFin;
-            hmd.PRO01FECHA = this.dtpFechaOT.Value;
+            hmd.PRO01FECHA = this.dtpHMFecha.Value;
             hmd.PRO01OBSERVACION = this.txtObservacionesHM.Text;
 
             string mensaje = "";
@@ -4870,7 +4916,7 @@ namespace Prod.UI.Win.Procesos
         {
             this.txtCodMotivo.Enabled = valor;
             this.txtDesMotivo.Enabled = false;
-            this.dtpHMFecha.Enabled = false;
+            this.dtpHMFecha.Enabled = valor;
             this.txtHMHoraInicio.Enabled = valor;
             this.txtHMHoraFin.Enabled = valor;
             this.txtObservacionesHM.Enabled = valor;
@@ -6873,6 +6919,7 @@ private bool flagResumenEdit = false; //  0 - > Asigna modo no editable ,1 -> As
                 {
                     Util.MostrarPopUp(popupSaldos, false);
                     cargarProductosDet();
+                    this.cargarTotalRendimientoyMerma();
                 }
                 
             }
@@ -7372,6 +7419,8 @@ private bool flagResumenEdit = false; //  0 - > Asigna modo no editable ,1 -> As
             List<Spu_Pro_Trae_SalidaMPResumida> lista = DocumentoLogic.Instance.TraerSalidaMPResumida(Logueo.CodigoEmpresa, 
                                                                                  Logueo.Anio, Logueo.Mes, nroordentrabajo);
             this.gridMateriaPrima.DataSource = lista;
+            
+            this.cargarTotalRendimientoyMerma();
         }
         #endregion
 

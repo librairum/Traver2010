@@ -288,6 +288,9 @@ namespace Prod.UI.Win
                         case "FRMVALORESXDEFECTO":
                             mostrarFormulario(formulario);
                             break;
+                        case "FRMREPSALDOMP":
+                            mostrarFormulario(formulario);
+                            break;
                         default:                        
                             this.Close();
                             break;
@@ -377,6 +380,8 @@ namespace Prod.UI.Win
                     return FrmRepTransaccionesPPVal.Instance(this);
                 case "FRMVALORESXDEFECTO":
                     return frmValoresxDefecto.Instance(this);
+                case "FRMREPSALDOMP":
+                    return FrmRepSaldoMP.Instance(this);
             }
 
             return null;

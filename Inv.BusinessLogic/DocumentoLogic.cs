@@ -469,8 +469,15 @@ namespace Inv.BusinessLogic
         }
         public void ActualizarProduccionDetalle(Movimiento mov, out int cflagReturn, out string @cMsgRetorno)
         {
-            Accessor.Spu_Pro_Upd_ProduccionDet(mov.CodigoEmpresa, mov.Anio, mov.Mes, mov.CodigoTipoDocumento, mov.CodigoAlmacen, mov.CodigoDocumento, mov.CodigoArticulo,
-                mov.Orden, mov.UnidadMedida, string.Format("{0:yyyyMMdd}", mov.FechaDoc, 103), mov.CodigoTransaccion, mov.Transaccion, mov.Largo, mov.Ancho, mov.Alto,
+            Accessor.Spu_Pro_Upd_ProduccionDet(mov.CodigoEmpresa, mov.Anio, mov.Mes, 
+                mov.CodigoTipoDocumento, mov.CodigoAlmacen, 
+                mov.CodigoDocumento, 
+                mov.CodigoArticulo,
+                mov.UnidadMedida,
+                string.Format("{0:yyyyMMdd}", mov.FechaDoc, 103), 
+                mov.Orden, 
+                mov.CodigoTransaccion
+                , mov.Transaccion, mov.Largo, mov.Ancho, mov.Alto,
                 mov.Cantidad, mov.NroCaja, mov.in07codcli, mov.OrdenProduccion, mov.Areaxuni, mov.IN07ORDENTRABAJO, mov.operador,
                 mov.IN07DocIngAA, mov.IN07DocIngMM, mov.IN07DocIngTIPDOC, mov.IN07DocIngCODDOC, mov.IN07DocIngKEY, mov.IN07DocIngORDEN,
                 mov.IN07HORASALIDA, mov.IN07NROCAJAINGRESO, mov.IN07HORAINICIO, mov.IN07HORAFINAL, string.Format("{0:yyyyMMdd}", mov.IN07FECHAPROCESO, 103),

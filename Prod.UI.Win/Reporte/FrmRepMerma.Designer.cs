@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.rgbOpcionFecha = new Telerik.WinControls.UI.RadGroupBox();
+            this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
+            this.rbtrendiymerma = new Telerik.WinControls.UI.RadRadioButton();
             this.rbFecha = new Telerik.WinControls.UI.RadRadioButton();
             this.cboperiodosfin = new Telerik.WinControls.UI.RadDropDownList();
             this.rbPeriodo = new Telerik.WinControls.UI.RadRadioButton();
@@ -38,11 +41,13 @@
             this.dtpFechaini = new Telerik.WinControls.UI.RadDateTimePicker();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.gridControl = new Telerik.WinControls.UI.RadGridView();
-            this.rbtrendiymerma = new Telerik.WinControls.UI.RadRadioButton();
-            this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
+            this.gridMermapivot = new Telerik.WinControls.UI.RadGridView();
             ((System.ComponentModel.ISupportInitialize)(this.toolBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgbOpcionFecha)).BeginInit();
             this.rgbOpcionFecha.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
+            this.radPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtrendiymerma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbFecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboperiodosfin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbPeriodo)).BeginInit();
@@ -52,9 +57,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl.MasterTemplate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rbtrendiymerma)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
-            this.radPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMermapivot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMermapivot.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,6 +86,24 @@
             this.rgbOpcionFecha.Size = new System.Drawing.Size(224, 469);
             this.rgbOpcionFecha.TabIndex = 8;
             this.rgbOpcionFecha.Text = "Opciones de fecha";
+            // 
+            // radPanel2
+            // 
+            this.radPanel2.Controls.Add(this.rbtrendiymerma);
+            this.radPanel2.Location = new System.Drawing.Point(13, 219);
+            this.radPanel2.Name = "radPanel2";
+            this.radPanel2.Size = new System.Drawing.Size(200, 100);
+            this.radPanel2.TabIndex = 18;
+            // 
+            // rbtrendiymerma
+            // 
+            this.rbtrendiymerma.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.rbtrendiymerma.Location = new System.Drawing.Point(14, 12);
+            this.rbtrendiymerma.Name = "rbtrendiymerma";
+            this.rbtrendiymerma.Size = new System.Drawing.Size(169, 18);
+            this.rbtrendiymerma.TabIndex = 17;
+            this.rbtrendiymerma.Text = "Rendimiento y Merma Bloque";
+            this.rbtrendiymerma.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
             // 
             // rbFecha
             // 
@@ -147,40 +169,34 @@
             // 
             // gridControl
             // 
-            this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl.Location = new System.Drawing.Point(224, 33);
             // 
             // 
             // 
             this.gridControl.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(508, 469);
+            this.gridControl.Size = new System.Drawing.Size(508, 188);
             this.gridControl.TabIndex = 9;
             this.gridControl.Text = "radGridView1";
             // 
-            // rbtrendiymerma
+            // gridMermapivot
             // 
-            this.rbtrendiymerma.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.rbtrendiymerma.Location = new System.Drawing.Point(14, 12);
-            this.rbtrendiymerma.Name = "rbtrendiymerma";
-            this.rbtrendiymerma.Size = new System.Drawing.Size(169, 18);
-            this.rbtrendiymerma.TabIndex = 17;
-            this.rbtrendiymerma.Text = "Rendimiento y Merma Bloque";
-            this.rbtrendiymerma.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
+            this.gridMermapivot.Location = new System.Drawing.Point(230, 292);
             // 
-            // radPanel2
             // 
-            this.radPanel2.Controls.Add(this.rbtrendiymerma);
-            this.radPanel2.Location = new System.Drawing.Point(13, 219);
-            this.radPanel2.Name = "radPanel2";
-            this.radPanel2.Size = new System.Drawing.Size(200, 100);
-            this.radPanel2.TabIndex = 18;
+            // 
+            this.gridMermapivot.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.gridMermapivot.Name = "gridMermapivot";
+            this.gridMermapivot.Size = new System.Drawing.Size(508, 188);
+            this.gridMermapivot.TabIndex = 10;
+            this.gridMermapivot.Text = "radGridView1";
             // 
             // FrmRepMerma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(732, 502);
+            this.Controls.Add(this.gridMermapivot);
             this.Controls.Add(this.gridControl);
             this.Controls.Add(this.rgbOpcionFecha);
             this.Name = "FrmRepMerma";
@@ -191,10 +207,15 @@
             this.Text = "Reporte de merma";
             this.Controls.SetChildIndex(this.rgbOpcionFecha, 0);
             this.Controls.SetChildIndex(this.gridControl, 0);
+            this.Controls.SetChildIndex(this.gridMermapivot, 0);
             ((System.ComponentModel.ISupportInitialize)(this.toolBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgbOpcionFecha)).EndInit();
             this.rgbOpcionFecha.ResumeLayout(false);
             this.rgbOpcionFecha.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).EndInit();
+            this.radPanel2.ResumeLayout(false);
+            this.radPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rbtrendiymerma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbFecha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboperiodosfin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbPeriodo)).EndInit();
@@ -204,10 +225,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rbtrendiymerma)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).EndInit();
-            this.radPanel2.ResumeLayout(false);
-            this.radPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMermapivot.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMermapivot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -226,5 +245,6 @@
         private Telerik.WinControls.UI.RadGridView gridControl;
         private Telerik.WinControls.UI.RadPanel radPanel2;
         private Telerik.WinControls.UI.RadRadioButton rbtrendiymerma;
+        private Telerik.WinControls.UI.RadGridView gridMermapivot;
     }
 }

@@ -158,6 +158,9 @@
             this.rpProduccionGrilla = new Telerik.WinControls.UI.RadPanel();
             this.rpDocRespaldo = new Telerik.WinControls.UI.RadPanel();
             this.rpMenuDetalle = new Telerik.WinControls.UI.RadPanel();
+            this.lblalertaProduccion = new System.Windows.Forms.Label();
+            this.lblMermavalor = new System.Windows.Forms.Label();
+            this.lblRendimientovalor = new System.Windows.Forms.Label();
             this.btninformacionMerma = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnInsertarSaldos = new Telerik.WinControls.UI.RadButton();
@@ -609,7 +612,7 @@
             this.rpOrdenTrabajo.Dock = System.Windows.Forms.DockStyle.Top;
             this.rpOrdenTrabajo.Location = new System.Drawing.Point(0, 0);
             this.rpOrdenTrabajo.Name = "rpOrdenTrabajo";
-            this.rpOrdenTrabajo.Size = new System.Drawing.Size(527, 22);
+            this.rpOrdenTrabajo.Size = new System.Drawing.Size(480, 22);
             this.rpOrdenTrabajo.TabIndex = 6;
             // 
             // btnAddOT
@@ -617,7 +620,7 @@
             this.btnAddOT.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAddOT.Image = ((System.Drawing.Image)(resources.GetObject("btnAddOT.Image")));
             this.btnAddOT.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAddOT.Location = new System.Drawing.Point(490, 0);
+            this.btnAddOT.Location = new System.Drawing.Point(443, 0);
             this.btnAddOT.Name = "btnAddOT";
             this.btnAddOT.Size = new System.Drawing.Size(37, 22);
             this.btnAddOT.TabIndex = 10;
@@ -652,7 +655,7 @@
             // 
             this.gridOrdenTrabajo.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.gridOrdenTrabajo.Name = "gridOrdenTrabajo";
-            this.gridOrdenTrabajo.Size = new System.Drawing.Size(527, 173);
+            this.gridOrdenTrabajo.Size = new System.Drawing.Size(480, 173);
             this.gridOrdenTrabajo.TabIndex = 0;
             this.gridOrdenTrabajo.TabStop = false;
             this.gridOrdenTrabajo.Text = "radGridView1";
@@ -873,7 +876,7 @@
             // 
             this.gridMateriaPrima.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.gridMateriaPrima.Name = "gridMateriaPrima";
-            this.gridMateriaPrima.Size = new System.Drawing.Size(817, 172);
+            this.gridMateriaPrima.Size = new System.Drawing.Size(867, 172);
             this.gridMateriaPrima.TabIndex = 0;
             this.gridMateriaPrima.TabStop = false;
             this.gridMateriaPrima.Text = "radGridView1";
@@ -1619,11 +1622,12 @@
             this.btnAddMateria.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAddMateria.Image = ((System.Drawing.Image)(resources.GetObject("btnAddMateria.Image")));
             this.btnAddMateria.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAddMateria.Location = new System.Drawing.Point(780, 0);
+            this.btnAddMateria.Location = new System.Drawing.Point(830, 0);
             this.btnAddMateria.Name = "btnAddMateria";
             this.btnAddMateria.Size = new System.Drawing.Size(37, 23);
             this.btnAddMateria.TabIndex = 11;
             this.btnAddMateria.ThemeName = "Office2013Light";
+            this.toolTip1.SetToolTip(this.btnAddMateria, "Agregar materia prima");
             this.btnAddMateria.Click += new System.EventHandler(this.btnAddMateria_Click);
             // 
             // lblnroOT
@@ -1644,7 +1648,7 @@
             this.rpControlOrden.Dock = System.Windows.Forms.DockStyle.Left;
             this.rpControlOrden.Location = new System.Drawing.Point(0, 0);
             this.rpControlOrden.Name = "rpControlOrden";
-            this.rpControlOrden.Size = new System.Drawing.Size(527, 195);
+            this.rpControlOrden.Size = new System.Drawing.Size(480, 195);
             this.rpControlOrden.TabIndex = 20;
             // 
             // rpControlMateriaPrima
@@ -1652,9 +1656,9 @@
             this.rpControlMateriaPrima.Controls.Add(this.gridMateriaPrima);
             this.rpControlMateriaPrima.Controls.Add(this.rpBotonesMateriaPrima);
             this.rpControlMateriaPrima.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rpControlMateriaPrima.Location = new System.Drawing.Point(527, 0);
+            this.rpControlMateriaPrima.Location = new System.Drawing.Point(480, 0);
             this.rpControlMateriaPrima.Name = "rpControlMateriaPrima";
-            this.rpControlMateriaPrima.Size = new System.Drawing.Size(817, 195);
+            this.rpControlMateriaPrima.Size = new System.Drawing.Size(867, 195);
             this.rpControlMateriaPrima.TabIndex = 21;
             // 
             // rpBotonesMateriaPrima
@@ -1668,7 +1672,7 @@
             this.rpBotonesMateriaPrima.Dock = System.Windows.Forms.DockStyle.Top;
             this.rpBotonesMateriaPrima.Location = new System.Drawing.Point(0, 0);
             this.rpBotonesMateriaPrima.Name = "rpBotonesMateriaPrima";
-            this.rpBotonesMateriaPrima.Size = new System.Drawing.Size(817, 23);
+            this.rpBotonesMateriaPrima.Size = new System.Drawing.Size(867, 23);
             this.rpBotonesMateriaPrima.TabIndex = 5;
             // 
             // btnVerBloqueMerma
@@ -1677,7 +1681,7 @@
             this.btnVerBloqueMerma.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnVerBloqueMerma.Image = ((System.Drawing.Image)(resources.GetObject("btnVerBloqueMerma.Image")));
             this.btnVerBloqueMerma.ImageAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnVerBloqueMerma.Location = new System.Drawing.Point(669, 0);
+            this.btnVerBloqueMerma.Location = new System.Drawing.Point(719, 0);
             this.btnVerBloqueMerma.Name = "btnVerBloqueMerma";
             this.btnVerBloqueMerma.Size = new System.Drawing.Size(37, 23);
             this.btnVerBloqueMerma.TabIndex = 16;
@@ -1691,7 +1695,7 @@
             this.btnInsertarSaldoxBloque.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnInsertarSaldoxBloque.Image = ((System.Drawing.Image)(resources.GetObject("btnInsertarSaldoxBloque.Image")));
             this.btnInsertarSaldoxBloque.ImageAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnInsertarSaldoxBloque.Location = new System.Drawing.Point(706, 0);
+            this.btnInsertarSaldoxBloque.Location = new System.Drawing.Point(756, 0);
             this.btnInsertarSaldoxBloque.Name = "btnInsertarSaldoxBloque";
             this.btnInsertarSaldoxBloque.Size = new System.Drawing.Size(37, 23);
             this.btnInsertarSaldoxBloque.TabIndex = 15;
@@ -1704,11 +1708,12 @@
             this.btnInsertarEscalla.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnInsertarEscalla.Image = ((System.Drawing.Image)(resources.GetObject("btnInsertarEscalla.Image")));
             this.btnInsertarEscalla.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnInsertarEscalla.Location = new System.Drawing.Point(743, 0);
+            this.btnInsertarEscalla.Location = new System.Drawing.Point(793, 0);
             this.btnInsertarEscalla.Name = "btnInsertarEscalla";
             this.btnInsertarEscalla.Size = new System.Drawing.Size(37, 23);
             this.btnInsertarEscalla.TabIndex = 14;
             this.btnInsertarEscalla.ThemeName = "Office2013Light";
+            this.toolTip1.SetToolTip(this.btnInsertarEscalla, "Insertar escalla");
             // 
             // rpProduccionGrilla
             // 
@@ -1736,6 +1741,9 @@
             // 
             // rpMenuDetalle
             // 
+            this.rpMenuDetalle.Controls.Add(this.lblalertaProduccion);
+            this.rpMenuDetalle.Controls.Add(this.lblMermavalor);
+            this.rpMenuDetalle.Controls.Add(this.lblRendimientovalor);
             this.rpMenuDetalle.Controls.Add(this.btninformacionMerma);
             this.rpMenuDetalle.Controls.Add(this.label3);
             this.rpMenuDetalle.Controls.Add(this.btnInsertarSaldos);
@@ -1752,26 +1760,55 @@
             this.rpMenuDetalle.Size = new System.Drawing.Size(1347, 28);
             this.rpMenuDetalle.TabIndex = 3;
             // 
+            // lblalertaProduccion
+            // 
+            this.lblalertaProduccion.AutoSize = true;
+            this.lblalertaProduccion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblalertaProduccion.ForeColor = System.Drawing.Color.Red;
+            this.lblalertaProduccion.Location = new System.Drawing.Point(335, 8);
+            this.lblalertaProduccion.Name = "lblalertaProduccion";
+            this.lblalertaProduccion.Size = new System.Drawing.Size(108, 13);
+            this.lblalertaProduccion.TabIndex = 24;
+            this.lblalertaProduccion.Text = "lblalertaproduccion";
+            // 
+            // lblMermavalor
+            // 
+            this.lblMermavalor.AutoSize = true;
+            this.lblMermavalor.Location = new System.Drawing.Point(220, 9);
+            this.lblMermavalor.Name = "lblMermavalor";
+            this.lblMermavalor.Size = new System.Drawing.Size(22, 13);
+            this.lblMermavalor.TabIndex = 23;
+            this.lblMermavalor.Text = "0%";
+            // 
+            // lblRendimientovalor
+            // 
+            this.lblRendimientovalor.AutoSize = true;
+            this.lblRendimientovalor.Location = new System.Drawing.Point(91, 8);
+            this.lblRendimientovalor.Name = "lblRendimientovalor";
+            this.lblRendimientovalor.Size = new System.Drawing.Size(22, 13);
+            this.lblRendimientovalor.TabIndex = 22;
+            this.lblRendimientovalor.Text = "0%";
+            // 
             // btninformacionMerma
             // 
-            this.btninformacionMerma.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btninformacionMerma.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btninformacionMerma.Image = ((System.Drawing.Image)(resources.GetObject("btninformacionMerma.Image")));
             this.btninformacionMerma.Location = new System.Drawing.Point(291, 0);
             this.btninformacionMerma.Name = "btninformacionMerma";
             this.btninformacionMerma.Size = new System.Drawing.Size(38, 28);
             this.btninformacionMerma.TabIndex = 21;
+            this.toolTip1.SetToolTip(this.btninformacionMerma, "informacion de valores merma permitido");
             this.btninformacionMerma.UseVisualStyleBackColor = false;
             this.btninformacionMerma.Click += new System.EventHandler(this.btninformacionMerma_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(159, 9);
+            this.label3.Location = new System.Drawing.Point(170, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 20;
             this.label3.Text = "merma:";
-            this.label3.Visible = false;
             // 
             // btnInsertarSaldos
             // 
@@ -1842,7 +1879,6 @@
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 14;
             this.label1.Text = "Rendimiento";
-            this.label1.Visible = false;
             // 
             // btnHoraMuerta
             // 
@@ -2455,5 +2491,8 @@
         private Telerik.WinControls.UI.RadButton btnVerBloqueMerma;
         private System.Windows.Forms.Button btninformacionMerma;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblMermavalor;
+        private System.Windows.Forms.Label lblRendimientovalor;
+        private System.Windows.Forms.Label lblalertaProduccion;
     }
 }

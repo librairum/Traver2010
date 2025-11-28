@@ -64,6 +64,8 @@ namespace Prod.UI.Win
             rbPeriodo.CheckState = CheckState.Checked;
             CrearColumnas();
             CargarContratista();
+            this.gridMermapivot.AutoGenerateColumns = true;
+            this.gridMermapivot.DataSource = LineaLogic.Instance.LineaTraer(Logueo.CodigoEmpresa);
         }
         public FrmRepMerma(frmMDI padre)
         {

@@ -324,6 +324,12 @@
       <DependentUpon>RptTransacPPRes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reporte\FrmRepSaldoMP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\FrmRepSaldoMP.Designer.cs">
+      <DependentUpon>FrmRepSaldoMP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\FrmRepTransaccionesPPVal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -719,6 +725,9 @@
     <EmbeddedResource Include="Reportes\RptTransacPPRes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptTransacPPRes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\FrmRepSaldoMP.resx">
+      <DependentUpon>FrmRepSaldoMP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\FrmRepTransaccionesPPVal.resx">
       <DependentUpon>FrmRepTransaccionesPPVal.cs</DependentUpon>

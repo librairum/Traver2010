@@ -1064,19 +1064,6 @@ D:\trabajo\traver deisi\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.csproj.Gene
 D:\trabajo\traver deisi\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.exe.licenses
 D:\trabajo\traver deisi\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.exe
 D:\trabajo\traver deisi\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.pdb
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Prod.UI.Win.exe.config
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Prod.UI.Win.exe
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Prod.UI.Win.pdb
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Inv.BusinessEntities.dll
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Inv.BusinessLogic.dll
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Microsoft.ReportViewer.Common.dll
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Microsoft.ReportViewer.WinForms.dll
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\BLToolkit.4.dll
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Inv.DataAccess.dll
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Inv.BusinessEntities.pdb
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Inv.BusinessLogic.pdb
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Microsoft.ReportViewer.WinForms.xml
-D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Inv.DataAccess.pdb
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.csprojResolveAssemblyReference.cache
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.Acceso.frmCambiarClave.resources
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.Acceso.frmLogin.resources
@@ -1087,6 +1074,7 @@ D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\ob
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.frmErroresComunes.resources
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.FrmHoraMuerta.resources
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.frmMDI.resources
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.FrmRepSaldoMP.resources
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.FrmRepTransaccionesPPVal.resources
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.FrmRepKardexPPVal.resources
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.FrmPPStockVal.resources
@@ -1122,5 +1110,18 @@ D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\ob
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.FrmValidacionPP.resources
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.csproj.GenerateResource.Cache
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.exe.licenses
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Prod.UI.Win.exe.config
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Prod.UI.Win.exe
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Prod.UI.Win.pdb
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Inv.BusinessEntities.dll
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Inv.BusinessLogic.dll
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\BLToolkit.4.dll
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Inv.DataAccess.dll
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Inv.BusinessEntities.pdb
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Inv.BusinessLogic.pdb
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Microsoft.ReportViewer.WinForms.xml
+D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Inv.DataAccess.pdb
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.exe
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.pdb

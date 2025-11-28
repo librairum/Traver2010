@@ -208,7 +208,9 @@ namespace Prod.UI.Win
                                                                  Logueo.Mes, cboLineas.SelectedValue.ToString());
             this.gridControl.DataSource = lista;
             rbPeriodo.CheckState = CheckState.Checked;
-            
+
+            //this.gridMermapivot.AutoGenerateColumns = true;
+            //this.gridMermapivot.DataSource = LineaLogic.Instance.LineaTraer(Logueo.CodigoEmpresa);
         }
 
         public FrmRepRendimiento(frmMDI padre)

@@ -34,10 +34,10 @@ namespace Inv.BusinessLogic
         }
         #endregion
 
-        public List<AsientoTipo> TraerCabAsientoTipo(string @FAC08CODEMP,
+        public List<AsientoTipo> TraerCabAsientoTipo(string @FAC08CODEMP,string @anio,
         string @campo, string @filro)
         {
-            return Accessor.Spu_Fact_Trae_FAC08_CABASIENTOTIPO(@FAC08CODEMP, @campo, @filro);
+            return Accessor.Spu_Fact_Trae_FAC08_CABASIENTOTIPO(@FAC08CODEMP, @anio ,@campo, @filro);
         }
 
 

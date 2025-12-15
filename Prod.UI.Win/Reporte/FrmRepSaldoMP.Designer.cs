@@ -153,6 +153,7 @@
             this.gridControl.Size = new System.Drawing.Size(1171, 388);
             this.gridControl.TabIndex = 11;
             this.gridControl.Text = "radGridView1";
+            this.gridControl.DataBindingComplete += new Telerik.WinControls.UI.GridViewBindingCompleteEventHandler(this.gridControl_DataBindingComplete);
             // 
             // FrmRepSaldoMP
             // 

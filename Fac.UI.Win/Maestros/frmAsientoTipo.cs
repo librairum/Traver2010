@@ -141,7 +141,7 @@ namespace Fac.UI.Win
         {
             try
             {
-                this.gridControl.DataSource = dato.TraerCabAsientoTipo(Logueo.CodigoEmpresa,
+                this.gridControl.DataSource = dato.TraerCabAsientoTipo(Logueo.CodigoEmpresa,Logueo.Anio,
                                                "FAC08CODEMP", "*");
             }
             catch (Exception ex)

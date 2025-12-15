@@ -1058,6 +1058,12 @@ namespace Fac.UI.Win
                 //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.1
                 //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
                 //ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
+                #region "metodo prueba Efact"
+                /*
+                 * 
+                 DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST_prueba");
+                 */
+                #endregion
                 DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST");
                 string urlpost1 = dt.Rows[0]["URL"].ToString();
 
@@ -2409,7 +2415,7 @@ namespace Fac.UI.Win
 
 
 
-                ////CARRIERPARTY - PARTYLEGALENTITY
+                ////CARRIERPARTY - 
                 //CarrierParty.PartyLegalEntity = new List<PartyLegalEntity>();
                 //PartyLegalEntity partyLegalEntity = new PartyLegalEntity();
                 //CarrierParty.PartyLegalEntity.Add(partyLegalEntity);

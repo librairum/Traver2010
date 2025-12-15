@@ -12,7 +12,7 @@ namespace Inv.DataAccess
     public abstract class AsientoTipoAccesor : AccessorBase<AsientoTipoAccesor>
     {
         [SprocName("Spu_Fact_Trae_FAC08_CABASIENTOTIPO")]
-        public abstract List<AsientoTipo> Spu_Fact_Trae_FAC08_CABASIENTOTIPO(string @FAC08CODEMP,
+        public abstract List<AsientoTipo> Spu_Fact_Trae_FAC08_CABASIENTOTIPO(string @FAC08CODEMP,string @anio,
         string @campo,string @filro);
 
         [SprocName("Spu_Fact_Ins_FAC08_CABASIENTOTIPO")]

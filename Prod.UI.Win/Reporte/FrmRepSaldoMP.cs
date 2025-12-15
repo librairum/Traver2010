@@ -196,11 +196,18 @@ namespace Prod.UI.Win
                 string mes = periodoInicial.Substring(4, 2);
                 //string periodoFinal = this.cboperiodosfin.SelectedValue.ToString();
 
-                 
+                Cursor.Current = Cursors.WaitCursor;
                 string codigoLinea = this.cboLineas.SelectedValue.ToString();
                 this.gridControl.DataSource = TipoDocumentoLogic.Instance.TraeSaldoMateriaPrima(Logueo.CodigoEmpresa,
                     anio, mes, codigoLinea);
                 this.gridControl.BestFitColumns();
+                Cursor.Current = Cursors.Default;
+                //gridControl.Columns[18].TextAlignment = ContentAlignment.BottomRight;
+                //foreach (GridViewColumn columna in this.gridControl.Columns)
+                //{
+                //    Console.WriteLine("columa:" + columna.Name);
+                //}
+                //this.gridControl.Columns["rendimiento"].TextAlignment = ContentAlignment.MiddleRight;
             }
             catch (Exception ex) {
                 Util.ShowError(ex.Message);
@@ -226,6 +233,7 @@ namespace Prod.UI.Win
             this.gridControl.AutoGenerateColumns = true;
             this.gridControl.AllowEditRow = false;
 
+            
             //cv.AllowAddNewRow = false;
             //cv.ShowGroupPanel = false;
             //cv.AllowDragToGroup = false;
@@ -480,6 +488,7 @@ namespace Prod.UI.Win
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             CargarOrdenesTrabajo();
+
         }
 
         private void cboLineas_SelectedValueChanged(object sender, EventArgs e)
@@ -507,6 +516,11 @@ namespace Prod.UI.Win
         private void btnCopiarTodo_Click(object sender, EventArgs e)
         {
             SeleccionarTodoFilas();
+        }
+
+        private void gridControl_DataBindingComplete(object sender, GridViewBindingCompleteEventArgs e)
+        {
+            //this.gridControl.Columns["rendimiento"].TextAlignment = ContentAlignment.MiddleRight;
         }
     }
 }

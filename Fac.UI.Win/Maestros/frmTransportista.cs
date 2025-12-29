@@ -52,7 +52,7 @@ namespace Fac.UI.Win.Maestros
             txttipdoc.Enabled = valor;
             txTEntidadEmisora.Enabled = valor;
             txtNroRegistroMTC.Enabled = valor;
-            txtTarjetaUnicaCirculacion.Enabled = valor;
+            //txtTarjetaUnicaCirculacion.Enabled = valor;
             txtEntidadAyuda.Enabled = valor;
             
             
@@ -70,7 +70,7 @@ namespace Fac.UI.Win.Maestros
             cuenta.ccm02tipdocidentidad = txttipdoc.Text.Trim();
             cuenta.ccm02EntidadEmiCod = txtEntidadAyuda.Text.Trim();
             cuenta.ccm02NroRegistroMTC = txtNroRegistroMTC.Text.Trim();
-            cuenta.ccm02TarjetaUnicaCirculacion = txtTarjetaUnicaCirculacion.Text.Trim();
+            //cuenta.ccm02TarjetaUnicaCirculacion = txtTarjetaUnicaCirculacion.Text.Trim();
         }
         protected override void OnNuevo()
         {
@@ -145,7 +145,7 @@ namespace Fac.UI.Win.Maestros
             txttipdoc.Text = "";
             txTEntidadEmisora.Text = "";
             txtNroRegistroMTC.Text = "";
-            txtTarjetaUnicaCirculacion.Text = "";
+            //txtTarjetaUnicaCirculacion.Text = "";
 
         }
                 
@@ -291,7 +291,7 @@ namespace Fac.UI.Win.Maestros
                 lbltipdoc.Text = Util.GetCurrentCellText(gridControl, "TipDocDesc");
                 txtEntidadAyuda.Text = Util.GetCurrentCellText(gridControl, "ccm02EntidadEmiCod");
                 txtNroRegistroMTC.Text = Util.GetCurrentCellText(gridControl, "ccm02NroRegistroMTC");
-                txtTarjetaUnicaCirculacion.Text = Util.GetCurrentCellText(gridControl, "ccm02TarjetaUnicaCirculacion");
+                //txtTarjetaUnicaCirculacion.Text = Util.GetCurrentCellText(gridControl, "ccm02TarjetaUnicaCirculacion");
                 //1 //LIBRETA ELECTORAL O DNI
                 //6 //REG.UNICO DE CONTRIBUYENTES
                 string codigoDescripcion = Convert.ToString(37 + txtEntidadAyuda.Text);

@@ -26,6 +26,8 @@ namespace Inv.BusinessEntities
         public string FAC69CodTransportista { get; set; }
         [MapField("FAC69Codchofer")]
         public string FAC69Codchofer { get; set; }
+        [MapField("FAC69TUCE")]
+        public string FAC69TUCE { get; set; }
         
         /*
          FAC69Empresa	FAC69codigo	FAC69MarcaRemolque	FAC69PlacaRemolque	FAC69MarcaSemiRemolque	FAC69PlacaSemiRemolque	FAC69CodTransportista	FAC69Codchofer

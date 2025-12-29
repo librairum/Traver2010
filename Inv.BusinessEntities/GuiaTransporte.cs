@@ -265,7 +265,12 @@ namespace Inv.BusinessEntities
         [MapField("FAC66FLAGPROVEEDORDEISI")]
         public string FAC66FLAGPROVEEDORDEISI { get; set; }
 
-
+         [MapField("FAC34TARJETAUNICACIRCULACION")]
+         public string FAC34TARJETAUNICACIRCULACION {get;set;}
+         
+         [MapField("FAC34NROREGISTROMTC")]
+         public string FAC34NROREGISTROMTC {get;set;}
+         
 
 
     }

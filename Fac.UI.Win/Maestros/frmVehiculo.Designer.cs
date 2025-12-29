@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVehiculo));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
             this.pnlCabecera = new Telerik.WinControls.UI.RadPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txttuce = new Telerik.WinControls.UI.RadTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDesConductor = new Telerik.WinControls.UI.RadTextBox();
@@ -57,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlCabecera)).BeginInit();
             this.pnlCabecera.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txttuce)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDesConductor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMarcaRemolque)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDesTransp)).BeginInit();
@@ -147,6 +150,8 @@
             // 
             // pnlCabecera
             // 
+            this.pnlCabecera.Controls.Add(this.label3);
+            this.pnlCabecera.Controls.Add(this.txttuce);
             this.pnlCabecera.Controls.Add(this.label1);
             this.pnlCabecera.Controls.Add(this.label2);
             this.pnlCabecera.Controls.Add(this.txtDesConductor);
@@ -174,10 +179,28 @@
             this.pnlCabecera.TabIndex = 0;
             this.pnlCabecera.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCabecera_Paint);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 26);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Tarjeta unica \r\nCirculacion Vehicular(TUCE)";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txttuce
+            // 
+            this.txttuce.Location = new System.Drawing.Point(153, 97);
+            this.txttuce.Name = "txttuce";
+            this.txttuce.Size = new System.Drawing.Size(169, 20);
+            this.txttuce.TabIndex = 34;
+            this.txttuce.Tag = "0";
+            // 
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(0, 97);
+            this.label1.Location = new System.Drawing.Point(-2, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(502, 2);
             this.label1.TabIndex = 33;
@@ -195,14 +218,14 @@
             // txtDesConductor
             // 
             this.txtDesConductor.Enabled = false;
-            this.txtDesConductor.Location = new System.Drawing.Point(249, 123);
+            this.txtDesConductor.Location = new System.Drawing.Point(250, 153);
             this.txtDesConductor.Name = "txtDesConductor";
             this.txtDesConductor.Size = new System.Drawing.Size(225, 20);
             this.txtDesConductor.TabIndex = 28;
             // 
             // txtMarcaRemolque
             // 
-            this.txtMarcaRemolque.Location = new System.Drawing.Point(148, 52);
+            this.txtMarcaRemolque.Location = new System.Drawing.Point(153, 52);
             this.txtMarcaRemolque.Name = "txtMarcaRemolque";
             this.txtMarcaRemolque.Size = new System.Drawing.Size(169, 20);
             this.txtMarcaRemolque.TabIndex = 3;
@@ -210,14 +233,14 @@
             // txtDesTransp
             // 
             this.txtDesTransp.Enabled = false;
-            this.txtDesTransp.Location = new System.Drawing.Point(249, 101);
+            this.txtDesTransp.Location = new System.Drawing.Point(250, 131);
             this.txtDesTransp.Name = "txtDesTransp";
             this.txtDesTransp.Size = new System.Drawing.Size(225, 20);
             this.txtDesTransp.TabIndex = 27;
             // 
             // txtCodConductor
             // 
-            this.txtCodConductor.Location = new System.Drawing.Point(147, 123);
+            this.txtCodConductor.Location = new System.Drawing.Point(148, 153);
             this.txtCodConductor.Name = "txtCodConductor";
             this.txtCodConductor.Size = new System.Drawing.Size(97, 20);
             this.txtCodConductor.TabIndex = 8;
@@ -241,7 +264,7 @@
             // 
             // txtCodTransportista
             // 
-            this.txtCodTransportista.Location = new System.Drawing.Point(147, 101);
+            this.txtCodTransportista.Location = new System.Drawing.Point(148, 131);
             this.txtCodTransportista.Name = "txtCodTransportista";
             this.txtCodTransportista.Size = new System.Drawing.Size(97, 20);
             this.txtCodTransportista.TabIndex = 7;
@@ -258,7 +281,7 @@
             // 
             // radLabel8
             // 
-            this.radLabel8.Location = new System.Drawing.Point(44, 123);
+            this.radLabel8.Location = new System.Drawing.Point(45, 153);
             this.radLabel8.Name = "radLabel8";
             this.radLabel8.Size = new System.Drawing.Size(91, 18);
             this.radLabel8.TabIndex = 26;
@@ -290,7 +313,7 @@
             // 
             // radLabel7
             // 
-            this.radLabel7.Location = new System.Drawing.Point(63, 103);
+            this.radLabel7.Location = new System.Drawing.Point(64, 133);
             this.radLabel7.Name = "radLabel7";
             this.radLabel7.Size = new System.Drawing.Size(77, 18);
             this.radLabel7.TabIndex = 24;
@@ -321,7 +344,7 @@
             // 
             // txtMarcaSemi
             // 
-            this.txtMarcaSemi.Location = new System.Drawing.Point(148, 74);
+            this.txtMarcaSemi.Location = new System.Drawing.Point(153, 74);
             this.txtMarcaSemi.Name = "txtMarcaSemi";
             this.txtMarcaSemi.Size = new System.Drawing.Size(169, 20);
             this.txtMarcaSemi.TabIndex = 5;
@@ -341,7 +364,7 @@
             // 
             // 
             // 
-            this.gridControl.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.gridControl.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.gridControl.Name = "gridControl";
             this.gridControl.Size = new System.Drawing.Size(486, 400);
             this.gridControl.TabIndex = 4;
@@ -386,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlCabecera)).EndInit();
             this.pnlCabecera.ResumeLayout(false);
             this.pnlCabecera.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txttuce)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDesConductor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMarcaRemolque)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDesTransp)).EndInit();
@@ -442,5 +466,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Telerik.WinControls.UI.RadPanel radPanel1;
+        private System.Windows.Forms.Label label3;
+        private Telerik.WinControls.UI.RadTextBox txttuce;
     }
 }

@@ -40,14 +40,14 @@ namespace Inv.BusinessLogic
         public void InsertarVehiculo(Vehiculo vehiculo, out string @msgretorno) {            
                 Accessor.InsertarVehiculo(vehiculo.FAC69Empresa, vehiculo.FAC69codigo, vehiculo.FAC69MarcaRemolque,
                  vehiculo.FAC69PlacaRemolque, vehiculo.FAC69MarcaSemiRemolque, vehiculo.FAC69PlacaSemiRemolque,
-                 vehiculo.FAC69CodTransportista, vehiculo.FAC69Codchofer, out  @msgretorno);
+                 vehiculo.FAC69CodTransportista, vehiculo.FAC69Codchofer, vehiculo.FAC69TUCE, out  @msgretorno);
         }
 
         public void ActualizarVehiculo(Vehiculo vehiculo, out  string @msgretorno) { 
             
         Accessor.ActualizarVehiculo( vehiculo.FAC69Empresa,  vehiculo.FAC69codigo,  vehiculo.FAC69MarcaRemolque,
              vehiculo.FAC69PlacaRemolque,  vehiculo.FAC69MarcaSemiRemolque,  vehiculo.FAC69PlacaSemiRemolque,
-             vehiculo.FAC69CodTransportista,  vehiculo.FAC69Codchofer, out @msgretorno);
+             vehiculo.FAC69CodTransportista,  vehiculo.FAC69Codchofer, vehiculo.FAC69TUCE,out @msgretorno);
         }
 
 

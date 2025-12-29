@@ -98,7 +98,10 @@ namespace Inv.DataAccess
                                                             string @FAC34OBSERVACION, string @FAC34ESTADO, string @FAC34FECHAINITRASLADO,
                                                             string @FAC34REFERENCIA, string @FAC34CONTENEDOR, string @FAC34PRECINTO,
                                                             string @FAC34FLAGORIPROD, string @FAC34CLICOD, string @FAC34OCTIPCOD,
-                                                            string @FAC34OCNRO, string @FAC34ESTADOPROCESOCOD, string @FAC34INDITRASLADOVEHICATM1, string @FAC34MODATRASLADO, string @FAC34CODPROV, string @FAC34DESCPROV, string @FAC34DIRECCPROV, string @xmldocrelacionados,
+                                                            string @FAC34OCNRO, string @FAC34ESTADOPROCESOCOD, string @FAC34INDITRASLADOVEHICATM1, 
+                                                            string @FAC34MODATRASLADO, string @FAC34CODPROV, string @FAC34DESCPROV, 
+                                                            string @FAC34DIRECCPROV, string @xmldocrelacionados,
+                                                            string @FAC34NROREGISTROMTC, string @FAC34TARJETAUNICACIRCULACION,
                                                             out int @flag, out string @msgretorno);
         [SprocName("Spu_Fact_Upd_FAC34_GUIAREMISION")]
         public abstract void Spu_Fact_Upd_FAC34_GUIAREMISION(string @FAC34CODEMP, string @FAC01COD, string @FAC34NROGUIA, string @FAC34SERIEGUIA,
@@ -114,7 +117,10 @@ namespace Inv.DataAccess
                                                                     string @FAC34OBSERVACION, string @FAC34ESTADO, string @FAC34FECHAINITRASLADO,
                                                                     string @FAC34REFERENCIA, string @FAC34CONTENEDOR, string @FAC34PRECINTO,
                                                                     string @FAC34FLAGORIPROD, string @FAC34CLICOD, string @FAC34OCTIPCOD,
-                                                                    string @FAC34OCNRO, string @FAC34ESTADOPROCESOCOD, string @FAC34INDITRASLADOVEHICATM1, string @FAC34MODATRASLADO, string @FAC34CODPROV, string @FAC34DESCPROV, string @FAC34DIRECCPROV, string @xmldocrelacionados,
+                                                                    string @FAC34OCNRO, string @FAC34ESTADOPROCESOCOD, string @FAC34INDITRASLADOVEHICATM1, 
+                                                                    string @FAC34MODATRASLADO, string @FAC34CODPROV, string @FAC34DESCPROV, 
+                                                                    string @FAC34DIRECCPROV, string @xmldocrelacionados,
+                                                                    string @FAC34NROREGISTROMTC,string @FAC34TARJETAUNICACIRCULACION,
                                                                     out int @flag, out string @msgretorno);
 
         [SprocName("Spu_Fact_Upd_EstadoGuia")]

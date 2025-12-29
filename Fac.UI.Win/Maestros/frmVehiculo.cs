@@ -86,7 +86,8 @@ namespace Fac.UI.Win.Maestros
             txtPlacaSemi.Text = "";
             txtMarcaSemi.Text = "";
             txtCodConductor.Text = "";
-            txtCodTransportista.Text = "";            
+            txtCodTransportista.Text = "";
+            txttuce.Text = "";
         }
         private void habilitaCtrl(bool valor)
         {
@@ -98,6 +99,7 @@ namespace Fac.UI.Win.Maestros
             txtMarcaSemi.Enabled = valor;
             txtCodTransportista.Enabled = valor;
             txtCodConductor.Enabled = valor;
+            txttuce.Enabled = valor;
         }
 
         private void deshabilitaBotones()
@@ -121,6 +123,7 @@ namespace Fac.UI.Win.Maestros
             CreateGridColumn(dgv, "Conductor",  "FAC69Codchofer", 0,"",100);
             CreateGridColumn(dgv, "Marca Semi",  "FAC69MarcaSemiRemolque", 0,"",200,true,false,false);
             CreateGridColumn(dgv, "Placa Semi",  "FAC69PlacaSemiRemolque", 0,"",200,true,false,false);
+            CreateGridColumn(dgv, "Tar.Unica.Circulacion", "FAC69TUCE", 0, "", 200, true, false, true);
             //CreateGridColumn(dgv, "", "codigoVehiculo", 0, "", 1, true, false, true);
         }
         private void OnCargar() {            
@@ -146,6 +149,7 @@ namespace Fac.UI.Win.Maestros
                 txtCodConductor.Text = fila.Cells["FAC69Codchofer"].Value.ToString();
                 txtMarcaSemi.Text = fila.Cells["FAC69MarcaSemiRemolque"].Value == null ? "" : fila.Cells["FAC69MarcaSemiRemolque"].Value.ToString();
                 txtPlacaSemi.Text = fila.Cells["FAC69PlacaSemiRemolque"].Value == null ? "" : fila.Cells["FAC69PlacaSemiRemolque"].Value.ToString();
+                txttuce.Text = fila.Cells["FAC69TUCE"].Value == null ? "" : fila.Cells["FAC69TUCE"].Value.ToString();
             }
             catch (Exception ex) { 
             
@@ -241,6 +245,7 @@ namespace Fac.UI.Win.Maestros
             vehiculo.FAC69Codchofer = txtCodConductor.Text.Trim();
             vehiculo.FAC69MarcaSemiRemolque = txtMarcaSemi.Text.Trim();
             vehiculo.FAC69PlacaSemiRemolque = txtPlacaSemi.Text.Trim();
+            vehiculo.FAC69TUCE = txttuce.Text.Trim();
             
         }
         protected override void OnEliminar()

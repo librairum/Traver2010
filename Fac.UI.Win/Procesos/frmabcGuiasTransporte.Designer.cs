@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fabcGuiasTransporte));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.panelCabecera = new Telerik.WinControls.UI.RadPanel();
             this.dtpFechaDoc = new Telerik.WinControls.UI.RadDateTimePicker();
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
@@ -109,6 +109,8 @@
             this.panelTransportista = new Telerik.WinControls.UI.RadPanel();
             this.chkTrasladoM1oL = new Telerik.WinControls.UI.RadCheckBox();
             this.panelVehiculo = new Telerik.WinControls.UI.RadPanel();
+            this.txtTarjetaUnicaCirculacion = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel40 = new Telerik.WinControls.UI.RadLabel();
             this.txtClienteCod = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel23 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel24 = new Telerik.WinControls.UI.RadLabel();
@@ -152,6 +154,8 @@
             this.radLabel35 = new Telerik.WinControls.UI.RadLabel();
             this.btnModificarPeso = new Telerik.WinControls.UI.RadButton();
             this.btnAgregarReferencial = new Telerik.WinControls.UI.RadButton();
+            this.txtnroregmtc = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel41 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelCabecera)).BeginInit();
             this.panelCabecera.SuspendLayout();
@@ -241,6 +245,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkTrasladoM1oL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelVehiculo)).BeginInit();
             this.panelVehiculo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTarjetaUnicaCirculacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel40)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtClienteCod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel23)).BeginInit();
             this.radLabel23.SuspendLayout();
@@ -295,6 +301,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel35)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnModificarPeso)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarReferencial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtnroregmtc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel41)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -331,7 +339,7 @@
             this.dtpFechaDoc.Size = new System.Drawing.Size(107, 23);
             this.dtpFechaDoc.TabIndex = 3;
             this.dtpFechaDoc.TabStop = false;
-            this.dtpFechaDoc.Text = "1/03/2013";
+            this.dtpFechaDoc.Text = "01/03/2013";
             this.dtpFechaDoc.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             this.dtpFechaDoc.ValueChanged += new System.EventHandler(this.dtpFechaDoc_ValueChanged);
             // 
@@ -756,7 +764,7 @@
             // 
             // radLabel15
             // 
-            this.radLabel15.Location = new System.Drawing.Point(299, 55);
+            this.radLabel15.Location = new System.Drawing.Point(213, 55);
             this.radLabel15.Name = "radLabel15";
             this.radLabel15.Size = new System.Drawing.Size(38, 18);
             this.radLabel15.TabIndex = 30;
@@ -765,9 +773,9 @@
             // txtplacasemiremolque
             // 
             this.txtplacasemiremolque.Enabled = false;
-            this.txtplacasemiremolque.Location = new System.Drawing.Point(343, 55);
+            this.txtplacasemiremolque.Location = new System.Drawing.Point(253, 55);
             this.txtplacasemiremolque.Name = "txtplacasemiremolque";
-            this.txtplacasemiremolque.Size = new System.Drawing.Size(133, 20);
+            this.txtplacasemiremolque.Size = new System.Drawing.Size(63, 20);
             this.txtplacasemiremolque.TabIndex = 26;
             this.txtplacasemiremolque.TabStop = false;
             this.txtplacasemiremolque.Tag = "";
@@ -785,14 +793,14 @@
             this.txtmarcaSemiremolque.Enabled = false;
             this.txtmarcaSemiremolque.Location = new System.Drawing.Point(97, 55);
             this.txtmarcaSemiremolque.Name = "txtmarcaSemiremolque";
-            this.txtmarcaSemiremolque.Size = new System.Drawing.Size(133, 20);
+            this.txtmarcaSemiremolque.Size = new System.Drawing.Size(108, 20);
             this.txtmarcaSemiremolque.TabIndex = 25;
             this.txtmarcaSemiremolque.TabStop = false;
             this.txtmarcaSemiremolque.Tag = "";
             // 
             // radLabel14
             // 
-            this.radLabel14.Location = new System.Drawing.Point(299, 32);
+            this.radLabel14.Location = new System.Drawing.Point(211, 32);
             this.radLabel14.Name = "radLabel14";
             this.radLabel14.Size = new System.Drawing.Size(38, 18);
             this.radLabel14.TabIndex = 26;
@@ -801,9 +809,9 @@
             // txtplacaremolque
             // 
             this.txtplacaremolque.Enabled = false;
-            this.txtplacaremolque.Location = new System.Drawing.Point(343, 32);
+            this.txtplacaremolque.Location = new System.Drawing.Point(251, 32);
             this.txtplacaremolque.Name = "txtplacaremolque";
-            this.txtplacaremolque.Size = new System.Drawing.Size(133, 20);
+            this.txtplacaremolque.Size = new System.Drawing.Size(65, 20);
             this.txtplacaremolque.TabIndex = 24;
             this.txtplacaremolque.TabStop = false;
             this.txtplacaremolque.Tag = "txtCodTrayler";
@@ -821,7 +829,7 @@
             this.txtmarcaRemolque.Enabled = false;
             this.txtmarcaRemolque.Location = new System.Drawing.Point(97, 32);
             this.txtmarcaRemolque.Name = "txtmarcaRemolque";
-            this.txtmarcaRemolque.Size = new System.Drawing.Size(133, 20);
+            this.txtmarcaRemolque.Size = new System.Drawing.Size(108, 20);
             this.txtmarcaRemolque.TabIndex = 23;
             this.txtmarcaRemolque.TabStop = false;
             this.txtmarcaRemolque.Tag = "txtCodTrayler";
@@ -991,7 +999,7 @@
             // 
             // 
             // 
-            this.gridControl.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.gridControl.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.gridControl.Name = "gridControl";
             this.gridControl.NewRowEnterKeyMode = Telerik.WinControls.UI.RadGridViewNewRowEnterKeyMode.EnterMovesToNextCell;
             this.gridControl.Size = new System.Drawing.Size(1121, 166);
@@ -1102,6 +1110,8 @@
             // 
             // panelTransportista
             // 
+            this.panelTransportista.Controls.Add(this.txtnroregmtc);
+            this.panelTransportista.Controls.Add(this.radLabel41);
             this.panelTransportista.Controls.Add(this.chkTrasladoM1oL);
             this.panelTransportista.Controls.Add(this.txtRucTransportista);
             this.panelTransportista.Controls.Add(this.radLabel5);
@@ -1133,6 +1143,8 @@
             // 
             // panelVehiculo
             // 
+            this.panelVehiculo.Controls.Add(this.txtTarjetaUnicaCirculacion);
+            this.panelVehiculo.Controls.Add(this.radLabel40);
             this.panelVehiculo.Controls.Add(this.txtestadoguiaDes);
             this.panelVehiculo.Controls.Add(this.txtplacaremolque);
             this.panelVehiculo.Controls.Add(this.txtCodTrayler);
@@ -1151,6 +1163,25 @@
             this.panelVehiculo.Name = "panelVehiculo";
             this.panelVehiculo.Size = new System.Drawing.Size(491, 105);
             this.panelVehiculo.TabIndex = 4;
+            // 
+            // txtTarjetaUnicaCirculacion
+            // 
+            this.txtTarjetaUnicaCirculacion.Enabled = false;
+            this.txtTarjetaUnicaCirculacion.Location = new System.Drawing.Point(364, 31);
+            this.txtTarjetaUnicaCirculacion.Name = "txtTarjetaUnicaCirculacion";
+            this.txtTarjetaUnicaCirculacion.Size = new System.Drawing.Size(110, 20);
+            this.txtTarjetaUnicaCirculacion.TabIndex = 32;
+            this.txtTarjetaUnicaCirculacion.TabStop = false;
+            this.txtTarjetaUnicaCirculacion.Tag = "txtTarjetaUnicaCirculacion";
+            // 
+            // radLabel40
+            // 
+            this.radLabel40.Location = new System.Drawing.Point(322, 32);
+            this.radLabel40.Name = "radLabel40";
+            this.radLabel40.Size = new System.Drawing.Size(33, 18);
+            this.radLabel40.TabIndex = 31;
+            this.radLabel40.Text = "TUCE";
+            this.toolTip.SetToolTip(this.radLabel40, "Tarjeta unica de circulacion vehicular electronica");
             // 
             // txtClienteCod
             // 
@@ -1411,7 +1442,7 @@
             this.dtpFechaBaja.Size = new System.Drawing.Size(82, 20);
             this.dtpFechaBaja.TabIndex = 79;
             this.dtpFechaBaja.TabStop = false;
-            this.dtpFechaBaja.Text = "1/03/2013";
+            this.dtpFechaBaja.Text = "01/03/2013";
             this.dtpFechaBaja.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             // 
             // radLabel32
@@ -1522,7 +1553,7 @@
             // 
             // 
             // 
-            this.gridreferencial.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.gridreferencial.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.gridreferencial.Name = "gridreferencial";
             this.gridreferencial.NewRowEnterKeyMode = Telerik.WinControls.UI.RadGridViewNewRowEnterKeyMode.EnterMovesToNextCell;
             this.gridreferencial.Size = new System.Drawing.Size(323, 65);
@@ -1652,12 +1683,33 @@
             this.btnAgregarReferencial.ThemeName = "Office2013Light";
             this.btnAgregarReferencial.Click += new System.EventHandler(this.btnAgregarReferencial_Click);
             // 
+            // txtnroregmtc
+            // 
+            this.txtnroregmtc.BackColor = System.Drawing.Color.LightGray;
+            this.txtnroregmtc.Enabled = false;
+            this.txtnroregmtc.ForeColor = System.Drawing.Color.White;
+            this.txtnroregmtc.Location = new System.Drawing.Point(291, 71);
+            this.txtnroregmtc.Name = "txtnroregmtc";
+            this.txtnroregmtc.Size = new System.Drawing.Size(183, 20);
+            this.txtnroregmtc.TabIndex = 41;
+            this.txtnroregmtc.TabStop = false;
+            this.txtnroregmtc.Tag = "txtnroregmtc";
+            // 
+            // radLabel41
+            // 
+            this.radLabel41.Location = new System.Drawing.Point(210, 71);
+            this.radLabel41.Name = "radLabel41";
+            this.radLabel41.Size = new System.Drawing.Size(75, 18);
+            this.radLabel41.TabIndex = 42;
+            this.radLabel41.Text = "Nro.Reg.MTC:";
+            this.toolTip.SetToolTip(this.radLabel41, "Numero de registro MTC");
+            // 
             // fabcGuiasTransporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1260, 627);
+            this.ClientSize = new System.Drawing.Size(1260, 661);
             this.Controls.Add(this.btnAgregarReferencial);
             this.Controls.Add(this.PopupProveedor);
             this.Controls.Add(this.panelCabecera);
@@ -1801,6 +1853,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelVehiculo)).EndInit();
             this.panelVehiculo.ResumeLayout(false);
             this.panelVehiculo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTarjetaUnicaCirculacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel40)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtClienteCod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel23)).EndInit();
             this.radLabel23.ResumeLayout(false);
@@ -1863,6 +1917,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel35)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnModificarPeso)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAgregarReferencial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtnroregmtc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel41)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1992,5 +2048,9 @@
         private Telerik.WinControls.UI.RadPanel radPanel3;
         private Telerik.WinControls.UI.RadLabel radLabel39;
         private Telerik.WinControls.UI.RadTextBox txtRazonSoProv;
+        private Telerik.WinControls.UI.RadTextBox txtTarjetaUnicaCirculacion;
+        private Telerik.WinControls.UI.RadLabel radLabel40;
+        private Telerik.WinControls.UI.RadTextBox txtnroregmtc;
+        private Telerik.WinControls.UI.RadLabel radLabel41;
     }
 }

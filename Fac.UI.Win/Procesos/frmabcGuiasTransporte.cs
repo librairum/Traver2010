@@ -1058,20 +1058,27 @@ namespace Fac.UI.Win
                 //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.1
                 //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
                 //ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
-                #region "metodo prueba Efact"
-                /*
-                 * 
+                #region "codigo para el servidor de  prueba de Efact"
+                
+                  
                  DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST_prueba");
-                 */
+                 string urlpost1 = dt.Rows[0]["URL"].ToString();
+                 DataTable usuario = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("USUARIO_EFACT");
+                 DataTable password = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("CONTRASENA_EFACT_PRUEBA");
+                 string usuariodt = usuario.Rows[0]["URL"].ToString();
+
+                 string passwordt = password.Rows[0]["URL"].ToString();
                 #endregion
-                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST");
-                string urlpost1 = dt.Rows[0]["URL"].ToString();
-
-                DataTable usuario = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("USUARIO_EFACT");
-                DataTable password = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("CONTRASENA_EFACT");
-                string usuariodt = usuario.Rows[0]["URL"].ToString();
-                string passwordt = password.Rows[0]["URL"].ToString();
-
+                #region "codigo  original en despliege servidor real efact"
+                //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST");
+                
+                
+                //string urlpost1 = dt.Rows[0]["URL"].ToString();
+                //DataTable usuario = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("USUARIO_EFACT");
+                //DataTable password = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("CONTRASENA_EFACT");
+                //string usuariodt = usuario.Rows[0]["URL"].ToString();
+                //string passwordt = password.Rows[0]["URL"].ToString();
+                #endregion
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.2
                 HttpWebRequest solicitud = (HttpWebRequest)HttpWebRequest.Create(urlpost1);
                 //string dataq = "username=20420310383&password=53c418a1e7dc6fbf8c0b3ae42ea210e388da9598bec6203264f7860c3475e7d1&grant_type=password";
@@ -1617,7 +1624,21 @@ namespace Fac.UI.Win
                 idtransport._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_ID__"].ToString();
                 transportequipment.ID.Add(idtransport);
 
+                //if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
+                //{
+                //    TransportEquipmentshipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
+                //    ApplicableTransportMeans ApplicableTransportMeansTransport = new ApplicableTransportMeans();
+                //    TransportEquipmentshipment.ApplicableTransportMeans.Add(ApplicableTransportMeansTransport);
 
+                //    ApplicableTransportMeansTransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
+                //    RegistrationNationalityID RegistrationNationalityIDTransport = new RegistrationNationalityID();
+                //    //RegistrationNationalityIDTransport._ = "TARJEOCERTI";
+                //    RegistrationNationalityIDTransport._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString(); 
+
+                //    ApplicableTransportMeansTransport.RegistrationNationalityID.Add(RegistrationNationalityIDTransport);
+
+                //    shipmentTransportHandlingUnit.TransportEquipment.Add(TransportEquipmentshipment);
+                //}
                 //DESPATCH DELIVERY
                 delivery.Despatch = new List<Despatch>();
                 Despatch despatchdelivery = new Despatch();
@@ -1897,13 +1918,13 @@ namespace Fac.UI.Win
                     break;
 
                 //IMPORTACION
-                //Importancion Privada
+                //Importacion Publica
                 case "0801":
                     ConvertirJsonAClases_ImportacionPublica(dt);
                     break;
-                //Importacion Publica
+                //Importancion Privada
                 case "0802":
-
+                    
                     break;
                 //VENTA CON ENTREGA A TERCEROS
                 case "0302":
@@ -3343,6 +3364,7 @@ namespace Fac.UI.Win
                     //PARTYLEGALENTITY - COMPANYID
                     //if (dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"] != DBNull.Value)
                     //{
+                    //nro registro MTC
                     CompanyID CarrierPartyCompanyID = new CompanyID();
 
                     CarrierPartyCompanyID._ = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"].ToString();
@@ -3593,31 +3615,20 @@ namespace Fac.UI.Win
                     IDOnly OnlyID = new IDOnly();
                     OnlyID._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_AttachedTransportEquipment_ID__"].ToString();
                     IDONLYA.ID.Add(OnlyID);
-
-                    //IDONLYA.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
-                    //ApplicableTransportMeans ApplicableTransportMeansid = new ApplicableTransportMeans();
-                    //IDONLYA.ApplicableTransportMeans.Add(ApplicableTransportMeansid);
-                    //ApplicableTransportMeansid.RegistrationNationalityID = new List<RegistrationNationalityID>();
-                    //RegistrationNationalityID RegistrationNationalityIDtransportPLACA2 = new RegistrationNationalityID();
-                    //RegistrationNationalityIDtransportPLACA2._ = "TARJETACER2";
-                    //ApplicableTransportMeansid.RegistrationNationalityID.Add(RegistrationNationalityIDtransportPLACA2);
-                    //END PLACA SECUNDARIA
+                  
+                    //ApplicableTransportMeans
+                    //Tarjeta unica de circulacion vehicular
+                    TransportEquipmentshipmentapp.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
+                    ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
+                    TransportEquipmentshipmentapp.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
 
 
-                    ////ApplicableTransportMeans
-                    //TransportEquipmentshipmentapp.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
-                    //ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
-                    //TransportEquipmentshipmentapp.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
+                    ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
+                    RegistrationNationalityID RegistrationNationalityIDtransport = new RegistrationNationalityID();
+                    RegistrationNationalityIDtransport._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
 
-
-                    //    ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
-                    //    RegistrationNationalityID RegistrationNationalityIDtransport = new RegistrationNationalityID();
-                    //    RegistrationNationalityIDtransport._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
-
-                    //    ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDtransport);
-
-
-
+                    ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDtransport);
+                    
                 }
 
 
@@ -5133,6 +5144,7 @@ namespace Fac.UI.Win
                     //PARTYLEGALENTITY - COMPANYID
                     //if (dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"] != DBNull.Value)
                     //{
+                    //Nro registro MTC
                     CompanyID CarrierPartyCompanyID = new CompanyID();
 
                     CarrierPartyCompanyID._ = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"].ToString();
@@ -5528,7 +5540,7 @@ namespace Fac.UI.Win
                 IDOnly OnlyID = new IDOnly();
                 OnlyID._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_AttachedTransportEquipment_ID__"].ToString();
                 IDONLYA.ID.Add(OnlyID);
-
+                #region "codigo original"
                 //IDONLYA.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
                 //ApplicableTransportMeans ApplicableTransportMeansid = new ApplicableTransportMeans();
                 //IDONLYA.ApplicableTransportMeans.Add(ApplicableTransportMeansid);
@@ -5536,7 +5548,7 @@ namespace Fac.UI.Win
                 //RegistrationNationalityID RegistrationNationalityIDtransportPLACA2 = new RegistrationNationalityID();
                 //RegistrationNationalityIDtransportPLACA2._ = "TARJETACER2";
                 //ApplicableTransportMeansid.RegistrationNationalityID.Add(RegistrationNationalityIDtransportPLACA2);
-
+                
                 //if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
                 //{
                 //    //transportequipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
@@ -5548,6 +5560,19 @@ namespace Fac.UI.Win
                 //    //RegistrationNationalityIDapplicable._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
                 //    //ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDapplicable);
                 //}
+                #endregion
+                //tarjeta unica de circulacion vehicular
+                if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
+                {
+                    transportequipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
+                    ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
+                    transportequipment.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
+
+                    ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
+                    RegistrationNationalityID RegistrationNationalityIDapplicable = new RegistrationNationalityID();
+                    RegistrationNationalityIDapplicable._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
+                    ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDapplicable);
+                }
                 //14 DESPATCHLINE *************
                 despatch.DespatchLine = new List<DespatchLine>();
 
@@ -7176,6 +7201,7 @@ namespace Fac.UI.Win
                     //PARTYLEGALENTITY - COMPANYID
                     //if (dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"] != DBNull.Value)
                     //{
+                    //Nro Registro MTC
                     CompanyID CarrierPartyCompanyID = new CompanyID();
 
                     CarrierPartyCompanyID._ = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"].ToString();
@@ -7531,19 +7557,20 @@ namespace Fac.UI.Win
                 //RegistrationNationalityIDtransportPLACA2._ = "TARJETACER2";
 
                 //ApplicableTransportMeansid.RegistrationNationalityID.Add(RegistrationNationalityIDtransportPLACA2);
-                //if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
-                //{
-                //    //ApplicableTransport
-                //    //transportequipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
-                //    //ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
-                //    //transportequipment.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
+                //tarjeta unica de circulacion vehicular
+                if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
+                {
+                    //ApplicableTransport
+                    transportequipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
+                    ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
+                    transportequipment.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
 
-                //    //ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
-                //    //RegistrationNationalityID RegistrationNationalityIDapplicable = new RegistrationNationalityID();
-                //    //RegistrationNationalityIDapplicable._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
-                //    //ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDapplicable);
+                    ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
+                    RegistrationNationalityID RegistrationNationalityIDapplicable = new RegistrationNationalityID();
+                    RegistrationNationalityIDapplicable._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
+                    ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDapplicable);
 
-                //}
+                }
 
 
                 //14 DESPATCHLINE *************
@@ -8114,19 +8141,22 @@ namespace Fac.UI.Win
                 IDOnly IDTransport = new IDOnly();
                 IDTransport._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_ID__"].ToString();
                 TransportEquipmentshipment.ID.Add(IDTransport);
-                //if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
-                //{
-                //    TransportEquipmentshipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
-                //    ApplicableTransportMeans ApplicableTransportMeansTransport = new ApplicableTransportMeans();
-                //    TransportEquipmentshipment.ApplicableTransportMeans.Add(ApplicableTransportMeansTransport);
+                //tarjeta unico de circulacion vehicular
+                if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
+                {
+                    TransportEquipmentshipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
+                    ApplicableTransportMeans ApplicableTransportMeansTransport = new ApplicableTransportMeans();
+                    TransportEquipmentshipment.ApplicableTransportMeans.Add(ApplicableTransportMeansTransport);
 
-                //    ApplicableTransportMeansTransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
-                //    RegistrationNationalityID RegistrationNationalityIDTransport = new RegistrationNationalityID();
-                //    RegistrationNationalityIDTransport._ = "TARJEOCERTI";
-                //    ApplicableTransportMeansTransport.RegistrationNationalityID.Add(RegistrationNationalityIDTransport);
+                    ApplicableTransportMeansTransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
+                    RegistrationNationalityID RegistrationNationalityIDTransport = new RegistrationNationalityID();
+                    //RegistrationNationalityIDTransport._ = "TARJEOCERTI";
+                    RegistrationNationalityIDTransport._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString(); 
 
-                //    shipmentTransportHandlingUnit.TransportEquipment.Add(TransportEquipmentshipment);
-                //}
+                    ApplicableTransportMeansTransport.RegistrationNationalityID.Add(RegistrationNationalityIDTransport);
+
+                    shipmentTransportHandlingUnit.TransportEquipment.Add(TransportEquipmentshipment);
+                }
                 //}
                 //else
                 //{
@@ -8173,6 +8203,7 @@ namespace Fac.UI.Win
                 //PARTYLEGALENTITY - COMPANYID
                 //if (dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"] != DBNull.Value)
                 //{
+                //Nro registro MTC
                 CompanyID CarrierPartyCompanyID = new CompanyID();
 
                 CarrierPartyCompanyID._ = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"].ToString();
@@ -10912,6 +10943,7 @@ namespace Fac.UI.Win
                     //PARTYLEGALENTITY - COMPANYID
                     //if (dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"] != DBNull.Value)
                     //{
+                    //Nro Registro MTC
                     CompanyID CarrierPartyCompanyID = new CompanyID();
 
                     CarrierPartyCompanyID._ = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"].ToString();
@@ -11185,6 +11217,7 @@ namespace Fac.UI.Win
                 IDOnly OnlyID = new IDOnly();
                 OnlyID._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_AttachedTransportEquipment_ID__"].ToString();
                 IDONLYA.ID.Add(OnlyID);
+                #region "codigo original
                 //IDONLYA.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
                 //ApplicableTransportMeans ApplicableTransportMeansid = new ApplicableTransportMeans();
                 //IDONLYA.ApplicableTransportMeans.Add(ApplicableTransportMeansid);
@@ -11193,19 +11226,21 @@ namespace Fac.UI.Win
                 //RegistrationNationalityIDtransportPLACA2._ = "TARJETACER2";
                 //ApplicableTransportMeansid.RegistrationNationalityID.Add(RegistrationNationalityIDtransportPLACA2);
                 ////END PLACA 2 
-                //if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
-                //{
-                //    //ApplicableTransportMeans
-                //    transportequipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
-                //    ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
-                //    transportequipment.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
+                #endregion
+                //tarjeta unica de circulacion vehicular
+                if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
+                {
+                    //ApplicableTransportMeans
+                    transportequipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
+                    ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
+                    transportequipment.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
 
-                //    ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
-                //    RegistrationNationalityID RegistrationNationalityIDtransport = new RegistrationNationalityID();
-                //    RegistrationNationalityIDtransport._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
+                    ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
+                    RegistrationNationalityID RegistrationNationalityIDtransport = new RegistrationNationalityID();
+                    RegistrationNationalityIDtransport._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
 
-                //    ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDtransport);
-                //}
+                    ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDtransport);
+                }
 
 
 
@@ -12677,6 +12712,7 @@ namespace Fac.UI.Win
                     //PARTYLEGALENTITY - COMPANYID
                     //if (dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"] != DBNull.Value)
                     //{
+                    //NroRegistro MTC
                     CompanyID CarrierPartyCompanyID = new CompanyID();
 
                     CarrierPartyCompanyID._ = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"].ToString();
@@ -13053,19 +13089,19 @@ namespace Fac.UI.Win
                 //RegistrationNationalityIDtransportPLACA2._ = "TARJETACER2";
                 //ApplicableTransportMeansid.RegistrationNationalityID.Add(RegistrationNationalityIDtransportPLACA2);
                 ////END PLACA 2 
+                //Trajeta unica de circulacion vehicular
+                if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
+                {
+                    //APPLICABLETRANSPORT
+                    transportequipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
+                    ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
+                    transportequipment.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
 
-                //if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
-                //{
-                //    //APPLICABLETRANSPORT
-                //    transportequipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
-                //    ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
-                //    transportequipment.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
-
-                //    ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
-                //    RegistrationNationalityID RegistrationNationalityIDapplicable = new RegistrationNationalityID();
-                //    RegistrationNationalityIDapplicable._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
-                //    ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDapplicable);
-                //}
+                    ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
+                    RegistrationNationalityID RegistrationNationalityIDapplicable = new RegistrationNationalityID();
+                    RegistrationNationalityIDapplicable._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
+                    ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDapplicable);
+                }
 
 
 
@@ -13660,6 +13696,7 @@ namespace Fac.UI.Win
                     //PARTYLEGALENTITY - COMPANYID
                     //if (dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"] != DBNull.Value)
                     //{
+                    //Nro registro MTC
                     CompanyID CarrierPartyCompanyID = new CompanyID();
 
                     CarrierPartyCompanyID._ = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"].ToString();
@@ -13969,18 +14006,18 @@ namespace Fac.UI.Win
                 //RegistrationNationalityIDtransportPLACA2._ = "TARJETACER2";
                 //ApplicableTransportMeansid.RegistrationNationalityID.Add(RegistrationNationalityIDtransportPLACA2);
                 ////END PLACA 2 
+                //TUCE
+                if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
+                {
+                    transportequipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
+                    ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
+                    transportequipment.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
 
-                //if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
-                //{
-                //    transportequipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
-                //    ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
-                //    transportequipment.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
-
-                //    ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
-                //    RegistrationNationalityID RegistrationNationalityIDapplicable = new RegistrationNationalityID();
-                //    RegistrationNationalityIDapplicable._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
-                //    ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDapplicable);
-                //}
+                    ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
+                    RegistrationNationalityID RegistrationNationalityIDapplicable = new RegistrationNationalityID();
+                    RegistrationNationalityIDapplicable._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
+                    ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDapplicable);
+                }
                 //14 DESPATCHLINE *************
                 despatch.DespatchLine = new List<DespatchLine>();
 
@@ -15415,6 +15452,7 @@ namespace Fac.UI.Win
                     //PARTYLEGALENTITY - COMPANYID
                     //if (dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"] != DBNull.Value)
                     //{
+                    //Nro Registro MTC
                     CompanyID CarrierPartyCompanyID = new CompanyID();
 
                     CarrierPartyCompanyID._ = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"].ToString();
@@ -15808,18 +15846,18 @@ namespace Fac.UI.Win
                 //RegistrationNationalityIDtransportPLACA2._ = "TARJETACER2";
                 //ApplicableTransportMeansid.RegistrationNationalityID.Add(RegistrationNationalityIDtransportPLACA2);
                 ////END PLACA 2
+                //Tarjeta unica de circulacion vehicular
+                if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
+                {
+                    transportequipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
+                    ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
+                    transportequipment.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
 
-                //if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
-                //{
-                //    transportequipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
-                //    ApplicableTransportMeans ApplicableTransportMeanstransport = new ApplicableTransportMeans();
-                //    transportequipment.ApplicableTransportMeans.Add(ApplicableTransportMeanstransport);
-
-                //    ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
-                //    RegistrationNationalityID RegistrationNationalityIDapplicable = new RegistrationNationalityID();
-                //    RegistrationNationalityIDapplicable._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
-                //    ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDapplicable);
-                //}
+                    ApplicableTransportMeanstransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
+                    RegistrationNationalityID RegistrationNationalityIDapplicable = new RegistrationNationalityID();
+                    RegistrationNationalityIDapplicable._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
+                    ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDapplicable);
+                }
                 //14 DESPATCHLINE *************
                 despatch.DespatchLine = new List<DespatchLine>();
 
@@ -19302,17 +19340,24 @@ namespace Fac.UI.Win
                 TotalTransportHandlingUnitQuantity TotalTransportHandlingUnitQuantity_shipment = new TotalTransportHandlingUnitQuantity();
                 TotalTransportHandlingUnitQuantity_shipment._ = dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString();
                 shipment.TotalTransportHandlingUnitQuantity.Add(TotalTransportHandlingUnitQuantity_shipment);
+                #region "codigo anterior"
+                ////SpecialInstructions
+                //if (dt.Rows[0]["INDICADORTRASLADOVEHICATM1"].ToString() == "1")
+                //{
 
-                //SpecialInstructions
-                if (dt.Rows[0]["INDICADORTRASLADOVEHICATM1"].ToString() == "1")
+                //    shipment.SpecialInstructions = new List<SpecialInstructions>();
+                //    SpecialInstructions shipmentSpecialInstrucions = new SpecialInstructions();
+                //    shipmentSpecialInstrucions._ = dt.Rows[0]["Shipment_SpecialInstructions_VehiculoM1oL__"].ToString();
+                //    shipment.SpecialInstructions.Add(shipmentSpecialInstrucions);
+                //}
+                #endregion
+                if (dt.Rows[0]["Shipment_SpecialInstructions_VehiculoM1oL__"].ToString() != "")
                 {
-
                     shipment.SpecialInstructions = new List<SpecialInstructions>();
                     SpecialInstructions shipmentSpecialInstrucions = new SpecialInstructions();
                     shipmentSpecialInstrucions._ = dt.Rows[0]["Shipment_SpecialInstructions_VehiculoM1oL__"].ToString();
                     shipment.SpecialInstructions.Add(shipmentSpecialInstrucions);
                 }
-
                 //13.5 SHIPMENTSTAGE
                 shipment.ShipmentStage = new List<ShipmentStage>();
                 ShipmentStage shipmentStage = new ShipmentStage();
@@ -19335,6 +19380,33 @@ namespace Fac.UI.Win
                 date._ = dt.Rows[0]["Shipment_ShipmentStage_TransitPeriod_StartDate"].ToString();
                 transitPeriod.StartDate.Add(date);
 
+                shipment.TransportHandlingUnit = new List<TransportHandlingUnit>();
+                TransportHandlingUnit shipmentTransportHandlingUnit = new TransportHandlingUnit();
+                shipment.TransportHandlingUnit.Add(shipmentTransportHandlingUnit);
+
+                shipmentTransportHandlingUnit.TransportEquipment = new List<TransportEquipment>();
+                TransportEquipment TransportEquipmentshipment = new TransportEquipment();
+
+                TransportEquipmentshipment.ID = new List<IDOnly>();
+                IDOnly IDTransport = new IDOnly();
+                IDTransport._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_ID__"].ToString();
+                TransportEquipmentshipment.ID.Add(IDTransport);
+                shipmentTransportHandlingUnit.TransportEquipment.Add(TransportEquipmentshipment);
+                if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
+                {
+                    TransportEquipmentshipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
+                    ApplicableTransportMeans ApplicableTransportMeansTransport = new ApplicableTransportMeans();
+                    TransportEquipmentshipment.ApplicableTransportMeans.Add(ApplicableTransportMeansTransport);
+
+                    ApplicableTransportMeansTransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
+                    RegistrationNationalityID RegistrationNationalityIDTransport = new RegistrationNationalityID();
+                    //RegistrationNationalityIDTransport._ = "TARJEOCERTI";
+                    RegistrationNationalityIDTransport._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
+
+                    ApplicableTransportMeansTransport.RegistrationNationalityID.Add(RegistrationNationalityIDTransport);
+
+                    
+                }
 
                 //PUBLICO
                 //CARRIERPARTY - LISTA
@@ -19378,6 +19450,7 @@ namespace Fac.UI.Win
                 //PARTYLEGALENTITY - COMPANYID
                 //if (dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"] != DBNull.Value)
                 //{
+                //Nro registro MTC
                 CompanyID CarrierPartyCompanyID = new CompanyID();
 
                 CarrierPartyCompanyID._ = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"].ToString();
@@ -19564,6 +19637,19 @@ namespace Fac.UI.Win
                 shipment.TransportHandlingUnit = new List<TransportHandlingUnit>();
                 TransportHandlingUnit TransportHandlingUnit_shipment = new TransportHandlingUnit();
                 shipment.TransportHandlingUnit.Add(TransportHandlingUnit_shipment);
+                
+                TransportHandlingUnit_shipment.TransportEquipment = new List<TransportEquipment>();
+                TransportEquipment transportequipment = new TransportEquipment();
+                TransportHandlingUnit_shipment.TransportEquipment.Add(transportequipment);
+
+                //placa 2 
+                transportequipment.AttachedTransportEquipment = new List<IDOnlyA>();
+                IDOnlyA IDONLYA = new IDOnlyA();
+                transportequipment.AttachedTransportEquipment.Add(IDONLYA);
+                IDONLYA.ID = new List<IDOnly>();
+                IDOnly OnlyID = new IDOnly();
+                OnlyID._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_AttachedTransportEquipment_ID__"].ToString();
+                IDONLYA.ID.Add(OnlyID);
 
                 TransportHandlingUnit_shipment.Package = new List<Package>();
                 Package Package_Transport = new Package();
@@ -19778,8 +19864,10 @@ namespace Fac.UI.Win
             ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
 
 
-            DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_enviar_documento_obtener_ticket");
+            //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_enviar_documento_obtener_ticket");
+            DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_enviar_documento_obtener_ticket_prueba");
             string url_POST2 = dt.Rows[0]["URL"].ToString();
+
 
 
 
@@ -19912,8 +20000,12 @@ namespace Fac.UI.Win
 
                 try
                 {
-
-                    DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
+                    #region "codigo origian servidor efact"
+                    //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
+                    #endregion
+                    #region "codigo servidor PRUEBA efact"
+                    DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR_prueba");
+                    #endregion
                     string url = dt.Rows[0]["URL"].ToString() + ticket_true;
                     //string url = "https://ose-qa-rest.efact.pe/api-efact-ose/v1/cdr/" + ticket;
                     ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.2
@@ -20030,7 +20122,8 @@ namespace Fac.UI.Win
 
             try
             {
-                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
+                //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
+                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR_prueba");
                 string url = dt.Rows[0]["URL"].ToString() + ticket;
                 //string url = "https://ose-qa-rest.efact.pe/api-efact-ose/v1/cdr/" + ticket;
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.2
@@ -20167,7 +20260,7 @@ namespace Fac.UI.Win
 
                 string token = POST_TOKEN();
 
-                DataTable ServicioDT = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_PDF");
+                DataTable ServicioDT = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_PDF_prueba");
                 string url = ServicioDT.Rows[0]["URL"].ToString() + ticket;
 
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.2
@@ -20323,6 +20416,9 @@ namespace Fac.UI.Win
             _guia.FAC34OCTIPCOD = txtTipoOCCod.Text;
             _guia.FAC34OCNRO = txtOCNumero.Text;
             _guia.FAC34ESTADOPROCESOCOD = "01";
+            _guia.FAC34NROREGISTROMTC = txtnroregmtc.Text.Trim();
+            _guia.FAC34TARJETAUNICACIRCULACION = txtTarjetaUnicaCirculacion.Text.Trim();
+            
             if (chkTrasladoM1oL.Checked == true)
             {
                 _guia.FAC34INDITRASLADOVEHICATM1 = "1";
@@ -20810,7 +20906,8 @@ namespace Fac.UI.Win
                 txtTipoOCCod.Text = guia.FAC34OCTIPCOD;
                 txtTipoOCDesc.Text = guia.FAC34OCTIPDES;
                 txtOCNumero.Text = guia.FAC34OCNRO;
-                
+                this.txtTarjetaUnicaCirculacion.Text = guia.FAC34TARJETAUNICACIRCULACION;
+                this.txtnroregmtc.Text = guia.FAC34NROREGISTROMTC;
                 // 03: motivo Compras
                 if (txtcodmotivo.Text == "03")
                 {
@@ -21351,7 +21448,7 @@ namespace Fac.UI.Win
                         if (frm.Result != null)
                             txtRucTransportista.Text = ((GuiaTransporte)frm.Result).FAC34CHOFCOD;
                         txttransportistaDes.Text = ((GuiaTransporte)frm.Result).FAC34CHOFNOMBRE;
-
+                        this.txtnroregmtc.Text = ((GuiaTransporte)frm.Result).FAC34NROREGISTROMTC;
                      
 
                         break;
@@ -21361,7 +21458,7 @@ namespace Fac.UI.Win
                         guiaTransportista = new GuiaTransporte();
                         guiaTransportista.FAC03COD = txtcodchofer.Text.Trim();
                         guiaTransportista.FAC02COD = txtRucTransportista.Text.Trim();
-
+                        
                         frm = new frmBusqueda(tipoAyuda, guiaTransportista);
                         frm.Owner = this;
                         frm.ShowDialog();
@@ -21374,6 +21471,7 @@ namespace Fac.UI.Win
                         txtplacaremolque.Text = ((GuiaTransporte)frm.Result).FAC34TRAYPLACA;
                         txtplacasemiremolque.Text = ((GuiaTransporte)frm.Result).FAC34TRAYPLACASR;
                         txtcodtrailerDes.Text = ((GuiaTransporte)frm.Result).FAC34TRAYMARCA;
+                        this.txtTarjetaUnicaCirculacion.Text = ((GuiaTransporte)frm.Result).FAC34TARJETAUNICACIRCULACION;
                         break;
                     case enmAyuda.enmchoferxtransportistas:
 
@@ -21755,6 +21853,64 @@ namespace Fac.UI.Win
                 txtestadoguia.Focus();
                 return false;
             }
+
+            #region "codigo para validar nro registro MTC a vehiculo y Tajeta unica de circulacion electronica."
+            //           50. Número de registro MTC 
+            //Condicional: Corresponde al número de registro del MTC del transportista. 
+            //➢  Si  'Modalidad  de  traslado'  es  '01'  y  no  existe  'Indicador  de  traslado  en  vehículos  de 
+            //categoría M1 o L', el 'Número de registro MTC' es mandatorio.
+            if (rbtPublico.IsChecked==true && chkTrasladoM1oL.Checked == false && !txtRucTransportista.Text.Equals("")) {
+                
+                    var lista = CuentaCorrienteLogic.Instance.TraeCliente(Logueo.CodigoEmpresa,
+                        Logueo.TipoAnalisisTransportista, "", "*");
+                    var registro = lista.FirstOrDefault(x => x.ccm02cod.Equals(txtRucTransportista.Text));
+                    if (registro != null)
+                    {
+                        string nroRegistroMTC = registro.ccm02NroRegistroMTC;
+                        if (nroRegistroMTC.Equals(""))
+                        {
+                            Util.ShowAlert("El transportista no tiene numero de Registro MTC.");
+                            return false;
+                        }
+                    }
+                    else {
+                        Util.ShowAlert("El transportista no tiene numero de Registro MTC.");
+                        return false;
+                    }
+                    /*
+                 
+                      * Tarjeta Única de Circulación Electrónica o Certificado de Habilitación vehicular 
+
+                  ➢  Si  'Modalidad  de  traslado'  es  '01',  y  no  existe  el  'Indicador  de  traslado  en  vehículos  de 
+     categoría  M1  o  L',  pero  si  existe  'Indicador  de  registro  de  vehículos  y  conductores  del 
+     transportista', este dato es mandatorio.
+                     */                    
+
+                    var listavehiculo = VehiculoLogic.Instance.TraerVehiculo(Logueo.CodigoEmpresa, "", "*");
+                    var registroVehiculo = listavehiculo.FirstOrDefault(
+                        x => x.FAC69CodTransportista.Equals(txtRucTransportista.Text.Trim())
+                        && x.FAC69PlacaRemolque.Equals(txtplacaremolque.Text.Trim()));
+                    if (registroVehiculo != null)
+                    {
+                        string tuce = registroVehiculo.FAC69TUCE;
+                        if (tuce.Equals(""))
+                        {
+                            Util.ShowAlert("El vehiculo no tiene Tarjeta Unica de Circulacion Vehicular(TUCE).");
+                            return false;
+                        }
+                    }
+                    else {
+                        Util.ShowAlert("El vehiculo no tiene Tarjeta Unica de Circulacion Vehicular(TUCE).");
+                        return false;
+                    }
+                    
+                    //this.gridControl.DataSource = lista;  
+            }
+
+
+            #endregion
+
+
 
             // vlaidacion por venta y consignacion
             if (txtcodmotivo.Text == "01" || txtcodmotivo.Text == "04")

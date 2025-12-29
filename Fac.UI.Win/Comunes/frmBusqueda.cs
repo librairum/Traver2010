@@ -182,6 +182,7 @@ namespace Fac.UI.Win
                     
                     CreateGridColumn(gridControl, "Codigo", "FAC60Codigo", 0, "", 50);
                     CreateGridColumn(gridControl, "Nombre", "FAC60Nombre", 0, "", 50);
+                    CreateGridColumn(gridControl, "NroRegistroMtc", "ccm02NroRegistroMTC", 0, "", 50);
                     var _transportista = Fac_GuiaTransporteLogic.Instance.Spu_Fact_Help_FAC60_TRANSPORTISTA(Logueo.CodigoEmpresa,
                         "", "*");
                     this.gridControl.DataSource = _transportista;
@@ -196,6 +197,7 @@ namespace Fac.UI.Win
                     CreateGridColumn(this.gridControl, "Marca SemiRemolque", "FAC69MarcaSemiRemolque", 0, "", 50);
                     CreateGridColumn(this.gridControl, "Placa SemiRemolque", "FAC69PlacaSemiRemolque", 0, "", 50);
                     CreateGridColumn(this.gridControl, "Cod.Chofer", "FAC69Codchofer", 0, "", 50);
+                    CreateGridColumn(this.gridControl, "tuce", "FAC69TUCE", 0, "", 50);
 
                     string ructransportista = ((GuiaTransporte)this._variable).FAC02COD;
                     string codchofer = ((GuiaTransporte)this._variable).FAC03COD;
@@ -989,6 +991,7 @@ namespace Fac.UI.Win
                     guiaTransporte.FAC34TRAYMARCASR = gridControl.CurrentRow.Cells["FAC69MarcaSemiRemolque"].Value.ToString();
                     guiaTransporte.FAC34TRAYPLACA = gridControl.CurrentRow.Cells["FAC69PlacaRemolque"].Value.ToString();
                     guiaTransporte.FAC34TRAYPLACASR = gridControl.CurrentRow.Cells["FAC69PlacaSemiRemolque"].Value.ToString();
+                    guiaTransporte.FAC34TARJETAUNICACIRCULACION = gridControl.CurrentRow.Cells["FAC69TUCE"].Value.ToString();
                     this.Result = guiaTransporte;
                     break;
 
@@ -1001,6 +1004,7 @@ namespace Fac.UI.Win
                     guiaTransporte = new GuiaTransporte();
                     guiaTransporte.FAC34CHOFCOD = gridControl.CurrentRow.Cells["FAC60Codigo"].Value.ToString();
                     guiaTransporte.FAC34CHOFNOMBRE = gridControl.CurrentRow.Cells["FAC60Nombre"].Value.ToString();
+                    guiaTransporte.FAC34NROREGISTROMTC = gridControl.CurrentRow.Cells["ccm02NroRegistroMTC"].Value.ToString();
                     this.Result = guiaTransporte;
 
                     break;

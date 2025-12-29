@@ -16,12 +16,12 @@ namespace Inv.DataAccess
         [SprocName("Spu_Fact_Ins_FAC69_VEHICULO")]
         public abstract void InsertarVehiculo (string @FAC69Empresa ,  string @FAC69codigo ,  string @FAC69MarcaRemolque , 
             string @FAC69PlacaRemolque ,  string @FAC69MarcaSemiRemolque ,  string @FAC69PlacaSemiRemolque ,  
-            string @FAC69CodTransportista ,   string @FAC69Codchofer,  out string @msgretorno );
+            string @FAC69CodTransportista ,   string @FAC69Codchofer, string @FAC69TUCE,  out string @msgretorno );
 
         [SprocName("Spu_Fact_Upd_FAC69_VEHICULO")]        
         public abstract void ActualizarVehiculo(string @FAC69Empresa, string @FAC69codigo, string @FAC69MarcaRemolque,
             string @FAC69PlacaRemolque, string @FAC69MarcaSemiRemolque, string @FAC69PlacaSemiRemolque,
-            string @FAC69CodTransportista, string @FAC69Codchofer, out  string @msgretorno);
+            string @FAC69CodTransportista, string @FAC69Codchofer,string @FAC69TUCE,  out  string @msgretorno);
         
 
         [SprocName("Spu_Fact_Help_FAC60_TRANSPORTISTA")]

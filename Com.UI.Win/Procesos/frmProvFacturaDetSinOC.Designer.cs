@@ -271,7 +271,7 @@
             this.barGuardaCancel.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.barGuardaCancel.BorderColor3 = System.Drawing.Color.White;
             this.barGuardaCancel.BorderColor4 = System.Drawing.Color.White;
-            this.barGuardaCancel.Bounds = new System.Drawing.Rectangle(0, 0, 1, 29);
+            this.barGuardaCancel.Bounds = new System.Drawing.Rectangle(0, 0, 1, 26);
             this.barGuardaCancel.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.barGuardaCancel.DrawFill = true;
             this.barGuardaCancel.DrawText = false;
@@ -293,7 +293,7 @@
             this.commandBarStripElement1.BorderColor3 = System.Drawing.Color.White;
             this.commandBarStripElement1.BorderColor4 = System.Drawing.Color.White;
             this.commandBarStripElement1.BorderGradientStyle = Telerik.WinControls.GradientStyles.Solid;
-            this.commandBarStripElement1.Bounds = new System.Drawing.Rectangle(0, 0, 556, 33);
+            this.commandBarStripElement1.Bounds = new System.Drawing.Rectangle(0, 0, 378, 30);
             this.commandBarStripElement1.DesiredLocation = ((System.Drawing.PointF)(resources.GetObject("commandBarStripElement1.DesiredLocation")));
             this.commandBarStripElement1.DrawBorder = true;
             this.commandBarStripElement1.DrawFill = true;
@@ -309,8 +309,8 @@
             // 
             // radCommandBar1
             // 
-            this.radCommandBar1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.radCommandBar1.Size = new System.Drawing.Size(1252, 36);
+            this.radCommandBar1.Margin = new System.Windows.Forms.Padding(3);
+            this.radCommandBar1.Size = new System.Drawing.Size(842, 33);
             // 
             // commandBarRowElement1
             // 
@@ -318,7 +318,7 @@
             this.commandBarRowElement1.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.commandBarRowElement1.BorderColor3 = System.Drawing.Color.White;
             this.commandBarRowElement1.BorderColor4 = System.Drawing.Color.White;
-            this.commandBarRowElement1.Bounds = new System.Drawing.Rectangle(0, 0, 1250, 33);
+            this.commandBarRowElement1.Bounds = new System.Drawing.Rectangle(0, 0, 840, 30);
             this.commandBarRowElement1.DrawText = false;
             this.commandBarRowElement1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.commandBarRowElement1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
@@ -331,11 +331,9 @@
             this.gpxCtaCte.Controls.Add(this.rpIzquierda);
             this.gpxCtaCte.Dock = System.Windows.Forms.DockStyle.Left;
             this.gpxCtaCte.HeaderText = "Cta Ctble";
-            this.gpxCtaCte.Location = new System.Drawing.Point(0, 36);
-            this.gpxCtaCte.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gpxCtaCte.Location = new System.Drawing.Point(0, 33);
             this.gpxCtaCte.Name = "gpxCtaCte";
-            this.gpxCtaCte.Padding = new System.Windows.Forms.Padding(3, 28, 3, 3);
-            this.gpxCtaCte.Size = new System.Drawing.Size(788, 737);
+            this.gpxCtaCte.Size = new System.Drawing.Size(525, 542);
             this.gpxCtaCte.TabIndex = 3;
             this.gpxCtaCte.Text = "Cta Ctble";
             // 
@@ -343,10 +341,9 @@
             // 
             this.rpIzquierda.Controls.Add(this.rpIzquierda3);
             this.rpIzquierda.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rpIzquierda.Location = new System.Drawing.Point(3, 28);
-            this.rpIzquierda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rpIzquierda.Location = new System.Drawing.Point(2, 18);
             this.rpIzquierda.Name = "rpIzquierda";
-            this.rpIzquierda.Size = new System.Drawing.Size(782, 748);
+            this.rpIzquierda.Size = new System.Drawing.Size(521, 486);
             this.rpIzquierda.TabIndex = 0;
             // 
             // rpIzquierda3
@@ -391,10 +388,10 @@
             this.rpIzquierda3.Controls.Add(this.txtnrodocumento);
             this.rpIzquierda3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rpIzquierda3.Location = new System.Drawing.Point(0, 0);
-            this.rpIzquierda3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rpIzquierda3.Name = "rpIzquierda3";
-            this.rpIzquierda3.Size = new System.Drawing.Size(782, 748);
+            this.rpIzquierda3.Size = new System.Drawing.Size(521, 486);
             this.rpIzquierda3.TabIndex = 205;
+            this.rpIzquierda3.Paint += new System.Windows.Forms.PaintEventHandler(this.rpIzquierda3_Paint);
             // 
             // gboxdocmodifica
             // 
@@ -405,30 +402,27 @@
             this.gboxdocmodifica.Controls.Add(this.txtdocmodtipo);
             this.gboxdocmodifica.Controls.Add(this.txtdocmodnumero);
             this.gboxdocmodifica.Controls.Add(this.dtpdocmodfecha);
-            this.gboxdocmodifica.Location = new System.Drawing.Point(398, 2);
-            this.gboxdocmodifica.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gboxdocmodifica.Location = new System.Drawing.Point(265, 1);
             this.gboxdocmodifica.Name = "gboxdocmodifica";
-            this.gboxdocmodifica.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gboxdocmodifica.Size = new System.Drawing.Size(366, 149);
+            this.gboxdocmodifica.Size = new System.Drawing.Size(244, 66);
             this.gboxdocmodifica.TabIndex = 225;
             this.gboxdocmodifica.TabStop = false;
             this.gboxdocmodifica.Text = "Doc Modifica";
+            this.gboxdocmodifica.Enter += new System.EventHandler(this.gboxdocmodifica_Enter);
             // 
             // radLabel12
             // 
-            this.radLabel12.Location = new System.Drawing.Point(22, 32);
-            this.radLabel12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel12.Location = new System.Drawing.Point(15, 16);
             this.radLabel12.Name = "radLabel12";
-            this.radLabel12.Size = new System.Drawing.Size(35, 26);
+            this.radLabel12.Size = new System.Drawing.Size(24, 18);
             this.radLabel12.TabIndex = 224;
             this.radLabel12.Text = "Tip:";
             // 
             // radLabel13
             // 
-            this.radLabel13.Location = new System.Drawing.Point(12, 72);
-            this.radLabel13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel13.Location = new System.Drawing.Point(8, 41);
             this.radLabel13.Name = "radLabel13";
-            this.radLabel13.Size = new System.Drawing.Size(49, 26);
+            this.radLabel13.Size = new System.Drawing.Size(33, 18);
             this.radLabel13.TabIndex = 6;
             this.radLabel13.Text = "Num:";
             // 
@@ -436,28 +430,25 @@
             // 
             this.txtdocmodtipodesc.Enabled = false;
             this.txtdocmodtipodesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdocmodtipodesc.Location = new System.Drawing.Point(116, 31);
-            this.txtdocmodtipodesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtdocmodtipodesc.Location = new System.Drawing.Point(77, 15);
             this.txtdocmodtipodesc.Name = "txtdocmodtipodesc";
-            this.txtdocmodtipodesc.Size = new System.Drawing.Size(142, 31);
+            this.txtdocmodtipodesc.Size = new System.Drawing.Size(95, 23);
             this.txtdocmodtipodesc.TabIndex = 220;
             // 
             // radLabel37
             // 
-            this.radLabel37.Location = new System.Drawing.Point(8, 109);
-            this.radLabel37.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel37.Location = new System.Drawing.Point(5, 101);
             this.radLabel37.Name = "radLabel37";
-            this.radLabel37.Size = new System.Drawing.Size(55, 26);
+            this.radLabel37.Size = new System.Drawing.Size(37, 18);
             this.radLabel37.TabIndex = 6;
             this.radLabel37.Text = "Fecha:";
             // 
             // txtdocmodtipo
             // 
             this.txtdocmodtipo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdocmodtipo.Location = new System.Drawing.Point(64, 31);
-            this.txtdocmodtipo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtdocmodtipo.Location = new System.Drawing.Point(43, 15);
             this.txtdocmodtipo.Name = "txtdocmodtipo";
-            this.txtdocmodtipo.Size = new System.Drawing.Size(42, 31);
+            this.txtdocmodtipo.Size = new System.Drawing.Size(28, 23);
             this.txtdocmodtipo.TabIndex = 221;
             this.txtdocmodtipo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtdocmodtipo_KeyDown);
             this.txtdocmodtipo.Leave += new System.EventHandler(this.txtdocmodtipo_Leave);
@@ -465,22 +456,20 @@
             // txtdocmodnumero
             // 
             this.txtdocmodnumero.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdocmodnumero.Location = new System.Drawing.Point(64, 69);
-            this.txtdocmodnumero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtdocmodnumero.Location = new System.Drawing.Point(43, 39);
             this.txtdocmodnumero.Name = "txtdocmodnumero";
-            this.txtdocmodnumero.Size = new System.Drawing.Size(194, 31);
+            this.txtdocmodnumero.Size = new System.Drawing.Size(129, 23);
             this.txtdocmodnumero.TabIndex = 222;
             // 
             // dtpdocmodfecha
             // 
             this.dtpdocmodfecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpdocmodfecha.Location = new System.Drawing.Point(64, 108);
-            this.dtpdocmodfecha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpdocmodfecha.Location = new System.Drawing.Point(43, 100);
             this.dtpdocmodfecha.Name = "dtpdocmodfecha";
-            this.dtpdocmodfecha.Size = new System.Drawing.Size(194, 27);
+            this.dtpdocmodfecha.Size = new System.Drawing.Size(129, 20);
             this.dtpdocmodfecha.TabIndex = 223;
             this.dtpdocmodfecha.TabStop = false;
-            this.dtpdocmodfecha.Text = "1/03/2013";
+            this.dtpdocmodfecha.Text = "01/03/2013";
             this.dtpdocmodfecha.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             // 
             // gpxFlotante
@@ -488,11 +477,9 @@
             this.gpxFlotante.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
             this.gpxFlotante.Controls.Add(this.gridSugerencia);
             this.gpxFlotante.HeaderText = "Articulos Registrado";
-            this.gpxFlotante.Location = new System.Drawing.Point(364, 162);
-            this.gpxFlotante.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gpxFlotante.Location = new System.Drawing.Point(243, 125);
             this.gpxFlotante.Name = "gpxFlotante";
-            this.gpxFlotante.Padding = new System.Windows.Forms.Padding(3, 28, 3, 3);
-            this.gpxFlotante.Size = new System.Drawing.Size(418, 109);
+            this.gpxFlotante.Size = new System.Drawing.Size(279, 71);
             this.gpxFlotante.TabIndex = 233;
             this.gpxFlotante.TabStop = false;
             this.gpxFlotante.Text = "Articulos Registrado";
@@ -501,8 +488,7 @@
             // gridSugerencia
             // 
             this.gridSugerencia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridSugerencia.Location = new System.Drawing.Point(3, 28);
-            this.gridSugerencia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gridSugerencia.Location = new System.Drawing.Point(2, 18);
             // 
             // 
             // 
@@ -512,7 +498,7 @@
             gridViewTextBoxColumn1});
             this.gridSugerencia.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.gridSugerencia.Name = "gridSugerencia";
-            this.gridSugerencia.Size = new System.Drawing.Size(412, 78);
+            this.gridSugerencia.Size = new System.Drawing.Size(275, 51);
             this.gridSugerencia.TabIndex = 224;
             this.gridSugerencia.Text = "radGridView1";
             this.gridSugerencia.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.gridSugerencia_CellDoubleClick);
@@ -522,19 +508,17 @@
             // 
             this.txtCentroCostoDesc.Enabled = false;
             this.txtCentroCostoDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCentroCostoDesc.Location = new System.Drawing.Point(255, 386);
-            this.txtCentroCostoDesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCentroCostoDesc.Location = new System.Drawing.Point(165, 249);
             this.txtCentroCostoDesc.Name = "txtCentroCostoDesc";
-            this.txtCentroCostoDesc.Size = new System.Drawing.Size(499, 31);
+            this.txtCentroCostoDesc.Size = new System.Drawing.Size(333, 23);
             this.txtCentroCostoDesc.TabIndex = 29;
             // 
             // txtCentroCosto
             // 
             this.txtCentroCosto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCentroCosto.Location = new System.Drawing.Point(164, 386);
-            this.txtCentroCosto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCentroCosto.Location = new System.Drawing.Point(104, 249);
             this.txtCentroCosto.Name = "txtCentroCosto";
-            this.txtCentroCosto.Size = new System.Drawing.Size(87, 31);
+            this.txtCentroCosto.Size = new System.Drawing.Size(58, 23);
             this.txtCentroCosto.TabIndex = 28;
             this.txtCentroCosto.TextChanged += new System.EventHandler(this.txtCentroCosto_TextChanged);
             this.txtCentroCosto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCentroCosto_KeyDown);
@@ -542,10 +526,9 @@
             // 
             // radLabel10
             // 
-            this.radLabel10.Location = new System.Drawing.Point(38, 389);
-            this.radLabel10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel10.Location = new System.Drawing.Point(20, 251);
             this.radLabel10.Name = "radLabel10";
-            this.radLabel10.Size = new System.Drawing.Size(107, 26);
+            this.radLabel10.Size = new System.Drawing.Size(72, 18);
             this.radLabel10.TabIndex = 27;
             this.radLabel10.Text = "Centro Costo";
             // 
@@ -553,49 +536,44 @@
             // 
             this.txtProveedorDesc.Enabled = false;
             this.txtProveedorDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProveedorDesc.Location = new System.Drawing.Point(326, 200);
-            this.txtProveedorDesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtProveedorDesc.Location = new System.Drawing.Point(211, 70);
             this.txtProveedorDesc.Name = "txtProveedorDesc";
-            this.txtProveedorDesc.Size = new System.Drawing.Size(438, 31);
+            this.txtProveedorDesc.Size = new System.Drawing.Size(292, 23);
             this.txtProveedorDesc.TabIndex = 13;
             // 
             // txtProveedor
             // 
             this.txtProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProveedor.Location = new System.Drawing.Point(159, 200);
-            this.txtProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtProveedor.Location = new System.Drawing.Point(100, 70);
             this.txtProveedor.Name = "txtProveedor";
-            this.txtProveedor.Size = new System.Drawing.Size(159, 31);
+            this.txtProveedor.Size = new System.Drawing.Size(106, 23);
             this.txtProveedor.TabIndex = 12;
             this.txtProveedor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProveedor_KeyDown);
             this.txtProveedor.Leave += new System.EventHandler(this.txtProveedor_Leave);
             // 
             // radLabel3
             // 
-            this.radLabel3.Location = new System.Drawing.Point(58, 203);
-            this.radLabel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel3.Location = new System.Drawing.Point(33, 72);
             this.radLabel3.Name = "radLabel3";
-            this.radLabel3.Size = new System.Drawing.Size(85, 26);
+            this.radLabel3.Size = new System.Drawing.Size(58, 18);
             this.radLabel3.TabIndex = 11;
             this.radLabel3.Text = "Proveedor";
             // 
             // rbNoAfectoRet
             // 
             this.rbNoAfectoRet.AutoSize = true;
-            this.rbNoAfectoRet.Location = new System.Drawing.Point(418, 652);
-            this.rbNoAfectoRet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rbNoAfectoRet.Location = new System.Drawing.Point(279, 422);
             this.rbNoAfectoRet.Name = "rbNoAfectoRet";
-            this.rbNoAfectoRet.Size = new System.Drawing.Size(296, 27);
+            this.rbNoAfectoRet.Size = new System.Drawing.Size(199, 17);
             this.rbNoAfectoRet.TabIndex = 33;
             this.rbNoAfectoRet.Text = "Documento No afecto a retencion";
             this.rbNoAfectoRet.UseVisualStyleBackColor = true;
             // 
             // chkCancelacion
             // 
-            this.chkCancelacion.Location = new System.Drawing.Point(642, 309);
-            this.chkCancelacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chkCancelacion.Location = new System.Drawing.Point(423, 247);
             this.chkCancelacion.Name = "chkCancelacion";
-            this.chkCancelacion.Size = new System.Drawing.Size(100, 26);
+            this.chkCancelacion.Size = new System.Drawing.Size(72, 18);
             this.chkCancelacion.TabIndex = 24;
             this.chkCancelacion.TabStop = false;
             this.chkCancelacion.Tag = "0";
@@ -604,20 +582,18 @@
             // rbAfectoRet
             // 
             this.rbAfectoRet.AutoSize = true;
-            this.rbAfectoRet.Location = new System.Drawing.Point(21, 652);
-            this.rbAfectoRet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rbAfectoRet.Location = new System.Drawing.Point(14, 422);
             this.rbAfectoRet.Name = "rbAfectoRet";
-            this.rbAfectoRet.Size = new System.Drawing.Size(268, 27);
+            this.rbAfectoRet.Size = new System.Drawing.Size(181, 17);
             this.rbAfectoRet.TabIndex = 32;
             this.rbAfectoRet.Text = "Documento afecto a retencion";
             this.rbAfectoRet.UseVisualStyleBackColor = true;
             // 
             // chkAfectoDetraccion
             // 
-            this.chkAfectoDetraccion.Location = new System.Drawing.Point(600, 252);
-            this.chkAfectoDetraccion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chkAfectoDetraccion.Location = new System.Drawing.Point(386, 167);
             this.chkAfectoDetraccion.Name = "chkAfectoDetraccion";
-            this.chkAfectoDetraccion.Size = new System.Drawing.Size(156, 26);
+            this.chkAfectoDetraccion.Size = new System.Drawing.Size(109, 18);
             this.chkAfectoDetraccion.TabIndex = 20;
             this.chkAfectoDetraccion.TabStop = false;
             this.chkAfectoDetraccion.Tag = "0";
@@ -627,10 +603,9 @@
             // 
             // radPanel2
             // 
-            this.radPanel2.Location = new System.Drawing.Point(16, 426);
-            this.radPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radPanel2.Location = new System.Drawing.Point(11, 277);
             this.radPanel2.Name = "radPanel2";
-            this.radPanel2.Size = new System.Drawing.Size(759, 2);
+            this.radPanel2.Size = new System.Drawing.Size(506, 1);
             this.radPanel2.TabIndex = 219;
             this.radPanel2.TabStop = false;
             // 
@@ -638,18 +613,16 @@
             // 
             this.lblBienOServicio.Enabled = false;
             this.lblBienOServicio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBienOServicio.Location = new System.Drawing.Point(216, 309);
-            this.lblBienOServicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lblBienOServicio.Location = new System.Drawing.Point(139, 199);
             this.lblBienOServicio.Name = "lblBienOServicio";
-            this.lblBienOServicio.Size = new System.Drawing.Size(270, 31);
+            this.lblBienOServicio.Size = new System.Drawing.Size(180, 23);
             this.lblBienOServicio.TabIndex = 23;
             // 
             // rpIzquierda2
             // 
-            this.rpIzquierda2.Location = new System.Drawing.Point(15, 289);
-            this.rpIzquierda2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rpIzquierda2.Location = new System.Drawing.Point(7, 193);
             this.rpIzquierda2.Name = "rpIzquierda2";
-            this.rpIzquierda2.Size = new System.Drawing.Size(760, 2);
+            this.rpIzquierda2.Size = new System.Drawing.Size(507, 1);
             this.rpIzquierda2.TabIndex = 204;
             this.rpIzquierda2.TabStop = false;
             // 
@@ -657,10 +630,9 @@
             // 
             this.txtConcepto.Enabled = false;
             this.txtConcepto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConcepto.Location = new System.Drawing.Point(164, 348);
-            this.txtConcepto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtConcepto.Location = new System.Drawing.Point(104, 224);
             this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.Size = new System.Drawing.Size(590, 31);
+            this.txtConcepto.Size = new System.Drawing.Size(393, 23);
             this.txtConcepto.TabIndex = 26;
             this.txtConcepto.TextChanged += new System.EventHandler(this.txtConcepto_TextChanged);
             this.txtConcepto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtConcepto_KeyDown);
@@ -669,20 +641,18 @@
             // 
             this.txtTipocambio.Enabled = false;
             this.txtTipocambio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipocambio.Location = new System.Drawing.Point(321, 248);
-            this.txtTipocambio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTipocambio.Location = new System.Drawing.Point(214, 163);
             this.txtTipocambio.Name = "txtTipocambio";
-            this.txtTipocambio.Size = new System.Drawing.Size(82, 31);
+            this.txtTipocambio.Size = new System.Drawing.Size(55, 23);
             this.txtTipocambio.TabIndex = 17;
             this.txtTipocambio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTipocambio_KeyPress);
             this.txtTipocambio.Leave += new System.EventHandler(this.txtTipocambio_Leave);
             // 
             // radLabel9
             // 
-            this.radLabel9.Location = new System.Drawing.Point(212, 248);
-            this.radLabel9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel9.Location = new System.Drawing.Point(141, 165);
             this.radLabel9.Name = "radLabel9";
-            this.radLabel9.Size = new System.Drawing.Size(105, 26);
+            this.radLabel9.Size = new System.Drawing.Size(71, 18);
             this.radLabel9.TabIndex = 16;
             this.radLabel9.Text = "Tipo cambio:";
             // 
@@ -698,11 +668,9 @@
             this.radGroupBox3.Controls.Add(this.txtImporteAfectoEquiv);
             this.radGroupBox3.Controls.Add(this.radLabel27);
             this.radGroupBox3.HeaderText = "Montos Equivalentes";
-            this.radGroupBox3.Location = new System.Drawing.Point(418, 438);
-            this.radGroupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radGroupBox3.Location = new System.Drawing.Point(279, 283);
             this.radGroupBox3.Name = "radGroupBox3";
-            this.radGroupBox3.Padding = new System.Windows.Forms.Padding(3, 28, 3, 3);
-            this.radGroupBox3.Size = new System.Drawing.Size(345, 188);
+            this.radGroupBox3.Size = new System.Drawing.Size(230, 122);
             this.radGroupBox3.TabIndex = 31;
             this.radGroupBox3.Text = "Montos Equivalentes";
             // 
@@ -710,10 +678,9 @@
             // 
             this.txtImporteDocumentoEquiv.Enabled = false;
             this.txtImporteDocumentoEquiv.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImporteDocumentoEquiv.Location = new System.Drawing.Point(216, 143);
-            this.txtImporteDocumentoEquiv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtImporteDocumentoEquiv.Location = new System.Drawing.Point(144, 93);
             this.txtImporteDocumentoEquiv.Name = "txtImporteDocumentoEquiv";
-            this.txtImporteDocumentoEquiv.Size = new System.Drawing.Size(116, 31);
+            this.txtImporteDocumentoEquiv.Size = new System.Drawing.Size(77, 23);
             this.txtImporteDocumentoEquiv.TabIndex = 7;
             this.txtImporteDocumentoEquiv.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtImporteDocumentoEquiv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporteDocumentoEquiv_KeyPress);
@@ -721,10 +688,9 @@
             // 
             // radLabel28
             // 
-            this.radLabel28.Location = new System.Drawing.Point(12, 148);
-            this.radLabel28.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel28.Location = new System.Drawing.Point(8, 96);
             this.radLabel28.Name = "radLabel28";
-            this.radLabel28.Size = new System.Drawing.Size(190, 26);
+            this.radLabel28.Size = new System.Drawing.Size(127, 18);
             this.radLabel28.TabIndex = 6;
             this.radLabel28.Text = "Importe del documento:";
             // 
@@ -732,10 +698,9 @@
             // 
             this.txtImporteIgvEquiv.Enabled = false;
             this.txtImporteIgvEquiv.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImporteIgvEquiv.Location = new System.Drawing.Point(216, 105);
-            this.txtImporteIgvEquiv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtImporteIgvEquiv.Location = new System.Drawing.Point(144, 68);
             this.txtImporteIgvEquiv.Name = "txtImporteIgvEquiv";
-            this.txtImporteIgvEquiv.Size = new System.Drawing.Size(116, 31);
+            this.txtImporteIgvEquiv.Size = new System.Drawing.Size(77, 23);
             this.txtImporteIgvEquiv.TabIndex = 5;
             this.txtImporteIgvEquiv.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtImporteIgvEquiv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporteIgvEquiv_KeyPress);
@@ -743,10 +708,9 @@
             // 
             // radLabel29
             // 
-            this.radLabel29.Location = new System.Drawing.Point(9, 109);
-            this.radLabel29.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel29.Location = new System.Drawing.Point(6, 71);
             this.radLabel29.Name = "radLabel29";
-            this.radLabel29.Size = new System.Drawing.Size(110, 26);
+            this.radLabel29.Size = new System.Drawing.Size(74, 18);
             this.radLabel29.TabIndex = 4;
             this.radLabel29.Text = "Importe I.G.V:";
             // 
@@ -754,10 +718,9 @@
             // 
             this.txtImporteInafectoEquiv.Enabled = false;
             this.txtImporteInafectoEquiv.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImporteInafectoEquiv.Location = new System.Drawing.Point(216, 68);
-            this.txtImporteInafectoEquiv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtImporteInafectoEquiv.Location = new System.Drawing.Point(144, 44);
             this.txtImporteInafectoEquiv.Name = "txtImporteInafectoEquiv";
-            this.txtImporteInafectoEquiv.Size = new System.Drawing.Size(116, 31);
+            this.txtImporteInafectoEquiv.Size = new System.Drawing.Size(77, 23);
             this.txtImporteInafectoEquiv.TabIndex = 3;
             this.txtImporteInafectoEquiv.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtImporteInafectoEquiv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporteInafectoEquiv_KeyPress);
@@ -765,10 +728,9 @@
             // 
             // radLabel30
             // 
-            this.radLabel30.Location = new System.Drawing.Point(9, 72);
-            this.radLabel30.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel30.Location = new System.Drawing.Point(6, 47);
             this.radLabel30.Name = "radLabel30";
-            this.radLabel30.Size = new System.Drawing.Size(137, 26);
+            this.radLabel30.Size = new System.Drawing.Size(92, 18);
             this.radLabel30.TabIndex = 2;
             this.radLabel30.Text = "Importe Inafecto:";
             // 
@@ -776,10 +738,9 @@
             // 
             this.txtImporteAfectoEquiv.Enabled = false;
             this.txtImporteAfectoEquiv.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImporteAfectoEquiv.Location = new System.Drawing.Point(216, 29);
-            this.txtImporteAfectoEquiv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtImporteAfectoEquiv.Location = new System.Drawing.Point(144, 19);
             this.txtImporteAfectoEquiv.Name = "txtImporteAfectoEquiv";
-            this.txtImporteAfectoEquiv.Size = new System.Drawing.Size(116, 31);
+            this.txtImporteAfectoEquiv.Size = new System.Drawing.Size(77, 23);
             this.txtImporteAfectoEquiv.TabIndex = 1;
             this.txtImporteAfectoEquiv.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtImporteAfectoEquiv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporteAfectoEquiv_KeyPress);
@@ -787,10 +748,9 @@
             // 
             // radLabel27
             // 
-            this.radLabel27.Location = new System.Drawing.Point(9, 34);
-            this.radLabel27.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel27.Location = new System.Drawing.Point(6, 22);
             this.radLabel27.Name = "radLabel27";
-            this.radLabel27.Size = new System.Drawing.Size(125, 26);
+            this.radLabel27.Size = new System.Drawing.Size(84, 18);
             this.radLabel27.TabIndex = 0;
             this.radLabel27.Text = "Importe Afecto:";
             // 
@@ -798,38 +758,34 @@
             // 
             this.txtTipoMoneda.Enabled = false;
             this.txtTipoMoneda.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoMoneda.Location = new System.Drawing.Point(159, 246);
-            this.txtTipoMoneda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTipoMoneda.Location = new System.Drawing.Point(101, 164);
             this.txtTipoMoneda.Name = "txtTipoMoneda";
-            this.txtTipoMoneda.Size = new System.Drawing.Size(48, 31);
+            this.txtTipoMoneda.Size = new System.Drawing.Size(32, 23);
             this.txtTipoMoneda.TabIndex = 15;
             this.txtTipoMoneda.TextChanged += new System.EventHandler(this.txtTipoMoneda_TextChanged);
             // 
             // radLabel22
             // 
-            this.radLabel22.Location = new System.Drawing.Point(62, 352);
-            this.radLabel22.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel22.Location = new System.Drawing.Point(36, 227);
             this.radLabel22.Name = "radLabel22";
-            this.radLabel22.Size = new System.Drawing.Size(84, 26);
+            this.radLabel22.Size = new System.Drawing.Size(57, 18);
             this.radLabel22.TabIndex = 25;
             this.radLabel22.Text = "Concepto:";
             // 
             // radLabel8
             // 
-            this.radLabel8.Location = new System.Drawing.Point(58, 249);
-            this.radLabel8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel8.Location = new System.Drawing.Point(39, 166);
             this.radLabel8.Name = "radLabel8";
-            this.radLabel8.Size = new System.Drawing.Size(79, 26);
+            this.radLabel8.Size = new System.Drawing.Size(53, 18);
             this.radLabel8.TabIndex = 14;
             this.radLabel8.Text = "Moneda :";
             // 
             // txtPorIgv
             // 
             this.txtPorIgv.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPorIgv.Location = new System.Drawing.Point(490, 249);
-            this.txtPorIgv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPorIgv.Location = new System.Drawing.Point(327, 163);
             this.txtPorIgv.Name = "txtPorIgv";
-            this.txtPorIgv.Size = new System.Drawing.Size(48, 31);
+            this.txtPorIgv.Size = new System.Drawing.Size(32, 23);
             this.txtPorIgv.TabIndex = 19;
             this.txtPorIgv.Leave += new System.EventHandler(this.txtPorIgv_Leave);
             // 
@@ -837,10 +793,9 @@
             // 
             this.txtbienoservicio.Enabled = false;
             this.txtbienoservicio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbienoservicio.Location = new System.Drawing.Point(164, 309);
-            this.txtbienoservicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtbienoservicio.Location = new System.Drawing.Point(104, 199);
             this.txtbienoservicio.Name = "txtbienoservicio";
-            this.txtbienoservicio.Size = new System.Drawing.Size(48, 31);
+            this.txtbienoservicio.Size = new System.Drawing.Size(32, 23);
             this.txtbienoservicio.TabIndex = 22;
             this.txtbienoservicio.TextChanged += new System.EventHandler(this.txtbienoservicio_TextChanged);
             this.txtbienoservicio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbienoservicio_KeyDown);
@@ -848,10 +803,9 @@
             // 
             // radLabel7
             // 
-            this.radLabel7.Location = new System.Drawing.Point(404, 255);
-            this.radLabel7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel7.Location = new System.Drawing.Point(269, 165);
             this.radLabel7.Name = "radLabel7";
-            this.radLabel7.Size = new System.Drawing.Size(76, 26);
+            this.radLabel7.Size = new System.Drawing.Size(52, 18);
             this.radLabel7.TabIndex = 18;
             this.radLabel7.Text = "Tasa IGV:";
             // 
@@ -867,11 +821,9 @@
             this.radGroupBox2.Controls.Add(this.txtImporteAfecto);
             this.radGroupBox2.Controls.Add(this.radLabel23);
             this.radGroupBox2.HeaderText = "Montos";
-            this.radGroupBox2.Location = new System.Drawing.Point(21, 440);
-            this.radGroupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radGroupBox2.Location = new System.Drawing.Point(14, 284);
             this.radGroupBox2.Name = "radGroupBox2";
-            this.radGroupBox2.Padding = new System.Windows.Forms.Padding(3, 28, 3, 3);
-            this.radGroupBox2.Size = new System.Drawing.Size(345, 186);
+            this.radGroupBox2.Size = new System.Drawing.Size(230, 121);
             this.radGroupBox2.TabIndex = 30;
             this.radGroupBox2.Text = "Montos";
             // 
@@ -879,10 +831,9 @@
             // 
             this.txtImporteDocumento.Enabled = false;
             this.txtImporteDocumento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImporteDocumento.Location = new System.Drawing.Point(213, 143);
-            this.txtImporteDocumento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtImporteDocumento.Location = new System.Drawing.Point(142, 93);
             this.txtImporteDocumento.Name = "txtImporteDocumento";
-            this.txtImporteDocumento.Size = new System.Drawing.Size(116, 31);
+            this.txtImporteDocumento.Size = new System.Drawing.Size(77, 23);
             this.txtImporteDocumento.TabIndex = 7;
             this.txtImporteDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtImporteDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporteDocumento_KeyPress);
@@ -890,10 +841,9 @@
             // 
             // radLabel26
             // 
-            this.radLabel26.Location = new System.Drawing.Point(14, 146);
-            this.radLabel26.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel26.Location = new System.Drawing.Point(9, 95);
             this.radLabel26.Name = "radLabel26";
-            this.radLabel26.Size = new System.Drawing.Size(190, 26);
+            this.radLabel26.Size = new System.Drawing.Size(127, 18);
             this.radLabel26.TabIndex = 6;
             this.radLabel26.Text = "Importe del documento:";
             // 
@@ -901,10 +851,9 @@
             // 
             this.txtImporteIgv.Enabled = false;
             this.txtImporteIgv.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImporteIgv.Location = new System.Drawing.Point(213, 105);
-            this.txtImporteIgv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtImporteIgv.Location = new System.Drawing.Point(142, 68);
             this.txtImporteIgv.Name = "txtImporteIgv";
-            this.txtImporteIgv.Size = new System.Drawing.Size(116, 31);
+            this.txtImporteIgv.Size = new System.Drawing.Size(77, 23);
             this.txtImporteIgv.TabIndex = 5;
             this.txtImporteIgv.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtImporteIgv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporteIgv_KeyPress);
@@ -912,10 +861,9 @@
             // 
             // radLabel25
             // 
-            this.radLabel25.Location = new System.Drawing.Point(10, 108);
-            this.radLabel25.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel25.Location = new System.Drawing.Point(7, 70);
             this.radLabel25.Name = "radLabel25";
-            this.radLabel25.Size = new System.Drawing.Size(110, 26);
+            this.radLabel25.Size = new System.Drawing.Size(74, 18);
             this.radLabel25.TabIndex = 4;
             this.radLabel25.Text = "Importe I.G.V:";
             // 
@@ -923,10 +871,9 @@
             // 
             this.txtImporteInafecto.Enabled = false;
             this.txtImporteInafecto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImporteInafecto.Location = new System.Drawing.Point(213, 68);
-            this.txtImporteInafecto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtImporteInafecto.Location = new System.Drawing.Point(142, 44);
             this.txtImporteInafecto.Name = "txtImporteInafecto";
-            this.txtImporteInafecto.Size = new System.Drawing.Size(116, 31);
+            this.txtImporteInafecto.Size = new System.Drawing.Size(77, 23);
             this.txtImporteInafecto.TabIndex = 3;
             this.txtImporteInafecto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtImporteInafecto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporteInafecto_KeyPress);
@@ -934,10 +881,9 @@
             // 
             // radLabel24
             // 
-            this.radLabel24.Location = new System.Drawing.Point(10, 71);
-            this.radLabel24.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel24.Location = new System.Drawing.Point(7, 46);
             this.radLabel24.Name = "radLabel24";
-            this.radLabel24.Size = new System.Drawing.Size(137, 26);
+            this.radLabel24.Size = new System.Drawing.Size(92, 18);
             this.radLabel24.TabIndex = 2;
             this.radLabel24.Text = "Importe Inafecto:";
             // 
@@ -945,10 +891,9 @@
             // 
             this.txtImporteAfecto.Enabled = false;
             this.txtImporteAfecto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImporteAfecto.Location = new System.Drawing.Point(213, 31);
-            this.txtImporteAfecto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtImporteAfecto.Location = new System.Drawing.Point(142, 20);
             this.txtImporteAfecto.Name = "txtImporteAfecto";
-            this.txtImporteAfecto.Size = new System.Drawing.Size(116, 31);
+            this.txtImporteAfecto.Size = new System.Drawing.Size(77, 23);
             this.txtImporteAfecto.TabIndex = 1;
             this.txtImporteAfecto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtImporteAfecto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporteAfecto_KeyPress);
@@ -956,99 +901,89 @@
             // 
             // radLabel23
             // 
-            this.radLabel23.Location = new System.Drawing.Point(14, 34);
-            this.radLabel23.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel23.Location = new System.Drawing.Point(9, 22);
             this.radLabel23.Name = "radLabel23";
-            this.radLabel23.Size = new System.Drawing.Size(125, 26);
+            this.radLabel23.Size = new System.Drawing.Size(84, 18);
             this.radLabel23.TabIndex = 0;
             this.radLabel23.Text = "Importe Afecto:";
             // 
             // radLabel6
             // 
-            this.radLabel6.Location = new System.Drawing.Point(39, 168);
-            this.radLabel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel6.Location = new System.Drawing.Point(23, 143);
             this.radLabel6.Name = "radLabel6";
-            this.radLabel6.Size = new System.Drawing.Size(98, 26);
+            this.radLabel6.Size = new System.Drawing.Size(66, 18);
             this.radLabel6.TabIndex = 9;
             this.radLabel6.Text = "Fecha Pago:";
             // 
             // radLabel21
             // 
-            this.radLabel21.Location = new System.Drawing.Point(38, 312);
-            this.radLabel21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel21.Location = new System.Drawing.Point(20, 201);
             this.radLabel21.Name = "radLabel21";
-            this.radLabel21.Size = new System.Drawing.Size(119, 26);
+            this.radLabel21.Size = new System.Drawing.Size(80, 18);
             this.radLabel21.TabIndex = 21;
             this.radLabel21.Text = "Bien o servicio:";
             // 
             // dtpFechaPago
             // 
             this.dtpFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaPago.Location = new System.Drawing.Point(160, 162);
-            this.dtpFechaPago.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpFechaPago.Location = new System.Drawing.Point(101, 139);
             this.dtpFechaPago.Name = "dtpFechaPago";
-            this.dtpFechaPago.Size = new System.Drawing.Size(120, 27);
+            this.dtpFechaPago.Size = new System.Drawing.Size(80, 20);
             this.dtpFechaPago.TabIndex = 10;
             this.dtpFechaPago.TabStop = false;
-            this.dtpFechaPago.Text = "1/03/2013";
+            this.dtpFechaPago.Text = "01/03/2013";
             this.dtpFechaPago.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             // 
             // txtMesProvision
             // 
             this.txtMesProvision.Enabled = false;
             this.txtMesProvision.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMesProvision.Location = new System.Drawing.Point(160, 9);
-            this.txtMesProvision.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMesProvision.Location = new System.Drawing.Point(101, 16);
             this.txtMesProvision.Name = "txtMesProvision";
-            this.txtMesProvision.Size = new System.Drawing.Size(48, 31);
+            this.txtMesProvision.Size = new System.Drawing.Size(32, 23);
             this.txtMesProvision.TabIndex = 1;
             // 
             // radLabel5
             // 
-            this.radLabel5.Location = new System.Drawing.Point(3, 131);
-            this.radLabel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel5.Location = new System.Drawing.Point(-1, 119);
             this.radLabel5.Name = "radLabel5";
-            this.radLabel5.Size = new System.Drawing.Size(134, 26);
+            this.radLabel5.Size = new System.Drawing.Size(90, 18);
             this.radLabel5.TabIndex = 7;
             this.radLabel5.Text = "Fec.Vencimiento:";
             // 
             // radLabel1
             // 
-            this.radLabel1.Location = new System.Drawing.Point(28, 12);
-            this.radLabel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel1.Location = new System.Drawing.Point(19, 18);
             this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(121, 26);
+            this.radLabel1.Size = new System.Drawing.Size(81, 18);
             this.radLabel1.TabIndex = 0;
             this.radLabel1.Text = "Mes Provision :";
             // 
             // dtpFechaVencimiento
             // 
             this.dtpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaVencimiento.Location = new System.Drawing.Point(159, 129);
-            this.dtpFechaVencimiento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpFechaVencimiento.Location = new System.Drawing.Point(101, 118);
             this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
-            this.dtpFechaVencimiento.Size = new System.Drawing.Size(120, 27);
+            this.dtpFechaVencimiento.Size = new System.Drawing.Size(80, 20);
             this.dtpFechaVencimiento.TabIndex = 8;
             this.dtpFechaVencimiento.TabStop = false;
-            this.dtpFechaVencimiento.Text = "1/03/2013";
+            this.dtpFechaVencimiento.Text = "01/03/2013";
             this.dtpFechaVencimiento.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             this.dtpFechaVencimiento.Leave += new System.EventHandler(this.dtpFechaVencimiento_Leave);
             // 
             // radLabel2
             // 
-            this.radLabel2.Location = new System.Drawing.Point(21, 49);
-            this.radLabel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel2.Location = new System.Drawing.Point(14, 42);
             this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(128, 26);
+            this.radLabel2.Size = new System.Drawing.Size(86, 18);
             this.radLabel2.TabIndex = 2;
             this.radLabel2.Text = "Tipo + Nro.Doc:";
             // 
             // radLabel4
             // 
-            this.radLabel4.Location = new System.Drawing.Point(56, 98);
-            this.radLabel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel4.Location = new System.Drawing.Point(34, 102);
             this.radLabel4.Name = "radLabel4";
-            this.radLabel4.Size = new System.Drawing.Size(89, 26);
+            this.radLabel4.Size = new System.Drawing.Size(60, 18);
             this.radLabel4.TabIndex = 5;
             this.radLabel4.Text = "Fecha Doc:";
             // 
@@ -1056,10 +991,9 @@
             // 
             this.txtTipoDocumento.Enabled = false;
             this.txtTipoDocumento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoDocumento.Location = new System.Drawing.Point(160, 46);
-            this.txtTipoDocumento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTipoDocumento.Location = new System.Drawing.Point(101, 40);
             this.txtTipoDocumento.Name = "txtTipoDocumento";
-            this.txtTipoDocumento.Size = new System.Drawing.Size(48, 31);
+            this.txtTipoDocumento.Size = new System.Drawing.Size(32, 23);
             this.txtTipoDocumento.TabIndex = 3;
             this.txtTipoDocumento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTipoDocumento_KeyDown);
             this.txtTipoDocumento.Leave += new System.EventHandler(this.txtTipoDocumento_Leave);
@@ -1067,13 +1001,12 @@
             // dtpFechaDocumento
             // 
             this.dtpFechaDocumento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDocumento.Location = new System.Drawing.Point(159, 97);
-            this.dtpFechaDocumento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpFechaDocumento.Location = new System.Drawing.Point(101, 96);
             this.dtpFechaDocumento.Name = "dtpFechaDocumento";
-            this.dtpFechaDocumento.Size = new System.Drawing.Size(120, 27);
+            this.dtpFechaDocumento.Size = new System.Drawing.Size(80, 20);
             this.dtpFechaDocumento.TabIndex = 6;
             this.dtpFechaDocumento.TabStop = false;
-            this.dtpFechaDocumento.Text = "1/03/2013";
+            this.dtpFechaDocumento.Text = "01/03/2013";
             this.dtpFechaDocumento.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             this.dtpFechaDocumento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtpFechaDocumento_KeyDown);
             this.dtpFechaDocumento.Leave += new System.EventHandler(this.dtpFechaDocumento_Leave);
@@ -1082,10 +1015,9 @@
             // 
             this.txtnrodocumento.Enabled = false;
             this.txtnrodocumento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnrodocumento.Location = new System.Drawing.Point(212, 46);
-            this.txtnrodocumento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtnrodocumento.Location = new System.Drawing.Point(135, 40);
             this.txtnrodocumento.Name = "txtnrodocumento";
-            this.txtnrodocumento.Size = new System.Drawing.Size(177, 31);
+            this.txtnrodocumento.Size = new System.Drawing.Size(118, 23);
             this.txtnrodocumento.TabIndex = 4;
             this.txtnrodocumento.Leave += new System.EventHandler(this.txtnrodocumento_Leave);
             // 
@@ -1093,10 +1025,9 @@
             // 
             this.radPanel1.Controls.Add(this.gpxDerecha2);
             this.radPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radPanel1.Location = new System.Drawing.Point(788, 36);
-            this.radPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radPanel1.Location = new System.Drawing.Point(525, 33);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(464, 737);
+            this.radPanel1.Size = new System.Drawing.Size(317, 542);
             this.radPanel1.TabIndex = 4;
             // 
             // gpxDerecha2
@@ -1109,10 +1040,8 @@
             this.gpxDerecha2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gpxDerecha2.HeaderText = "";
             this.gpxDerecha2.Location = new System.Drawing.Point(0, 0);
-            this.gpxDerecha2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gpxDerecha2.Name = "gpxDerecha2";
-            this.gpxDerecha2.Padding = new System.Windows.Forms.Padding(3, 28, 3, 3);
-            this.gpxDerecha2.Size = new System.Drawing.Size(464, 737);
+            this.gpxDerecha2.Size = new System.Drawing.Size(317, 542);
             this.gpxDerecha2.TabIndex = 197;
             // 
             // gpxInventario
@@ -1133,11 +1062,9 @@
             this.gpxInventario.Controls.Add(this.txtTipDocGuia);
             this.gpxInventario.Controls.Add(this.radLabel17);
             this.gpxInventario.HeaderText = "Inventarios";
-            this.gpxInventario.Location = new System.Drawing.Point(9, 172);
-            this.gpxInventario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gpxInventario.Location = new System.Drawing.Point(6, 112);
             this.gpxInventario.Name = "gpxInventario";
-            this.gpxInventario.Padding = new System.Windows.Forms.Padding(3, 28, 3, 3);
-            this.gpxInventario.Size = new System.Drawing.Size(417, 240);
+            this.gpxInventario.Size = new System.Drawing.Size(278, 156);
             this.gpxInventario.TabIndex = 1;
             this.gpxInventario.Text = "Inventarios";
             this.gpxInventario.Visible = false;
@@ -1145,18 +1072,16 @@
             // txtDcoRef
             // 
             this.txtDcoRef.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDcoRef.Location = new System.Drawing.Point(147, 188);
-            this.txtDcoRef.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDcoRef.Location = new System.Drawing.Point(98, 122);
             this.txtDcoRef.Name = "txtDcoRef";
-            this.txtDcoRef.Size = new System.Drawing.Size(177, 31);
+            this.txtDcoRef.Size = new System.Drawing.Size(118, 23);
             this.txtDcoRef.TabIndex = 219;
             // 
             // radLabel11
             // 
-            this.radLabel11.Location = new System.Drawing.Point(34, 191);
-            this.radLabel11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel11.Location = new System.Drawing.Point(23, 124);
             this.radLabel11.Name = "radLabel11";
-            this.radLabel11.Size = new System.Drawing.Size(102, 26);
+            this.radLabel11.Size = new System.Drawing.Size(69, 18);
             this.radLabel11.TabIndex = 218;
             this.radLabel11.Text = "Nro.Doc.Ref:";
             // 
@@ -1164,10 +1089,9 @@
             // 
             this.btnGrabarInventario.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarInventario.Image")));
             this.btnGrabarInventario.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGrabarInventario.Location = new System.Drawing.Point(334, 72);
-            this.btnGrabarInventario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnGrabarInventario.Location = new System.Drawing.Point(223, 47);
             this.btnGrabarInventario.Name = "btnGrabarInventario";
-            this.btnGrabarInventario.Size = new System.Drawing.Size(50, 37);
+            this.btnGrabarInventario.Size = new System.Drawing.Size(33, 24);
             this.btnGrabarInventario.TabIndex = 217;
             this.btnGrabarInventario.TabStop = false;
             this.btnGrabarInventario.ThemeName = "Office2013Light";
@@ -1177,10 +1101,9 @@
             // 
             this.btnVerInventario.Image = ((System.Drawing.Image)(resources.GetObject("btnVerInventario.Image")));
             this.btnVerInventario.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnVerInventario.Location = new System.Drawing.Point(334, 31);
-            this.btnVerInventario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVerInventario.Location = new System.Drawing.Point(223, 20);
             this.btnVerInventario.Name = "btnVerInventario";
-            this.btnVerInventario.Size = new System.Drawing.Size(50, 37);
+            this.btnVerInventario.Size = new System.Drawing.Size(33, 24);
             this.btnVerInventario.TabIndex = 216;
             this.btnVerInventario.ThemeName = "Office2013Light";
             this.btnVerInventario.Click += new System.EventHandler(this.btnVerInventario_Click);
@@ -1189,10 +1112,9 @@
             // 
             this.txtTipTransGuiaDesc.Enabled = false;
             this.txtTipTransGuiaDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipTransGuiaDesc.Location = new System.Drawing.Point(196, 29);
-            this.txtTipTransGuiaDesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTipTransGuiaDesc.Location = new System.Drawing.Point(131, 19);
             this.txtTipTransGuiaDesc.Name = "txtTipTransGuiaDesc";
-            this.txtTipTransGuiaDesc.Size = new System.Drawing.Size(126, 31);
+            this.txtTipTransGuiaDesc.Size = new System.Drawing.Size(84, 23);
             this.txtTipTransGuiaDesc.TabIndex = 5;
             this.txtTipTransGuiaDesc.TabStop = false;
             // 
@@ -1200,50 +1122,45 @@
             // 
             this.txtTipDocGuiaDesc.Enabled = false;
             this.txtTipDocGuiaDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipDocGuiaDesc.Location = new System.Drawing.Point(200, 146);
-            this.txtTipDocGuiaDesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTipDocGuiaDesc.Location = new System.Drawing.Point(133, 95);
             this.txtTipDocGuiaDesc.Name = "txtTipDocGuiaDesc";
-            this.txtTipDocGuiaDesc.Size = new System.Drawing.Size(124, 31);
+            this.txtTipDocGuiaDesc.Size = new System.Drawing.Size(83, 23);
             this.txtTipDocGuiaDesc.TabIndex = 2;
             this.txtTipDocGuiaDesc.TabStop = false;
             // 
             // radLabel20
             // 
-            this.radLabel20.Location = new System.Drawing.Point(48, 108);
-            this.radLabel20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel20.Location = new System.Drawing.Point(32, 70);
             this.radLabel20.Name = "radLabel20";
-            this.radLabel20.Size = new System.Drawing.Size(94, 26);
+            this.radLabel20.Size = new System.Drawing.Size(63, 18);
             this.radLabel20.TabIndex = 8;
             this.radLabel20.Text = "Fecha Guia:";
             // 
             // dtpFechaGuia
             // 
             this.dtpFechaGuia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaGuia.Location = new System.Drawing.Point(147, 106);
-            this.dtpFechaGuia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpFechaGuia.Location = new System.Drawing.Point(98, 69);
             this.dtpFechaGuia.Name = "dtpFechaGuia";
-            this.dtpFechaGuia.Size = new System.Drawing.Size(176, 27);
+            this.dtpFechaGuia.Size = new System.Drawing.Size(117, 20);
             this.dtpFechaGuia.TabIndex = 9;
             this.dtpFechaGuia.TabStop = false;
-            this.dtpFechaGuia.Text = "1/03/2013";
+            this.dtpFechaGuia.Text = "01/03/2013";
             this.dtpFechaGuia.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             // 
             // txtNroGuia
             // 
             this.txtNroGuia.Enabled = false;
             this.txtNroGuia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroGuia.Location = new System.Drawing.Point(147, 69);
-            this.txtNroGuia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNroGuia.Location = new System.Drawing.Point(98, 45);
             this.txtNroGuia.Name = "txtNroGuia";
-            this.txtNroGuia.Size = new System.Drawing.Size(176, 31);
+            this.txtNroGuia.Size = new System.Drawing.Size(117, 23);
             this.txtNroGuia.TabIndex = 7;
             // 
             // radLabel19
             // 
-            this.radLabel19.Location = new System.Drawing.Point(62, 72);
-            this.radLabel19.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel19.Location = new System.Drawing.Point(41, 47);
             this.radLabel19.Name = "radLabel19";
-            this.radLabel19.Size = new System.Drawing.Size(79, 26);
+            this.radLabel19.Size = new System.Drawing.Size(53, 18);
             this.radLabel19.TabIndex = 6;
             this.radLabel19.Text = "Nro Guia:";
             // 
@@ -1251,39 +1168,35 @@
             // 
             this.txtTipTransGuia.Enabled = false;
             this.txtTipTransGuia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipTransGuia.Location = new System.Drawing.Point(146, 29);
-            this.txtTipTransGuia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTipTransGuia.Location = new System.Drawing.Point(97, 19);
             this.txtTipTransGuia.Name = "txtTipTransGuia";
-            this.txtTipTransGuia.Size = new System.Drawing.Size(48, 31);
+            this.txtTipTransGuia.Size = new System.Drawing.Size(32, 23);
             this.txtTipTransGuia.TabIndex = 4;
             this.txtTipTransGuia.TextChanged += new System.EventHandler(this.txtTipTransGuia_TextChanged);
             // 
             // radLabel18
             // 
-            this.radLabel18.Location = new System.Drawing.Point(6, 32);
-            this.radLabel18.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel18.Location = new System.Drawing.Point(4, 21);
             this.radLabel18.Name = "radLabel18";
-            this.radLabel18.Size = new System.Drawing.Size(134, 26);
+            this.radLabel18.Size = new System.Drawing.Size(90, 18);
             this.radLabel18.TabIndex = 3;
             this.radLabel18.Text = "Tipo transaccion:";
             // 
             // txtTipDocGuia
             // 
             this.txtTipDocGuia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipDocGuia.Location = new System.Drawing.Point(148, 146);
-            this.txtTipDocGuia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTipDocGuia.Location = new System.Drawing.Point(99, 95);
             this.txtTipDocGuia.Name = "txtTipDocGuia";
-            this.txtTipDocGuia.Size = new System.Drawing.Size(48, 31);
+            this.txtTipDocGuia.Size = new System.Drawing.Size(32, 23);
             this.txtTipDocGuia.TabIndex = 1;
             this.txtTipDocGuia.TextChanged += new System.EventHandler(this.txtTipDocGuia_TextChanged);
             this.txtTipDocGuia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTipDocGuia_KeyDown);
             // 
             // radLabel17
             // 
-            this.radLabel17.Location = new System.Drawing.Point(8, 149);
-            this.radLabel17.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel17.Location = new System.Drawing.Point(5, 97);
             this.radLabel17.Name = "radLabel17";
-            this.radLabel17.Size = new System.Drawing.Size(136, 26);
+            this.radLabel17.Size = new System.Drawing.Size(91, 18);
             this.radLabel17.TabIndex = 0;
             this.radLabel17.Text = "Tipo documento:";
             // 
@@ -1304,76 +1217,67 @@
             this.gpxDetraccion.Controls.Add(this.txttipooperacion);
             this.gpxDetraccion.Controls.Add(this.radLabel31);
             this.gpxDetraccion.HeaderText = "Datos de detraccion";
-            this.gpxDetraccion.Location = new System.Drawing.Point(9, 425);
-            this.gpxDetraccion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gpxDetraccion.Location = new System.Drawing.Point(6, 276);
             this.gpxDetraccion.Name = "gpxDetraccion";
-            this.gpxDetraccion.Padding = new System.Windows.Forms.Padding(3, 28, 3, 3);
-            this.gpxDetraccion.Size = new System.Drawing.Size(417, 188);
+            this.gpxDetraccion.Size = new System.Drawing.Size(278, 122);
             this.gpxDetraccion.TabIndex = 2;
             this.gpxDetraccion.Text = "Datos de detraccion";
             // 
             // txtimportedetraccion_equi
             // 
             this.txtimportedetraccion_equi.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtimportedetraccion_equi.Location = new System.Drawing.Point(290, 149);
-            this.txtimportedetraccion_equi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtimportedetraccion_equi.Location = new System.Drawing.Point(193, 97);
             this.txtimportedetraccion_equi.Name = "txtimportedetraccion_equi";
-            this.txtimportedetraccion_equi.Size = new System.Drawing.Size(87, 31);
+            this.txtimportedetraccion_equi.Size = new System.Drawing.Size(58, 23);
             this.txtimportedetraccion_equi.TabIndex = 12;
             // 
             // radLabel36
             // 
-            this.radLabel36.Location = new System.Drawing.Point(237, 157);
-            this.radLabel36.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel36.Location = new System.Drawing.Point(158, 102);
             this.radLabel36.Name = "radLabel36";
-            this.radLabel36.Size = new System.Drawing.Size(44, 26);
+            this.radLabel36.Size = new System.Drawing.Size(30, 18);
             this.radLabel36.TabIndex = 11;
             this.radLabel36.Text = "Equi:";
             // 
             // txtimportedetraccion
             // 
             this.txtimportedetraccion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtimportedetraccion.Location = new System.Drawing.Point(141, 149);
-            this.txtimportedetraccion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtimportedetraccion.Location = new System.Drawing.Point(94, 97);
             this.txtimportedetraccion.Name = "txtimportedetraccion";
-            this.txtimportedetraccion.Size = new System.Drawing.Size(87, 31);
+            this.txtimportedetraccion.Size = new System.Drawing.Size(58, 23);
             this.txtimportedetraccion.TabIndex = 10;
             this.txtimportedetraccion.Leave += new System.EventHandler(this.txtimportedetraccion_Leave);
             // 
             // radLabel35
             // 
-            this.radLabel35.Location = new System.Drawing.Point(99, 157);
-            this.radLabel35.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel35.Location = new System.Drawing.Point(66, 102);
             this.radLabel35.Name = "radLabel35";
-            this.radLabel35.Size = new System.Drawing.Size(39, 26);
+            this.radLabel35.Size = new System.Drawing.Size(27, 18);
             this.radLabel35.TabIndex = 9;
             this.radLabel35.Text = " Ori.";
             // 
             // radLabel34
             // 
-            this.radLabel34.Location = new System.Drawing.Point(237, 115);
-            this.radLabel34.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel34.Location = new System.Drawing.Point(158, 75);
             this.radLabel34.Name = "radLabel34";
-            this.radLabel34.Size = new System.Drawing.Size(22, 26);
+            this.radLabel34.Size = new System.Drawing.Size(15, 18);
             this.radLabel34.TabIndex = 8;
             this.radLabel34.Text = "%";
             // 
             // txtporcentaje
             // 
             this.txtporcentaje.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtporcentaje.Location = new System.Drawing.Point(141, 111);
-            this.txtporcentaje.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtporcentaje.Location = new System.Drawing.Point(94, 72);
             this.txtporcentaje.Name = "txtporcentaje";
-            this.txtporcentaje.Size = new System.Drawing.Size(86, 31);
+            this.txtporcentaje.Size = new System.Drawing.Size(57, 23);
             this.txtporcentaje.TabIndex = 7;
             this.txtporcentaje.Leave += new System.EventHandler(this.txtporcentaje_Leave);
             // 
             // radLabel33
             // 
-            this.radLabel33.Location = new System.Drawing.Point(39, 118);
-            this.radLabel33.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel33.Location = new System.Drawing.Point(26, 77);
             this.radLabel33.Name = "radLabel33";
-            this.radLabel33.Size = new System.Drawing.Size(95, 26);
+            this.radLabel33.Size = new System.Drawing.Size(64, 18);
             this.radLabel33.TabIndex = 6;
             this.radLabel33.Text = "Porcentaje :";
             // 
@@ -1381,10 +1285,9 @@
             // 
             this.txttiposervicioDesc.Enabled = false;
             this.txttiposervicioDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttiposervicioDesc.Location = new System.Drawing.Point(194, 72);
-            this.txttiposervicioDesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txttiposervicioDesc.Location = new System.Drawing.Point(129, 47);
             this.txttiposervicioDesc.Name = "txttiposervicioDesc";
-            this.txttiposervicioDesc.Size = new System.Drawing.Size(180, 31);
+            this.txttiposervicioDesc.Size = new System.Drawing.Size(120, 23);
             this.txttiposervicioDesc.TabIndex = 5;
             this.txttiposervicioDesc.TabStop = false;
             // 
@@ -1392,20 +1295,18 @@
             // 
             this.txttipooperacionDesc.Enabled = false;
             this.txttipooperacionDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttipooperacionDesc.Location = new System.Drawing.Point(195, 34);
-            this.txttipooperacionDesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txttipooperacionDesc.Location = new System.Drawing.Point(130, 22);
             this.txttipooperacionDesc.Name = "txttipooperacionDesc";
-            this.txttipooperacionDesc.Size = new System.Drawing.Size(180, 31);
+            this.txttipooperacionDesc.Size = new System.Drawing.Size(120, 23);
             this.txttipooperacionDesc.TabIndex = 2;
             this.txttipooperacionDesc.TabStop = false;
             // 
             // txttiposervicio
             // 
             this.txttiposervicio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttiposervicio.Location = new System.Drawing.Point(141, 72);
-            this.txttiposervicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txttiposervicio.Location = new System.Drawing.Point(94, 47);
             this.txttiposervicio.Name = "txttiposervicio";
-            this.txttiposervicio.Size = new System.Drawing.Size(44, 31);
+            this.txttiposervicio.Size = new System.Drawing.Size(29, 23);
             this.txttiposervicio.TabIndex = 4;
             this.txttiposervicio.TextChanged += new System.EventHandler(this.txttiposervicio_TextChanged);
             this.txttiposervicio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txttiposervicio_KeyDown);
@@ -1413,20 +1314,18 @@
             // 
             // radLabel32
             // 
-            this.radLabel32.Location = new System.Drawing.Point(18, 72);
-            this.radLabel32.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel32.Location = new System.Drawing.Point(12, 47);
             this.radLabel32.Name = "radLabel32";
-            this.radLabel32.Size = new System.Drawing.Size(113, 26);
+            this.radLabel32.Size = new System.Drawing.Size(76, 18);
             this.radLabel32.TabIndex = 3;
             this.radLabel32.Text = "Tipo servicios:";
             // 
             // txttipooperacion
             // 
             this.txttipooperacion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttipooperacion.Location = new System.Drawing.Point(141, 34);
-            this.txttipooperacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txttipooperacion.Location = new System.Drawing.Point(94, 22);
             this.txttipooperacion.Name = "txttipooperacion";
-            this.txttipooperacion.Size = new System.Drawing.Size(45, 31);
+            this.txttipooperacion.Size = new System.Drawing.Size(30, 23);
             this.txttipooperacion.TabIndex = 1;
             this.txttipooperacion.TextChanged += new System.EventHandler(this.txttipooperacion_TextChanged);
             this.txttipooperacion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txttipooperacion_KeyDown);
@@ -1434,17 +1333,15 @@
             // 
             // radLabel31
             // 
-            this.radLabel31.Location = new System.Drawing.Point(9, 37);
-            this.radLabel31.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel31.Location = new System.Drawing.Point(6, 24);
             this.radLabel31.Name = "radLabel31";
-            this.radLabel31.Size = new System.Drawing.Size(124, 26);
+            this.radLabel31.Size = new System.Drawing.Size(84, 18);
             this.radLabel31.TabIndex = 0;
             this.radLabel31.Text = "Tipo operacion:";
             // 
             // grdiCtaCte
             // 
-            this.grdiCtaCte.Location = new System.Drawing.Point(470, 265);
-            this.grdiCtaCte.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grdiCtaCte.Location = new System.Drawing.Point(313, 172);
             // 
             // 
             // 
@@ -1454,7 +1351,7 @@
             gridViewTextBoxColumn2});
             this.grdiCtaCte.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.grdiCtaCte.Name = "grdiCtaCte";
-            this.grdiCtaCte.Size = new System.Drawing.Size(388, 171);
+            this.grdiCtaCte.Size = new System.Drawing.Size(259, 111);
             this.grdiCtaCte.TabIndex = 75;
             this.grdiCtaCte.TabStop = false;
             this.grdiCtaCte.Text = "radGridView1";
@@ -1475,11 +1372,9 @@
             this.gpxContabilidad.Controls.Add(this.txtLibro);
             this.gpxContabilidad.Controls.Add(this.radLabel14);
             this.gpxContabilidad.HeaderText = "Contabilidad";
-            this.gpxContabilidad.Location = new System.Drawing.Point(9, 12);
-            this.gpxContabilidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gpxContabilidad.Location = new System.Drawing.Point(6, 8);
             this.gpxContabilidad.Name = "gpxContabilidad";
-            this.gpxContabilidad.Padding = new System.Windows.Forms.Padding(3, 28, 3, 3);
-            this.gpxContabilidad.Size = new System.Drawing.Size(417, 154);
+            this.gpxContabilidad.Size = new System.Drawing.Size(278, 100);
             this.gpxContabilidad.TabIndex = 0;
             this.gpxContabilidad.Text = "Contabilidad";
             // 
@@ -1487,10 +1382,9 @@
             // 
             this.btnGrabarContabilidad.Image = ((System.Drawing.Image)(resources.GetObject("btnGrabarContabilidad.Image")));
             this.btnGrabarContabilidad.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGrabarContabilidad.Location = new System.Drawing.Point(334, 72);
-            this.btnGrabarContabilidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnGrabarContabilidad.Location = new System.Drawing.Point(223, 47);
             this.btnGrabarContabilidad.Name = "btnGrabarContabilidad";
-            this.btnGrabarContabilidad.Size = new System.Drawing.Size(50, 37);
+            this.btnGrabarContabilidad.Size = new System.Drawing.Size(33, 24);
             this.btnGrabarContabilidad.TabIndex = 210;
             this.btnGrabarContabilidad.TabStop = false;
             this.btnGrabarContabilidad.ThemeName = "Office2013Light";
@@ -1500,10 +1394,9 @@
             // 
             this.btnVerContabilidad.Image = ((System.Drawing.Image)(resources.GetObject("btnVerContabilidad.Image")));
             this.btnVerContabilidad.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnVerContabilidad.Location = new System.Drawing.Point(334, 31);
-            this.btnVerContabilidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVerContabilidad.Location = new System.Drawing.Point(223, 20);
             this.btnVerContabilidad.Name = "btnVerContabilidad";
-            this.btnVerContabilidad.Size = new System.Drawing.Size(50, 37);
+            this.btnVerContabilidad.Size = new System.Drawing.Size(33, 24);
             this.btnVerContabilidad.TabIndex = 3;
             this.btnVerContabilidad.TabStop = false;
             this.btnVerContabilidad.ThemeName = "Office2013Light";
@@ -1513,10 +1406,9 @@
             // 
             this.txtAsientoTipoDesc.Enabled = false;
             this.txtAsientoTipoDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAsientoTipoDesc.Location = new System.Drawing.Point(196, 109);
-            this.txtAsientoTipoDesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtAsientoTipoDesc.Location = new System.Drawing.Point(131, 71);
             this.txtAsientoTipoDesc.Name = "txtAsientoTipoDesc";
-            this.txtAsientoTipoDesc.Size = new System.Drawing.Size(126, 31);
+            this.txtAsientoTipoDesc.Size = new System.Drawing.Size(84, 23);
             this.txtAsientoTipoDesc.TabIndex = 7;
             this.txtAsientoTipoDesc.TabStop = false;
             // 
@@ -1524,10 +1416,9 @@
             // 
             this.txtLibroDesc.Enabled = false;
             this.txtLibroDesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLibroDesc.Location = new System.Drawing.Point(174, 28);
-            this.txtLibroDesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtLibroDesc.Location = new System.Drawing.Point(116, 18);
             this.txtLibroDesc.Name = "txtLibroDesc";
-            this.txtLibroDesc.Size = new System.Drawing.Size(148, 31);
+            this.txtLibroDesc.Size = new System.Drawing.Size(99, 23);
             this.txtLibroDesc.TabIndex = 2;
             this.txtLibroDesc.TabStop = false;
             // 
@@ -1535,10 +1426,9 @@
             // 
             this.txtAsientoTipo.Enabled = false;
             this.txtAsientoTipo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAsientoTipo.Location = new System.Drawing.Point(123, 109);
-            this.txtAsientoTipo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtAsientoTipo.Location = new System.Drawing.Point(82, 71);
             this.txtAsientoTipo.Name = "txtAsientoTipo";
-            this.txtAsientoTipo.Size = new System.Drawing.Size(72, 31);
+            this.txtAsientoTipo.Size = new System.Drawing.Size(48, 23);
             this.txtAsientoTipo.TabIndex = 2;
             this.txtAsientoTipo.TextChanged += new System.EventHandler(this.txtAsientoTipo_TextChanged);
             this.txtAsientoTipo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAsientoTipo_KeyDown);
@@ -1546,10 +1436,9 @@
             // 
             // radLabel16
             // 
-            this.radLabel16.Location = new System.Drawing.Point(9, 112);
-            this.radLabel16.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel16.Location = new System.Drawing.Point(6, 73);
             this.radLabel16.Name = "radLabel16";
-            this.radLabel16.Size = new System.Drawing.Size(106, 26);
+            this.radLabel16.Size = new System.Drawing.Size(71, 18);
             this.radLabel16.TabIndex = 5;
             this.radLabel16.Text = "Asiento Tipo:";
             // 
@@ -1557,19 +1446,17 @@
             // 
             this.txtNroVoucher.Enabled = false;
             this.txtNroVoucher.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroVoucher.Location = new System.Drawing.Point(123, 69);
-            this.txtNroVoucher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNroVoucher.Location = new System.Drawing.Point(82, 45);
             this.txtNroVoucher.Name = "txtNroVoucher";
-            this.txtNroVoucher.Size = new System.Drawing.Size(200, 31);
+            this.txtNroVoucher.Size = new System.Drawing.Size(133, 23);
             this.txtNroVoucher.TabIndex = 1;
             this.txtNroVoucher.Leave += new System.EventHandler(this.txtNroVoucher_Leave);
             // 
             // radLabel15
             // 
-            this.radLabel15.Location = new System.Drawing.Point(12, 72);
-            this.radLabel15.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel15.Location = new System.Drawing.Point(8, 47);
             this.radLabel15.Name = "radLabel15";
-            this.radLabel15.Size = new System.Drawing.Size(107, 26);
+            this.radLabel15.Size = new System.Drawing.Size(72, 18);
             this.radLabel15.TabIndex = 3;
             this.radLabel15.Text = "Nro Voucher:";
             // 
@@ -1577,10 +1464,9 @@
             // 
             this.txtLibro.Enabled = false;
             this.txtLibro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLibro.Location = new System.Drawing.Point(122, 28);
-            this.txtLibro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtLibro.Location = new System.Drawing.Point(81, 18);
             this.txtLibro.Name = "txtLibro";
-            this.txtLibro.Size = new System.Drawing.Size(48, 31);
+            this.txtLibro.Size = new System.Drawing.Size(32, 23);
             this.txtLibro.TabIndex = 0;
             this.txtLibro.TextChanged += new System.EventHandler(this.txtLibro_TextChanged);
             this.txtLibro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLibro_KeyDown);
@@ -1588,21 +1474,20 @@
             // 
             // radLabel14
             // 
-            this.radLabel14.Location = new System.Drawing.Point(63, 31);
-            this.radLabel14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.radLabel14.Location = new System.Drawing.Point(42, 20);
             this.radLabel14.Name = "radLabel14";
-            this.radLabel14.Size = new System.Drawing.Size(46, 26);
+            this.radLabel14.Size = new System.Drawing.Size(31, 18);
             this.radLabel14.TabIndex = 0;
             this.radLabel14.Text = "Libro";
             // 
             // frmProvFacturaDetSinOC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1252, 773);
+            this.ClientSize = new System.Drawing.Size(842, 575);
             this.Controls.Add(this.radPanel1);
             this.Controls.Add(this.gpxCtaCte);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "frmProvFacturaDetSinOC";
             // 
             // 

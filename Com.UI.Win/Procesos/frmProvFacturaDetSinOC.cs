@@ -1733,6 +1733,39 @@ namespace Com.UI.Win.Procesos
 
         private void dtpFechaDocumento_Leave(object sender, EventArgs e)
         {
+            try
+            {
+                string cantidadDias = "";
+                string formaPago = "";
+
+                GlobalLogic.Instance.ComprasDameDescripcion(Logueo.CodigoEmpresa,
+                    Logueo.CodigoEmpresa +
+                    Logueo.TipoAnalisisProveedor +
+                    txtProveedor.Text.Trim(), "FPPROV", out formaPago);
+
+                GlobalLogic.Instance.ComprasDameDescripcion(Logueo.CodigoEmpresa,
+                        Logueo.CodigoEmpresa + formaPago, "DFP", out cantidadDias);
+
+
+                int dias;
+
+                if (Util.EsNumero(cantidadDias) == true)
+                {
+                    dias = Convert.ToInt32(cantidadDias);
+                }
+                else
+                {
+                    dias = 0;
+                }
+
+                dtpFechaVencimiento.Value = dtpFechaDocumento.Value.AddDays(dias);
+                dtpFechaPago.Value = dtpFechaDocumento.Value.AddDays(dias);
+            }
+            catch (Exception ex) {
+                Util.ShowAlert("Error al calcular fecha de vencimiento");
+            }
+            
+
             //try
             //{
             //    if (Estado == FormEstate.Edit) return;
@@ -2050,6 +2083,9 @@ namespace Com.UI.Win.Procesos
                 estadoProvDom = "01";
                 proveedorValidoDom = "1";
                 txtProveedorDesc.Text = DameDescripcion(Logueo.CodigoEmpresa + Logueo.TipoAnalisisProveedor + txtProveedor.Text, "CR");
+
+                //obtener fecha de vencimiento de factura desde el registro de proveedor ingresado al formulario
+
                 //valida estado
                 //estadoProv = DameDescripcion(Logueo.CodigoEmpresa + "02" + txtProveedor.Text, "HABPROV");
 
@@ -2437,6 +2473,16 @@ namespace Com.UI.Win.Procesos
             {
                 Util.ShowError("Error en Fecha de documento");
             }
+        }
+
+        private void rpIzquierda3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gboxdocmodifica_Enter(object sender, EventArgs e)
+        {
+
         }
 
         

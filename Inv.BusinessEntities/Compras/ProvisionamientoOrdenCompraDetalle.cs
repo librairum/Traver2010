@@ -240,6 +240,8 @@ namespace Inv.BusinessEntities
         [MapField("ESTADOFACTURA")]
         public string EstadoFactura { get; set; }
 
+        [MapField("Ccm02Forpag")]
+        public string Ccm02Forpag { get; set; }
 
     }
 }

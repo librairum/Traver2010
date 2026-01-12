@@ -1,0 +1,11 @@
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Release\TutUpdate.UI.exe.config
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Release\TutUpdate.UI.exe
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Release\TutUpdate.UI.pdb
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Release\Ionic.Zip.dll
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Release\Microsoft.CSharp.dll
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Release\TutUpdate.UI.csprojResolveAssemblyReference.cache
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Release\TutUpdate.UI.frmActualizacion.resources
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Release\TutUpdate.UI.Properties.Resources.resources
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Release\TutUpdate.UI.csproj.GenerateResource.Cache
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Release\TutUpdate.UI.exe
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Release\TutUpdate.UI.pdb

@@ -1,0 +1,10 @@
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\bin\Release\Inv.BusinessLogic.dll
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\bin\Release\Inv.BusinessLogic.pdb
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\bin\Release\BLToolkit.4.dll
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\bin\Release\Inv.BusinessEntities.dll
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\bin\Release\Inv.DataAccess.dll
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\bin\Release\Inv.BusinessEntities.pdb
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\bin\Release\Inv.DataAccess.pdb
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\obj\Release\Inv.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\obj\Release\Inv.BusinessLogic.dll
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessLogic\obj\Release\Inv.BusinessLogic.pdb

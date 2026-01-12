@@ -173,3 +173,9 @@ D:\trabajo\traver deisi\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEn
 D:\trabajo\traver deisi\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.dll
 D:\trabajo\traver deisi\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.pdb
 >>>>>>> e5c9c420b3478c1da3fd917b113680ed42ea6816
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\bin\Debug\Inv.BusinessEntities.dll
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\bin\Debug\Inv.BusinessEntities.pdb
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\bin\Debug\BLToolkit.4.dll
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.csprojResolveAssemblyReference.cache
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.dll
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\obj\Debug\Inv.BusinessEntities.pdb

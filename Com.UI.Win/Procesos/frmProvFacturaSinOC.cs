@@ -96,6 +96,8 @@ namespace Com.UI.Win
 
                 CreateGridColumn(GridDetalle, "O.Compra Tipo", "Tipo", 0, "", 70, true, false, false);
                 CreateGridColumn(GridDetalle, "O.Compra Codigo", "Codigo", 0, "", 70, true, false, false);
+                CreateGridColumn(GridDetalle, "Ccm02Forpag", "Ccm02Forpag", 0, "", 70, true, false, false);
+
                 
             }
             catch (Exception ex) {
@@ -143,7 +145,7 @@ namespace Com.UI.Win
             Estado = FormEstate.New;
             //tipoOrden = Util.GetCurrentCellText(gridOrdenCompra.CurrentRow, "TipoOrden");
             //nroOrden = Util.GetCurrentCellText(gridOrdenCompra.CurrentRow, "CodigoOrden");
-            //formaPago = Util.GetCurrentCellText(gridOrdenCompra.CurrentRow, "FormaPago");
+            //formaPago = Util.GetCurrentCellText(this.gridFactura.CurrentRow, "FormaPago");
             //codigoProveedor = Util.GetCurrentCellText(gridOrdenCompra.CurrentRow, "Proveed");
             //anio = Util.GetCurrentCellText(gridOrdenCompra.CurrentRow, "anio");
             //mes = Util.GetCurrentCellText(gridOrdenCompra.CurrentRow, "mes");
@@ -157,7 +159,7 @@ namespace Com.UI.Win
             Estado = FormEstate.Edit;
             //tipoOrden = Util.GetCurrentCellText(gridFactura.CurrentRow, "Tipo");
             //nroOrden = Util.GetCurrentCellText(gridFactura.CurrentRow, "Codigo");
-            //formaPago = Util.GetCurrentCellText(gridOrdenCompra.CurrentRow, "FormaPago");
+            //formaPago = Util.GetCurrentCellText(gridFactura.CurrentRow, "Ccm02Forpag");
             //codigoProveedor = Util.GetCurrentCellText(gridOrdenCompra.CurrentRow, "Proveed");
             //anio = Util.GetCurrentCellText(gridOrdenCompra.CurrentRow, "anio");
             //mes = Util.GetCurrentCellText(gridOrdenCompra.CurrentRow, "mes");

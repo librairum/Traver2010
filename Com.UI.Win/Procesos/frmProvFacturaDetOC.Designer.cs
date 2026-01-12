@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProvFacturaDetOC));
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition11 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition12 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.gpxCtaCte = new Telerik.WinControls.UI.RadGroupBox();
+            this.lblNombreProvee = new Telerik.WinControls.UI.RadLabel();
             this.rpIzquierda = new Telerik.WinControls.UI.RadPanel();
             this.rpIzquierda3 = new Telerik.WinControls.UI.RadPanel();
             this.gpxFlotante = new Telerik.WinControls.UI.RadGroupBox();
@@ -138,10 +139,10 @@
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.gpxDerecha2 = new Telerik.WinControls.UI.RadGroupBox();
             this.grdiCtaCte = new Telerik.WinControls.UI.RadGridView();
-            this.lblNombreProvee = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gpxCtaCte)).BeginInit();
             this.gpxCtaCte.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblNombreProvee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpIzquierda)).BeginInit();
             this.rpIzquierda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rpIzquierda3)).BeginInit();
@@ -256,7 +257,6 @@
             this.gpxDerecha2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdiCtaCte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdiCtaCte.MasterTemplate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblNombreProvee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -305,7 +305,7 @@
             // 
             // radCommandBar1
             // 
-            this.radCommandBar1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.radCommandBar1.Margin = new System.Windows.Forms.Padding(3);
             this.radCommandBar1.Size = new System.Drawing.Size(847, 33);
             this.radCommandBar1.TabIndex = 0;
             // 
@@ -333,6 +333,14 @@
             this.gpxCtaCte.Name = "gpxCtaCte";
             this.gpxCtaCte.Size = new System.Drawing.Size(525, 458);
             this.gpxCtaCte.TabIndex = 1;
+            // 
+            // lblNombreProvee
+            // 
+            this.lblNombreProvee.Location = new System.Drawing.Point(141, 0);
+            this.lblNombreProvee.Name = "lblNombreProvee";
+            this.lblNombreProvee.Size = new System.Drawing.Size(30, 18);
+            this.lblNombreProvee.TabIndex = 236;
+            this.lblNombreProvee.Text = "label";
             // 
             // rpIzquierda
             // 
@@ -391,7 +399,7 @@
             this.gpxFlotante.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
             this.gpxFlotante.Controls.Add(this.gridSugerencia);
             this.gpxFlotante.HeaderText = "Articulos Registrado";
-            this.gpxFlotante.Location = new System.Drawing.Point(239, 113);
+            this.gpxFlotante.Location = new System.Drawing.Point(239, 104);
             this.gpxFlotante.Name = "gpxFlotante";
             this.gpxFlotante.Size = new System.Drawing.Size(279, 71);
             this.gpxFlotante.TabIndex = 234;
@@ -406,11 +414,11 @@
             // 
             // 
             // 
-            gridViewTextBoxColumn11.HeaderText = "column1";
-            gridViewTextBoxColumn11.Name = "column1";
+            gridViewTextBoxColumn1.HeaderText = "column1";
+            gridViewTextBoxColumn1.Name = "column1";
             this.gridSugerencia.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn11});
-            this.gridSugerencia.MasterTemplate.ViewDefinition = tableViewDefinition11;
+            gridViewTextBoxColumn1});
+            this.gridSugerencia.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.gridSugerencia.Name = "gridSugerencia";
             this.gridSugerencia.Size = new System.Drawing.Size(275, 51);
             this.gridSugerencia.TabIndex = 224;
@@ -1432,25 +1440,17 @@
             // 
             // 
             // 
-            gridViewTextBoxColumn12.HeaderText = "column1";
-            gridViewTextBoxColumn12.Name = "column1";
+            gridViewTextBoxColumn2.HeaderText = "column1";
+            gridViewTextBoxColumn2.Name = "column1";
             this.grdiCtaCte.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn12});
-            this.grdiCtaCte.MasterTemplate.ViewDefinition = tableViewDefinition12;
+            gridViewTextBoxColumn2});
+            this.grdiCtaCte.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.grdiCtaCte.Name = "grdiCtaCte";
             this.grdiCtaCte.Size = new System.Drawing.Size(281, 100);
             this.grdiCtaCte.TabIndex = 75;
             this.grdiCtaCte.TabStop = false;
             this.grdiCtaCte.Text = "radGridView1";
             this.grdiCtaCte.Visible = false;
-            // 
-            // lblNombreProvee
-            // 
-            this.lblNombreProvee.Location = new System.Drawing.Point(141, 0);
-            this.lblNombreProvee.Name = "lblNombreProvee";
-            this.lblNombreProvee.Size = new System.Drawing.Size(30, 18);
-            this.lblNombreProvee.TabIndex = 236;
-            this.lblNombreProvee.Text = "label";
             // 
             // frmProvFacturaDetOC
             // 
@@ -1459,7 +1459,7 @@
             this.ClientSize = new System.Drawing.Size(847, 491);
             this.Controls.Add(this.radPanel1);
             this.Controls.Add(this.gpxCtaCte);
-            this.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "frmProvFacturaDetOC";
             // 
             // 
@@ -1474,6 +1474,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gpxCtaCte)).EndInit();
             this.gpxCtaCte.ResumeLayout(false);
             this.gpxCtaCte.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblNombreProvee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpIzquierda)).EndInit();
             this.rpIzquierda.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rpIzquierda3)).EndInit();
@@ -1595,7 +1596,6 @@
             this.gpxDerecha2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdiCtaCte.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdiCtaCte)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblNombreProvee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

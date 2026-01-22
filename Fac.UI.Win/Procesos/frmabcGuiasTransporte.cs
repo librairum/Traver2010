@@ -461,6 +461,7 @@ namespace Fac.UI.Win
                 //    return;
                 //}
                 GenerarGuiaElectronica();
+
                 FrmParent.Oncargar();
             }
             catch (Exception ex)
@@ -1059,25 +1060,21 @@ namespace Fac.UI.Win
                 //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
                 //ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
                 #region "codigo para el servidor de  prueba de Efact"
-                
-                  
-                 DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST_prueba");
-                 string urlpost1 = dt.Rows[0]["URL"].ToString();
-                 DataTable usuario = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("USUARIO_EFACT");
-                 DataTable password = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("CONTRASENA_EFACT_PRUEBA");
-                 string usuariodt = usuario.Rows[0]["URL"].ToString();
+                 //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST_prueba");
+                 //string urlpost1 = dt.Rows[0]["URL"].ToString();
+                 //DataTable usuario = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("USUARIO_EFACT");
+                 //DataTable password = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("CONTRASENA_EFACT_PRUEBA");
+                 //string usuariodt = usuario.Rows[0]["URL"].ToString();
 
-                 string passwordt = password.Rows[0]["URL"].ToString();
+                 //string passwordt = password.Rows[0]["URL"].ToString();
                 #endregion
                 #region "codigo  original en despliege servidor real efact"
-                //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST");
-                
-                
-                //string urlpost1 = dt.Rows[0]["URL"].ToString();
-                //DataTable usuario = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("USUARIO_EFACT");
-                //DataTable password = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("CONTRASENA_EFACT");
-                //string usuariodt = usuario.Rows[0]["URL"].ToString();
-                //string passwordt = password.Rows[0]["URL"].ToString();
+                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_para_obtener_el_token_POST");
+                string urlpost1 = dt.Rows[0]["URL"].ToString();
+                DataTable usuario = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("USUARIO_EFACT");
+                DataTable password = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("CONTRASENA_EFACT");
+                string usuariodt = usuario.Rows[0]["URL"].ToString();
+                string passwordt = password.Rows[0]["URL"].ToString();
                 #endregion
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.2
                 HttpWebRequest solicitud = (HttpWebRequest)HttpWebRequest.Create(urlpost1);
@@ -1865,6 +1862,7 @@ namespace Fac.UI.Win
                     // ConvertirJsonAClases_ExportacionPublica(dt);
 
                     ConvertirJsonAClases_ExportacionPublica(dt);
+                    //ConvertirJsonAClases_ExportacionAlternativa(dt);
 
 
                     break;
@@ -8132,7 +8130,7 @@ namespace Fac.UI.Win
                 //{
                 shipment.TransportHandlingUnit = new List<TransportHandlingUnit>();
                 TransportHandlingUnit shipmentTransportHandlingUnit = new TransportHandlingUnit();
-                shipment.TransportHandlingUnit.Add(shipmentTransportHandlingUnit);
+                //shipment.TransportHandlingUnit.Add(shipmentTransportHandlingUnit);
 
                 shipmentTransportHandlingUnit.TransportEquipment = new List<TransportEquipment>();
                 TransportEquipment TransportEquipmentshipment = new TransportEquipment();
@@ -8142,21 +8140,26 @@ namespace Fac.UI.Win
                 IDTransport._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_ID__"].ToString();
                 TransportEquipmentshipment.ID.Add(IDTransport);
                 //tarjeta unico de circulacion vehicular
-                if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
+                string valorTransportista = dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString();
+                string valorMTC = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString().Trim();
+
+
+               
+
+
+                if (valorTransportista != "")
                 {
                     TransportEquipmentshipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
                     ApplicableTransportMeans ApplicableTransportMeansTransport = new ApplicableTransportMeans();
-                    TransportEquipmentshipment.ApplicableTransportMeans.Add(ApplicableTransportMeansTransport);
-
                     ApplicableTransportMeansTransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
                     RegistrationNationalityID RegistrationNationalityIDTransport = new RegistrationNationalityID();
-                    //RegistrationNationalityIDTransport._ = "TARJEOCERTI";
-                    RegistrationNationalityIDTransport._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString(); 
-
+                    RegistrationNationalityIDTransport._ = valorMTC;
                     ApplicableTransportMeansTransport.RegistrationNationalityID.Add(RegistrationNationalityIDTransport);
-
-                    shipmentTransportHandlingUnit.TransportEquipment.Add(TransportEquipmentshipment);
+                    TransportEquipmentshipment.ApplicableTransportMeans.Add(ApplicableTransportMeansTransport);
                 }
+                shipmentTransportHandlingUnit.TransportEquipment = new List<TransportEquipment>();
+                shipmentTransportHandlingUnit.TransportEquipment.Add(TransportEquipmentshipment);
+                shipment.TransportHandlingUnit.Add(shipmentTransportHandlingUnit);
                 //}
                 //else
                 //{
@@ -8474,22 +8477,22 @@ namespace Fac.UI.Win
                 ////}
                 //despatchdelivery.DespatchParty.Add(despatchparty);
                 //13.7 TransportHandlingUnit 2
-                shipment.TransportHandlingUnit = new List<TransportHandlingUnit>();
-                TransportHandlingUnit transporthand = new TransportHandlingUnit();
-                shipment.TransportHandlingUnit.Add(transporthand);
+                //shipment.TransportHandlingUnit = new List<TransportHandlingUnit>();
+                //TransportHandlingUnit transporthand = new TransportHandlingUnit();
+                //shipment.TransportHandlingUnit.Add(transporthand);
 
-                transporthand.TransportEquipment = new List<TransportEquipment>();
-                TransportEquipment transportequipment = new TransportEquipment();
-                transporthand.TransportEquipment.Add(transportequipment);
+                //transporthand.TransportEquipment = new List<TransportEquipment>();
+                //TransportEquipment transportequipment = new TransportEquipment();
+                //transporthand.TransportEquipment.Add(transportequipment);
 
-                transportequipment.ID = new List<IDOnly>();
-                IDOnly IDtransportequipment = new IDOnly();
-                IDtransportequipment._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_ID__"].ToString();
-                transportequipment.ID.Add(IDtransportequipment);
+                //transportequipment.ID = new List<IDOnly>();
+                //IDOnly IDtransportequipment = new IDOnly();
+                //IDtransportequipment._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_ID__"].ToString();
+                //transportequipment.ID.Add(IDtransportequipment);
                 //PLACA 2 
-                transportequipment.AttachedTransportEquipment = new List<IDOnlyA>();
+                TransportEquipmentshipment.AttachedTransportEquipment = new List<IDOnlyA>();
                 IDOnlyA IDONLYA = new IDOnlyA();
-                transportequipment.AttachedTransportEquipment.Add(IDONLYA);
+                TransportEquipmentshipment.AttachedTransportEquipment.Add(IDONLYA);
                 IDONLYA.ID = new List<IDOnly>();
                 IDOnly OnlyID = new IDOnly();
                 OnlyID._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_AttachedTransportEquipment_ID__"].ToString();
@@ -8511,9 +8514,9 @@ namespace Fac.UI.Win
                 //RegistrationNationalityIDtransport._ = "TARJEOCERTI";
                 //ApplicableTransportMeanstransport.RegistrationNationalityID.Add(RegistrationNationalityIDtransport);
 
-                transporthand.Package = new List<Package>();
+                shipmentTransportHandlingUnit.Package = new List<Package>();
                 Package package = new Package();
-                transporthand.Package.Add(package);
+                shipmentTransportHandlingUnit.Package.Add(package);
 
                 package.ID = new List<Package_>();
                 Package_ package_ = new Package_();
@@ -8627,7 +8630,705 @@ namespace Fac.UI.Win
             }
 
         }
+        //clase alternativa
+        public void ConvertirJsonAClases_ExportacionAlternativa(DataTable dt) { 
+             string guia_tipo = txttipdoc.Text.ToString();
+            string guia_numero = txtnrodocumento.Text.ToString();
+            string guia_id = guia_tipo + "-" + guia_numero;
+            string tipdocemisor = "6"; //logueo.RucEmpresa;
+            string numerodumentoemisor = Logueo.RucEmpresa;
+            string guia_serie = txtserie.Text;
+            //ARMAR EL NOMBRE DE LA GUIA
+            string Guia = Logueo.RucEmpresa + "-" + guia_tipo + "-" + guia_serie + "-" + guia_numero;
+            try {
 
+                Root roo2 = new Root();
+                roo2._D = dt.Rows[0]["_D"].ToString();
+                roo2._A = dt.Rows[0]["_A"].ToString();
+                roo2._B = dt.Rows[0]["_B"].ToString();
+                roo2._E = dt.Rows[0]["_E"].ToString();
+                //DespatchAdvice
+                roo2.DespatchAdvice = new List<DespatchAdvice>();
+                DespatchAdvice despatch = new DespatchAdvice();
+                roo2.DespatchAdvice.Add(despatch);
+
+
+
+                //1.UBLVersionID ***************
+                despatch.UBLVersionID = new List<UBLVersionID>();
+                UBLVersionID UBL = new UBLVersionID();
+                UBL._ = dt.Rows[0]["UBLVersionID"].ToString();
+                despatch.UBLVersionID.Add(UBL);
+
+
+
+                //2. CustomizationID ***************
+                despatch.CustomizationID = new List<CustomizationID>();
+                CustomizationID customization = new CustomizationID();
+                customization._ = dt.Rows[0]["CustomizationID"].ToString();
+                despatch.CustomizationID.Add(customization);
+
+                //3. ID ***************
+                despatch.ID = new List<IDOnly>();
+                IDOnly id = new IDOnly();
+                id._ = dt.Rows[0]["ID"].ToString();
+                despatch.ID.Add(id);
+
+                //4. IssueDate ***************
+                despatch.IssueDate = new List<IssueDate>();
+                IssueDate issuedate = new IssueDate();
+                issuedate._ = dt.Rows[0]["IssueDate"].ToString();
+                despatch.IssueDate.Add(issuedate);
+
+                //5. IssueTime ***************
+                despatch.IssueTime = new List<IssueTime>();
+                IssueTime issuetime = new IssueTime();
+                issuetime._ = dt.Rows[0]["IssueTime"].ToString();
+
+                //6. DespatchAdviceTypeCode ***************
+                despatch.IssueTime.Add(issuetime);
+                despatch.DespatchAdviceTypeCode = new List<DespatchAdviceTypeCode>();
+                DespatchAdviceTypeCode despatchadviceTypeCode = new DespatchAdviceTypeCode();
+                despatchadviceTypeCode._ = dt.Rows[0]["DespatchAdviceTypeCode"].ToString();
+                despatch.DespatchAdviceTypeCode.Add(despatchadviceTypeCode);
+
+                //7. Note ***************
+                despatch.Note = new List<Note>();
+                Note note = new Note();
+                note._ = dt.Rows[0]["Note"].ToString();
+
+                //NUEVO
+                //ORDEN DE COMPRA
+
+                Note noteordencompra = new Note();
+                noteordencompra._ = dt.Rows[0]["Note_OCNRO"].ToString();
+                noteordencompra.languageID = dt.Rows[0]["languageID_OCNRO"].ToString(); ;
+
+                //MARCA 
+                Note noteMARCA = new Note();
+                noteMARCA._ = dt.Rows[0]["Note_MARCA"].ToString();
+                noteMARCA.languageID = dt.Rows[0]["languageID_MARCA"].ToString(); ;
+
+                //MARCA 2
+                Note noteMARCA2 = new Note();
+                noteMARCA2._ = dt.Rows[0]["Note_MARCA2"].ToString();
+                noteMARCA2.languageID = dt.Rows[0]["languageID_MARCA2"].ToString(); ;
+
+
+                despatch.Note.Add(note);
+                despatch.Note.Add(noteordencompra);
+                despatch.Note.Add(noteMARCA);
+                despatch.Note.Add(noteMARCA2);
+
+                //8. LineCount  ***************
+                despatch.LineCountNumeric = new List<LineCountNumeric>();
+                LineCountNumeric linecountnumeric = new LineCountNumeric();
+                linecountnumeric._ = dt.Rows[0]["LineCountNumeric"].ToString(); ;
+                despatch.LineCountNumeric.Add(linecountnumeric);
+
+
+                //9. AdditionalDocumentReference ***************
+                despatch.AdditionalDocumentReference = new List<AdditionalDocumentReference>();
+                AdditionalDocumentReference additional = new AdditionalDocumentReference();
+
+                // 9.1 ID
+
+                despatch.AdditionalDocumentReference.Add(additional);
+                additional.ID = new List<IDOnly>();
+                IDOnly idonly = new IDOnly();
+                idonly._ = dt.Rows[0]["adref_id"].ToString();
+                //dt.Rows[0]["adref_id"].ToString();
+                additional.ID.Add(idonly);
+                //9.2 DocumentTypeCode
+                additional.DocumentTypeCode = new List<DocumentTypeCode>();
+                DocumentTypeCode documenttypecode = new DocumentTypeCode();
+                documenttypecode._ = dt.Rows[0]["adref_DocumentTypeCode"].ToString();
+                //dt.Rows[0]["adref_DocumentTypeCode"].ToString();
+                additional.DocumentTypeCode.Add(documenttypecode);
+                //9.3 DocumentType 
+                additional.DocumentType = new List<DocumentType>();
+                DocumentType documentype = new DocumentType();
+                documentype._ = dt.Rows[0]["adref_DocumentType"].ToString();
+                //dt.Rows[0]["adref_DocumentType"].ToString();
+                additional.DocumentType.Add(documentype);
+
+                //9.4 IssueParty 
+                //additional.IssuerParty = new List<IssuerParty>();
+                //IssuerParty issuerparty = new IssuerParty();
+                //additional.IssuerParty.Add(issuerparty);
+                ////9.4.1
+                //issuerparty.PartyIdentification = new List<PartyIdentification>();
+                //PartyIdentification partyidentification = new PartyIdentification();
+                //issuerparty.PartyIdentification.Add(partyidentification);
+                ////9.4.1.1
+                //partyidentification.ID = new List<ID>();
+                ////9.4.1.1.1
+                //ID idadditional = new ID();
+                //idadditional._ = dt.Rows[0]["AdditionalDocumentReference_IssuerParty_PartyIdentification_ID"].ToString();
+                //idadditional.schemeID = dt.Rows[0]["AdditionalDocumentReference_IssuerParty_PartyIdentification_ID_schemeID"].ToString(); ;
+                //partyidentification.ID.Add(idadditional);
+                //END ADDITIONALDOCUMENTREFERENCE
+
+
+                //10 SIGNATURE *******
+                despatch.Signature = new List<Signature>();
+                Signature signature = new Signature();
+                despatch.Signature.Add(signature);
+                //10.1 ID SIGNATURE
+                signature.ID = new List<IDOnly>();
+                IDOnly idsignature = new IDOnly();
+                idsignature._ = dt.Rows[0]["Signature_ID"].ToString();
+                signature.ID.Add(idsignature);
+                //10.2 SIGNATORYPARTY 
+                signature.SignatoryParty = new List<SignatoryParty>();
+                SignatoryParty signatoryparty = new SignatoryParty();
+                signature.SignatoryParty.Add(signatoryparty);
+                //10.2.1 PARTYIDENTIFICATION
+                signatoryparty.PartyIdentification = new List<PartyIdentificationSignatoryParty>();
+                PartyIdentificationSignatoryParty partyidentificationsignatory = new PartyIdentificationSignatoryParty();
+                signatoryparty.PartyIdentification.Add(partyidentificationsignatory);
+                //10.2.1.1 ID
+                partyidentificationsignatory.ID = new List<IDOnly>();
+                IDOnly idsignatory = new IDOnly();
+                idsignatory._ = dt.Rows[0]["Signature_SignatoryParty_PartyIdentification_ID"].ToString();
+                partyidentificationsignatory.ID.Add(idsignatory);
+
+                //10.2.2 PartyName
+                signatoryparty.PartyName = new List<PartyName>();
+                PartyName partyname = new PartyName();
+                signatoryparty.PartyName.Add(partyname);
+                partyname.Name = new List<Name>();
+                Name name = new Name();
+                name._ = dt.Rows[0]["Signature_SignatoryParty_PartyName_Name"].ToString();
+                partyname.Name.Add(name);
+
+                //10.3 DigitalSignatureAttachment ********
+                signature.DigitalSignatureAttachment = new List<DigitalSignatureAttachment>();
+                DigitalSignatureAttachment digitalsignature = new DigitalSignatureAttachment();
+                signature.DigitalSignatureAttachment.Add(digitalsignature);
+                //10.3.1 ExternalReference
+                digitalsignature.ExternalReference = new List<ExternalReference>();
+                ExternalReference external = new ExternalReference();
+                digitalsignature.ExternalReference.Add(external);
+                //10.3.1.1 ExternalReference
+                external.URI = new List<URI>();
+                URI uri = new URI();
+                uri._ = dt.Rows[0]["Signature_DigitalSignatureAttachment_ExternalReference_URI"].ToString();
+                external.URI.Add(uri);
+
+
+                //11 DespatchSupplierParty ************
+                despatch.DespatchSupplierParty = new List<DespatchSupplierParty>();
+                DespatchSupplierParty Despatchsupplier = new DespatchSupplierParty();
+                despatch.DespatchSupplierParty.Add(Despatchsupplier);
+
+
+                //13 SHIPMENT ****************
+                despatch.Shipment = new List<Shipment>();
+                Shipment shipment = new Shipment();
+                despatch.Shipment.Add(shipment);
+
+                //13.1 ID
+                shipment.ID = new List<IDOnly>();
+                IDOnly idshipment = new IDOnly();
+                idshipment._ = dt.Rows[0]["Shipment_ID"].ToString();
+                shipment.ID.Add(idshipment);
+
+                //13.2 HANDLINGCODE
+                shipment.HandlingCode = new List<HandlingCode>();
+                HandlingCode handlingcode = new HandlingCode();
+                handlingcode._ = dt.Rows[0]["Shipment_HandlingCode"].ToString();
+                shipment.HandlingCode.Add(handlingcode);
+
+                //13.3 HANDLINGINSTRUNCTIONS
+                shipment.HandlingInstructions = new List<HandlingInstruction>();
+                HandlingInstruction handlinginstruction = new HandlingInstruction();
+                handlinginstruction._ = dt.Rows[0]["Shipment_HandlingInstructions"].ToString();
+                shipment.HandlingInstructions.Add(handlinginstruction);
+
+                //13.4 GrossWeightMeasure
+                shipment.GrossWeightMeasure = new List<GrossWeightMeasure>();
+                GrossWeightMeasure gross = new GrossWeightMeasure();
+                gross._ = dt.Rows[0]["Shipment_GrossWeightMeasure__"].ToString();
+                gross.unitCode = dt.Rows[0]["Shipment_GrossWeightMeasure_unitCode"].ToString();
+                shipment.GrossWeightMeasure.Add(gross);
+
+                //AGREGADO 13.5 TotalTransportHandlingUnitQuantity
+                shipment.TotalTransportHandlingUnitQuantity = new List<TotalTransportHandlingUnitQuantity>();
+                TotalTransportHandlingUnitQuantity totaltransport = new TotalTransportHandlingUnitQuantity();
+                totaltransport._ = dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString();
+
+                shipment.TotalTransportHandlingUnitQuantity.Add(totaltransport);
+
+                // 13.6 SpecialInstructions
+                shipment.SpecialInstructions = new List<SpecialInstructions>();
+
+                // indicador m1
+                if (dt.Rows[0]["Shipment_SpecialInstructions_VehiculoM1oL__"].ToString() != "")
+                {
+
+                    SpecialInstructions specialinstructions = new SpecialInstructions();
+                    specialinstructions._ = dt.Rows[0]["Shipment_SpecialInstructions_VehiculoM1oL__"].ToString();
+                    shipment.SpecialInstructions.Add(specialinstructions);
+                }
+
+                // indicador dam
+                if (dt.Rows[0]["Shipment_SpecialInstructions__"].ToString() != "")
+                {
+                    SpecialInstructions specialinstructionsDAM = new SpecialInstructions();
+                    specialinstructionsDAM._ = dt.Rows[0]["Shipment_SpecialInstructions__"].ToString();
+                    shipment.SpecialInstructions.Add(specialinstructionsDAM);
+                }
+
+
+
+                //indicador muestra chofer y vehiculo
+                if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
+                {
+                    SpecialInstructions SUNAT_Envio_IndicadorVehiculoConductoresTransp = new SpecialInstructions();
+                    SUNAT_Envio_IndicadorVehiculoConductoresTransp._ = dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString();
+                    shipment.SpecialInstructions.Add(SUNAT_Envio_IndicadorVehiculoConductoresTransp);
+                }
+
+
+                //13.7 SHIPMENTSTAGE
+                shipment.ShipmentStage = new List<ShipmentStage>();
+                ShipmentStage shipmentStage = new ShipmentStage();
+                shipment.ShipmentStage.Add(shipmentStage);
+
+                //TransportModeCode
+                shipmentStage.TransportModeCode = new List<TransportModeCode>();
+                TransportModeCode transportmodecode = new TransportModeCode();
+                transportmodecode._ = dt.Rows[0]["Shipment_ShipmentStage_TransportModeCode"].ToString();
+                shipmentStage.TransportModeCode.Add(transportmodecode);
+                //TransitPeriod
+
+                shipmentStage.TransitPeriod = new List<TransitPeriod>();
+                TransitPeriod transitPeriod = new TransitPeriod();
+                shipmentStage.TransitPeriod.Add(transitPeriod);
+
+                //STARTDATE
+                transitPeriod.StartDate = new List<StartDate>();
+                StartDate date = new StartDate();
+                date._ = dt.Rows[0]["Shipment_ShipmentStage_TransitPeriod_StartDate"].ToString();
+                transitPeriod.StartDate.Add(date);
+
+
+                //if (dt.Rows[0]["INDICADORTRASLADOVEHICATM1"].ToString() == "1")
+                //{
+                shipment.TransportHandlingUnit = new List<TransportHandlingUnit>();
+                TransportHandlingUnit shipmentTransportHandlingUnit = new TransportHandlingUnit();
+                shipment.TransportHandlingUnit.Add(shipmentTransportHandlingUnit);
+
+                shipmentTransportHandlingUnit.TransportEquipment = new List<TransportEquipment>();
+                TransportEquipment TransportEquipmentshipment = new TransportEquipment();
+
+                TransportEquipmentshipment.ID = new List<IDOnly>();
+                IDOnly IDTransport = new IDOnly();
+                IDTransport._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_ID__"].ToString();
+                TransportEquipmentshipment.ID.Add(IDTransport);
+                string valorTransportista = dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString();
+                string valorMTC = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString().Trim();
+                //tarjeta unico de circulacion vehicular
+                if (valorTransportista != "")
+                {
+                    TransportEquipmentshipment.ApplicableTransportMeans = new List<ApplicableTransportMeans>();
+                    ApplicableTransportMeans ApplicableTransportMeansTransport = new ApplicableTransportMeans();
+                    ApplicableTransportMeansTransport.RegistrationNationalityID = new List<RegistrationNationalityID>();
+
+                    RegistrationNationalityID RegistrationNationalityIDTransport = new RegistrationNationalityID();
+                    RegistrationNationalityIDTransport._ = valorMTC;
+                    ApplicableTransportMeansTransport.RegistrationNationalityID.Add(RegistrationNationalityIDTransport);
+
+                    TransportEquipmentshipment.ApplicableTransportMeans.Add(ApplicableTransportMeansTransport);
+
+                    
+                    //RegistrationNationalityIDTransport._ = "TARJEOCERTI";
+                    //RegistrationNationalityIDTransport._ = dt.Rows[0]["TransportHandlingUnit_TransportEquipment_ApplicableTransportMeans_RegistrationNationalityID__"].ToString();
+
+                    //ApplicableTransportMeansTransport.RegistrationNationalityID.Add(RegistrationNationalityIDTransport);
+
+                    
+                }
+
+                
+                //}
+                //else
+                //{
+
+                //PUBLICO
+                //   CARRIERPARTY - LISTA
+                shipmentStage.CarrierParty = new List<CarrierParty>();
+                CarrierParty CarrierParty = new CarrierParty();
+
+
+                // CARRIERPARTY - PARTYIDENTIFICATION
+
+
+                CarrierParty.PartyIdentification = new List<PartyIdentification>();
+                PartyIdentification PartyIdentification = new PartyIdentification();
+                CarrierParty.PartyIdentification.Add(PartyIdentification);
+                PartyIdentification.ID = new List<ID>();
+
+                ID idCarrierParty = new ID();
+
+                idCarrierParty._ = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyIdentification_ID__"].ToString();
+                idCarrierParty.schemeID = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyIdentification_ID_schemeID"].ToString();
+                PartyIdentification.ID.Add(idCarrierParty);
+
+
+
+                // CARRIERPARTY - PARTYLEGALENTITY
+                CarrierParty.PartyLegalEntity = new List<PartyLegalEntity>();
+                PartyLegalEntity partyLegalEntity = new PartyLegalEntity();
+                CarrierParty.PartyLegalEntity.Add(partyLegalEntity);
+                //PARTYLEGALENTITY - REGISTRATIONAME
+                //if (dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_RegistrationName__"] != DBNull.Value)
+                //{
+
+
+                partyLegalEntity.RegistrationName = new List<RegistrationName>();
+                RegistrationName CarrierRegistrionName = new RegistrationName();
+
+                CarrierRegistrionName._ = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_RegistrationName__"].ToString();
+                partyLegalEntity.RegistrationName.Add(CarrierRegistrionName);
+                //}
+                partyLegalEntity.CompanyID = new List<CompanyID>();
+
+                //PARTYLEGALENTITY - COMPANYID
+                //if (dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"] != DBNull.Value)
+                //{
+                //Nro registro MTC
+                CompanyID CarrierPartyCompanyID = new CompanyID();
+
+                CarrierPartyCompanyID._ = dt.Rows[0]["Shipment_ShipmentStage_CarrierParty_PartyLegalEntity_CompanyID__"].ToString();
+                partyLegalEntity.CompanyID.Add(CarrierPartyCompanyID);
+                //}
+                //CARRIERPARTY - AGENTPARTY
+
+                shipmentStage.CarrierParty.Add(CarrierParty);
+
+                //}
+                //Obtenemos propiedades
+                //END CARRIERPARTY
+                //DESPATCHPARTY
+                //END DESPATCHPARTY
+                // END PUBLICO
+                //ID
+                ////DriverPerson
+                ////DriverPerson
+                if (dt.Rows[0]["Shipment_SpecialInstructions_RegistroTransportista__"].ToString() != "")
+                {
+                    shipmentStage.DriverPerson = new List<DriverPerson>();
+                    DriverPerson driverperson = new DriverPerson();
+
+
+
+                    //ID             
+                    ID iddriver = new ID();
+
+
+                    driverperson.ID = new List<ID>();
+                    iddriver._ = dt.Rows[0]["Shipment_ShipmentStage_DriverPerson_ID_"].ToString();
+                    iddriver.schemeID = dt.Rows[0]["Shipment_ShipmentStage_DriverPerson_ID_schemeID"].ToString();
+                    driverperson.ID.Add(iddriver);
+                    driverperson.FirstName = new List<FirstName>();
+                    FirstName firstname = new FirstName();
+                    firstname._ = dt.Rows[0]["Shipment_ShipmentStage_DriverPerson_FirstName"].ToString();
+                    //{
+
+                    driverperson.FirstName.Add(firstname);
+
+                    //}
+
+                    //Familiname
+                    //string familyname._ = dt.Rows[0]["Shipment_ShipmentStage_DriverPerson_FamilyName"].ToString();
+                    if (driverperson.FirstName != null)
+                    {
+                        driverperson.FamilyName = new List<FamilyName>();
+                    }
+                    driverperson.FamilyName = new List<FamilyName>();
+                    FamilyName familyname = new FamilyName();
+                    familyname._ = dt.Rows[0]["Shipment_ShipmentStage_DriverPerson_FamilyName"].ToString();
+                    driverperson.FamilyName.Add(familyname);
+
+                    //JOBTITLE
+
+                    driverperson.JobTitle = new List<JobTitle>();
+                    JobTitle jobtitle = new JobTitle();
+                    jobtitle._ = dt.Rows[0]["Shipment_ShipmentStage_DriverPerson_JobTitle"].ToString();
+                    driverperson.JobTitle.Add(jobtitle);
+
+                    //IdentityDocumentReference
+
+                    driverperson.IdentityDocumentReference = new List<IdentityDocumentReference>();
+                    IdentityDocumentReference identitydocument = new IdentityDocumentReference();
+                    driverperson.IdentityDocumentReference.Add(identitydocument);
+
+                    identitydocument.ID = new List<IDOnly>();
+                    IDOnly ididentity = new IDOnly();
+                    ididentity._ = dt.Rows[0]["Shipment_ShipmentStage_DriverPerson_IdentityDocumentReference_ID"].ToString();
+                    identitydocument.ID.Add(ididentity);
+
+
+
+                    shipmentStage.DriverPerson.Add(driverperson);
+                }
+
+                //13.8 DELIVERY
+                shipment.Delivery = new List<Delivery>();
+                Delivery delivery = new Delivery();
+                shipment.Delivery.Add(delivery);
+
+                //13.8.1 DELIVERYADDRESS
+                delivery.DeliveryAddress = new List<DeliveryAddress>();
+                DeliveryAddress deliveryadrress = new DeliveryAddress();
+                delivery.DeliveryAddress.Add(deliveryadrress);
+                //AddressTypeCode
+                deliveryadrress.AddressTypeCode = new List<AddressTypeCode>();
+                AddressTypeCode addressTypeCodedespatch = new AddressTypeCode();
+                addressTypeCodedespatch._ = dt.Rows[0]["Shipment_Delivery_DeliveryAddress_AddressTypeCode__"].ToString();
+                addressTypeCodedespatch.listID = dt.Rows[0]["Shipment_Delivery_DeliveryAddress_AddressTypeCode_listID"].ToString();
+                deliveryadrress.AddressTypeCode.Add(addressTypeCodedespatch);
+                //ID
+                deliveryadrress.ID = new List<IDOnly>();
+                IDOnly iddeliveryadrress = new IDOnly();
+                iddeliveryadrress._ = dt.Rows[0]["Shipment_Delivery_DeliveryAddress_ID"].ToString();
+                deliveryadrress.ID.Add(iddeliveryadrress);
+
+                //CITYNAME
+                deliveryadrress.CityName = new List<CityName>();
+                CityName citynamedeliveryadress = new CityName();
+                citynamedeliveryadress._ = dt.Rows[0]["Shipment_Delivery_DeliveryAddress_CityName"].ToString();
+                deliveryadrress.CityName.Add(citynamedeliveryadress);
+
+                //COUNTRYSubEntity
+                deliveryadrress.CountrySubentity = new List<CountrySubentity>();
+                CountrySubentity countrysubentityidentity = new CountrySubentity();
+                countrysubentityidentity._ = dt.Rows[0]["Shipment_Delivery_DeliveryAddress_CountrySubentity"].ToString();
+                deliveryadrress.CountrySubentity.Add(countrysubentityidentity);
+
+                //DISTRICT
+                deliveryadrress.District = new List<District>();
+                District districtdeliveryaddress = new District();
+                districtdeliveryaddress._ = dt.Rows[0]["Shipment_Delivery_DeliveryAddress_District"].ToString();
+                deliveryadrress.District.Add(districtdeliveryaddress);
+
+                //ADDRESSLINE
+                deliveryadrress.AddressLine = new List<AddressLine>();
+                AddressLine addressline = new AddressLine();
+                deliveryadrress.AddressLine.Add(addressline);
+
+                addressline.Line = new List<Line>();
+                Line line = new Line();
+                line._ = dt.Rows[0]["Shipment_Delivery_DeliveryAddress_AddressLine_Line"].ToString();
+                addressline.Line.Add(line);
+
+                //COUNTRY
+                deliveryadrress.Country = new List<Country>();
+                Country countrydeliveryaddress = new Country();
+                deliveryadrress.Country.Add(countrydeliveryaddress);
+
+                //IDENTIFICATIONCODE
+                countrydeliveryaddress.IdentificationCode = new List<IdentificationCode>();
+                IdentificationCode identificationcountryaddress = new IdentificationCode();
+                identificationcountryaddress._ = dt.Rows[0]["Shipment_Delivery_DeliveryAddress_Country_IdentificationCode"].ToString();
+                countrydeliveryaddress.IdentificationCode.Add(identificationcountryaddress);
+
+                //  13.8.2 DELIVERY DESPATCH 
+                delivery.Despatch = new List<Despatch>();
+                Despatch despatchdelivery = new Despatch();
+                delivery.Despatch.Add(despatchdelivery);
+                //  13.6.2.1 DELIVERY DESPATCH 
+                despatchdelivery.DespatchAddress = new List<DespatchAddress_IDOnly>();
+                DespatchAddress_IDOnly despatchaddress = new DespatchAddress_IDOnly();
+                despatchdelivery.DespatchAddress.Add(despatchaddress);
+
+                //ID
+                despatchaddress.ID = new List<IDOnly>();
+                IDOnly iddeliveryadrressonly = new IDOnly();
+                iddeliveryadrressonly._ = dt.Rows[0]["Shipment_Delivery_Despatch_DespatchAddress_ID"].ToString();
+                despatchaddress.ID.Add(iddeliveryadrressonly);
+
+
+                //CITYNAME - PROVINCIA
+                despatchaddress.CityName = new List<CityName>();
+                CityName citynamedeliveryadressdespatch = new CityName();
+                citynamedeliveryadressdespatch._ = dt.Rows[0]["Shipment_Delivery_Despatch_DespatchAddress_CityName"].ToString();
+                despatchaddress.CityName.Add(citynamedeliveryadressdespatch);
+
+                //COUNTRYSubEntity - DEPARTAMENTO
+                despatchaddress.CountrySubentity = new List<CountrySubentity>();
+                CountrySubentity countrysubentityidentitydespatch = new CountrySubentity();
+                countrysubentityidentitydespatch._ = dt.Rows[0]["Shipment_Delivery_Despatch_DespatchAddress_CountrySubentity"].ToString();
+                despatchaddress.CountrySubentity.Add(countrysubentityidentitydespatch);
+                //DISTRICT
+                despatchaddress.District = new List<District>();
+                District districtdeliveryaddressdespatch = new District();
+                districtdeliveryaddressdespatch._ = dt.Rows[0]["Shipment_Delivery_Despatch_DespatchAddress_District"].ToString();
+                despatchaddress.District.Add(districtdeliveryaddressdespatch);
+
+                //ADDRESSLINE
+                despatchaddress.AddressLine = new List<AddressLine>();
+                AddressLine addresslinedespatch = new AddressLine();
+                despatchaddress.AddressLine.Add(addresslinedespatch);
+                //LINE
+                addresslinedespatch.Line = new List<Line>();
+                Line linedespatch = new Line();
+                linedespatch._ = dt.Rows[0]["Shipment_Delivery_Despatch_DespatchAddress_AddressLine_Line"].ToString();
+                addresslinedespatch.Line.Add(linedespatch);
+
+                //COUNTRY
+                despatchaddress.Country = new List<Country>();
+                Country countrydeliveryaddressdespatch = new Country();
+                despatchaddress.Country.Add(countrydeliveryaddressdespatch);
+                //IDENTIFICATIONCODE
+                countrydeliveryaddressdespatch.IdentificationCode = new List<IdentificationCode>();
+                IdentificationCode identificationcountryaddressdespatch = new IdentificationCode();
+                identificationcountryaddressdespatch._ = dt.Rows[0]["Shipment_Delivery_Despatch_DespatchAddress_Country_IdentificationCode"].ToString();
+                countrydeliveryaddressdespatch.IdentificationCode.Add(identificationcountryaddressdespatch);
+
+                //DESPATCHPARTY                
+                //13.7 TransportHandlingUnit 2
+                //shipment.TransportHandlingUnit = new List<TransportHandlingUnit>();
+                //TransportHandlingUnit transporthand = new TransportHandlingUnit();
+                //shipment.TransportHandlingUnit.Add(transporthand);
+
+                //transporthand.TransportEquipment = new List<TransportEquipment>();
+                //TransportEquipment transportequipment = new TransportEquipment();
+                //transporthand.TransportEquipment.Add(transportequipment);
+                //TransportEquipmentshipment.ID = new lis
+                //transportequipment.ID = new List<IDOnly>();
+                //TransportEquipmentshipment.ID = new List<IDOnly>();
+                //IDOnly IDtransportequipment = new IDOnly();
+                //IDtransportequipment._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_ID__"].ToString();
+                //TransportEquipmentshipment.ID.Add(IDtransportequipment);
+                //PLACA 2 
+                TransportEquipmentshipment.AttachedTransportEquipment = new List<IDOnlyA>();
+                IDOnlyA IDONLYA = new IDOnlyA();
+                
+                IDONLYA.ID = new List<IDOnly>();
+                IDOnly OnlyID = new IDOnly();
+                OnlyID._ = dt.Rows[0]["Shipment_TransportHandlingUnit_TransportEquipment_AttachedTransportEquipment_ID__"].ToString();
+                IDONLYA.ID.Add(OnlyID);
+                TransportEquipmentshipment.AttachedTransportEquipment.Add(IDONLYA);
+
+                shipmentTransportHandlingUnit.TransportEquipment = new List<TransportEquipment>();
+                shipmentTransportHandlingUnit.TransportEquipment.Add(TransportEquipmentshipment);
+                shipment.TransportHandlingUnit.Add(shipmentTransportHandlingUnit);
+                //transporthand.Package = new List<Package>();
+                //Package package = new Package();
+                //transporthand.Package.Add(package);
+
+                //package.ID = new List<Package_>();
+                //Package_ package_ = new Package_();
+                //package_._ = dt.Rows[0]["Shipment_TransportHandlingUnit_Package_ID__"].ToString();
+                //package.ID.Add(package_);
+
+                //package.TraceID = new List<TraceID>();
+                //TraceID traceid = new TraceID();
+                //traceid._ = dt.Rows[0]["Shipment_TransportHandlingUnit_Package_TraceID_"].ToString();
+                //package.TraceID.Add(traceid);
+
+                //shipment.FirstArrivalPortLocation = new List<FirstArrivalPortLocation>();
+                //FirstArrivalPortLocation firstArrival = new FirstArrivalPortLocation();
+                //shipment.FirstArrivalPortLocation.Add(firstArrival);
+
+                //firstArrival.ID = new List<_ONLY>();
+                //_ONLY ID_ = new _ONLY();
+                //ID_._ = dt.Rows[0]["Shipment_FirstArrivalPortLocation_ID_"].ToString();
+                //firstArrival.ID.Add(ID_);
+
+                //firstArrival.LocationTypeCode = new List<_ONLY>();
+                //_ONLY _ONLYLocation = new _ONLY();
+                //_ONLYLocation._ = dt.Rows[0]["Shipment_FirstArrivalPortLocation_LocationTypeCode_"].ToString();
+                //firstArrival.LocationTypeCode.Add(_ONLYLocation);
+
+                //firstArrival.Name = new List<_ONLY>();
+                //_ONLY _ONLYName = new _ONLY();
+                //_ONLYName._ = dt.Rows[0]["Shipment_FirstArrivalPortLocation_Name_"].ToString();
+                //firstArrival.Name.Add(_ONLYName);
+
+                ////14 DESPATCHLINE *************
+                //despatch.DespatchLine = new List<DespatchLine>();
+
+
+                //foreach (DataRow row in dt.Rows)
+                //{
+                //    DespatchLine despatchline = new DespatchLine();
+                //    //CAMBIO
+                //    despatch.DespatchLine.Add(despatchline);
+
+                //    despatchline.ID = new List<IDOnly>();
+                //    //14.1 id
+                //    IDOnly ID = new IDOnly();
+                //    ID._ = row["DespatchLine_ID"].ToString();
+                //    despatchline.ID.Add(ID);
+
+                //    //14.2 Note
+                //    despatchline.Note = new List<Note>();
+                //    Note notedespatchline = new Note();
+                //    notedespatchline._ = row["DespatchLine_Note"].ToString();
+                //    despatchline.Note.Add(notedespatchline);
+
+                //    //14.3 DeliveredQuantity
+                //    despatchline.DeliveredQuantity = new List<DeliveredQuantity>();
+                //    DeliveredQuantity delivered = new DeliveredQuantity();
+                //    delivered._ = row["DespatchLine_DeliveredQuantity_"].ToString();
+                //    delivered.unitCode = row["DespatchLine_DeliveredQuantity_unitCode"].ToString();
+                //    despatchline.DeliveredQuantity.Add(delivered);
+                //    //14.4 ORDERLINEREFERENCE
+                //    despatchline.OrderLineReference = new List<OrderLineReference>();
+                //    OrderLineReference orderLine = new OrderLineReference();
+                //    despatchline.OrderLineReference.Add(orderLine);
+
+                //    orderLine.LineID = new List<LineID>();
+                //    LineID lineid = new LineID();
+                //    lineid._ = Convert.ToInt32(row["DespatchLine_OrderLineReference_LineID"]);
+                //    orderLine.LineID.Add(lineid);
+
+                //    //14.5 ITEM
+                //    despatchline.Item = new List<Item>();
+                //    Item item = new Item();
+                //    despatchline.Item.Add(item);
+
+                //    item.Description = new List<Description>();
+                //    Description descripcion = new Description();
+                //    descripcion._ = row["DespatchLine_Item_Description"].ToString();
+                //    item.Description.Add(descripcion);
+
+                //    item.SellersItemIdentification = new List<SellersItemIdentification>();
+                //    SellersItemIdentification seller = new SellersItemIdentification();
+                //    item.SellersItemIdentification.Add(seller);
+
+                //    seller.ID = new List<IDOnly>();
+                //    IDOnly idseller = new IDOnly();
+                //    idseller._ = row["DespatchLine_Item_SellersItemIdentification_ID"].ToString();
+                //    seller.ID.Add(idseller);
+
+                //}
+
+                //string RUCMinera = dt.Rows[0]["Signature_SignatoryParty_PartyIdentification_ID"].ToString();
+                string IDdt = dt.Rows[0]["ID"].ToString();
+                string tipodocumentoEmisor = dt.Rows[0]["DespatchSupplierParty_Party_PartyIdentification_ID_schemeID"].ToString();
+                string tipoDocumento = dt.Rows[0]["DespatchAdviceTypeCode"].ToString();
+
+                //string FileName = Logueo.RucEmpresa + "-" + tipoDocumento + "-" + IDdt;
+                string filepathtemp = Environment.GetEnvironmentVariable("TEMP") + "\\" + Guia + ".json";
+                //para eliminar los NULOS
+                JsonSerializerSettings setting = new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+
+                };
+
+                string serializarcabecera = JsonConvert.SerializeObject(roo2, Newtonsoft.Json.Formatting.Indented, setting);
+                File.WriteAllText(filepathtemp, serializarcabecera);
+
+            }catch(Exception ex){
+                Util.ShowError("Error al generar xml");
+            }
+        }
 
         //EXPORTACION PRIVADA
         public void ConvertirJsonAClases_ExportacionPrivada(DataTable dt)
@@ -19864,8 +20565,8 @@ namespace Fac.UI.Win
             ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
 
 
-            //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_enviar_documento_obtener_ticket");
-            DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_enviar_documento_obtener_ticket_prueba");
+            DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_enviar_documento_obtener_ticket");
+            //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_enviar_documento_obtener_ticket_prueba");
             string url_POST2 = dt.Rows[0]["URL"].ToString();
 
 
@@ -20001,10 +20702,10 @@ namespace Fac.UI.Win
                 try
                 {
                     #region "codigo origian servidor efact"
-                    //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
+                    DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
                     #endregion
                     #region "codigo servidor PRUEBA efact"
-                    DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR_prueba");
+                    //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR_prueba");
                     #endregion
                     string url = dt.Rows[0]["URL"].ToString() + ticket_true;
                     //string url = "https://ose-qa-rest.efact.pe/api-efact-ose/v1/cdr/" + ticket;
@@ -20122,8 +20823,8 @@ namespace Fac.UI.Win
 
             try
             {
-                //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
-                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR_prueba");
+                DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR");
+                //DataTable dt = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_CDR_prueba");
                 string url = dt.Rows[0]["URL"].ToString() + ticket;
                 //string url = "https://ose-qa-rest.efact.pe/api-efact-ose/v1/cdr/" + ticket;
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.2
@@ -20260,7 +20961,8 @@ namespace Fac.UI.Win
 
                 string token = POST_TOKEN();
 
-                DataTable ServicioDT = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_PDF_prueba");
+                //DataTable ServicioDT = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_PDF_prueba");
+                DataTable ServicioDT = Efact_GuiaLogic.Instance.Traer_EFACT_SERVICIOSAPI("URL_metodo_para_obtener_el_PDF");
                 string url = ServicioDT.Rows[0]["URL"].ToString() + ticket;
 
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.2

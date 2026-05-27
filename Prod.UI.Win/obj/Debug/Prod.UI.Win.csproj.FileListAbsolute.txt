@@ -1186,3 +1186,5 @@ D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.exe.licenses
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.exe
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\obj\Debug\Prod.UI.Win.pdb
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Telerik.WinControls.ChartView.dll
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Prod.UI.Win\bin\Debug\Telerik.WinControls.RadChart.dll

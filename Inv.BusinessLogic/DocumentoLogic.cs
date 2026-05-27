@@ -196,6 +196,7 @@ namespace Inv.BusinessLogic
         {
             Accessor.TraerNroOrden(cCodEmp, cAnno, cMes, cTipDoc, cNumDoc, cKey, out nroorden);
         }
+
         public void TraerAnalisisxDocumentoRespaldo(string @cCodEmp, string @cCodTran, out string @cTipoAnalisis) {
             Accessor.TraerAnalisisxDocumentoRespaldo(@cCodEmp, @cCodTran, out @cTipoAnalisis);
         }
@@ -450,6 +451,7 @@ namespace Inv.BusinessLogic
                 out @cMsgRetorno);
 
         }
+        
         public void ValidarInsertarProduccionDetalle(Movimiento mov, string pflagInsert ,out string @cMensaje, out int @cFlagValidar)
         {            
             Accessor.Spu_Pro_Ins_ProduccionDetValida(mov.CodigoEmpresa, mov.Anio, mov.Mes, mov.CodigoTipoDocumento,
@@ -486,11 +488,16 @@ namespace Inv.BusinessLogic
                 out @cMsgRetorno);
         }
 
+        
         public List<MovimientoResponse> TraerProduccionDetalle(string @cCodEmp, string @cAnno, string @cMes, string @cTipDoc, string @cNumDoc, 
                                                                 string @IN07ORDENTRABAJO)
         {
             return Accessor.sp_Pro_Trae_DetalleProduccion(@cCodEmp, @cAnno, @cMes, @cTipDoc, @cNumDoc, @IN07ORDENTRABAJO);
         }
+        
+        
+
+
         /*Eliminar un registro de la grilla del documento (gridControL) */
         public void EliminarProduccionDetalle(string @cCodEmp, string @cAnno, string @cMes, string @cTipDoc, string @cNumDoc, string @cTranMov,
                                                             string @dFechaDoc, string @cArticulo, string @cUniMed,
@@ -500,6 +507,7 @@ namespace Inv.BusinessLogic
                                                             @IN07ORDEN, out @cMsgRetorno);
 
         }
+        
         public void ModificarProduccionDetalle(Movimiento mov, out int cflagReturn, out string cMsgRetorno) {
 
             //EliminarProduccionDetalle(mov.CodigoEmpresa, mov.Anio, mov.Mes, mov.CodigoTipoDocumento, mov.CodigoDocumento, mov.Transaccion,
@@ -1608,6 +1616,101 @@ out  @flagReturn  ,
 out  @cMsgRetorno );
         }
 
+        #region "produccion merma  sub procesos de Linea"
+
+        public void TraerNroOrdenMerma(string @cCodEmp, string @cAnno, string @cMes, string @cTipDoc, string @cNumDoc, string @cKey, out double @nroorden)
+        {
+            Accessor.TraeNroOrdenMerma(cCodEmp, cAnno, cMes, cTipDoc, cNumDoc, cKey, out nroorden);
+        }
+
+
+        public void InsertarProducccionDetalleMerma(Movimiento mov, string flagnuevoinsercion, out int cflagReturn, out string @cMsgRetorno)
+        {
+            Accessor.Spu_Pro_Ins_MermaLinea(mov.CodigoEmpresa, mov.Anio, mov.Mes, mov.CodigoTipoDocumento, mov.CodigoAlmacen, mov.CodigoDocumento, mov.CodigoArticulo,
+                mov.UnidadMedida, string.Format("{0:yyyyMMdd}", mov.FechaDoc, 103), mov.Orden, mov.CodigoTransaccion, mov.Transaccion, mov.Largo, mov.Ancho, mov.Alto,
+                mov.Cantidad, mov.NroCaja, mov.in07codcli, mov.OrdenProduccion, mov.Areaxuni, mov.IN07ORDENTRABAJO, mov.operador,
+                mov.IN07DocIngAA, mov.IN07DocIngMM, mov.IN07DocIngTIPDOC, mov.IN07DocIngCODDOC, mov.IN07DocIngKEY, mov.IN07DocIngORDEN, mov.IN07HORASALIDA,
+                mov.IN07NROCAJAINGRESO, mov.IN07HORAINICIO, mov.IN07HORAFINAL, string.Format("{0:yyyyMMdd}", mov.IN07FECHAPROCESO, 103),
+                mov.IN07MOTIVOCOD,
+                mov.IN07SECUENCIA, mov.in07prodTurnoCod, mov.IN07DESCABEZADOSUP,
+                mov.IN07DESCABEZADOINF, flagnuevoinsercion,
+                out cflagReturn,
+                out @cMsgRetorno);
+        }
+        public void InsertarProduccionDetalleLinea(string @codigoEmpresa, string @anio, string @mes,
+        string @tipoDocumento, string @numeroDocumento,   string @nroOrdenTrabajo,
+        out string @mensaje, out int @flag)
+        {
+            Accessor.Spu_Pro_Ins_GenerarProduccionLinea(@codigoEmpresa, anio, mes,
+                tipoDocumento, numeroDocumento,  nroOrdenTrabajo, out mensaje, out flag);
+        }
+        public void ActualizarProduccionDetalleMerma(Movimiento mov, out int cflagReturn, out string @cMsgRetorno)
+        {
+            Accessor.Spu_Pro_Upd_ProduccionDetMerma(mov.CodigoEmpresa, mov.Anio, mov.Mes,
+                mov.CodigoTipoDocumento, mov.CodigoAlmacen,
+                mov.CodigoDocumento,
+                mov.CodigoArticulo,
+                mov.UnidadMedida,
+                string.Format("{0:yyyyMMdd}", mov.FechaDoc, 103),
+                mov.Orden,
+                mov.CodigoTransaccion
+                , mov.Transaccion, mov.Largo, mov.Ancho, mov.Alto,
+                mov.Cantidad, mov.NroCaja, mov.in07codcli, mov.OrdenProduccion, mov.Areaxuni, mov.IN07ORDENTRABAJO, mov.operador,
+                mov.IN07DocIngAA, mov.IN07DocIngMM, mov.IN07DocIngTIPDOC, mov.IN07DocIngCODDOC, mov.IN07DocIngKEY, mov.IN07DocIngORDEN,
+                mov.IN07HORASALIDA, mov.IN07NROCAJAINGRESO, mov.IN07HORAINICIO, mov.IN07HORAFINAL, string.Format("{0:yyyyMMdd}", mov.IN07FECHAPROCESO, 103),
+                mov.IN07MOTIVOCOD, mov.in07prodTurnoCod, mov.IN07DESCABEZADOSUP, mov.IN07DESCABEZADOINF,
+                out cflagReturn,
+                out @cMsgRetorno);
+        }
+        public void EliminarProduccionDetalleMerma(string @cCodEmp, string @cAnno, string @cMes, string @cTipDoc, string @cNumDoc, 
+                                                            double @IN07ORDEN,out int @flag, out string @cMsgRetorno)
+        {
+            Accessor.Spu_Pro_Del_DetalleProduccionMermaLinea(@cCodEmp, @cAnno, @cMes, @cTipDoc, @cNumDoc,
+                                                            @IN07ORDEN, out @flag, out @cMsgRetorno);
+        }
+
+        // merma
+        public List<MovimientoResponse> TraerProduccionDetalleMerma(string @cCodEmp, string @cAnno, string @cMes, string @cTipDoc, string @cNumDoc,
+                                                                string @IN07ORDENTRABAJO)
+        {
+            return Accessor.Spu_Pro_Trae_DetalleMermaLinea(@cCodEmp, @cAnno, @cMes, @cTipDoc, @cNumDoc, @IN07ORDENTRABAJO);
+        }
+
+        #endregion
+        #region "validacion factura"
+
+        public bool validarRegimenRecaudacion(DocumentoFA documentoFactura, 
+            out string mensaje) {
+                bool estado = false;
+                mensaje = "";
+            //si el documento tiene valor
+            if (documentoFactura.FAC04RETENCION.Equals("S")
+                    && !documentoFactura.FAC04FECODBIENOSERVDETRACCION.Equals(""))
+            {
+                mensaje = "La factura solo debe teener retencion o detraccion";
+                estado = false;
+            }
+            if (documentoFactura.FAC04RETENCION.Equals("S")) {
+                if (documentoFactura.FAC04RETENCIONTASA.Equals("") ||
+                        Convert.ToInt32(documentoFactura.FAC04RETENCIONTASA) < 0) {
+                            mensaje = "Debe ingresa un valor valido de tasa retencion";
+                            estado = false;
+                }
+            }
+            return estado;
+        }
+        public void obtenerValorRetencionDefecto(out string flagRetencion, out string tasaRetencion)
+        {
+            tasaRetencion ="";
+            flagRetencion = "";
+            Empresa registro = GlobalLogic.Instance.TraerEmpresas("VENTAS", "")[0];
+           
+                tasaRetencion = registro.TasaRetencion;
+                flagRetencion = registro.FlagRetencion;
+            
+            
+        }
+        #endregion
         #region Accessor
 
         private static DocumentoAccesor Accessor

@@ -22412,39 +22412,40 @@ namespace Fac.UI.Win
                 Util.ShowMessage("ERROR :: Seleccione Privado o publico", 1);
                 return false;
             }
+            #region "validacion de proveedor origen y destino deisi"
+            //// motivo compra , proveedor Diesi NO 
+            //if (esFlagProveedorDeisi == "S") 
+            //{
 
-            // motivo compra , proveedor Diesi NO 
-            if (esFlagProveedorDeisi == "S") 
-            {
+            //    //para Transporte Publico: Ruc Origen <> Ruc Transportitsa
+            //    if (rbtPublico.IsChecked && txtrucorigen.Text == txtRucTransportista.Text)
+            //    {
+            //        Util.ShowError("Para Transporte Publico, Ruc de origen debe ser Diferente a Ruc de transportista");
+            //        return false;
+            //    }
 
-                //para Transporte Publico: Ruc Origen <> Ruc Transportitsa
-                if (rbtPublico.IsChecked && txtrucorigen.Text == txtRucTransportista.Text)
-                {
-                    Util.ShowError("Para Transporte Publico, Ruc de origen debe ser Diferente a Ruc de transportista");
-                    return false;
-                }
+            //    //para Transporte Privado: Ruc Origen debe ser Igual  Ruc Transportitsa
+            //    if (rbtPrivado.IsChecked && txtrucorigen.Text != txtRucTransportista.Text)
+            //    {
+            //        Util.ShowError("Para Transporte Privado, Ruc de origen debe ser igual  Ruc de transportista");
+            //        return false;
+            //    }
+            //}
+            //else {
+            //    //motivo venta , proveedor Deisi SI
+            //    if (rbtPublico.IsChecked & txtrucdestino.Text == txtRucTransportista.Text) {
+            //        Util.ShowError("Para Transporte Publico, Ruc de destino debe ser Diferente a Ruc de transportista");
+            //        return false;
+            //    }
+            //    //para Transporte Privado: Ruc Origen debe ser Igual  Ruc Transportitsa
+            //    if (rbtPrivado.IsChecked && txtrucdestino.Text != txtRucTransportista.Text)
+            //    {
+            //        Util.ShowError("Para Transporte Privado, Ruc de destino debe ser igual  Ruc de transportista");
+            //        return false;
+            //    }
 
-                //para Transporte Privado: Ruc Origen debe ser Igual  Ruc Transportitsa
-                if (rbtPrivado.IsChecked && txtrucorigen.Text != txtRucTransportista.Text)
-                {
-                    Util.ShowError("Para Transporte Privado, Ruc de origen debe ser igual  Ruc de transportista");
-                    return false;
-                }
-            }
-            else {
-                //motivo venta , proveedor Deisi SI
-                if (rbtPublico.IsChecked & txtrucdestino.Text == txtRucTransportista.Text) {
-                    Util.ShowError("Para Transporte Publico, Ruc de destino debe ser Diferente a Ruc de transportista");
-                    return false;
-                }
-                //para Transporte Privado: Ruc Origen debe ser Igual  Ruc Transportitsa
-                if (rbtPrivado.IsChecked && txtrucdestino.Text != txtRucTransportista.Text)
-                {
-                    Util.ShowError("Para Transporte Privado, Ruc de destino debe ser igual  Ruc de transportista");
-                    return false;
-                }
-
-            }
+            //}
+#endregion
                 //    //para Transporte Publico: Ruc Origen <> Ruc Transportitsa
                 //if (rbtPublico.IsChecked && txtrucdestino.Text == txtRucTransportista.Text)
                 //{

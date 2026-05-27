@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArticuloDet));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.radLabel8 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel7 = new Telerik.WinControls.UI.RadLabel();
@@ -99,6 +100,17 @@
             this.commandBarStripElement1 = new Telerik.WinControls.UI.CommandBarStripElement();
             this.cmdGrabarEquivalencia = new Telerik.WinControls.UI.CommandBarButton();
             this.cmdCancelarEquivalencia = new Telerik.WinControls.UI.CommandBarButton();
+            this.pgProductoMerma = new Telerik.WinControls.UI.RadPageViewPage();
+            this.radPanel4 = new Telerik.WinControls.UI.RadPanel();
+            this.dgvProductoLinea = new Telerik.WinControls.UI.RadGridView();
+            this.radCommandBar3 = new Telerik.WinControls.UI.RadCommandBar();
+            this.commandBarRowElement1 = new Telerik.WinControls.UI.CommandBarRowElement();
+            this.commandBarStripElement2 = new Telerik.WinControls.UI.CommandBarStripElement();
+            this.cmdAgregarProdLinea = new Telerik.WinControls.UI.CommandBarButton();
+            this.cmdEliminaProdLinea = new Telerik.WinControls.UI.CommandBarButton();
+            this.commandBarStripElement4 = new Telerik.WinControls.UI.CommandBarStripElement();
+            this.cmdGrabarProdLinea = new Telerik.WinControls.UI.CommandBarButton();
+            this.cmdCancelarProdLinea = new Telerik.WinControls.UI.CommandBarButton();
             this.commandBarStripElement14 = new Telerik.WinControls.UI.CommandBarStripElement();
             this.commandBarRowElement4 = new Telerik.WinControls.UI.CommandBarRowElement();
             this.radPanel3 = new Telerik.WinControls.UI.RadPanel();
@@ -165,6 +177,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridEquivalenciaProxCli)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridEquivalenciaProxCli.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar4)).BeginInit();
+            this.pgProductoMerma.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).BeginInit();
+            this.radPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductoLinea)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductoLinea.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radCommandBar3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).BeginInit();
             this.radPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -630,10 +648,11 @@
             // 
             this.pvarticulo.Controls.Add(this.pvpalmacen);
             this.pvarticulo.Controls.Add(this.pvpEquivalencia);
+            this.pvarticulo.Controls.Add(this.pgProductoMerma);
             this.pvarticulo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pvarticulo.Location = new System.Drawing.Point(0, 0);
             this.pvarticulo.Name = "pvarticulo";
-            this.pvarticulo.SelectedPage = this.pvpalmacen;
+            this.pvarticulo.SelectedPage = this.pvpEquivalencia;
             this.pvarticulo.Size = new System.Drawing.Size(1054, 317);
             this.pvarticulo.TabIndex = 24;
             this.pvarticulo.TabStop = false;
@@ -664,12 +683,12 @@
             // 
             // 
             // 
-            gridViewTextBoxColumn1.HeaderText = "column1";
-            gridViewTextBoxColumn1.Name = "column1";
+            gridViewTextBoxColumn2.HeaderText = "column1";
+            gridViewTextBoxColumn2.Name = "column1";
             this.gridControlAlmacen.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1});
+            gridViewTextBoxColumn2});
             this.gridControlAlmacen.MasterTemplate.ShowColumnHeaders = false;
-            this.gridControlAlmacen.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.gridControlAlmacen.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.gridControlAlmacen.Name = "gridControlAlmacen";
             this.gridControlAlmacen.Size = new System.Drawing.Size(622, 138);
             this.gridControlAlmacen.TabIndex = 0;
@@ -796,7 +815,7 @@
             // 
             // 
             this.gridEquivalenciaProxCli.MasterTemplate.ShowColumnHeaders = false;
-            this.gridEquivalenciaProxCli.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.gridEquivalenciaProxCli.MasterTemplate.ViewDefinition = tableViewDefinition5;
             this.gridEquivalenciaProxCli.Name = "gridEquivalenciaProxCli";
             this.gridEquivalenciaProxCli.Size = new System.Drawing.Size(1033, 239);
             this.gridEquivalenciaProxCli.TabIndex = 0;
@@ -879,6 +898,127 @@
             this.cmdCancelarEquivalencia.Name = "cmdCancelarEquivalencia";
             this.cmdCancelarEquivalencia.Text = "Cancelar";
             this.cmdCancelarEquivalencia.Click += new System.EventHandler(this.cmdCancelarEquivalencia_Click);
+            // 
+            // pgProductoMerma
+            // 
+            this.pgProductoMerma.Controls.Add(this.radPanel4);
+            this.pgProductoMerma.Controls.Add(this.radCommandBar3);
+            this.pgProductoMerma.ItemSize = new System.Drawing.SizeF(91F, 28F);
+            this.pgProductoMerma.Location = new System.Drawing.Point(10, 37);
+            this.pgProductoMerma.Name = "pgProductoMerma";
+            this.pgProductoMerma.Size = new System.Drawing.Size(1033, 269);
+            this.pgProductoMerma.Text = "Producto Linea";
+            // 
+            // radPanel4
+            // 
+            this.radPanel4.Controls.Add(this.dgvProductoLinea);
+            this.radPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radPanel4.Location = new System.Drawing.Point(0, 30);
+            this.radPanel4.Name = "radPanel4";
+            this.radPanel4.Size = new System.Drawing.Size(1033, 239);
+            this.radPanel4.TabIndex = 3;
+            // 
+            // dgvProductoLinea
+            // 
+            this.dgvProductoLinea.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProductoLinea.Location = new System.Drawing.Point(0, 0);
+            // 
+            // 
+            // 
+            this.dgvProductoLinea.MasterTemplate.ShowColumnHeaders = false;
+            this.dgvProductoLinea.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            this.dgvProductoLinea.Name = "dgvProductoLinea";
+            this.dgvProductoLinea.Size = new System.Drawing.Size(1033, 239);
+            this.dgvProductoLinea.TabIndex = 0;
+            this.dgvProductoLinea.Text = "radGridView1";
+            this.dgvProductoLinea.ThemeName = "Office2013Light";
+            // 
+            // radCommandBar3
+            // 
+            this.radCommandBar3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.radCommandBar3.Location = new System.Drawing.Point(0, 0);
+            this.radCommandBar3.Name = "radCommandBar3";
+            this.radCommandBar3.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
+            this.commandBarRowElement1});
+            this.radCommandBar3.Size = new System.Drawing.Size(1033, 30);
+            this.radCommandBar3.TabIndex = 2;
+            this.radCommandBar3.Text = "radCommandBar3";
+            // 
+            // commandBarRowElement1
+            // 
+            this.commandBarRowElement1.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.commandBarRowElement1.MinSize = new System.Drawing.Size(25, 25);
+            this.commandBarRowElement1.Strips.AddRange(new Telerik.WinControls.UI.CommandBarStripElement[] {
+            this.commandBarStripElement2,
+            this.commandBarStripElement4});
+            this.commandBarRowElement1.Text = "";
+            this.commandBarRowElement1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // commandBarStripElement2
+            // 
+            this.commandBarStripElement2.Alignment = System.Drawing.ContentAlignment.TopRight;
+            this.commandBarStripElement2.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.commandBarStripElement2.DisplayName = "commandBarStripElement3";
+            this.commandBarStripElement2.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
+            this.cmdAgregarProdLinea,
+            this.cmdEliminaProdLinea});
+            this.commandBarStripElement2.Name = "commandBarStripElement3";
+            this.commandBarStripElement2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // cmdAgregarProdLinea
+            // 
+            this.cmdAgregarProdLinea.AccessibleDescription = "Agregar equivalencia";
+            this.cmdAgregarProdLinea.AccessibleName = "Agregar equivalencia";
+            this.cmdAgregarProdLinea.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmdAgregarProdLinea.DisplayName = "commandBarButton1";
+            this.cmdAgregarProdLinea.Image = ((System.Drawing.Image)(resources.GetObject("cmdAgregarProdLinea.Image")));
+            this.cmdAgregarProdLinea.Name = "cmdAgregarProdLinea";
+            this.cmdAgregarProdLinea.Text = "Agregar equivalencia";
+            this.cmdAgregarProdLinea.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // cmdEliminaProdLinea
+            // 
+            this.cmdEliminaProdLinea.AccessibleDescription = "Eliminar";
+            this.cmdEliminaProdLinea.AccessibleName = "Eliminar";
+            this.cmdEliminaProdLinea.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmdEliminaProdLinea.DisplayName = "commandBarButton1";
+            this.cmdEliminaProdLinea.Image = ((System.Drawing.Image)(resources.GetObject("cmdEliminaProdLinea.Image")));
+            this.cmdEliminaProdLinea.Name = "cmdEliminaProdLinea";
+            this.cmdEliminaProdLinea.Text = "Eliminar";
+            this.cmdEliminaProdLinea.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // commandBarStripElement4
+            // 
+            this.commandBarStripElement4.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.commandBarStripElement4.DisplayName = "commandBarStripElement1";
+            this.commandBarStripElement4.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
+            this.cmdGrabarProdLinea,
+            this.cmdCancelarProdLinea});
+            this.commandBarStripElement4.Name = "commandBarStripElement1";
+            this.commandBarStripElement4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.commandBarStripElement4.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
+            // 
+            // cmdGrabarProdLinea
+            // 
+            this.cmdGrabarProdLinea.AccessibleDescription = "Guardar";
+            this.cmdGrabarProdLinea.AccessibleName = "Guardar";
+            this.cmdGrabarProdLinea.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmdGrabarProdLinea.DisplayName = "commandBarButton1";
+            this.cmdGrabarProdLinea.Image = ((System.Drawing.Image)(resources.GetObject("cmdGrabarProdLinea.Image")));
+            this.cmdGrabarProdLinea.Name = "cmdGrabarProdLinea";
+            this.cmdGrabarProdLinea.Text = "Guardar";
+            this.cmdGrabarProdLinea.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // cmdCancelarProdLinea
+            // 
+            this.cmdCancelarProdLinea.AccessibleDescription = "Cancelar";
+            this.cmdCancelarProdLinea.AccessibleName = "Cancelar";
+            this.cmdCancelarProdLinea.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmdCancelarProdLinea.DisplayName = "commandBarButton1";
+            this.cmdCancelarProdLinea.Image = ((System.Drawing.Image)(resources.GetObject("cmdCancelarProdLinea.Image")));
+            this.cmdCancelarProdLinea.Name = "cmdCancelarProdLinea";
+            this.cmdCancelarProdLinea.Text = "Cancelar";
+            this.cmdCancelarProdLinea.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
             // commandBarStripElement14
             // 
@@ -993,6 +1133,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridEquivalenciaProxCli.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridEquivalenciaProxCli)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar4)).EndInit();
+            this.pgProductoMerma.ResumeLayout(false);
+            this.pgProductoMerma.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).EndInit();
+            this.radPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductoLinea.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductoLinea)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radCommandBar3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).EndInit();
             this.radPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -1073,6 +1220,17 @@
         private Telerik.WinControls.UI.RadPanel radPanel2;
         private Telerik.WinControls.UI.RadPanel radPanel1;
         private Telerik.WinControls.UI.RadPanel radPanel3;
+        private Telerik.WinControls.UI.RadPageViewPage pgProductoMerma;
+        private Telerik.WinControls.UI.RadPanel radPanel4;
+        private Telerik.WinControls.UI.RadGridView dgvProductoLinea;
+        private Telerik.WinControls.UI.RadCommandBar radCommandBar3;
+        private Telerik.WinControls.UI.CommandBarRowElement commandBarRowElement1;
+        private Telerik.WinControls.UI.CommandBarStripElement commandBarStripElement2;
+        private Telerik.WinControls.UI.CommandBarButton cmdAgregarProdLinea;
+        private Telerik.WinControls.UI.CommandBarButton cmdEliminaProdLinea;
+        private Telerik.WinControls.UI.CommandBarStripElement commandBarStripElement4;
+        private Telerik.WinControls.UI.CommandBarButton cmdGrabarProdLinea;
+        private Telerik.WinControls.UI.CommandBarButton cmdCancelarProdLinea;
         
     }
 }

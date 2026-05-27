@@ -679,6 +679,7 @@ namespace Fac.UI.Win
             gridControlDetalle.Visible = true;
             dtpFechaDoc.Enabled = false;
             txtguias.Enabled = false;
+            txttasaretencion.Enabled = false;
             #endregion
             //Datos de exportacion
             #region "Datos de exportacion"
@@ -739,6 +740,9 @@ namespace Fac.UI.Win
             txtTipoCambio.Enabled = false;
             dtpFechaDoc.Enabled = true;
             txtguias.Enabled = true;
+            rbRetencionSi.Enabled = true;
+            rbRetencionNo.Enabled = true;
+            txttasaretencion.Enabled = false;
             #endregion
             //'Datos de Exportacion
             #region "datos de exportacion"
@@ -917,6 +921,24 @@ namespace Fac.UI.Win
             txtformapagosunat.Text = "";
             txtcuotasnro.Text = "0";
             txtcuotadias.Text = "0";
+
+            //trae retencion  por defecto desde la tabla empresa
+            string flagRetencion = "", tasaRetencion = "";
+            DocumentoLogic.Instance.obtenerValorRetencionDefecto(out flagRetencion, out tasaRetencion);
+            if (flagRetencion.Equals("S"))
+            {
+                rbRetencionSi.CheckState = CheckState.Checked;
+                rbRetencionNo.CheckState = CheckState.Unchecked;
+                this.txttasaretencion.Text = tasaRetencion;
+                
+            }
+            else {
+                rbRetencionSi.CheckState = CheckState.Unchecked;
+                rbRetencionNo.CheckState = CheckState.Checked;
+                this.txttasaretencion.Text = "";
+            }
+            
+                
         }
 
         void ActivarDesactivarTab(string tipoventa)
@@ -1035,8 +1057,9 @@ namespace Fac.UI.Win
                 this.rpvFactura.SelectedPage = pvGenerales;
                 TxtRuc.Focus();
                 return false; }
-            
-            if (LblHelp2.Text == "") { 
+
+            if (LblHelp2.Text.Equals("") || LblHelp2.Text.Equals("???"))
+            { 
                 Util.ShowAlert("Moneda No Valido");
                 this.rpvFactura.SelectedPage = pvGenerales;
 
@@ -2108,6 +2131,16 @@ namespace Fac.UI.Win
             entidadDocumento.FAC04FETIPODEOPERACION = txtTipoOperacionFE.Text;
             entidadDocumento.FAC04FECODIGOANEXOEMISOR = txtCodigoAnexoEmisorFE.Text;
 
+            if (rbRetencionNo.CheckState == CheckState.Checked) {
+                entidadDocumento.FAC04RETENCION = "N";
+            }
+            else if (rbRetencionSi.CheckState == CheckState.Checked) {
+                entidadDocumento.FAC04RETENCION = "S";
+                txttasaretencion.Enabled = true; 
+                txttasaretencion.Text = "0";
+            }
+            entidadDocumento.FAC04RETENCIONTASA = txttasaretencion.Text.Trim();
+            //entidadDocumento.FAC04RETENCION == 
 
             if (dtpFechaOrdCom.Text == "")
             {
@@ -2155,6 +2188,10 @@ namespace Fac.UI.Win
 
         private void GuardarFactura()
         {
+            //cargar entidad
+           
+            
+            //validar con la informacion del objeto entidad tipado de datos
             if (ValidarCabecera() == false) return;
             
             bool EsExistoso = false;
@@ -2190,7 +2227,13 @@ namespace Fac.UI.Win
             try
             {
                 DocumentoFA entidadDocumento = CargarEntidad();
+                string mensaje = "";
+                bool flagValidacion = DocumentoLogic.Instance.validarRegimenRecaudacion(entidadDocumento, out mensaje);
+                
+                if (flagValidacion == false) return false;
+                
                 string MensajeRespuesta = "";
+
                 int int_Flag = 0;
 
                 if (Estado == FormEstate.New)
@@ -4339,6 +4382,33 @@ namespace Fac.UI.Win
                 traerAyuda(enmAyuda.enmFactCab_Vendedor);
             else
                 FocusNextControl(e);
+        }
+
+        private void rbRetencionSi_ToggleStateChanged(object sender, StateChangedEventArgs args)
+        {
+            if (rbRetencionSi.CheckState == CheckState.Checked)
+            {
+                txttasaretencion.Enabled = true;
+                txttasaretencion.Text = "3";
+            }
+            else {
+                txttasaretencion.Enabled = false;
+                txttasaretencion.Text = "0";
+            }
+        }
+
+        private void rbRetencionNo_ToggleStateChanged(object sender, StateChangedEventArgs args)
+        {
+            if (rbRetencionSi.CheckState == CheckState.Checked)
+            {
+                txttasaretencion.Enabled = true;
+                txttasaretencion.Text = "3";
+            }
+            else
+            {
+                txttasaretencion.Enabled = false;
+                txttasaretencion.Text = "0";
+            }
         }
 
        

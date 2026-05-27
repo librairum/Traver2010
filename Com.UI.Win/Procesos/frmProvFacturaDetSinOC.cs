@@ -641,6 +641,18 @@ namespace Com.UI.Win.Procesos
                 //bool esValidoPeriodoCerrado = ValidaPeriodoCerrado(Util.GetCurrentCellText(fila, "Anio"), txtMesProvision.Text);
                 bool esPeriodoCerrado = false;
                 HabilitarCamposPorEstadoPeriodo(esPeriodoCerrado);
+
+                //percepcion
+                if (Util.GetCurrentCellText(fila, "CO05AFECTOPERCEPCION") == "S")
+                {
+                    chkAfectoPercepcion.Checked = true;
+                }
+
+                txttipopercepcion.Text = Util.GetCurrentCellText(fila, "CO05PERCEPCIONTIPOPERACION");
+                txtpercepcionporcentaje.Text = Util.GetCurrentCellText(fila, "CO05PERCEPCIONPORCENTAJE");
+                txtimportepercepcion.Text = Util.GetCurrentCellText(fila, "CO05PERCEPCIONIMPORTE");
+                txtimportepercepcion_equi.Text = Util.GetCurrentCellText(fila, "CO05PERCEPCIONIMPORTE_EQUI");
+
                
                 //Cargar el flujo de la caja
                 //string codigoProveedor = FrmParentSinOC.codigoProveedor;
@@ -688,7 +700,13 @@ namespace Com.UI.Win.Procesos
                 txtnrodocumento.Enabled = false;
                 //txtPorIgv.Enabled = false;
 
-                
+
+                // si  la factura de compra fue contabilizada ya no permite editar el campo de percepcion
+                txtpercepcionporcentaje.Enabled = activarControlContabilidad;
+                txttipopercepcion.Enabled = activarControlContabilidad;
+                txtimportepercepcion.Enabled = activarControlContabilidad;
+                txtimportepercepcion_equi.Enabled = activarControlContabilidad;
+
                 if (activarControlContabilidad == false)
                 {
                     MuestrayOcultaDatos(false);
@@ -852,7 +870,14 @@ namespace Com.UI.Win.Procesos
                 case enmAyuda.enmDocuModificaTipo:
                     txtdocmodtipo.Text = datos[0]; //ccb02cod
                     txtdocmodtipo.Focus();
-                    break;     
+                    break;
+                case enmAyuda.enmTipoPercepcion:
+                    txttipopercepcion.Text = datos[0];
+                    txttipopercepciondesc.Text = datos[1];
+                    txtpercepcionporcentaje.Text = datos[2];
+                    txttipopercepcion.Focus();
+                    this.CalcularImportePercepcion(decimal.Parse(this.txtpercepcionporcentaje.Text));
+                    break;
             }
 
         }
@@ -885,7 +910,7 @@ namespace Com.UI.Win.Procesos
             rbNoAfectoRet.Enabled = valor;
             chkCancelacion.Enabled = valor;
             chkAfectoDetraccion.Enabled = valor;
-
+            chkAfectoPercepcion.Enabled = valor;
             txtdocmodtipo.Enabled = valor;
             txtdocmodnumero.Enabled = valor;
             dtpdocmodfecha.Enabled = valor;
@@ -900,7 +925,11 @@ namespace Com.UI.Win.Procesos
             txtTipTransGuia.Enabled = valor;
             txtNroGuia.Enabled = valor;
             dtpFechaGuia.Enabled = valor;
-
+            txtpercepcionporcentaje.Enabled = false;
+            txtimportepercepcion.Enabled = false;
+            txtimportepercepcion_equi.Enabled = false;
+            //txttipopercepcion.Enabled = false;
+            
             //Detraccion esta habilitado por defecto
 
             //txtnroautorizacion esta retirado del diseño
@@ -917,6 +946,7 @@ namespace Com.UI.Win.Procesos
             Util.ResaltaAyudaPorEstado(txtProveedor);
             Util.ResaltaAyudaPorEstado(txtCentroCosto);
             Util.ResaltaAyudaPorEstado(txtdocmodtipo);
+            Util.ResaltaAyudaPorEstado(txttipopercepcion);
             #endregion
 
         }
@@ -994,7 +1024,14 @@ namespace Com.UI.Win.Procesos
                 }
 
                 CalcularImporteDetraccion(txtporcentaje.Text);
+                if (chkAfectoPercepcion.Checked)
+                {
+                    if (!txtpercepcionporcentaje.Text.Trim().Equals(""))
+                    {
+                        CalcularImportePercepcion(decimal.Parse(txtpercepcionporcentaje.Text.Trim()));
+                    }
 
+                }
             }
             catch (Exception ex)
             {
@@ -1290,6 +1327,11 @@ namespace Com.UI.Win.Procesos
             txtimportedetraccion.Text = Util.NumberFormat("0", formatonumero);
             txtimportedetraccion_equi.Text = Util.NumberFormat("0", formatonumero);
 
+            //percepcion
+            txtpercepcionporcentaje.Text = Util.NumberFormat("0", formatonumero);
+            txtimportepercepcion.Text = Util.NumberFormat("0", formatonumero);
+            txtimportepercepcion_equi.Text = Util.NumberFormat("0", formatonumero);
+            txttipopercepcion.Text = "";
             
 
             //
@@ -1346,6 +1388,8 @@ namespace Com.UI.Win.Procesos
 
             chkCancelacion.Enabled = valor;
             chkAfectoDetraccion.Enabled = valor;
+            chkAfectoPercepcion.Enabled = valor;
+            txtConcepto.Enabled = valor;
 
             txtConcepto.Enabled = valor;
             txtbienoservicio.Enabled = valor;
@@ -1361,10 +1405,12 @@ namespace Com.UI.Win.Procesos
             txtImporteIgvEquiv.Enabled = valor;
             txtImporteDocumentoEquiv.Enabled = valor;
 
+            
 
             rbAfectoRet.Enabled = valor;
             rbNoAfectoRet.Enabled = valor;
 
+            txttipopercepcion.Enabled = valor;
             ////Contabilidad
             //txtLibro.Enabled = valor;
             //txtNroVoucher.Enabled = valor;
@@ -1472,7 +1518,8 @@ namespace Com.UI.Win.Procesos
             provision.AfectoRet = rbAfectoRet.Checked ? "S" : "N";
             provision.Estado = chkCancelacion.Checked ? "3" : "0";
             provision.NroAutorizacion = ""; // el contro fue retirado del diseño
-            provision.BienesoServicioSunat = txtbienoservicio.Text.Trim();
+            provision.afectoPercepcion = chkAfectoPercepcion.Checked ? "S" : "N";
+             provision.BienesoServicioSunat = txtbienoservicio.Text.Trim();
             provision.CentroCosto = txtCentroCosto.Text.Trim();
 
             provision.DocModTipo= txtdocmodtipo.Text.Trim();
@@ -1483,11 +1530,15 @@ namespace Com.UI.Win.Procesos
             LeerContabilidad(provision);
      
             //Detraccion
-            LeerDetraccion(provision);                
+            LeerDetraccion(provision);        
+        
+             //percepcion
+            LeerPercepcion(provision);
             
             return provision;
         }
      
+
         protected override void OnGuardar()
         {
 
@@ -1533,6 +1584,13 @@ namespace Com.UI.Win.Procesos
                         }        
                  }
 
+
+                 if (chkAfectoDetraccion.Checked == true
+                     && chkAfectoPercepcion.Checked == true)
+                 {
+                     Util.ShowAlert("Solo debe seleccionar una opcion : Detraccion o Percepcion");
+                     return;
+                 }
                  VerificaRetencion();
                  #endregion
                  #region"Validaciones Montos"
@@ -1758,10 +1816,17 @@ namespace Com.UI.Win.Procesos
                     dias = 0;
                 }
 
+
+
                 dtpFechaVencimiento.Value = dtpFechaDocumento.Value.AddDays(dias);
                 dtpFechaPago.Value = dtpFechaDocumento.Value.AddDays(dias);
+
+                float TipoCambio = 0;
+                GlobalLogic.Instance.ComprasTraeTiCambioFecha(dtpFechaDocumento.Value.ToShortDateString(), "B", "V", out TipoCambio);
+                txtTipocambio.Text = TipoCambio.ToString();
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Util.ShowAlert("Error al calcular fecha de vencimiento");
             }
             
@@ -1897,6 +1962,7 @@ namespace Com.UI.Win.Procesos
 
             OcultarBotones();
 
+            gpxpercepcion.Visible = chkAfectoPercepcion.Checked ? true : false;
             HabilitaBotonPorNombre(BaseRegBotones.cbbCancelar);
 
 
@@ -1906,7 +1972,7 @@ namespace Com.UI.Win.Procesos
             CrearColumnasSugerencia();
 
             Estado = FrmParentSinOC.Estado;
-
+            
             switch (Estado)
             {
 
@@ -1927,7 +1993,9 @@ namespace Com.UI.Win.Procesos
                     txtProveedor.Enabled = false;
                     CargarDatos();
                     HabilitaBotonPorNombre(BaseRegBotones.cbbGuardar);
-
+                    txtpercepcionporcentaje.Enabled = false;
+                    txtimportepercepcion.Enabled = false;
+                    txtimportepercepcion_equi.Enabled = false;
                     break;
                 case FormEstate.View :
                      HabilitarControles(false);
@@ -1936,10 +2004,10 @@ namespace Com.UI.Win.Procesos
                     txtnrodocumento.Enabled = false;
                     txtProveedor.Enabled = false;
                     CargarDatos();
-            HabilitaBotonPorNombre(BaseRegBotones.cmdAnterior);
-            HabilitaBotonPorNombre(BaseRegBotones.cmdSiguiente);
-            HabilitaBotonPorNombre(BaseRegBotones.cmdPrimero);
-            HabilitaBotonPorNombre(BaseRegBotones.cmdUltimo);
+                    HabilitaBotonPorNombre(BaseRegBotones.cmdAnterior);
+                    HabilitaBotonPorNombre(BaseRegBotones.cmdSiguiente);
+                    HabilitaBotonPorNombre(BaseRegBotones.cmdPrimero);
+                    HabilitaBotonPorNombre(BaseRegBotones.cmdUltimo);
                     break;
                 default: break;
             }
@@ -2433,7 +2501,7 @@ namespace Com.UI.Win.Procesos
             {
                 if (e.KeyValue == (char)Keys.Enter)
                 {
-                    if (Estado == FormEstate.Edit) return;
+                    //if (Estado == FormEstate.Edit) return;
                     bool esFechaValida = ValidarFechaPeriodo(dtpFechaDocumento.Value, Logueo.Anio + Logueo.Mes);
                     if (esFechaValida == false)
                     {
@@ -2485,6 +2553,139 @@ namespace Com.UI.Win.Procesos
 
         }
 
+        private void txttipopercepcion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F1)
+            {
+                TraerAyuda(enmAyuda.enmTipoPercepcion);
+            }
+        }
+
+        private void chkAfectoPercepcion_ToggleStateChanged(object sender, StateChangedEventArgs args)
+        {
+            this.gpxpercepcion.Visible = chkAfectoPercepcion.Checked;
+            if (chkAfectoPercepcion.Checked == false)
+            {
+                txttipopercepcion.Text = "";
+                txtpercepcionporcentaje.Text = "";
+                txtimportepercepcion.Text = "";
+                txtimportepercepcion_equi.Text = "";
+            }
+
+            //if (chkAfectoPercepcion.Checked == false) return;
+
+            //if(Util.EsNumero(txtimportepercepcion.Text.Trim())){
+            //    if (decimal.Parse(txtimportepercepcion.Text) == 0
+            //            || decimal.Parse(txtimportepercepcion_equi.Text) == 0) return;
+            //    decimal importeDocumento = 0, importeDocumentoEquiv = 0;
+            //    if (txtTipoMoneda.Text.Trim().Equals("S"))
+            //    {
+            //         importeDocumento = decimal.Parse(txtImporteDocumento.Text) + decimal.Parse(txtimportepercepcion.Text);
+            //        importeDocumentoEquiv = decimal.Parse(txtImporteDocumentoEquiv.Text) + decimal.Parse(txtimportepercepcion_equi.Text);
+
+            //    }
+            //    else { 
+            //        // cuando la moneda es dolares
+            //        importeDocumento = decimal.Parse(txtImporteDocumento.Text) + decimal.Parse(txtimportepercepcion_equi.Text);
+            //        importeDocumentoEquiv = decimal.Parse(txtImporteDocumentoEquiv.Text) + decimal.Parse(txtimportepercepcion.Text) ;
+
+            //    }
+            //    txtImporteDocumento.Text = Util.NumberFormat(importeDocumento.ToString(), formatonumero);
+            //    txtimportepercepcion_equi.Text = Util.NumberFormat(importeDocumentoEquiv.ToString(), formatonumero);
+            //}
+
+        }
+
+        private void txttipopercepcion_Leave(object sender, EventArgs e)
+        {
+            //if (txtpercepcionporcentaje.Text.Trim().Equals("") == false)
+            //{
+            //    CalcularImportePercepcion(Convert.ToDecimal(txtpercepcionporcentaje.Text.Trim()));             
+            //}
+            
+        }
+
+        private void txttipopercepcion_TextChanged(object sender, EventArgs e)
+        {
+            string descripcion = "";
+            string codigoBusqueda = "16" + txttipopercepcion.Text.Trim();
+            descripcion = DameDescripcion(codigoBusqueda, "PERCEP");
+            //txttipooperacionDesc.Text = descripcion;
+            txttipopercepciondesc.Text = descripcion;
+            //realizar el calculo de percepcion
+            if (!txtpercepcionporcentaje.Text.Equals("")) { 
+                decimal  percepcionPorcentaje = 0;
+                decimal.TryParse(this.txtpercepcionporcentaje.Text.Trim(), out percepcionPorcentaje);
+                if(percepcionPorcentaje != 0){
+                    this.CalcularImportePercepcion(percepcionPorcentaje);
+                }
+
+            }
+        }
+        #region "metodos percepcion"
+
+        private void LeerPercepcion(ProvisionFactura entidad)
+        {
+
+            entidad.CO05PERCEPCIONTIPOPERACION = txttipopercepcion.Text.Trim();
+            entidad.CO05PERCEPCIONTIPOSERVICIO = "";
+            entidad.CO05PERCEPCIONPORCENTAJE = txtpercepcionporcentaje.Text == "" ? 0 : Convert.ToDouble(txtpercepcionporcentaje.Text);
+            //entidad.CO05PERCEPCIONPORCENTAJE = Convert.ToDouble(txtpercepcionporcentaje.Text);
+            entidad.CO05PERCEPCIONIMPORTE = txtimportepercepcion.Text == "" ? 0 : Convert.ToDouble(txtimportepercepcion.Text);
+            entidad.CO05PERCEPCIONIMPORTE_EQUI = txtimportepercepcion_equi.Text == "" ? 0 : Convert.ToDouble(txtimportepercepcion_equi.Text);
+
+        }
+
+        private void CalcularImportePercepcion(decimal Porcentaje)
+        {
+            try
+            {
+                if (chkAfectoPercepcion.Checked == false) return;
+                if (txtTipoMoneda.Text != "S" && txtTipoMoneda.Text != "D")
+                {
+                    Util.ShowAlert("Debe Especificar Moneda"); return;
+                }
+                if (txtTipocambio.Text == "") { Util.ShowAlert("Tipo de cambio No Valido"); return; }
+                if (txtImporteDocumento.Text == "" || txtImporteDocumentoEquiv.Text == "") { Util.ShowAlert("Importe No Valido"); return; }
+                if (txtpercepcionporcentaje.Text == "") { Util.ShowAlert("Porcentaje No Valido"); return; }
+                if (Util.EsNumero(txtpercepcionporcentaje.Text) == false) { Util.ShowAlert("Porcentaje No Valido"); return; }
+                decimal factorPercepcion = (Porcentaje / 100) ;
+                decimal ImportePercepcion =  Convert.ToDecimal(txtImporteDocumento.Text) * factorPercepcion;
+                decimal ImportePercepcionOriginal = 0, ImportePercepcionEquivalente = 0;
+
+                if (txtTipoMoneda.Text.ToUpper() == "S")
+                {
+                    ImportePercepcionOriginal = decimal.Round(ImportePercepcion, 2);
+                    ImportePercepcionEquivalente = decimal.Round(ImportePercepcion / decimal.Parse(txtTipocambio.Text), 2);
+                }
+                else if (txtTipoMoneda.Text.ToUpper() == "D")
+                {
+                    ImportePercepcionOriginal = decimal.Round(ImportePercepcion * decimal.Parse(txtTipocambio.Text), 2);
+                    ImportePercepcionEquivalente = decimal.Round(ImportePercepcion, 2);
+                }
+
+                txtimportepercepcion.Text = Util.NumberFormat(ImportePercepcionOriginal.ToString(), formatonumero);
+                txtimportepercepcion_equi.Text = Util.NumberFormat(ImportePercepcionEquivalente.ToString(), formatonumero);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
         
+        #endregion
+
+        private void gpxpercepcion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridSugerencia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }

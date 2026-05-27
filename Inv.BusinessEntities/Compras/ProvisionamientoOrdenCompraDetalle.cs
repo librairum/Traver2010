@@ -243,5 +243,24 @@ namespace Inv.BusinessEntities
         [MapField("Ccm02Forpag")]
         public string Ccm02Forpag { get; set; }
 
+        [MapField("CO05PERCEPCIONTIPOPERACION")]
+        public string CO05PERCEPCIONTIPOPERACION   {get;set;}
+        
+        [MapField("CO05PERCEPCIONTIPOSERVICIO")]
+        public string CO05PERCEPCIONTIPOSERVICIO  {get;set;}
+
+        [MapField("CO05PERCEPCIONPORCENTAJE")]
+        public double CO05PERCEPCIONPORCENTAJE  {get;set;}
+
+        [MapField("CO05PERCEPCIONIMPORTE")]
+        public double CO05PERCEPCIONIMPORTE { get; set; }
+
+        [MapField("CO05PERCEPCIONIMPORTE_EQUI")]
+        public double CO05PERCEPCIONIMPORTE_EQUI { get; set; }
+
+
+        [MapField("CO05AFECTOPERCEPCION")]
+        public string CO05AFECTOPERCEPCION { get; set; }
+
     }
 }

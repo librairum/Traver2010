@@ -55,5 +55,8 @@ namespace Inv.BusinessEntities
 
         [MapField("descripDocRespSalxDefecto")]
         public string descripDocRespSalxDefecto { get; set; }
+
+        [MapField("PRO09PROCESOFAJA")]
+        public string procesofaja { get; set; }
     }
 }

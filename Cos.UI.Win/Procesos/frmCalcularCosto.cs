@@ -158,5 +158,16 @@ namespace Cos.UI.Win
             controlsql.VistaPrevia(enmWindowState.Normal);
             Cursor.Current = Cursors.Default;
         }
+
+        private void btnDistribuir_Click(object sender, EventArgs e)
+        {
+            //Procesar
+            ContabilidadGastosLogic.Instance.CalcularCostos(Logueo.CodigoEmpresa, Logueo.Anio, Logueo.Mes,
+                                    Logueo.CodigoLinea, Logueo.CodigoLoteCosto, "");
+
+
+            // Traer resultado del proceso
+            OnBuscar();
+        }
     }
 }

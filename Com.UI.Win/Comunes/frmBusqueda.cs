@@ -388,6 +388,13 @@ namespace Com.UI.Win
                     this.gridControl.DataSource = GlobalLogic.Instance.TraeAyudaGlobal("72", "GLO", "", "*");
                     
                     break;
+                case enmAyuda.enmTipoPercepcion:
+                     CreateGridColumn(gridControl, "Codigo", "glo01codigo", 0, "", 70);
+                     CreateGridColumn(gridControl, "Descripcion", "glo01descripcion", 0, "", 70);
+                     CreateGridColumn(gridControl, "Porcentaje %", "glo01texto1", 0, "", 70,true, false, true);
+                     CreateGridColumn(gridControl, "Comentario", "glocomentario", 0, "", 70, true, false, true);
+                     this.gridControl.DataSource = GlobalLogic.Instance.TraeAyudaGlobal("16", "GLO", "", "*");
+                    break;
                default:
                     break;
             }
@@ -598,6 +605,12 @@ namespace Com.UI.Win
 
                 case enmAyuda.enmTipoCuentaBancaria:
                     this.Result = Util.GetCurrentCellText(gridControl, "glo01codigo") + "|" + Util.GetCurrentCellText(gridControl, "glo01descripcion");
+                    break;
+                case enmAyuda.enmTipoPercepcion:
+                    this.Result = Util.GetCurrentCellText(gridControl, "glo01codigo") + "|" + 
+                        Util.GetCurrentCellText(gridControl, "glo01descripcion")+"|"+
+                        Util.GetCurrentCellText(gridControl, "glo01texto1");
+                            
                     break;
                 default:
                     break;

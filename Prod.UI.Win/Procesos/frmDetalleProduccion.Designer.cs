@@ -41,6 +41,7 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition9 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition10 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition11 = new Telerik.WinControls.UI.TableViewDefinition();
             this.office2013LightTheme1 = new Telerik.WinControls.Themes.Office2013LightTheme();
             this.rpTipoDocumento = new Telerik.WinControls.UI.RadPanel();
             this.txtDescripcionMaquina = new Telerik.WinControls.UI.RadTextBox();
@@ -124,6 +125,16 @@
             this.pnlTitleHorasMuertas = new Telerik.WinControls.UI.RadPanel();
             this.lblTituloHM = new Telerik.WinControls.UI.RadLabel();
             this.gridControl = new Telerik.WinControls.UI.RadGridView();
+            this.popupMermaLinea = new Telerik.WinControls.UI.RadPopupContainer();
+            this.gridMermaLinea = new Telerik.WinControls.UI.RadGridView();
+            this.radPanel7 = new Telerik.WinControls.UI.RadPanel();
+            this.radCommandBar3 = new Telerik.WinControls.UI.RadCommandBar();
+            this.btrnGenerarProduccionLinea = new Telerik.WinControls.UI.RadButton();
+            this.commandBarRowElement4 = new Telerik.WinControls.UI.CommandBarRowElement();
+            this.commandBarStripElement4 = new Telerik.WinControls.UI.CommandBarStripElement();
+            this.btnNuevoMerma = new Telerik.WinControls.UI.CommandBarButton();
+            this.btnsaliraMermaLinea = new Telerik.WinControls.UI.RadButton();
+            this.radLabel18 = new Telerik.WinControls.UI.RadLabel();
             this.popupErroresDetalle = new Telerik.WinControls.UI.RadPopupContainer();
             this.gridErroresDetalle = new Telerik.WinControls.UI.RadGridView();
             this.radPanel3 = new Telerik.WinControls.UI.RadPanel();
@@ -158,6 +169,7 @@
             this.rpProduccionGrilla = new Telerik.WinControls.UI.RadPanel();
             this.rpDocRespaldo = new Telerik.WinControls.UI.RadPanel();
             this.rpMenuDetalle = new Telerik.WinControls.UI.RadPanel();
+            this.btnInsertarMermaLinea = new Telerik.WinControls.UI.RadButton();
             this.lblalertaProduccion = new System.Windows.Forms.Label();
             this.lblMermavalor = new System.Windows.Forms.Label();
             this.lblRendimientovalor = new System.Windows.Forms.Label();
@@ -271,6 +283,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblTituloHM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMermaLinea)).BeginInit();
+            this.popupMermaLinea.PanelContainer.SuspendLayout();
+            this.popupMermaLinea.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMermaLinea)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMermaLinea.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel7)).BeginInit();
+            this.radPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radCommandBar3)).BeginInit();
+            this.radCommandBar3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btrnGenerarProduccionLinea)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnsaliraMermaLinea)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupErroresDetalle)).BeginInit();
             this.popupErroresDetalle.PanelContainer.SuspendLayout();
             this.popupErroresDetalle.SuspendLayout();
@@ -316,6 +340,7 @@
             this.rpDocRespaldo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rpMenuDetalle)).BeginInit();
             this.rpMenuDetalle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInsertarMermaLinea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInsertarSaldos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnResume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInsertarErrores)).BeginInit();
@@ -379,7 +404,7 @@
             this.rpTipoDocumento.Dock = System.Windows.Forms.DockStyle.Top;
             this.rpTipoDocumento.Location = new System.Drawing.Point(0, 0);
             this.rpTipoDocumento.Name = "rpTipoDocumento";
-            this.rpTipoDocumento.Size = new System.Drawing.Size(1347, 28);
+            this.rpTipoDocumento.Size = new System.Drawing.Size(1347, 31);
             this.rpTipoDocumento.TabIndex = 0;
             // 
             // txtDescripcionMaquina
@@ -554,7 +579,7 @@
             // lblAlmxDefecto
             // 
             this.lblAlmxDefecto.BackColor = System.Drawing.Color.Transparent;
-            this.lblAlmxDefecto.Location = new System.Drawing.Point(784, 6);
+            this.lblAlmxDefecto.Location = new System.Drawing.Point(784, 11);
             this.lblAlmxDefecto.Name = "lblAlmxDefecto";
             this.lblAlmxDefecto.Size = new System.Drawing.Size(82, 18);
             this.lblAlmxDefecto.TabIndex = 19;
@@ -564,7 +589,7 @@
             // 
             // txtNroDocRespaldo
             // 
-            this.txtNroDocRespaldo.Location = new System.Drawing.Point(414, 4);
+            this.txtNroDocRespaldo.Location = new System.Drawing.Point(414, 9);
             this.txtNroDocRespaldo.Name = "txtNroDocRespaldo";
             this.txtNroDocRespaldo.Size = new System.Drawing.Size(113, 20);
             this.txtNroDocRespaldo.TabIndex = 4;
@@ -574,7 +599,7 @@
             // txtDesDocRespaldo
             // 
             this.txtDesDocRespaldo.Enabled = false;
-            this.txtDesDocRespaldo.Location = new System.Drawing.Point(98, 4);
+            this.txtDesDocRespaldo.Location = new System.Drawing.Point(98, 9);
             this.txtDesDocRespaldo.Name = "txtDesDocRespaldo";
             this.txtDesDocRespaldo.Size = new System.Drawing.Size(254, 20);
             this.txtDesDocRespaldo.TabIndex = 2;
@@ -582,7 +607,7 @@
             // 
             // txtCodDocRespaldo
             // 
-            this.txtCodDocRespaldo.Location = new System.Drawing.Point(67, 4);
+            this.txtCodDocRespaldo.Location = new System.Drawing.Point(67, 9);
             this.txtCodDocRespaldo.Name = "txtCodDocRespaldo";
             this.txtCodDocRespaldo.Size = new System.Drawing.Size(25, 20);
             this.txtCodDocRespaldo.TabIndex = 1;
@@ -591,7 +616,7 @@
             // 
             // radLabel6
             // 
-            this.radLabel6.Location = new System.Drawing.Point(358, 6);
+            this.radLabel6.Location = new System.Drawing.Point(358, 11);
             this.radLabel6.Name = "radLabel6";
             this.radLabel6.Size = new System.Drawing.Size(50, 18);
             this.radLabel6.TabIndex = 3;
@@ -599,7 +624,7 @@
             // 
             // radLabel2
             // 
-            this.radLabel2.Location = new System.Drawing.Point(10, 5);
+            this.radLabel2.Location = new System.Drawing.Point(10, 10);
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(55, 18);
             this.radLabel2.TabIndex = 0;
@@ -655,7 +680,7 @@
             // 
             this.gridOrdenTrabajo.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.gridOrdenTrabajo.Name = "gridOrdenTrabajo";
-            this.gridOrdenTrabajo.Size = new System.Drawing.Size(480, 173);
+            this.gridOrdenTrabajo.Size = new System.Drawing.Size(480, 169);
             this.gridOrdenTrabajo.TabIndex = 0;
             this.gridOrdenTrabajo.TabStop = false;
             this.gridOrdenTrabajo.Text = "radGridView1";
@@ -876,7 +901,7 @@
             // 
             this.gridMateriaPrima.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.gridMateriaPrima.Name = "gridMateriaPrima";
-            this.gridMateriaPrima.Size = new System.Drawing.Size(867, 172);
+            this.gridMateriaPrima.Size = new System.Drawing.Size(867, 168);
             this.gridMateriaPrima.TabIndex = 0;
             this.gridMateriaPrima.TabStop = false;
             this.gridMateriaPrima.Text = "radGridView1";
@@ -1337,6 +1362,135 @@
             this.gridControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridControl_KeyDown);
             this.gridControl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gridControl_KeyUp);
             // 
+            // popupMermaLinea
+            // 
+            this.popupMermaLinea.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.popupMermaLinea.Location = new System.Drawing.Point(0, 0);
+            this.popupMermaLinea.Name = "popupMermaLinea";
+            this.popupMermaLinea.Padding = new System.Windows.Forms.Padding(5, 8, 5, 5);
+            // 
+            // popupMermaLinea.PanelContainer
+            // 
+            this.popupMermaLinea.PanelContainer.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.popupMermaLinea.PanelContainer.Controls.Add(this.gridMermaLinea);
+            this.popupMermaLinea.PanelContainer.Controls.Add(this.radPanel7);
+            this.popupMermaLinea.PanelContainer.Controls.Add(this.radLabel18);
+            this.popupMermaLinea.PanelContainer.Location = new System.Drawing.Point(5, 8);
+            this.popupMermaLinea.PanelContainer.Size = new System.Drawing.Size(1322, 203);
+            this.popupMermaLinea.Size = new System.Drawing.Size(1332, 216);
+            this.popupMermaLinea.TabIndex = 18;
+            this.popupMermaLinea.Text = "radPopupContainer1";
+            this.popupMermaLinea.Visible = false;
+            ((Telerik.WinControls.UI.RadScrollablePanelElement)(this.popupMermaLinea.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(5, 8, 5, 5);
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.popupMermaLinea.GetChildAt(0).GetChildAt(1))).BoxStyle = Telerik.WinControls.BorderBoxStyle.FourBorders;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.popupMermaLinea.GetChildAt(0).GetChildAt(1))).LeftWidth = 5F;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.popupMermaLinea.GetChildAt(0).GetChildAt(1))).TopWidth = 8F;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.popupMermaLinea.GetChildAt(0).GetChildAt(1))).RightWidth = 5F;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.popupMermaLinea.GetChildAt(0).GetChildAt(1))).BottomWidth = 5F;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.popupMermaLinea.GetChildAt(0).GetChildAt(1))).TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.popupMermaLinea.GetChildAt(0).GetChildAt(1))).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
+            // 
+            // gridMermaLinea
+            // 
+            this.gridMermaLinea.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridMermaLinea.Location = new System.Drawing.Point(0, 49);
+            // 
+            // 
+            // 
+            this.gridMermaLinea.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            this.gridMermaLinea.Name = "gridMermaLinea";
+            this.gridMermaLinea.NewRowEnterKeyMode = Telerik.WinControls.UI.RadGridViewNewRowEnterKeyMode.EnterMovesToNextCell;
+            this.gridMermaLinea.Size = new System.Drawing.Size(1322, 154);
+            this.gridMermaLinea.TabIndex = 27;
+            this.gridMermaLinea.Text = "radGridView1";
+            this.gridMermaLinea.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.gridMermaLinea_CellFormatting);
+            this.gridMermaLinea.CellBeginEdit += new Telerik.WinControls.UI.GridViewCellCancelEventHandler(this.gridMermaLinea_CellBeginEdit);
+            this.gridMermaLinea.CommandCellClick += new Telerik.WinControls.UI.CommandCellClickEventHandler(this.gridMermaLinea_CommandCellClick);
+            this.gridMermaLinea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridMermaLinea_KeyDown);
+            // 
+            // radPanel7
+            // 
+            this.radPanel7.Controls.Add(this.radCommandBar3);
+            this.radPanel7.Controls.Add(this.btnsaliraMermaLinea);
+            this.radPanel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.radPanel7.Location = new System.Drawing.Point(0, 19);
+            this.radPanel7.Name = "radPanel7";
+            this.radPanel7.Size = new System.Drawing.Size(1322, 30);
+            this.radPanel7.TabIndex = 0;
+            this.radPanel7.Text = "radPanel7";
+            // 
+            // radCommandBar3
+            // 
+            this.radCommandBar3.Controls.Add(this.btrnGenerarProduccionLinea);
+            this.radCommandBar3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radCommandBar3.Location = new System.Drawing.Point(0, 0);
+            this.radCommandBar3.Name = "radCommandBar3";
+            this.radCommandBar3.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
+            this.commandBarRowElement4});
+            this.radCommandBar3.Size = new System.Drawing.Size(1304, 30);
+            this.radCommandBar3.TabIndex = 26;
+            this.radCommandBar3.Text = "radCommandBar3";
+            this.radCommandBar3.ThemeName = "Office2013Light";
+            // 
+            // btrnGenerarProduccionLinea
+            // 
+            this.btrnGenerarProduccionLinea.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btrnGenerarProduccionLinea.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btrnGenerarProduccionLinea.Location = new System.Drawing.Point(1202, 0);
+            this.btrnGenerarProduccionLinea.Name = "btrnGenerarProduccionLinea";
+            this.btrnGenerarProduccionLinea.Size = new System.Drawing.Size(102, 30);
+            this.btrnGenerarProduccionLinea.TabIndex = 2;
+            this.btrnGenerarProduccionLinea.Text = "GENERAR";
+            this.btrnGenerarProduccionLinea.ThemeName = "Office2013Light";
+            this.btrnGenerarProduccionLinea.Click += new System.EventHandler(this.btrnGenerarProduccionLinea_Click);
+            // 
+            // commandBarRowElement4
+            // 
+            this.commandBarRowElement4.MinSize = new System.Drawing.Size(25, 25);
+            this.commandBarRowElement4.Strips.AddRange(new Telerik.WinControls.UI.CommandBarStripElement[] {
+            this.commandBarStripElement4});
+            // 
+            // commandBarStripElement4
+            // 
+            this.commandBarStripElement4.DisplayName = "commandBarStripElement4";
+            this.commandBarStripElement4.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
+            this.btnNuevoMerma});
+            this.commandBarStripElement4.Name = "commandBarStripElement4";
+            // 
+            // btnNuevoMerma
+            // 
+            this.btnNuevoMerma.AccessibleDescription = "commandBarButton1";
+            this.btnNuevoMerma.AccessibleName = "commandBarButton1";
+            this.btnNuevoMerma.DisplayName = "commandBarButton1";
+            this.btnNuevoMerma.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoMerma.Image")));
+            this.btnNuevoMerma.Name = "btnNuevoMerma";
+            this.btnNuevoMerma.Text = "commandBarButton1";
+            this.btnNuevoMerma.Click += new System.EventHandler(this.btnNuevoMerma_Click);
+            // 
+            // btnsaliraMermaLinea
+            // 
+            this.btnsaliraMermaLinea.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnsaliraMermaLinea.Image = ((System.Drawing.Image)(resources.GetObject("btnsaliraMermaLinea.Image")));
+            this.btnsaliraMermaLinea.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnsaliraMermaLinea.Location = new System.Drawing.Point(1304, 0);
+            this.btnsaliraMermaLinea.Name = "btnsaliraMermaLinea";
+            this.btnsaliraMermaLinea.Size = new System.Drawing.Size(18, 30);
+            this.btnsaliraMermaLinea.TabIndex = 1;
+            this.btnsaliraMermaLinea.ThemeName = "Office2013Light";
+            this.btnsaliraMermaLinea.Click += new System.EventHandler(this.btnsaliraMermaLinea_Click);
+            // 
+            // radLabel18
+            // 
+            this.radLabel18.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.radLabel18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.radLabel18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel18.ForeColor = System.Drawing.Color.White;
+            this.radLabel18.Location = new System.Drawing.Point(0, 0);
+            this.radLabel18.Name = "radLabel18";
+            this.radLabel18.Size = new System.Drawing.Size(1322, 19);
+            this.radLabel18.TabIndex = 0;
+            this.radLabel18.Text = "MERMA LINEA";
+            // 
             // popupErroresDetalle
             // 
             this.popupErroresDetalle.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -1361,7 +1515,7 @@
             // 
             // 
             // 
-            this.gridErroresDetalle.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            this.gridErroresDetalle.MasterTemplate.ViewDefinition = tableViewDefinition7;
             this.gridErroresDetalle.Name = "gridErroresDetalle";
             this.gridErroresDetalle.Size = new System.Drawing.Size(639, 127);
             this.gridErroresDetalle.TabIndex = 4;
@@ -1505,7 +1659,7 @@
             // 
             // 
             // 
-            this.gridExcel.MasterTemplate.ViewDefinition = tableViewDefinition7;
+            this.gridExcel.MasterTemplate.ViewDefinition = tableViewDefinition8;
             this.gridExcel.Name = "gridExcel";
             this.gridExcel.Size = new System.Drawing.Size(1284, 281);
             this.gridExcel.TabIndex = 0;
@@ -1522,7 +1676,7 @@
             // 
             // 
             // 
-            this.gridMensaje.MasterTemplate.ViewDefinition = tableViewDefinition8;
+            this.gridMensaje.MasterTemplate.ViewDefinition = tableViewDefinition9;
             this.gridMensaje.Name = "gridMensaje";
             this.gridMensaje.Size = new System.Drawing.Size(1284, 124);
             this.gridMensaje.TabIndex = 0;
@@ -1648,7 +1802,7 @@
             this.rpControlOrden.Dock = System.Windows.Forms.DockStyle.Left;
             this.rpControlOrden.Location = new System.Drawing.Point(0, 0);
             this.rpControlOrden.Name = "rpControlOrden";
-            this.rpControlOrden.Size = new System.Drawing.Size(480, 195);
+            this.rpControlOrden.Size = new System.Drawing.Size(480, 191);
             this.rpControlOrden.TabIndex = 20;
             // 
             // rpControlMateriaPrima
@@ -1658,7 +1812,7 @@
             this.rpControlMateriaPrima.Dock = System.Windows.Forms.DockStyle.Left;
             this.rpControlMateriaPrima.Location = new System.Drawing.Point(480, 0);
             this.rpControlMateriaPrima.Name = "rpControlMateriaPrima";
-            this.rpControlMateriaPrima.Size = new System.Drawing.Size(867, 195);
+            this.rpControlMateriaPrima.Size = new System.Drawing.Size(867, 191);
             this.rpControlMateriaPrima.TabIndex = 21;
             // 
             // rpBotonesMateriaPrima
@@ -1719,10 +1873,10 @@
             // 
             this.rpProduccionGrilla.Controls.Add(this.rpControlMateriaPrima);
             this.rpProduccionGrilla.Controls.Add(this.rpControlOrden);
-            this.rpProduccionGrilla.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rpProduccionGrilla.Location = new System.Drawing.Point(0, 54);
+            this.rpProduccionGrilla.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rpProduccionGrilla.Location = new System.Drawing.Point(0, 65);
             this.rpProduccionGrilla.Name = "rpProduccionGrilla";
-            this.rpProduccionGrilla.Size = new System.Drawing.Size(1347, 195);
+            this.rpProduccionGrilla.Size = new System.Drawing.Size(1347, 191);
             this.rpProduccionGrilla.TabIndex = 2;
             // 
             // rpDocRespaldo
@@ -1734,13 +1888,14 @@
             this.rpDocRespaldo.Controls.Add(this.txtNroDocRespaldo);
             this.rpDocRespaldo.Controls.Add(this.txtDesDocRespaldo);
             this.rpDocRespaldo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rpDocRespaldo.Location = new System.Drawing.Point(0, 28);
+            this.rpDocRespaldo.Location = new System.Drawing.Point(0, 31);
             this.rpDocRespaldo.Name = "rpDocRespaldo";
-            this.rpDocRespaldo.Size = new System.Drawing.Size(1347, 26);
+            this.rpDocRespaldo.Size = new System.Drawing.Size(1347, 34);
             this.rpDocRespaldo.TabIndex = 1;
             // 
             // rpMenuDetalle
             // 
+            this.rpMenuDetalle.Controls.Add(this.btnInsertarMermaLinea);
             this.rpMenuDetalle.Controls.Add(this.lblalertaProduccion);
             this.rpMenuDetalle.Controls.Add(this.lblMermavalor);
             this.rpMenuDetalle.Controls.Add(this.lblRendimientovalor);
@@ -1759,6 +1914,21 @@
             this.rpMenuDetalle.Name = "rpMenuDetalle";
             this.rpMenuDetalle.Size = new System.Drawing.Size(1347, 28);
             this.rpMenuDetalle.TabIndex = 3;
+            // 
+            // btnInsertarMermaLinea
+            // 
+            this.btnInsertarMermaLinea.DisplayStyle = Telerik.WinControls.DisplayStyle.Image;
+            this.btnInsertarMermaLinea.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnInsertarMermaLinea.Image = ((System.Drawing.Image)(resources.GetObject("btnInsertarMermaLinea.Image")));
+            this.btnInsertarMermaLinea.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnInsertarMermaLinea.Location = new System.Drawing.Point(1075, 0);
+            this.btnInsertarMermaLinea.Name = "btnInsertarMermaLinea";
+            this.btnInsertarMermaLinea.Size = new System.Drawing.Size(34, 28);
+            this.btnInsertarMermaLinea.TabIndex = 25;
+            this.btnInsertarMermaLinea.Text = "radButton2";
+            this.btnInsertarMermaLinea.ThemeName = "Office2013Light";
+            this.toolTip1.SetToolTip(this.btnInsertarMermaLinea, "Insertar saldos");
+            this.btnInsertarMermaLinea.Click += new System.EventHandler(this.btnInsertarMermaLinea_Click);
             // 
             // lblalertaProduccion
             // 
@@ -1989,6 +2159,7 @@
             // 
             this.splitPanel2.Controls.Add(this.gridControl);
             this.splitPanel2.Controls.Add(this.rpMenuDetalle);
+            this.splitPanel2.Controls.Add(this.popupMermaLinea);
             this.splitPanel2.Location = new System.Drawing.Point(0, 260);
             this.splitPanel2.Name = "splitPanel2";
             // 
@@ -2025,7 +2196,7 @@
             // 
             // 
             // 
-            this.gridResumen.MasterTemplate.ViewDefinition = tableViewDefinition9;
+            this.gridResumen.MasterTemplate.ViewDefinition = tableViewDefinition10;
             this.gridResumen.Name = "gridResumen";
             this.gridResumen.Size = new System.Drawing.Size(803, 169);
             this.gridResumen.TabIndex = 2;
@@ -2089,7 +2260,7 @@
             // 
             // 
             // 
-            this.gridSaldos.MasterTemplate.ViewDefinition = tableViewDefinition10;
+            this.gridSaldos.MasterTemplate.ViewDefinition = tableViewDefinition11;
             this.gridSaldos.Name = "gridSaldos";
             this.gridSaldos.Size = new System.Drawing.Size(1283, 220);
             this.gridSaldos.TabIndex = 1;
@@ -2158,9 +2329,9 @@
             this.Load += new System.EventHandler(this.frmDetalleProduccion_Load);
             this.Controls.SetChildIndex(this.popupSaldos, 0);
             this.Controls.SetChildIndex(this.popupResumen, 0);
+            this.Controls.SetChildIndex(this.radCommandBar1, 0);
             this.Controls.SetChildIndex(this.pnlHoraMuerta, 0);
             this.Controls.SetChildIndex(this.rpAgregaMasivo, 0);
-            this.Controls.SetChildIndex(this.radCommandBar1, 0);
             this.Controls.SetChildIndex(this.radSplitContainer1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpTipoDocumento)).EndInit();
@@ -2254,6 +2425,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblTituloHM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
+            this.popupMermaLinea.PanelContainer.ResumeLayout(false);
+            this.popupMermaLinea.PanelContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMermaLinea)).EndInit();
+            this.popupMermaLinea.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridMermaLinea.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMermaLinea)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel7)).EndInit();
+            this.radPanel7.ResumeLayout(false);
+            this.radPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radCommandBar3)).EndInit();
+            this.radCommandBar3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btrnGenerarProduccionLinea)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnsaliraMermaLinea)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel18)).EndInit();
             this.popupErroresDetalle.PanelContainer.ResumeLayout(false);
             this.popupErroresDetalle.PanelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupErroresDetalle)).EndInit();
@@ -2306,6 +2491,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rpMenuDetalle)).EndInit();
             this.rpMenuDetalle.ResumeLayout(false);
             this.rpMenuDetalle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInsertarMermaLinea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInsertarSaldos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnResume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInsertarErrores)).EndInit();
@@ -2494,5 +2680,16 @@
         private System.Windows.Forms.Label lblMermavalor;
         private System.Windows.Forms.Label lblRendimientovalor;
         private System.Windows.Forms.Label lblalertaProduccion;
+        private Telerik.WinControls.UI.RadButton btnInsertarMermaLinea;
+        private Telerik.WinControls.UI.RadButton btnsaliraMermaLinea;
+        private Telerik.WinControls.UI.RadPopupContainer popupMermaLinea;
+        private Telerik.WinControls.UI.RadGridView gridMermaLinea;
+        private Telerik.WinControls.UI.RadPanel radPanel7;
+        private Telerik.WinControls.UI.RadCommandBar radCommandBar3;
+        private Telerik.WinControls.UI.RadLabel radLabel18;
+        private Telerik.WinControls.UI.CommandBarRowElement commandBarRowElement4;
+        private Telerik.WinControls.UI.CommandBarStripElement commandBarStripElement4;
+        private Telerik.WinControls.UI.CommandBarButton btnNuevoMerma;
+        private Telerik.WinControls.UI.RadButton btrnGenerarProduccionLinea;
     }
 }

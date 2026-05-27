@@ -33,14 +33,22 @@ namespace Inv.DataAccess
         string @CO05DETRATIPOPERACION, string @CO05DETRATIPOSERVICIO, double @CO05DETRAPORCENTAJE,
         double @CO05DETRAIMPORTE, double @CO05DETRAIMPORTE_EQUI, string @CO05BIENOSERVSUNAT, 
         string @CO05INVREFDOC,string @CO05CENTRODECOSTO,
-        string @CO05DOCMODTIPO, string @CO05DOCMODNUMERO,string @CO05DOCMODFECHA,
+        string @CO05DOCMODTIPO, string @CO05DOCMODNUMERO,
+            string @CO05DOCMODFECHA,
+        string @CO05PERCEPCIONTIPOPERACION ,        
+        double @CO05PERCEPCIONPORCENTAJE ,
+        double @CO05PERCEPCIONIMPORTE ,
+        double @CO05PERCEPCIONIMPORTE_EQUI ,
+        string @CO05AFECTOPERCEPCION,
         out int @flag,out string @cMsgRetorno);
 
 
         [SprocName("Spu_Com_Upd_ProvisionFacturaPagos")]
         public abstract void Spu_Com_Upd_ProvisionFacturaPagos(string @cCodEmp,string @cAno,string @cMes,string @cTipoOrd,string @cNroOrd,
         string @TipoDocumento,string @Nrodocumento,double @ImporteDocumento,double @ImportePagos,string @CO05ANOORDCOM,string @CO05MESORDCOM,
-        string @Proveedor,string @CO05AFECTODETRACCION,string @CO05DETRATIPOPERACION, string @CO05DETRATIPOSERVICIO, double @CO05DETRAPORCENTAJE, 
+        string @Proveedor,string @CO05AFECTODETRACCION,
+            string @CO05DETRATIPOPERACION, 
+            string @CO05DETRATIPOSERVICIO, double @CO05DETRAPORCENTAJE, 
         double @CO05DETRAIMPORTE, double @CO05DETRAIMPORTE_EQUI);
         //NUEVO
         [SprocName("Sp_Com_Upd_ProvisionFactura_AsienCont")]
@@ -58,6 +66,12 @@ namespace Inv.DataAccess
         double @CO05DETRAIMPORTE, double @CO05DETRAIMPORTE_EQUI, string @CO05BIENOSERVSUNAT,  string @CO05INVREFDOC,
         string @CO05CENTRODECOSTO,
         string @CO05DOCMODTIPO, string @CO05DOCMODNUMERO, string @CO05DOCMODFECHA,
+        string @CO05PERCEPCIONTIPOPERACION  ,
+        
+        double @CO05PERCEPCIONPORCENTAJE ,
+        double @CO05PERCEPCIONIMPORTE ,
+        double @CO05PERCEPCIONIMPORTE_EQUI ,
+        string @CO05AFECTOPERCEPCION,
         out int @flag,out string @cMsgRetorno);
 
         [SprocName("Spu_Com_Trae_Concepto_co07MotivosDocPorPagar")]

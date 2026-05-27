@@ -66,7 +66,8 @@ namespace Inv.BusinessEntities
         public int FAC04FORMAPAGOSUNATCUOTAS { get; set; }
         public int FAC04FORMAPAGOSUNATDIAS { get; set; }
 
-        
+        public string FAC04RETENCION { get; set; }
+        public string FAC04RETENCIONTASA { get; set; }
 
         //campos de detalle de documento
         public string FAC05CODEMP { get; set; }        

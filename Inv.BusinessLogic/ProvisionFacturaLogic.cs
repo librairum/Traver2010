@@ -65,6 +65,11 @@ namespace Inv.BusinessLogic
             entidad.BienesoServicioSunat,  
             entidad.NroDocRef, entidad.CentroCosto,
             entidad.DocModTipo, entidad.DocModNumero, string.Format("{0:yyyyMMdd}", entidad.DocModFecha), 
+            entidad.CO05PERCEPCIONTIPOPERACION,
+            entidad.CO05PERCEPCIONPORCENTAJE,
+            entidad.CO05PERCEPCIONIMPORTE,
+            entidad.CO05PERCEPCIONIMPORTE_EQUI,
+            entidad.afectoPercepcion,
             out @flag, out @cMsgRetorno);
         }
         public string Actualizar_DocumentosContabilizados(string @cCodEmp, string @cAno, string @cMes, string @cTipoOrd, string @cNroOrd, string @TipoDocumento, string @Nrodocumento, string @Proveedor, string @CO05ANOORDCOM, string @CO05MESORDCOM, string @Libro, string @NumVou, string @AsientoTipo, out string @cMsgRetorno)
@@ -96,7 +101,14 @@ namespace Inv.BusinessLogic
 
             entidad.BienesoServicioSunat,  
             entidad.NroDocRef, entidad.CentroCosto,
-            entidad.DocModTipo, entidad.DocModNumero, string.Format("{0:yyyyMMdd}", entidad.DocModFecha),
+            entidad.DocModTipo, entidad.DocModNumero, 
+            string.Format("{0:yyyyMMdd}",
+            entidad.DocModFecha), 
+            entidad.CO05PERCEPCIONTIPOPERACION,
+            entidad.CO05PERCEPCIONPORCENTAJE,
+            entidad.CO05PERCEPCIONIMPORTE,
+            entidad.CO05PERCEPCIONIMPORTE_EQUI,
+            entidad.afectoPercepcion,
             out @flag, out @cMsgRetorno);
 
             //Falta anio ordencompra, mes orden compra

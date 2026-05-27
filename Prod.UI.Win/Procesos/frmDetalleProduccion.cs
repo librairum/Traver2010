@@ -145,6 +145,7 @@ namespace Prod.UI.Win.Procesos
             else if (FrmParent.Estado == FormEstate.Edit)
             {
                 cargarCabeceraDocumento();
+
                 CargarOrdenTrabajo();
                 //cargarMateriaPrima();
                 CargarMPResumido();
@@ -388,6 +389,7 @@ namespace Prod.UI.Win.Procesos
                 //case enm
             }
         }
+        bool _esActividaFaja = false;
         private void obtenerDescripcionIgnMasivo(enmAyuda tipo, string valor)
         {
             string descripcion = "";
@@ -427,6 +429,14 @@ namespace Prod.UI.Win.Procesos
                     break;
             }
         }
+         //private void mostrarAyudaMermaLinea(enmAyuda tipo) {
+        //    frmBusqueda frm;
+        //    string codigoSeleccionado = "";
+        //    switch (tipo)
+        //    {
+                
+        //    }
+        //}
         private void mostrarAyuda(enmAyuda tipo)
         {
             frmBusqueda frm;
@@ -509,6 +519,11 @@ namespace Prod.UI.Win.Procesos
                         //obtenerDescripcion(tipo);
                         var alm = ActividadNivel1Logic.Instance.TraerAlmacenxDefecto(Logueo.CodigoEmpresa, txtCodProceso.Text.Trim());
                         lblAlmxDefecto.Text = alm.in09codigo;
+                        this._esActividaFaja = alm.procesofaja.Equals("S")? true:false;
+                        //activar boton de agregar merma linea
+                        this.btnInsertarMermaLinea.Enabled = _esActividaFaja;
+                        //desactivar el obotn si es un proceso de faja
+                        this.btnAdd.Enabled = _esActividaFaja;
                     }
                     break;
 
@@ -707,7 +722,8 @@ namespace Prod.UI.Win.Procesos
 
             // oculto boton si el control materia prima esta inhabilitado
             btnAddMateria.Visible = rpControlMateriaPrima.Enabled ? true : false;
-
+            
+           
             // rpMateria.Enabled = (variable.Substring(7, 1).CompareTo("0") == 0);
             // //Label de Materia Prima
             // radLabel4.Enabled= (variable.Substring(7, 1).CompareTo("0") == 0);
@@ -746,6 +762,14 @@ namespace Prod.UI.Win.Procesos
             txtCodTurno.Text = resultado.codigoTurno; //campo no usado
             txtCodProceso.Text = resultado.codigoActiNivel1;
             txtCodigoMaquina.Text = resultado.CodigoMaquina;
+
+            //insertar merma de subproceso Linea
+            var alm = ActividadNivel1Logic.Instance.TraerAlmacenxDefecto(Logueo.CodigoEmpresa, txtCodProceso.Text.Trim());
+            lblAlmxDefecto.Text = alm.in09codigo;
+            this._esActividaFaja = alm.procesofaja.Equals("S") ? true : false;
+            //activar boton de agregar merma linea
+            this.btnInsertarMermaLinea.Enabled = _esActividaFaja;
+
         }
         private void BloquearIngresoDatos()
         {
@@ -1151,7 +1175,78 @@ namespace Prod.UI.Win.Procesos
             this.CreateGridColumn(grilla, "in07amarre", "in07amarre", 0, "", 60, false, true);
             string[] fieldstosummary = { "Operador", "Cantidad", "MTS2", "MTS3" };
             Util.AddGridSummarySum(gridControl, fieldstosummary);
-            
+
+
+
+
+            RadGridView grillaMerma = this.CreateGridVista(this.gridMermaLinea);
+
+            this.CreateGridColumn(grillaMerma, "Codigo", "codigoOperador", 0, "", 50, true, false, false);
+            this.CreateGridDateColumn(grillaMerma, "Fecha", "IN07FECHAPROCESO", 0, "{0:dd/MM/yyyy}", 70, false, true);
+            this.CreateGridColumn(grillaMerma, "Operador", "Operador", 0, "", 70, true, false, esEntrada);
+
+            // Turno 
+            this.CreateGridColumn(grillaMerma, "Turno", "in07prodTurnoCod", 0, "", 90, true, false, false);
+            this.CreateGridColumn(grillaMerma, "Turno.Desc.", "in07prodTurnoDesc", 0, "", 50, true, false, true);
+
+            //
+            this.CreateGridColumn(grillaMerma, "H.Fin", "IN07HORAFINAL", 0, "", 50, false, true);
+            this.CreateGridColumn(grillaMerma, "H.Ini", "IN07HORAINICIO", 0, "", 50, false, true);
+            this.CreateGridColumn(grillaMerma, "Cana.Ing", "IN07NROCAJAINGRESO", 0, "", 65, false, true);
+            this.CreateGridColumn(grillaMerma, "CajaUnica", "CajaUnica", 0, "", 70, true, false, false);
+
+            this.CreateGridColumn(grillaMerma, "Sup.", "IN07DESCABEZADOSUP", 0, "{0:###,##0}", 30, false, true, true, true, "right");
+            this.CreateGridColumn(grillaMerma, "Inf.", "IN07DESCABEZADOINF", 0, "{0:###,##0}", 30, false, true, true, true, "right");
+
+            // Campos ocultos
+            this.CreateGridColumn(grillaMerma, "Cod.Bloque", "CodigoBloque", 0, "", 140, false, true, false);
+            this.CreateGridColumn(grillaMerma, "CodMaquina", "CodMaquina", 0, "", 140, false, true, false);
+            this.CreateGridColumn(grillaMerma, "Maquina", "DesMaquina", 0, "", 140, false, true, false);
+            // Cantidad
+            this.CreateGridColumn(grillaMerma, "Cantidad", "Cantidad", 0, "{0:###,###0.00}", 70, false, false, true, true, "right");
+
+            // Datos del producto
+            this.CreateGridColumn(grillaMerma, "Cod.Almacén", "CodigoAlmacen", 0, "", 30, false, true, true);
+            this.CreateGridColumn(grillaMerma, "Almacén", "DesAlmacen", 0, "", 90); // Descripcion de almacen
+            this.CreateGridColumn(grillaMerma, "Código Producto", "CodigoArticulo", 0, "", 30, true, false);
+
+            this.CreateGridColumn(grillaMerma, "Descripción", "DescripcionArticulo", 0, "", 250, true, false, true);
+            this.CreateGridColumn(grillaMerma, "UM", "UnidadMedida", 0, "", 40, true, false, true);
+            // Medidas del producto
+            this.CreateGridColumn(grillaMerma, "Largo", "Largo", 0, "{0:###,###0.00}", 60, false, true, true, true, "right");
+            this.CreateGridColumn(grillaMerma, "Ancho", "Ancho", 0, "{0:###,###0.00}", 60, false, true, true, true, "right");
+            this.CreateGridColumn(grillaMerma, "Espesor", "Alto", 0, "{0:###,###0.00}", 60, false, true, true, true, "right");
+
+            //Datos Calculados
+            this.CreateGridColumn(grillaMerma, "Areaxuni", "Areaxuni", 0, "{0:###,###0.00}", 90, false, false, true, true, "right");
+            this.CreateGridColumn(grillaMerma, "Orden", "Orden", 0, "{0:###,###0.00}", 70, true, false, false, true, "right");
+            this.CreateGridColumn(grillaMerma, "MTS2", "MTS2", 0, "{0:###,###0.00}", 60, true, false, true, true, "right");
+            this.CreateGridColumn(grillaMerma, "MTS3", "MTS3", 0, "{0:###,###0.00}", 60, true, false, true, true, "right");
+            this.CreateGridColumn(grillaMerma, "Area", "Area", 0, "{0:###,###0.00}", 100, false, false, false, true, "right");
+            //
+            this.CreateGridColumn(grillaMerma, "#Cana/Blo", "NroCaja", 0, "", 70, false, true, true, false, "right");
+            //
+
+            //this.CreateGridTimeColumn(grilla, "H.Salida", "IN07HORASALIDA", 0, "##:##", 75, false, true);
+            this.CreateGridColumn(grillaMerma, "H.Sal", "IN07HORASALIDA", 0, "", 60, false, true);
+            this.CreateGridColumn(grillaMerma, "flag", "flag", 0, "", 30, false, true, false);
+            this.CreateGridColumn(grillaMerma, "flagBotones", "flagBotones", 0, "", 40, false, true, false);
+
+            //  Agrega filas ocultas para capturar los ingresos de las salidas
+
+            this.CreateGridColumn(grillaMerma, "IN07DocIngAA", "IN07DocIngAA", 0, "", 0, true, false, false, false);
+            this.CreateGridColumn(grillaMerma, "IN07DocIngMM", "IN07DocIngMM", 0, "", 0, true, false, false, false);
+            this.CreateGridColumn(grillaMerma, "IN07DocIngTIPDOC", "IN07DocIngTIPDOC", 0, "", 0, true, false, false, false);
+            this.CreateGridColumn(grillaMerma, "IN07DocIngCODDOC", "IN07DocIngCODDOC", 0, "", 0, true, false, false, false);
+            this.CreateGridColumn(grillaMerma, "IN07DocIngKEY", "IN07DocIngKEY", 0, "", 0, true, false, false, false);
+            this.CreateGridColumn(grillaMerma, "IN07DocIngORDEN", "IN07DocIngORDEN", 0, "", 0, true, false, false, true);
+            this.CreateGridColumn(grillaMerma, "IN07SECUENCIA", "IN07SECUENCIA", 0, "", 0, true, false, false);
+            this.CreateGridColumn(grillaMerma, "Cod.Motivo", "IN07MOTIVOCOD", 0, "", 70, true, false, false);
+            this.CreateGridColumn(grillaMerma, "Motivo", "DesMotivo", 0, "", 60, false, true);
+            this.CreateGridColumn(grillaMerma, "in07amarre", "in07amarre", 0, "", 60, false, true,false);
+            string[] fieldstosummarygrillaMerma = { "Operador", "Cantidad", "MTS2", "MTS3" };
+            Util.AddGridSummarySum(grillaMerma, fieldstosummarygrillaMerma);
+
         }
        
         // Traer los detalles de produccion filtrado por nro de orden de produccion.
@@ -1212,6 +1307,12 @@ namespace Prod.UI.Win.Procesos
             AddCmdButtonToGrid(gridControl, "btnCancelarDet", "", "btnCancelarDet");
             AddCmdButtonToGrid(gridControl, "btnEliminarDet", "", "btnEliminarDet");
             AddCmdButtonToGrid(gridControl, "btnEditarDet", "", "btnEditarDet");
+
+            AddCmdButtonToGrid(gridMermaLinea, "btnGrabarDet", "", "btnGrabarDet");
+            AddCmdButtonToGrid(gridMermaLinea, "btnCancelarDet", "", "btnCancelarDet");
+            AddCmdButtonToGrid(gridMermaLinea, "btnEliminarDet", "", "btnEliminarDet");
+            AddCmdButtonToGrid(gridMermaLinea, "btnEditarDet", "", "btnEditarDet");
+
         }
                 
         void crearGrupos()
@@ -1289,6 +1390,84 @@ namespace Prod.UI.Win.Procesos
             this.columnGroupsView.ColumnGroups[2].Rows[0].Columns.Add(this.gridControl.Columns["btnEditarDet"]);
             this.columnGroupsView.ColumnGroups[2].Rows[0].Columns[3].MinWidth = 30;
             this.gridControl.ViewDefinition = columnGroupsView;
+
+            //detalle merma linea
+
+            this.columnGroupsView = new ColumnGroupsViewDefinition();
+            this.columnGroupsView.ColumnGroups.Add(new GridViewColumnGroup("Datos de Producto"));
+            this.columnGroupsView.ColumnGroups[0].Rows.Add(new GridViewColumnGroupRow());
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["Operador"]);
+
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["in07prodTurnoCod"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["in07prodTurnoDesc"]);
+
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["IN07FECHAPROCESO"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["IN07HORAINICIO"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["IN07HORAFINAL"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["IN07NROCAJAINGRESO"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["CajaUnica"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["IN07DESCABEZADOSUP"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["IN07DESCABEZADOINF"]);
+
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["Cantidad"]);
+
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["CodigoBloque"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["CodMaquina"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["DesMaquina"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["CodigoAlmacen"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["DesAlmacen"]);
+
+            if (FrmParent.rbIngreso.IsChecked)
+            {
+                this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["CodigoArticulo"]);
+                this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["DescripcionArticulo"]);
+            }
+            else
+            {
+
+                this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["NroCaja"]);
+
+                this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridControl.Columns["CodigoArticulo"]);
+                this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridControl.Columns["DescripcionArticulo"]);
+            }
+
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["UnidadMedida"]);
+            //
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["Largo"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["Ancho"]);
+            this.columnGroupsView.ColumnGroups[0].Rows[0].Columns.Add(this.gridMermaLinea.Columns["Alto"]);
+            //                       
+            this.columnGroupsView.ColumnGroups.Add(new GridViewColumnGroup("Destino MP"));
+            this.columnGroupsView.ColumnGroups[1].Rows.Add(new GridViewColumnGroupRow());
+            this.columnGroupsView.ColumnGroups[1].Rows[0].Columns.Add(this.gridMermaLinea.Columns["Orden"]);
+            this.columnGroupsView.ColumnGroups[1].Rows[0].Columns.Add(this.gridMermaLinea.Columns["MTS2"]);
+            this.columnGroupsView.ColumnGroups[1].Rows[0].Columns.Add(this.gridMermaLinea.Columns["MTS3"]);
+            this.columnGroupsView.ColumnGroups[1].Rows[0].Columns.Add(this.gridMermaLinea.Columns["Area"]);
+            if (FrmParent.rbIngreso.IsChecked)
+            {
+                this.columnGroupsView.ColumnGroups[1].Rows[0].Columns.Add(this.gridMermaLinea.Columns["NroCaja"]);
+            }
+
+            this.columnGroupsView.ColumnGroups[1].Rows[0].Columns.Add(this.gridMermaLinea.Columns["IN07HORASALIDA"]);
+            this.columnGroupsView.ColumnGroups[1].Rows[0].Columns.Add(this.gridMermaLinea.Columns["flag"]);
+            this.columnGroupsView.ColumnGroups[1].Rows[0].Columns.Add(this.gridMermaLinea.Columns["flagBotones"]);
+            this.columnGroupsView.ColumnGroups[1].Rows[0].Columns.Add(this.gridMermaLinea.Columns["DesMotivo"]);
+
+            this.columnGroupsView.ColumnGroups.Add(new GridViewColumnGroup());
+            this.columnGroupsView.ColumnGroups[2].Rows.Add(new GridViewColumnGroupRow());
+
+            this.columnGroupsView.ColumnGroups[2].Rows[0].Columns.Add(this.gridMermaLinea.Columns["btnGrabarDet"]);
+            this.columnGroupsView.ColumnGroups[2].Rows[0].Columns[0].MinWidth = 30;
+            this.columnGroupsView.ColumnGroups[2].Rows[0].Columns.Add(this.gridMermaLinea.Columns["btnCancelarDet"]);
+            this.columnGroupsView.ColumnGroups[2].Rows[0].Columns[1].MinWidth = 30;
+            this.columnGroupsView.ColumnGroups[2].Rows[0].Columns.Add(this.gridMermaLinea.Columns["btnEliminarDet"]);
+            this.columnGroupsView.ColumnGroups[2].Rows[0].Columns[2].MinWidth = 30;
+            this.columnGroupsView.ColumnGroups[2].Rows[0].Columns.Add(this.gridMermaLinea.Columns["btnEditarDet"]);
+            this.columnGroupsView.ColumnGroups[2].Rows[0].Columns[3].MinWidth = 30;
+            this.gridMermaLinea.ViewDefinition = columnGroupsView;
+
+
+
         }
 
         void limpiarDetalleProduccion()
@@ -1754,6 +1933,105 @@ namespace Prod.UI.Win.Procesos
             }          
             return true;
         }
+        private bool ValidarHoraMerma()
+        {
+            string horaSalida = Util.convertirahoras(this.gridMermaLinea.CurrentRow.Cells["IN07HORASALIDA"].Value.ToString());
+            string horaInicio = Util.convertirahoras(this.gridMermaLinea.CurrentRow.Cells["IN07HORAINICIO"].Value.ToString());
+            string horaFinal = Util.convertirahoras(this.gridMermaLinea.CurrentRow.Cells["IN07HORAFINAL"].Value.ToString());
+            //-----------------------
+
+            int posicion = 0;
+
+            posicion = horaInicio.IndexOf(':');
+            bool horaValido = false; bool minutoValido = false;
+
+
+            //-------
+            //No encontro dos punto 
+            if (posicion == -1)
+            {
+                RadMessageBox.Show("Formato H.Inicio No valido de tiempo", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Exclamation);
+                return false;
+            }
+
+            horaValido = Util.ValidarHora(horaInicio.Substring(0, posicion));
+            minutoValido = Util.ValidarMinuto(horaInicio.Substring(posicion + 1, 2));
+
+            if (!horaValido)
+            {
+                RadMessageBox.Show("H.Inicio Hora No Valido", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Exclamation);
+                this.gridMermaLinea.CurrentColumn = this.gridMermaLinea.Columns["IN07HORAINICIO"];
+                return false;
+            }
+
+            if (!minutoValido)
+            {
+                RadMessageBox.Show("H.Inicio Minuto No Valido", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Exclamation);
+                this.gridMermaLinea.CurrentColumn = this.gridMermaLinea.Columns["IN07HORAINICIO"];
+                return false;
+            }
+
+
+
+            //-------
+            posicion = horaFinal.IndexOf(':');
+            if (posicion == -1)
+            {
+                RadMessageBox.Show("Formato H.Final No valido de tiempo", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Exclamation);
+                return false;
+            }
+
+            horaValido = Util.ValidarHora(horaFinal.Substring(0, posicion));
+            minutoValido = Util.ValidarMinuto(horaFinal.Substring(posicion + 1, 2));
+            if (!horaValido)
+            {
+                RadMessageBox.Show("H.Final Hora No Valido", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Exclamation);
+                this.gridMermaLinea.CurrentColumn = this.gridMermaLinea.Columns["IN07HORAFINAL"];
+                return false;
+            }
+
+            if (!minutoValido)
+            {
+                RadMessageBox.Show("H.Final Minuto No Valido", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Exclamation);
+                this.gridMermaLinea.CurrentColumn = this.gridMermaLinea.Columns["IN07HORAFINAL"];
+                return false;
+            }
+
+            //-------
+            posicion = horaSalida.IndexOf(':');
+            if (posicion == -1)
+            {
+                RadMessageBox.Show("Formato H.Salida No valido de tiempo", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Exclamation);
+                return false;
+            }
+
+            horaValido = Util.ValidarHora(horaSalida.Substring(0, posicion));
+            minutoValido = Util.ValidarMinuto(horaSalida.Substring(posicion + 1, 2));
+            if (!horaValido)
+            {
+                RadMessageBox.Show("H.Salida Hora No Valido", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Exclamation);
+                this.gridMermaLinea.CurrentColumn = this.gridMermaLinea.Columns["IN07HORASALIDA"];
+                return false;
+            }
+
+            if (!minutoValido)
+            {
+                RadMessageBox.Show("H.Salida Minuto No Valido", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Exclamation);
+                this.gridMermaLinea.CurrentColumn = this.gridMermaLinea.Columns["IN07HORASALIDA"];
+                return false;
+            }
+            //----------------------       
+
+            //VALIDACION  de HoraIngreso < Hora Salida
+            if (Convert.ToDateTime(horaInicio) > Convert.ToDateTime(horaFinal))
+            {
+                RadMessageBox.Show("H.Inicio >  H.Final", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Exclamation);
+                this.gridMermaLinea.CurrentColumn = this.gridMermaLinea.Columns["IN07HORAFINAL"];
+                return false;
+            }
+
+            return true;
+        }
         private bool ValidarHora()
         {
             string horaSalida = Util.convertirahoras(this.gridControl.CurrentRow.Cells["IN07HORASALIDA"].Value.ToString());
@@ -2182,6 +2460,42 @@ namespace Prod.UI.Win.Procesos
                 { btnAdd_Click(null, null); }
             }
         }
+
+        //metodo para la grilla , el proceso  guardar detalle MermaLinea
+        private void GuardarDetalleMermadeproduccion(Movimiento movi, string pflaginsercion)
+        {
+            /*Insertar el detalle de movimiento*/
+            string msj = "";
+            string cajaunica = "";
+            int flag = 0;
+            DocumentoLogic.Instance.InsertarProducccionDetalleMerma(movi, pflaginsercion, out flag, out msj);
+            bool processok = Util.ShowMessage(msj, flag);
+            if (processok == true)
+            {
+                //Flag indica insercion es exitoso
+                //this.gridControl.CurrentRow.Cells["flag"].Value = null;
+                Util.SetClearCurrentCellText(gridMermaLinea, "flag");
+                //refrescar grilla
+
+                //Refrescar y enfocar Materia Prima
+                //CapturarFilaEnfocacda
+                cajaunica = gridMermaLinea.CurrentRow.Cells["CajaUnica"].Value.ToString();
+                CargarMPResumido();
+                Util.enfocarFila(gridMateriaPrima, "CajaUnica", cajaunica);
+
+                //enforcar fila recien insertada
+                cargarProductoDetMerma();
+                //Util.enfocarFila(gridControl, "Orden", movi.Orden.ToString());
+
+
+                if (esInsercion == false)
+                { btnInsertarMermaLinea_Click(null, null); }
+                //agrego nueva fila
+                //{ btnAdd_Click(null, null); }
+                
+            }
+        }
+
         private void ActualizarDetalledeproduccion(Movimiento movi)
         {
             string msj = ""; int flag = 0;
@@ -2423,7 +2737,17 @@ namespace Prod.UI.Win.Procesos
             { editarDetProducto(); }
 
             if (this.gridControl.Columns["btnEliminarDet"].IsCurrent)
-            { EliminarDetProducto(); }
+            {
+                if (this._esActividaFaja)
+                {
+                    Util.ShowAlert("Para elimnar este item detalle, debe eliminar el registro de la MERMA correspondiente");
+                    return;
+                }
+                else {
+                    EliminarDetProducto();
+                }
+                 
+            }
 
             if (this.gridControl.Columns["btnCancelarDet"].IsCurrent)
             { cancelarDetProducto(); }
@@ -2502,7 +2826,7 @@ namespace Prod.UI.Win.Procesos
                             return;
                         }
                     }
-
+                    
                     if (columna.Index == fila.Cells["DesMaquina"].ColumnInfo.Index) { mostrarAyuda(enmAyuda.enmMaquina); }
                     if (columna.Index == fila.Cells["Operador"].ColumnInfo.Index) { mostrarAyuda(enmAyuda.enmOperador); }
                     if (columna.Index == fila.Cells["DesMotivo"].ColumnInfo.Index) { mostrarAyuda(enmAyuda.enmMotivo); }
@@ -7462,12 +7786,1181 @@ private bool flagResumenEdit = false; //  0 - > Asigna modo no editable ,1 -> As
 
             }
         }
-
+        #region"merma linea"
         private void btninformacionMerma_Click(object sender, EventArgs e)
         {
             string mensaje = "NOTA" + Environment.NewLine + "Merma acepta : {-5%; +5% }";
             Util.ShowAlert(mensaje);
         }
+        private void mostrarMermaLinea(bool estado) {
+            if (estado == true)
+            {
+                this.popupMermaLinea.BringToFront();
+            }
+            else {
+                this.popupMermaLinea.SendToBack();
+            }
+            
+            this.popupMermaLinea.Visible = estado;
+        }
+
+        private void insertarPolvoLinea() { 
+        
+        }
+        private void grilla_KeyDown(RadGridView grilla,object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.Enter || e.KeyValue == (char)Keys.Tab)
+            {
+                grilla.CurrentRow.Cells[grilla.CurrentColumn.Index].BeginEdit();
+            }
+
+            if (Estado == FormEstate.List || Estado == FormEstate.View) return; // inhabilito el evento si no es modo Edicio
+
+            try
+            {
+                if (grilla.CurrentRow.Cells["flag"] == null) return;
+                if (grilla.CurrentRow.Cells["flag"].Value == null) return;
+                //Enfocar y grabar cuando se encuenta en la ultima columan de la fila actual
+
+
+                //Menu de ayuda
+                if (e.KeyValue == (char)Keys.F1)
+                {
+                    GridViewRowInfo fila = grilla.CurrentRow;
+                    GridViewColumn columna = grilla.CurrentColumn;
+
+                    if (columna.Index == fila.Cells["CodigoArticulo"].ColumnInfo.Index ||
+                        columna.Index == fila.Cells["NroCaja"].ColumnInfo.Index)
+                    {
+                        if (fila.Cells["CodigoAlmacen"].Value == null)
+                        {
+                            RadMessageBox.Show("Seleccionar almacen", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Info);
+                            return;
+                        }
+                        if (fila.Cells["CodigoAlmacen"].Value.ToString() == "")
+                        {
+                            RadMessageBox.Show("Seleccionar almacen", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Info);
+                            return;
+                        }
+                    }
+
+                    if (columna.Index == fila.Cells["DesMaquina"].ColumnInfo.Index) { mostrarAyudaTabla(grilla ,enmAyuda.enmMaquina); }
+                    if (columna.Index == fila.Cells["Operador"].ColumnInfo.Index) { mostrarAyudaTabla(grilla ,enmAyuda.enmOperador); }
+                    if (columna.Index == fila.Cells["DesMotivo"].ColumnInfo.Index) { mostrarAyudaTabla(grilla ,enmAyuda.enmMotivo); }
+
+                    //F1 --  Ayuda de Turno            
+                    if (columna.Index == fila.Cells["in07prodTurnoDesc"].ColumnInfo.Index)
+                    {
+                        mostrarAyudaTabla(grilla ,enmAyuda.enmTurnosxDetalle);
+                    }
+                    //Habilito ayuda si la transaccion es Ingreso o Salida
+                    if (FrmParent.rbIngreso.IsChecked) // si el documento es de Ingreso permito 
+                    {
+                        // no permito llamar a la ayuda de articulo si esta en modo editar                      
+                        if (columna.Index == fila.Cells["CodigoAlmacen"].ColumnInfo.Index) { mostrarAyudaTabla(grilla,enmAyuda.enmAlmacen); }
+                        if (columna.Index == fila.Cells["CodigoArticulo"].ColumnInfo.Index)
+                        {
+                            mostrarAyudaTabla(grilla ,enmAyuda.enmProductoXAlmacen);
+                        }
+
+
+                    }
+                    else
+                    {
+                        if (Convert.ToDouble(fila.Cells["Orden"].Value) != 0) return;
+                        //Permito llamar ayuda de NroCaja y Codigo de Almacen (Almacen)  solo si es una fila nueva                            
+                        if (columna.Index == fila.Cells["NroCaja"].ColumnInfo.Index) { mostrarAyudaTabla(grilla,enmAyuda.enmCanastillas); }
+                        if (columna.Index == fila.Cells["CodigoAlmacen"].ColumnInfo.Index) { mostrarAyudaTabla(grilla,enmAyuda.enmAlmacen); }
+                    }
+
+                }
+                //-> Menu Ayuda 
+
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+        private void gridMermaLinea_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F1)
+            {
+                this.grilla_KeyDown(this.gridMermaLinea, sender, e);
+            }
+
+        }
+
+        private void btnsaliraMermaLinea_Click(object sender, EventArgs e)
+        {
+            this.mostrarMermaLinea(false);
+        }
+
+        private void btnGuardarMermaLinea_Click(object sender, EventArgs e)
+        {
+            this.mostrarMermaLinea(false);
+        }
+
+        private void btnCancelarMermaLinea_Click(object sender, EventArgs e)
+        {
+            this.mostrarMermaLinea(false);
+        }
+
+        private void btnInsertarMermaLinea_Click(object sender, EventArgs e)
+        {
+            this.mostrarMermaLinea(true);
+            this.cargarProductoDetMerma();
+        }
+
+        //private void traeAyudaMermaLinea() {
+
+        //    if (e.KeyValue == (char)Keys.Enter || e.KeyValue == (char)Keys.Tab)
+        //    {
+        //        this.gridMermaLinea.CurrentRow.Cells[this.gridMermaLinea.CurrentColumn.Index].BeginEdit();
+        //    }
+
+        //    if (Estado == FormEstate.List || Estado == FormEstate.View) return; // inhabilito el evento si no es modo Edicio
+
+        //    try
+        //    {
+        //        if (this.gridMermaLinea.CurrentRow.Cells["flag"] == null) return;
+        //        if (this.gridMermaLinea.CurrentRow.Cells["flag"].Value == null) return;
+        //        //Enfocar y grabar cuando se encuenta en la ultima columan de la fila actual
+
+
+        //        //Menu de ayuda
+        //        if (e.KeyValue == (char)Keys.F1)
+        //        {
+        //            GridViewRowInfo fila = gridMermaLinea.CurrentRow;
+        //            GridViewColumn columna = this.gridMermaLinea.CurrentColumn;
+
+        //            if (columna.Index == fila.Cells["CodigoArticulo"].ColumnInfo.Index ||
+        //                columna.Index == fila.Cells["NroCaja"].ColumnInfo.Index)
+        //            {
+        //                if (fila.Cells["CodigoAlmacen"].Value == null)
+        //                {
+        //                    RadMessageBox.Show("Seleccionar almacen", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Info);
+        //                    return;
+        //                }
+        //                if (fila.Cells["CodigoAlmacen"].Value.ToString() == "")
+        //                {
+        //                    RadMessageBox.Show("Seleccionar almacen", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Info);
+        //                    return;
+        //                }
+        //            }
+
+        //            if (columna.Index == fila.Cells["DesMaquina"].ColumnInfo.Index) { mostrarAyuda(enmAyuda.enmMaquina); }
+        //            if (columna.Index == fila.Cells["Operador"].ColumnInfo.Index) { mostrarAyuda(enmAyuda.enmOperador); }
+        //            if (columna.Index == fila.Cells["DesMotivo"].ColumnInfo.Index) { mostrarAyuda(enmAyuda.enmMotivo); }
+
+        //            //F1 --  Ayuda de Turno            
+        //            if (columna.Index == fila.Cells["in07prodTurnoDesc"].ColumnInfo.Index)
+        //            {
+        //                mostrarAyuda(enmAyuda.enmTurnosxDetalle);
+        //            }
+        //            //Habilito ayuda si la transaccion es Ingreso o Salida
+        //            if (FrmParent.rbIngreso.IsChecked) // si el documento es de Ingreso permito 
+        //            {
+        //                // no permito llamar a la ayuda de articulo si esta en modo editar                      
+        //                if (columna.Index == fila.Cells["CodigoAlmacen"].ColumnInfo.Index) { mostrarAyuda(enmAyuda.enmAlmacen); }
+        //                if (columna.Index == fila.Cells["CodigoArticulo"].ColumnInfo.Index)
+        //                {
+        //                    mostrarAyuda(enmAyuda.enmProductoXAlmacen);
+        //                }
+
+
+        //            }
+        //            else
+        //            {
+        //                if (Convert.ToDouble(fila.Cells["Orden"].Value) != 0) return;
+        //                //Permito llamar ayuda de NroCaja y Codigo de Almacen (Almacen)  solo si es una fila nueva                            
+        //                if (columna.Index == fila.Cells["NroCaja"].ColumnInfo.Index) { mostrarAyuda(enmAyuda.enmCanastillas); }
+        //                if (columna.Index == fila.Cells["CodigoAlmacen"].ColumnInfo.Index) { mostrarAyuda(enmAyuda.enmAlmacen); }
+        //            }
+
+        //        }
+        //        //-> Menu Ayuda 
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //    }
+        //}
+        private void mostrarAyudaTabla(RadGridView grilla, enmAyuda tipo)
+        {
+            frmBusqueda frm;
+            string codigoSeleccionado = "";
+            switch (tipo)
+            {
+                case enmAyuda.enmTurnosxDetalle:
+                    frm = new frmBusqueda(enmAyuda.enmTurnos);
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                    if (frm.Result != null)
+                        codigoSeleccionado = frm.Result.ToString();
+                    if (codigoSeleccionado != "")
+                    {
+                        grilla.CurrentRow.Cells["in07prodTurnoCod"].Value = codigoSeleccionado;
+                        //this.gridControl.CurrentRow.Cells["in07prodTurnoCod"].Value = codigoSeleccionado;
+                        //obtenerDescripcion(enmAyuda.enmTurnosxDetalle);
+                        obtenerDescripcionTabla(grilla, enmAyuda.enmTurnosxDetalle);
+                    }
+
+                    break;
+
+                case enmAyuda.enmProductoXAlmacen:
+                    string codigoAlmacen = grilla.CurrentRow.Cells["CodigoAlmacen"].Value.ToString();
+                    frm = new frmBusqueda(tipo, codigoAlmacen, null, 1000, 400);
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                    if (frm.Result != null)
+                    {
+                        codigoSeleccionado = frm.Result.ToString();
+
+                        if (codigoSeleccionado == "") return;
+                        string[] separado = codigoSeleccionado.Split('/');
+                        string codigoArticulo = separado[0];
+                        grilla.CurrentRow.Cells["CodigoArticulo"].Value = codigoArticulo;
+                        grilla.CurrentRow.Cells["DescripcionArticulo"].Value = separado[1];
+                        grilla.CurrentRow.Cells["UnidadMedida"].Value = separado[2];
+                        Articulo articulo = ArticuloLogic.Instance.ProterMedidas(codigoArticulo);
+
+                        double largonum = articulo.largonum;
+                        double Anchonum = articulo.anchonum;
+                        double Espesornum = articulo.espesornum;
+
+                        string largotext = articulo.largotext;
+                        string Anchotext = articulo.anchotext;
+                        string Espesortext = articulo.espesortext;
+
+                        // ================= Largo
+                        bool esEditable = largotext.ToString().ToUpper() == "ESP";
+                        Util.IsReadOnlyCurrentCell(grilla, "Largo", esEditable);
+                        largonum = esEditable == true ? 0 : largonum;
+                        Util.SetValueCurrentCellDbl(grilla, "Largo", largonum);
+                        // ================= Ancho
+                        esEditable = Anchotext.ToString().ToUpper() == "ESP";
+                        Util.IsReadOnlyCurrentCell(grilla, "Ancho", esEditable);
+                        Anchonum = esEditable == true ? 0 : Anchonum;
+                        Util.SetValueCurrentCellDbl(grilla, "Ancho", Anchonum);
+                        //=================  Espesor
+                        esEditable = Espesortext.ToString().ToUpper() == "ESP";
+                        Util.IsReadOnlyCurrentCell(grilla, "Alto", esEditable);
+                        Espesornum = esEditable == true ? 0 : Espesornum;
+                        Util.SetValueCurrentCellDbl(grilla, "Alto", Espesornum);
+                        grilla.CurrentColumn = grilla.Columns["Largo"];
+                        grilla.CurrentRow.Cells["Largo"].BeginEdit();
+
+                    }
+                    break;
+                case enmAyuda.enmCanastillas:
+                    Cursor.Current = Cursors.WaitCursor;
+                    codigoAlmacen = "";
+
+                    codigoAlmacen = grilla.CurrentRow.Cells["CodigoAlmacen"].Value.ToString(); ;
+                    var proceso = ActividadNivel1Logic.Instance.ActividadNivel1TraerRegistro(Logueo.CodigoEmpresa, txtCodLinea.Text.Trim(), txtCodProceso.Text.Trim());
+
+                    if (codigoAlmacen == "") return;
+                    frm = new frmBusqueda(enmAyuda.enmCanastillas, codigoAlmacen);
+
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                    Cursor.Current = Cursors.Default;
+                    if (frm.Result != null && frm.Result.ToString() != "")
+                    {
+                        TraerMovimientoPP((Spu_Pro_Trae_PPStock)frm.Result);
+                    }
+
+                    break;
+                case enmAyuda.enmAlmacen:
+                    if (esEntrada == true)
+                    {
+                        //frm = new frmBusqueda(enmAyuda.enmAlmacen);
+                        string lineaalm = txtCodLinea.Text.Trim();
+                        string actividadalm = txtCodProceso.Text.Trim();
+
+                        frm = new frmBusqueda(enmAyuda.enmAlmacenxlineaxactividad, lineaalm, actividadalm);
+                    }
+                    else
+                    {
+                        var actividad = ActividadNivel1Logic.Instance.ActividadNivel1TraerRegistro(Logueo.CodigoEmpresa, txtCodLinea.Text.Trim(), txtCodProceso.Text.Trim());
+                        string naturaleza = actividad == null ? Logueo.PP_codnaturaleza : actividad.NATURALEZAALM;
+                        frm = new frmBusqueda(enmAyuda.enmAlmacenxNaturaleza, naturaleza);
+                    }
+
+                    frm.Owner = this;
+                    frm.ShowDialog();
+
+                    if (frm.Result != null)
+                    {
+                        if (FrmParent.rbIngreso.IsChecked)
+                        {
+                            //ayuda de almacen para detalle        
+
+                            string almacenSeleccionado = frm.Result.ToString();
+
+                            string almacenAnterior = Util.convertiracadena(grilla.CurrentRow.Cells["CodigoAlmacen"].Value);
+                            if (almacenSeleccionado != almacenAnterior) // verifico si el almacen seleccionado es el mismo codigo de almacen con 
+                            {                                                           //el almacen de la grilla.
+                                grilla.CurrentRow.Cells["CodigoAlmacen"].Value = almacenSeleccionado;
+                                //this.gridControl.CurrentRow.Cells["CodigoAlmacen"].Value = almacenSeleccionado;
+
+                                grilla.CurrentRow.Cells["CodigoArticulo"].Value = null;
+                                //obtenerDescripcion(enmAyuda.enmAlmacen);
+                                obtenerDescripcionTabla(grilla,enmAyuda.enmAlmacen);
+                            }
+
+                        }
+                        else
+                        {
+                            grilla.CurrentRow.Cells["CodigoAlmacen"].Value = frm.Result.ToString();
+                            //obtenerDescripcion(enmAyuda.enmAlmacen);
+                            //obtenerDescripcionTabla(grilla, enmAyuda.enmAlmacen);
+                            obtenerDescripcionTabla(grilla, enmAyuda.enmAlmacen);
+                        }
+                    }
+                    break;
+                case enmAyuda.enmOperador:
+                    frm = new frmBusqueda(enmAyuda.enmOperador);
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                    if (frm.Result != null)
+                    {
+                        grilla.CurrentRow.Cells["codigoOperador"].Value = frm.Result.ToString();
+                        string codigo = Logueo.CodigoEmpresa + "14" + frm.Result.ToString();
+                        string descripcion = string.Empty;
+                        GlobalLogic.Instance.DameDescripcion(codigo, "OPERARIO", out descripcion);
+                        grilla.CurrentRow.Cells["Operador"].Value = descripcion;
+                        grilla.CurrentColumn = grilla.Columns["IN07HORAINICIO"];
+                        grilla.CurrentRow.Cells["IN07HORAINICIO"].BeginEdit();
+                    }
+                    break;
+                case enmAyuda.enmMotivo:
+                    frm = new frmBusqueda(enmAyuda.enmMotivo);
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                    if (frm.Result != null)
+                    {
+                        codigoSeleccionado = frm.Result.ToString();
+                        grilla.CurrentRow.Cells["IN07MOTIVOCOD"].Value = codigoSeleccionado;
+                    }
+                    break;
+
+                default: break;
+            }
+
+        }
+
+        private void obtenerDescripcionTabla(RadGridView grilla, enmAyuda tipo)
+        {
+            string codigo = string.Empty;
+            string descripcion = string.Empty;
+            switch (tipo)
+            {
+
              
+                case enmAyuda.enmTurnosxDetalle:
+
+                    codigo = Logueo.CodigoEmpresa + Util.convertiracadena(grilla.CurrentRow.Cells["in07prodTurnoCod"].Value);
+                    GlobalLogic.Instance.DameDescripcion(codigo, "TURNO", out descripcion);
+
+                    grilla.CurrentRow.Cells["in07prodturnoDesc"].Value = descripcion;
+                    break;
+             
+                
+          
+                
+                case enmAyuda.enmAlmacen:
+                    codigo = Logueo.CodigoEmpresa + grilla.CurrentRow.Cells["CodigoAlmacen"].Value.ToString();
+                    GlobalLogic.Instance.DameDescripcion(codigo, "ALMACEN", out descripcion);
+                    grilla.CurrentRow.Cells["DesAlmacen"].Value = descripcion;
+                    break;
+                //case enm
+            }
+        }
+
+        private void agregarDetalleTabla(RadGridView grilla) {
+            try
+            {
+
+                grilla.Focus();
+
+
+                esInsercion = false;
+                if (this.txtCodTipoDocumento.Text == "")
+                {
+                    RadMessageBox.Show("Para registrar detalles debe guardar el documento", "Aviso", MessageBoxButtons.OK, RadMessageIcon.Exclamation);
+                    return;
+                }
+
+                if (rpControlOrden.Enabled) // si orden de trabajo esta habilitado
+                {
+                    if (!validarControlOT()) return;
+                }
+
+                if (rpControlMateriaPrima.Enabled)
+                { // si MP esta habilitado
+                    if (!validarControlMP()) return;
+                }
+
+                string codigodeAlmacen = "";
+                if (txtCodLinea.Text.Trim() != "" && txtCodProceso.Text.Trim() != "")
+                {
+                    ActividadNivel1Logic.Instance.TraerAlmacenxProceso(Logueo.CodigoEmpresa, txtCodLinea.Text.Trim(),
+                                                                        txtCodProceso.Text.Trim(), out codigodeAlmacen);
+                }
+                if (grilla.Rows.Count == 0)
+                {
+                    //Agregamos nueva fila a la grilla
+                    this.KeyPreview = false;
+                    GridViewRowInfo rowInfo = grilla.Rows.AddNew();
+                    // ========================================== Enfocar la ultima fila =================================
+
+                    // ========================================== Asignar valores a la nueva fila ========================
+                    rowInfo.Cells["Orden"].Value = 0;
+                    rowInfo.Cells["CodigoAlmacen"].Value = codigodeAlmacen;// --> PRO09ALMACENCOD                                                            
+                    // asignar nombre  por codigo almacen
+                    string _codigo = Logueo.CodigoEmpresa + codigodeAlmacen ;
+                    string resultado = "";
+                    GlobalLogic.Instance.DameDescripcion(_codigo, "ALMACEN", out resultado);
+                    rowInfo.Cells["DesAlmacen"].Value = resultado;
+
+                    rowInfo.Cells["IN07HORASALIDA"].Value = "00:00";
+                    rowInfo.Cells["IN07FECHAPROCESO"].Value = this.dtpFechaOT.Value;
+                    rowInfo.Cells["in07prodTurnoCod"].Value = this.txtCodTurno.Text;
+                    rowInfo.Cells["flag"].Value = "0";
+                    rowInfo.Cells["flagBotones"].Value = "E";
+
+                    string cajaUnica = Util.GetCurrentCellText(gridMateriaPrima, "CajaUnica");
+                    rowInfo.Cells["CajaUnica"].Value = cajaUnica;
+
+                    string cajaIngreso = Util.GetCurrentCellText(gridMateriaPrima, "IN07NROCAJA");
+                    // Verificar si existe la celda "In07NroCaja"                 
+                    rowInfo.Cells["IN07NROCAJAINGRESO"].Value = cajaIngreso;
+
+
+                    //Resaltar ayuda
+                    Util.ResaltarAyuda(rowInfo.Cells["CodigoAlmacen"]);
+                    Util.ResaltarAyuda(rowInfo.Cells["Operador"]);  // provmatprimaNombre
+                    Util.ResaltarAyuda(rowInfo.Cells["CodigoArticulo"]);
+                    Util.ResaltarAyuda(rowInfo.Cells["in07prodTurnoDesc"]);
+
+                    if (FrmParent.rbIngreso.IsChecked)
+                    {
+                        grilla.CurrentColumn = grilla.Columns["Operador"];
+                        rowInfo.Cells["Operador"].BeginEdit();
+                        //rowInfo.Cells["Operador"].IsSelected = true;
+
+                    }
+                    else
+                    {
+                        grilla.CurrentColumn = grilla.Columns["NroCaja"];
+                        rowInfo.Cells["NroCaja"].BeginEdit();
+                    }
+
+                    grilla.CurrentRow = rowInfo;
+
+                }
+                else //// Caso contrario si tiene mas de un registro
+                {
+                    if (grilla.CurrentRow.Cells["flag"].Value != null)
+                    {
+                        RadMessageBox.Show("Debe completar el registro actual", "Aviso",
+                                            MessageBoxButtons.OK, RadMessageIcon.Info);
+                        return;
+                    }
+                    if (grilla.Rows[grilla.RowCount - 1].Cells["Orden"].Value.ToString() == "0")
+                    {
+                        RadMessageBox.Show("No ha completado registrar el detalle de documento", "Aviso",
+                                            MessageBoxButtons.OK, RadMessageIcon.Info);
+                        return;
+                    }
+
+                    grilla.Focus();
+                    this.KeyPreview = false;
+
+                    GridViewRowInfo rowInfo = grilla.Rows.AddNew();
+                    // ========================================== Asignar valores a la nueva fila ========================
+                    //Resaltar ayuda
+                    Util.ResaltarAyuda(rowInfo.Cells["CodigoAlmacen"]);
+                    Util.ResaltarAyuda(rowInfo.Cells["Operador"]);
+                    Util.ResaltarAyuda(rowInfo.Cells["CodigoArticulo"]);
+                    Util.ResaltarAyuda(rowInfo.Cells["in07prodTurnoDesc"]);
+                    //==== copiar la fila anterior de la grilla           
+
+                    string codigoArticuloAnterior = "";
+                    codigoArticuloAnterior = grilla.Rows[grilla.CurrentRow.Index - 1].Cells["CodigoArticulo"].Value.ToString();
+                    int i = 0;
+                    if (codigoArticuloAnterior.Substring(0, 2) != "PT")
+                    {
+                        i = 0;
+                        foreach (GridViewCellInfo celda in grilla.Rows[grilla.CurrentRow.Index - 1].Cells)
+                        {
+                            grilla.CurrentRow.Cells[i].Value = celda.Value;
+                            i++;
+                        }
+                    }
+                    //
+
+                    else
+                    {
+                        i = 0;
+                        foreach (GridViewCellInfo celda in grilla.Rows[grilla.CurrentRow.Index - 2].Cells)
+                        {
+                            grilla.CurrentRow.Cells[i].Value = celda.Value;
+                            i++;
+                        }
+                    }
+
+
+                    // ========================================= Asignando valores vacio o cero para la nueva fila  ========================================
+                    rowInfo.Cells["Orden"].Value = 0;
+                    rowInfo.Cells["CodigoAlmacen"].Value = codigodeAlmacen; // --> PRO09ALMACENCOD    
+                    rowInfo.Cells["Cantidad"].Value = 0;
+                    rowInfo.Cells["Areaxuni"].Value = 0;
+                    rowInfo.Cells["MTS2"].Value = 0;
+                    rowInfo.Cells["MTS3"].Value = 0;
+                    rowInfo.Cells["Area"].Value = 0;
+                    rowInfo.Cells["flag"].Value = "0";// esta fila es editable   
+                    rowInfo.Cells["flagBotones"].Value = "E";
+                    rowInfo.Cells["IN07MOTIVOCOD"].Value = null;
+                    rowInfo.Cells["DesMotivo"].Value = null;
+
+                    string cajaUnica = Util.GetCurrentCellText(gridMateriaPrima, "CajaUnica");
+                    rowInfo.Cells["CajaUnica"].Value = cajaUnica;
+
+                    string cajaIngreso = Util.GetCurrentCellText(gridMateriaPrima, "IN07NROCAJA");
+                    rowInfo.Cells["IN07NROCAJAINGRESO"].Value = cajaIngreso;
+
+
+                    if (FrmParent.rbIngreso.IsChecked)
+                    {
+                        grilla.Columns["IN07HORAINICIO"].IsCurrent = true;
+                    }
+                    else
+                    {
+                        grilla.Columns["NroCaja"].IsCurrent = true;
+                        rowInfo.Cells["NroCaja"].ReadOnly = true;
+                    }
+
+                    // ================================================== Enfocando la ultima fila  ==================================================
+                    grilla.CurrentRow = rowInfo;
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+        #endregion
+
+        private void gridMermaLinea_CellBeginEdit(object sender, GridViewCellCancelEventArgs e)
+        {
+            try
+            {
+
+                if (this.gridMermaLinea.ActiveEditor == null) return;
+
+                if (this.Estado == FormEstate.View) { e.Cancel = true; return; }
+
+
+                if (this.gridMermaLinea.Rows[e.RowIndex].Cells["flag"].Value == null) { e.Cancel = true; return; }
+
+                //Capturo la Fila Actual y La Columna Actual
+                GridViewRowInfo row = this.gridMermaLinea.CurrentRow;
+                GridViewColumn col = this.gridMermaLinea.CurrentColumn;
+
+
+                if (esEntrada == true)
+                {
+                    //Celda de Articulo debe ser diferente de nulo o vacio
+                    string cCodigoArticulo = Util.convertiracadena(row.Cells["CodigoArticulo"].Value);
+                    if (cCodigoArticulo != "")
+                    {
+                        string codigoArticulo = cCodigoArticulo;
+
+                        Articulo articulo = ArticuloLogic.Instance.ProterMedidas(codigoArticulo);
+                        row.Cells["Ancho"].ReadOnly = articulo.anchotext.ToUpper() == "ESP" ? false : true;
+                        row.Cells["Largo"].ReadOnly = articulo.largotext.ToUpper() == "ESP" ? false : true;
+                        row.Cells["Alto"].ReadOnly = articulo.espesortext.ToUpper() == "ESP" ? false : true;
+                    }
+
+                    //El 0 indico es modo editable ,si es diferente de este no debe permitir editar 
+                    //Las celdas Codigo de Almacen y Codigo de Articulo.
+                    // Si el flag es modo actualizacion de registro
+                    if (Util.GetCurrentCellDbl(row, "Orden") != 0)
+                    {
+                        //No permitir edicion de cleda de codigo almacen, codigo articulo y nro de caja ingreso
+                        if (row.Cells["CodigoAlmacen"].ColumnInfo.Index == this.gridMermaLinea.CurrentColumn.Index) { e.Cancel = true; }
+                        if (row.Cells["CodigoArticulo"].ColumnInfo.Index == this.gridMermaLinea.CurrentColumn.Index) { e.Cancel = true; }
+                        if (row.Cells["IN07NROCAJAINGRESO"].ColumnInfo.Index == this.gridMermaLinea.CurrentColumn.Index) { e.Cancel = true; }
+
+                    }
+
+                    // Si celda esta en modo insercion de registro
+                    if (Util.GetCurrentCellDbl(row, "Orden") == 0)
+                    {
+                        if (row.Cells["IN07NROCAJAINGRESO"].ColumnInfo.Index == this.gridMermaLinea.CurrentColumn.Index) { e.Cancel = true; }
+                    }
+
+                }
+                else
+                {
+                    e.Cancel = col.Name == "Largo" || col.Name == "Ancho" || col.Name == "Alto" ? true : false;
+                    if (Convert.ToDouble(row.Cells["Orden"].Value) != 0)
+                    {
+                        if (row.Cells["CodigoAlmacen"].ColumnInfo.Index == this.gridMermaLinea.CurrentColumn.Index)
+                        { e.Cancel = true; }
+                        if (row.Cells["NroCaja"].ColumnInfo.Index == this.gridMermaLinea.CurrentColumn.Index)
+                        { e.Cancel = true; }
+                        e.Cancel = col.Name == "CodigoAlmacen" || col.Name == "NroCaja" ? true : false;
+                    }
+
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void btnNuevoMerma_Click(object sender, EventArgs e)
+        {
+            agregarDetalleTabla(this.gridMermaLinea);
+        }
+        
+        private void cargarProductoDetMerma() {
+            try
+            {
+                string ordenTrabajo = "";
+                ordenTrabajo = gridOrdenTrabajo.Rows.Count == 0 ? "" : this.gridOrdenTrabajo.CurrentRow.Cells["codigo"].Value.ToString();
+
+                var lista = DocumentoLogic.Instance.TraerProduccionDetalleMerma(Logueo.CodigoEmpresa, Logueo.Anio, Logueo.Mes,
+                                                                            txtCodTipoDocumento.Text.Trim(), txtNumeroDoc.Text.Trim(), ordenTrabajo);
+                this.gridMermaLinea.DataSource = lista;
+            }
+            catch (Exception ex) { 
+            
+            }
+        }
+
+        private void gridMermaLinea_CommandCellClick(object sender, EventArgs e)
+        {
+            if (this.gridMermaLinea.Columns["btnGrabarDet"].IsCurrent)
+            { guardarDetProductoMerma(this.gridMermaLinea.CurrentRow); }
+
+            if (this.gridMermaLinea.Columns["btnEditarDet"].IsCurrent)
+            { editarDetProductoMerma(); }
+
+            if (this.gridMermaLinea.Columns["btnEliminarDet"].IsCurrent)
+            { eliminarDetProductoMerma(); }
+
+            if (this.gridMermaLinea.Columns["btnCancelarDet"].IsCurrent)
+            { cancelarDetProductoMerma(); }
+
+            //this.cargarProductoDetMerma();
+
+        }
+
+
+        private void guardarDetProductoMerma(GridViewRowInfo fila) {
+            try
+            {
+                if (!ValidarDetProductoMerma()) return;
+                //Convertirahoras                                                      
+                string horaSalida = fila.Cells["IN07HORASALIDA"].Value == null ?
+                                    Util.convertirahoras("")
+                                    : Util.convertirahoras(fila.Cells["IN07HORASALIDA"].Value.ToString());
+
+                string horaInicio = fila.Cells["IN07HORAINICIO"].Value == null ? Util.convertirahoras("")
+                                    : Util.convertirahoras(fila.Cells["IN07HORAINICIO"].Value.ToString());
+
+                string horaFinal = fila.Cells["IN07HORAFINAL"].Value == null ? Util.convertirahoras("")
+                                   : Util.convertirahoras(fila.Cells["IN07HORAFINAL"].Value.ToString());
+
+                this.gridMermaLinea.CurrentRow.Cells["IN07HORASALIDA"].Value = horaSalida;
+                this.gridMermaLinea.CurrentRow.Cells["IN07HORAINICIO"].Value = horaInicio;
+                this.gridMermaLinea.CurrentRow.Cells["IN07HORAFINAL"].Value = horaFinal;
+
+
+                //
+                if (!ValidarHoraMerma()) return;
+                //string nrocanastillaingreso = fila.Cells["IN07NROCAJAINGRESO"].Value == null ? "" :
+                //    Util.convertiracadena(fila.Cells["IN07NROCAJAINGRESO"].Value.ToString());
+                string nrocanastillaingreso = fila.Cells["CajaUnica"].Value == null ? "" :
+                    Util.convertiracadena(fila.Cells["CajaUnica"].Value.ToString());                
+
+                mov.CodigoEmpresa = Logueo.CodigoEmpresa;
+                mov.Anio = Logueo.Anio;
+                mov.Mes = Logueo.Mes;
+                mov.in07codcli = Logueo.codigoClientxDefecto;
+                mov.CodigoTipoDocumento = txtCodTipoDocumento.Text.Trim();
+                mov.CodigoDocumento = txtNumeroDoc.Text.Trim();
+                mov.CodigoArticulo = fila.Cells["CodigoArticulo"].Value.ToString();
+
+                mov.Ancho = Convert.ToDouble(fila.Cells["Ancho"].Value.ToString());
+                mov.Largo = Convert.ToDouble(fila.Cells["Largo"].Value.ToString());
+                mov.Alto = Convert.ToDouble(fila.Cells["Alto"].Value.ToString());
+
+                //agregado recien para el detall de producccion
+                mov.operador = fila.Cells["codigoOperador"].Value == null ? "" : fila.Cells["codigoOperador"].Value.ToString();
+
+                string almacen = gridMermaLinea.CurrentRow.Cells["CodigoAlmacen"].Value.ToString();
+                mov.CodigoAlmacen = almacen;
+                mov.CodigoTransaccion = txtCodDocRespaldo.Text.Trim();
+                mov.Cantidad = Convert.ToDouble(fila.Cells["Cantidad"].Value.ToString());
+                mov.UnidadMedida = fila.Cells["UnidadMedida"].Value.ToString();
+                mov.FechaDoc = (DateTime)dtpFechaOT.Value;
+
+                mov.NroCaja = gridMermaLinea.CurrentRow.Cells["NroCaja"].Value.ToString();
+                bool value = false;
+                //double.TryParse(mov.NroCaja, value out );
+
+
+                mov.Areaxuni = Convert.ToDouble(this.gridMermaLinea.CurrentRow.Cells["Areaxuni"].Value);
+
+                mov.NroPedidoVenta = "";
+                mov.IN07PROVMATPRIMA = "";
+                mov.OrdenProduccion = "";
+
+                mov.in07prodTurnoCod = Util.convertiracadena(this.gridMermaLinea.CurrentRow.Cells["in07prodTurnoCod"].Value);
+                // Pasar los valores del ingreso
+                // Campos que relacionan la salida con su respectivo ingreso
+                mov.Transaccion = (this.esEntrada == true ? "E" : "S");
+
+                mov.IN07HORASALIDA = gridMermaLinea.CurrentRow.Cells["IN07HORASALIDA"].Value.ToString();
+
+                mov.IN07NROCAJAINGRESO = nrocanastillaingreso;
+
+
+                mov.IN07HORAINICIO = gridMermaLinea.CurrentRow.Cells["IN07HORAINICIO"].Value.ToString();
+
+                mov.IN07HORAFINAL = gridMermaLinea.CurrentRow.Cells["IN07HORAFINAL"].Value.ToString();
+                string cMotivoCod = Util.convertiracadena(gridMermaLinea.CurrentRow.Cells["IN07MOTIVOCOD"].Value);
+                mov.IN07MOTIVOCOD = cMotivoCod;
+                if (mov.Transaccion == "S")
+                {
+                    if (gridMermaLinea.CurrentRow.Cells["IN07DocIngAA"].Value != null)
+                        mov.IN07DocIngAA = gridMermaLinea.CurrentRow.Cells["IN07DocIngAA"].Value.ToString();
+                    if (gridMermaLinea.CurrentRow.Cells["IN07DocIngMM"].Value != null)
+                        mov.IN07DocIngMM = gridMermaLinea.CurrentRow.Cells["IN07DocIngMM"].Value.ToString();
+                    if (gridMermaLinea.CurrentRow.Cells["IN07DocIngTIPDOC"].Value != null)
+                        mov.IN07DocIngTIPDOC = gridMermaLinea.CurrentRow.Cells["IN07DocIngTIPDOC"].Value.ToString();
+                    if (gridMermaLinea.CurrentRow.Cells["IN07DocIngCODDOC"].Value != null)
+                        mov.IN07DocIngCODDOC = gridMermaLinea.CurrentRow.Cells["IN07DocIngCODDOC"].Value.ToString();
+                    if (gridMermaLinea.CurrentRow.Cells["IN07DocIngKEY"].Value != null)
+                        mov.IN07DocIngKEY = gridMermaLinea.CurrentRow.Cells["IN07DocIngKEY"].Value.ToString();
+                    if (gridMermaLinea.CurrentRow.Cells["IN07DocIngORDEN"].Value != null)
+                        mov.IN07DocIngORDEN = double.Parse(gridMermaLinea.CurrentRow.Cells["IN07DocIngORDEN"].Value.ToString());
+                }
+
+                mov.IN07FECHAPROCESO = gridMermaLinea.CurrentRow.Cells["IN07FECHAPROCESO"].Value == null ? (DateTime?)null :
+                                       DateTime.Parse(gridMermaLinea.CurrentRow.Cells["IN07FECHAPROCESO"].Value.ToString());
+
+                //si el proceso es desdoblado
+                bool esDesdoblado = Logueo.codProcesoDesdoblado == txtCodProceso.Text.Trim();
+                //capturar valores de superio e inferio
+                mov.IN07DESCABEZADOSUP = esDesdoblado == true ? Convert.ToDouble(fila.Cells["IN07DESCABEZADOSUP"].Value) : 0;
+                mov.IN07DESCABEZADOINF = esDesdoblado == true ? Convert.ToDouble(fila.Cells["IN07DESCABEZADOINF"].Value) : 0;
+
+                // Solo Manda OT, si la Grilla de Ot esta visible
+                if (gridOrdenTrabajo.Rows.Count > 0)
+                    mov.IN07ORDENTRABAJO = this.gridOrdenTrabajo.CurrentRow.Cells["codigo"].Value.ToString();
+                else
+                    mov.IN07ORDENTRABAJO = "";
+
+
+                string msj = string.Empty;
+                int flag = 0;
+                //----------varaibles para validacion de regla denegocio
+                string mensajevalida = "";
+                int flagvalida = 0;
+
+                if (double.Parse(fila.Cells["Orden"].Value.ToString()) == 0)
+                {
+                    //NUEVO
+                    double orden = 0;
+
+                    //Asignar flag de insercion para saltar proceso de Insercion
+                    string flaginsercion = "N";
+                    if (esInsercion)
+                    {
+                        flaginsercion = "I";
+
+                    }
+                    else
+                    {
+
+                        flaginsercion = "N";
+                    }
+
+                    DocumentoLogic.Instance.TraerNroOrdenMerma(Logueo.CodigoEmpresa, Logueo.Anio, Logueo.Mes, txtCodTipoDocumento.Text.Trim(),
+                      txtNumeroDoc.Text.Trim(), mov.CodigoArticulo, out orden);
+                    mov.Orden = orden;
+
+                    //------------------------Validacion de insercion -----------------------------------------------------------------
+
+                    /*Validacion de reglan n28 para Baldosas - Actividad:Corte , una caja no debe pasra mas de 40mts2*/
+
+                    DocumentoLogic.Instance.ValidarInsertarProduccionDetalle(mov, "I", out mensajevalida, out flagvalida);
+
+
+                    // si flag es 0 entonces procedemos a guardar
+                    if (flagvalida == 0)
+                    { this.GuardarDetalleMermadeproduccion(mov, flaginsercion); }
+                    //{ GuardarDetalledeproduccion(mov, flaginsercion); }
+
+
+                    else if (flagvalida == -1) //  flag para preguntar si desea continuar
+                    {
+                        DialogResult res = RadMessageBox.Show(mensajevalida, "Sistema", MessageBoxButtons.YesNo, RadMessageIcon.Question);
+                        //si decide continuar entonces guardar
+                        if (res == System.Windows.Forms.DialogResult.Yes)
+                        { GuardarDetalleMermadeproduccion(mov, flaginsercion); }
+
+                    }
+
+
+                }
+                else
+                {
+                    //ACTUALIZAR
+                    mov.Orden = double.Parse(fila.Cells["Orden"].Value.ToString());
+                    DocumentoLogic.Instance.ValidarInsertarProduccionDetalle(mov, "U", out mensajevalida, out flagvalida);
+
+                    // si flag es 0 entonces procedemos a guardar
+                    if (flagvalida == 0)
+                    { ActualizarDetalledeproduccionMerma(mov); }
+
+                    else if (flagvalida == -1) //  flag para preguntar si desea continuar
+                    {
+                        DialogResult res = RadMessageBox.Show(mensajevalida, "Sistema", MessageBoxButtons.YesNo, RadMessageIcon.Question);
+                        //si decide continuar entonces guardar
+                        if (res == System.Windows.Forms.DialogResult.Yes)
+                        { 
+                            //ActualizarDetalledeproduccion(mov);
+                            ActualizarDetalledeproduccionMerma(mov);
+                        }
+                        
+
+                    }
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                RadMessageBox.Show(ex.Message, "Sistema", MessageBoxButtons.OK, RadMessageIcon.Exclamation);
+            }
+        }
+
+
+        private void ActualizarDetalledeproduccionMerma(Movimiento movi)
+        {
+            string msj = ""; int flag = 0;
+            string cajaunica = "";
+            DocumentoLogic.Instance.ActualizarProduccionDetalleMerma(movi, out flag, out msj);
+            bool processok = Util.ShowMessage(msj, flag);
+            if (processok == true)
+            {
+                //this.gridControl.CurrentRow.Cells["flag"].Value = null;
+
+                // Refrescar grilla Materia Prima
+                cajaunica = gridMermaLinea.CurrentRow.Cells["CajaUnica"].Value.ToString();
+                CargarMPResumido();
+                Util.enfocarFila(gridMateriaPrima, "CajaUnica", cajaunica);
+
+                //
+                Util.SetClearCurrentCellText(gridMermaLinea, "flag");
+                cargarProductoDetMerma();
+                Util.enfocarFila(gridMermaLinea, "Orden", movi.Orden.ToString());
+                //Enforcar columna hora de inicio
+                this.gridMermaLinea.Columns["IN07HORAINICIO"].IsCurrent = true;
+            }
+        }
+
+        private void editarDetProductoMerma(){
+            this.KeyPreview = false;
+
+            int filasEditadas = 0;
+
+            foreach (GridViewRowInfo row in gridMermaLinea.Rows)
+            {
+                if (Util.GetCurrentCellText(row, "flagBotones") == "E")
+                    filasEditadas++;
+            }
+
+            if (filasEditadas > 0)
+            {
+                Util.ShowAlert("Debe completar registro");
+                return;
+            }
+            string amarre = Util.GetCurrentCellText(this.gridMermaLinea.CurrentRow, "in07amarre");
+            //string amarre = gridControl.CurrentRow.Cells["in07amarre"].Value.ToString();
+            if (amarre.Equals("D"))
+            {
+                Util.ShowAlert("No se puede elminar/modificar el polvo de un producto resultante ," + Environment.NewLine
+                  + " elmine el origen");
+                return;
+            }
+
+            //Asginar a al fila mdo edicion
+            this.gridMermaLinea.CurrentRow.Cells["flag"].Value = "0";
+            this.gridMermaLinea.CurrentRow.Cells["flagBotones"].Value = "E";
+            this.gridMermaLinea.CurrentColumn = this.gridMermaLinea.Columns["CodigoArticulo"];
+            Util.ResaltarAyuda(this.gridMermaLinea.CurrentRow.Cells["CodigoAlmacen"]);
+            Util.ResaltarAyuda(this.gridMermaLinea.CurrentRow.Cells["Operador"]);  // provmatprimaNombre
+            Util.ResaltarAyuda(this.gridMermaLinea.CurrentRow.Cells["CodigoArticulo"]);
+            Util.ResaltarAyuda(this.gridMermaLinea.CurrentRow.Cells["in07prodTurnoDesc"]);
+            if (esEntrada == false)
+            {
+                this.gridMermaLinea.CurrentRow.Cells["Ancho"].ReadOnly = false;
+                this.gridMermaLinea.CurrentRow.Cells["Largo"].ReadOnly = false;
+                this.gridMermaLinea.CurrentRow.Cells["Alto"].ReadOnly = false;
+            }
+        }
+
+        private void eliminarDetProductoMerma() {
+            this.KeyPreview = true;
+
+
+            int filasEditadas = 0;
+
+            foreach (GridViewRowInfo row in gridMermaLinea.Rows)
+            {
+                if (Util.GetCurrentCellText(row, "flagBotones") == "E")
+                    filasEditadas++;
+            }
+
+
+            if (filasEditadas > 0)
+            {
+                Util.ShowAlert("Debe completar registro");
+                return;
+            }
+            string amarre = Util.GetCurrentCellText(this.gridMermaLinea.CurrentRow, "in07amarre");
+            if (amarre.Equals("D"))
+            {
+                Util.ShowAlert("No se puede elminar/modificar el polvo de un producto resultante ," + Environment.NewLine
+                  + " elmine el origen");
+                return;
+            }
+
+            try
+            {
+                string msj = string.Empty;
+                int flag = 0;
+                string cajaunica = "";
+                GridViewRowInfo fila = this.gridMermaLinea.CurrentRow;
+                string codArt = fila.Cells["CodigoArticulo"].Value.ToString();
+                string unidad = fila.Cells["UnidadMedida"].Value.ToString();
+
+                double orden = Convert.ToDouble(fila.Cells["Orden"].Value.ToString());
+                DialogResult res = RadMessageBox.Show("¿Desea eliminar?", "Sistema", MessageBoxButtons.YesNo, RadMessageIcon.Question);
+                if (res == System.Windows.Forms.DialogResult.Yes)
+                {
+                    DocumentoLogic.Instance.EliminarProduccionDetalleMerma(Logueo.CodigoEmpresa, Logueo.Anio, Logueo.Mes, txtCodTipoDocumento.Text.Trim(),
+                    txtNumeroDoc.Text.Trim(), orden,
+                    out flag , out msj);
+                }
+
+                // Refrescar grilla Materia Prima
+                //cajaunica = gridMermaLinea.CurrentRow.Cells["CajaUnica"].Value.ToString();
+                //CargarMPResumido();
+                //Util.enfocarFila(gridMateriaPrima, "CajaUnica", cajaunica);
+
+                //MessageBox.Show(msj);
+                cargarProductosDet();
+                this.cargarProductoDetMerma();
+            }
+            catch (Exception ex)
+            {
+                RadMessageBox.Show(ex.Message, "Sistema");
+            }
+        }
+
+        private void cancelarDetProductoMerma() {
+            this.KeyPreview = true;
+            //cargarProductosDet();
+            this.cargarProductoDetMerma();
+            if (gridMermaLinea.Rows.Count > 0)
+            {
+                this.gridMermaLinea.CurrentRow.IsCurrent = true;
+            }
+        }
+        bool ValidarDetProductoMerma()
+        {
+            GridViewRowInfo fila = this.gridMermaLinea.CurrentRow;
+            bool bandera = true;
+            if (bandera != Util.ValidateCellText(fila, "CodigoAlmacen", "", "Ingresar Almacen")) return false;
+            if (bandera != Util.ValidateCellText(fila, "CodigoArticulo", "", "Ingresar Articulo")) return false;
+
+
+
+            //string codigoArticulo = Util.convertiracadena(this.gridControl.CurrentRow.Cells["CodigoArticulo"].Value);
+            //Articulo cArticulo = ArticuloLogic.Instance.ProterMedidas(codigoArticulo);
+            //if (cArticulo.largotext != "XXX" && cArticulo.espesortext != "XXX" && cArticulo.anchotext != "XXX")
+            //{
+            //    if (bandera != Util.ValidateCellDbl(fila, "Ancho", 0, "Ingresar Ancho")) return false;
+            //    if (bandera != Util.ValidateCellDbl(fila, "Largo", 0, "Ingresar Largo")) return false;
+            //    if (bandera != Util.ValidateCellDbl(fila, "Alto", 0, "Ingresar Alto")) return false;
+            //}
+
+
+            //****validar formato si es no aplicable
+            // Validar Formato
+            string codigoArticulo = fila.Cells["CodigoArticulo"].Value.ToString();
+            string codigo = string.Empty;
+            string tipcalculoarea = string.Empty;
+
+            codigo = Logueo.CodigoEmpresa + Logueo.Anio + codigoArticulo;
+
+            GlobalLogic.Instance.DameDescripcion(codigo, "FLAGTIPCALAREA", out tipcalculoarea);
+
+            //GlobalLogic.Instance.DameDescripcion(codigo, "TIPDOCMOV", out transaccion);
+
+
+            if (tipcalculoarea == "F") // Validar si el producto se calcula por formato
+            {
+                // traigo las medidas del articulo
+                Articulo articulo = ArticuloLogic.Instance.ProterMedidas(codigoArticulo.Trim());
+                // Validar Largo    
+                if (articulo.largotext == "XXX" || articulo.largotext == "VAR")
+                {
+                    // No pide cantidad
+                }
+                else
+                {
+                    if (fila.Cells["Largo"] == null || Convert.ToDecimal(fila.Cells["Largo"].Value) == 0)
+                    {
+                        RadMessageBox.Show("Ingresar Largo", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Info);
+                        gridMermaLinea.CurrentColumn = this.gridMermaLinea.Columns["Largo"];
+                        return false;
+                    }
+                }
+
+                // Validar Ancho
+                if (articulo.anchotext == "XXX" || articulo.anchotext == "VAR")
+                {
+                    // No pide cantidad
+                }
+                else
+                {
+                    if (fila.Cells["Ancho"] == null || Convert.ToDecimal(fila.Cells["Ancho"].Value) == 0)
+                    {
+                        RadMessageBox.Show("Ingresar Ancho", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Info);
+                        gridMermaLinea.CurrentColumn = this.gridMermaLinea.Columns["Ancho"];
+                        return false;
+                    }
+                }
+
+                // Validar Alto
+                if (articulo.espesortext == "XXX" || articulo.espesortext == "VAR")
+                {
+                    // No pide cantidad
+                }
+                else
+                {
+                    if (fila.Cells["Alto"] == null || Convert.ToDecimal(fila.Cells["Alto"].Value) == 0)
+                    {
+                        RadMessageBox.Show("Ingresar Alto", "Sistema", MessageBoxButtons.OK, RadMessageIcon.Info);
+                        gridMermaLinea.CurrentColumn = this.gridMermaLinea.Columns["Alto"];
+                        return false;
+                    }
+                }
+            }
+
+            //****
+
+
+
+
+            //
+            if (bandera != Util.ValidateCellDbl(fila, "Cantidad", 0, "Ingresar cantidad")) return false;
+            if (bandera != Util.ValidateCellText(fila, "NroCaja", "", "Ingresar Numero caja")) return false;
+
+            // valido si la columna operador es visible
+            bool ColumnaEsVisible = this.gridMermaLinea.Columns["Operador"].IsVisible;
+            if (ColumnaEsVisible == true)
+            {
+                if (bandera != Util.ValidateCellText(fila, "Operador", "", "Ingresar Operador")) return false;
+            }
+
+            return true;
+        }
+        private void gridMermaLinea_CellFormatting(object sender, CellFormattingEventArgs e)
+        {
+            GridCommandCellElement cellElement = e.CellElement as GridCommandCellElement;
+            if (cellElement == null) return;
+
+            if (e.CellElement.ColumnInfo is GridViewCommandColumn)
+            {
+
+                RadButtonElement commandButton = ((RadButtonElement)((GridCommandCellElement)e.CellElement).Children[0]);
+
+                if (Estado == FormEstate.View)
+                {
+                    deshabilitarBotonProdDet(e.Column.Name, cellElement);
+                    return;
+                }
+
+                if (gridMermaLinea.Rows[e.RowIndex].Cells["Orden"].Value == null) return;
+
+                if (gridMermaLinea.Rows[e.RowIndex].Cells["Orden"].Value.ToString() != "0"
+                    && gridMermaLinea.Rows[e.RowIndex].Cells["flag"].Value == null)
+                {
+                    habilitarBotonProdDet(e.Column.Name, cellElement, false, false, true, true);
+
+                }
+                else
+                {
+                    habilitarBotonProdDet(e.Column.Name, cellElement, true, true, false, false);
+                }
+
+
+            }
+        }
+
+        private void insertarProduccionLinea() {
+            try
+            {
+                // leer datos de cabecera produccin
+                /*
+                 @tipoDocumento char(2),
+@numeroDocumento varchar(12),
+@nroCaja varchar(5),
+@nroOrdenTrabajo varchar(5),
+                 */
+                string tipoDocumento = txtCodTipoDocumento.Text;
+                string numeroDocumento = txtNumeroDoc.Text;
+                string nroOrdenTrabajo = Util.GetCurrentCellText(this.gridOrdenTrabajo, "codigo");
+                int flag = 0; string mensaje = "";
+                DocumentoLogic.Instance.InsertarProduccionDetalleLinea(Logueo.CodigoEmpresa, Logueo.Anio,
+                    Logueo.Mes, tipoDocumento, numeroDocumento, nroOrdenTrabajo, out mensaje, out flag);
+                Util.ShowMessage(mensaje, flag);
+                cargarProductosDet();
+                //foreach (GridViewRowInfo fila in this.gridMateriaPrima.Rows) {
+
+                //    string nrocaja = Util.GetCurrentCellText(fila, "IN07NROCAJA");
+                //    DocumentoLogic.Instance.InsertarProduccionDetalleLinea(Logueo.CodigoEmpresa, 
+                //        Logueo.Anio, Logueo.Mes,tipoDocumento, 
+                //        numeroDocumento, nrocaja,nroOrdenTrabajo, 
+                //}
+                //string nroCaja = txt
+
+            }
+            catch (Exception ex) { 
+                Util.ShowError(string.Format("Error al insertar Linea produccion  , {0}", ex.Message));
+            }
+        }
+        private void btrnGenerarProduccionLinea_Click(object sender, EventArgs e)
+        {
+            insertarProduccionLinea();
+        }
     }
 }

@@ -90,6 +90,8 @@ namespace Inv.BusinessEntities
         [MapField("BiMoneda")]
         public string BiMoneda { get; set; }
 
+        [MapField("TasaRetencion")]
+        public string TasaRetencion { get; set; } 
 
     }
 }

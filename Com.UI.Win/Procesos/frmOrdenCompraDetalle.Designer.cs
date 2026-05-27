@@ -659,7 +659,7 @@
             this.gpxObservacion.Controls.Add(this.txtMemo);
             this.gpxObservacion.Controls.Add(this.radPanel2);
             this.gpxObservacion.HeaderText = "Observacion";
-            this.gpxObservacion.Location = new System.Drawing.Point(209, 8);
+            this.gpxObservacion.Location = new System.Drawing.Point(165, 24);
             this.gpxObservacion.Name = "gpxObservacion";
             this.gpxObservacion.Size = new System.Drawing.Size(424, 228);
             this.gpxObservacion.TabIndex = 193;

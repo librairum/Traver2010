@@ -1399,6 +1399,13 @@ namespace Inv.UI.Win
             estadoEquivalencia = 0;
             OnBuscarEquivalencias();
         }
-                
+
+
+        #region "producto linea asociado a merma"
+        private void nuevoLinea() { 
+            //this.grid
         }
+        #endregion
+
+    }
       }

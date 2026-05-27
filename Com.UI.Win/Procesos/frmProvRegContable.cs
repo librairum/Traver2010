@@ -550,7 +550,7 @@ namespace Com.UI.Win
             {
                 
                 string mes = Logueo.TipoProvision == "C/OC" ? FrmParentConOC.mesProvision : FrmParentSinOC.mesFactura;
-                string anio = Logueo.TipoProvision == "C/OC" ? FrmParentConOC.anioOrdenCompra : FrmParentSinOC.anioFactura;
+                string anio = Logueo.TipoProvision == "C/OC" ?Logueo.Anio : FrmParentSinOC.anioFactura;
                 //Cargo los detalle de voucher generado
                 List<VoucherDetalle> lista = LogicaVoucher.TraeDetalleVoucherCab(Logueo.CodigoEmpresa,
                                             anio, mes, codigoLibro, nroVoucher); // 0

@@ -106,6 +106,9 @@ namespace Inv.DataAccess
         [SprocName("Sp_Inv_Trae_nro_orden")]
         public abstract void TraerNroOrden(string @cCodEmp, string @cAnno, string @cMes, string @cTipDoc, string @cNumDoc, string @cKey, out double @nroorden);
 
+        [SprocName("Sp_Inv_Trae_nro_ordenMerma")]
+        public abstract void TraeNroOrdenMerma(string @cCodEmp, string @cAnno, string @cMes, string @cTipDoc, string @cNumDoc, string @cKey, out double @nroorden);
+
         [SprocName("Sp_Inv_Trae_TipoAnalisisxTipDocRespaldo")]
         public abstract void TraerAnalisisxDocumentoRespaldo(string @cCodEmp, string @cCodTran, out string @cTipoAnalisis);
 
@@ -281,6 +284,26 @@ namespace Inv.DataAccess
                                                         double @IN07DESCABEZADOSUP, double @IN07DESCABEZADOINF,
                                                         string @Flagnuevooinsercion, out int @flagReturn,
                                                         out string @cMsgRetorno);
+        [SprocName("Spu_Pro_Ins_MermaLinea")]
+        public abstract void Spu_Pro_Ins_MermaLinea(string @IN07CODEMP, string @IN07AA, string @IN07MM, string @IN07TIPDOC,
+                                                       string @IN07CODALM, string @IN07CODDOC, string @IN07KEY, string @IN07UNIMED,
+                                                        string @IN07FECDOC, double @IN07ORDEN, string @IN07CODTRA,
+                                                        string @IN07TRANSA, double @IN07LARGO, double @IN07ANCHO, double @IN07ALTO,
+                                                        double @IN07CANART, string @IN07NROCAJA, string @IN07CODCLI, string @IN07ORDPROD,
+                                                        double @IN07AREAXUNI, string @IN07ORDENTRABAJO, string @IN07OPERADOR,
+                                                        string @IN07DocIngAA, string @IN07DocIngMM, string @IN07DocIngTIPDOC, string @IN07DocIngCODDOC,
+                                                        string @IN07DocIngKEY, double @IN07DocIngORDEN, string @IN07HORASALIDA,
+                                                        string @IN07NROCAJAINGRESO, string @IN07HORAINICIO, string @IN07HORAFINAL,
+                                                        string @IN07FECHAPROCESO, string @IN07MOTIVOCOD, double @Secuencia,
+                                                        string @in07prodTurnoCod,
+                                                        double @IN07DESCABEZADOSUP, double @IN07DESCABEZADOINF,
+                                                        string @Flagnuevooinsercion, out int @flagReturn,
+                                                        out string @cMsgRetorno);
+        [SprocName("Spu_Pro_Ins_GenerarProduccionLinea")]
+        public abstract void Spu_Pro_Ins_GenerarProduccionLinea(string @codigoEmpresa, string @anio,string @mes,
+        string @tipoDocumento,string @numeroDocumento,string @nroOrdenTrabajo,
+        out string @mensaje,out int @flag);
+
         [SprocName("Spu_Pro_Ins_ProduccionDetValida")]
         public abstract void Spu_Pro_Ins_ProduccionDetValida(string @IN07CODEMP , string @IN07AA , string @IN07MM, 
             string @IN07TIPDOC,string @IN07CODDOC, string @IN07NROCAJA, string @IN07ORDENTRABAJO, string @IN07KEY, 
@@ -293,7 +316,9 @@ namespace Inv.DataAccess
                                                     string @Transaccion, string @linea, string @Actividad, out string @cMensaje, 
                                                     out int @cFlag);
         
-
+        
+                       
+ 
         [SprocName("Spu_Pro_Upd_ProduccionDet")]
         public abstract void Spu_Pro_Upd_ProduccionDet(string @IN07CODEMP, 
                                                         string @IN07AA, 
@@ -319,9 +344,38 @@ namespace Inv.DataAccess
                                                         double @IN07DESCABEZADOINF,
                                                         out int @flagReturn, out string @cMsgRetorno);
 
+        [SprocName("Spu_Pro_Upd_ProduccionDetMerma")]
+        public abstract void Spu_Pro_Upd_ProduccionDetMerma(string @IN07CODEMP,
+                                                        string @IN07AA,
+                                                        string @IN07MM,
+                                                        string @IN07TIPDOC,
+                                                        string @IN07CODALM,
+                                                        string @IN07CODDOC,
+                                                        string @IN07KEY,
+                                                        string @IN07UNIMED,
+                                                        string @IN07FECDOC,
+                                                        double @IN07ORDEN,
+                                                        string @IN07CODTRA,
+                                                        string @IN07TRANSA, double @IN07LARGO, double @IN07ANCHO, double @IN07ALTO,
+                                                        double @IN07CANART, string @IN07NROCAJA, string @IN07CODCLI,
+                                                        string @IN07ORDPROD,
+                                                        double @IN07AREAXUNI, string @IN07ORDENTRABAJO, string @IN07OPERADOR,
+                                                        string @IN07DocIngAA, string @IN07DocIngMM, string @IN07DocIngTIPDOC,
+                                                        string @IN07DocIngCODDOC,
+                                                        string @IN07DocIngKEY, double @IN07DocIngORDEN, string @IN07HORASALIDA,
+                                                        string @IN07NROCAJAINGRESO, string @IN07HORAINICIO, string @IN07HORAFINAL,
+                                                        string @IN07FECHAPROCESO, string @IN07MOTIVOCOD, string @in07prodTurnoCod,
+                                                        double @IN07DESCABEZADOSUP,
+                                                        double @IN07DESCABEZADOINF,
+                                                        out int @flagReturn, out string @cMsgRetorno);
 
         [SprocName("sp_Pro_Trae_DetalleProduccion")]
         public abstract List<MovimientoResponse>  sp_Pro_Trae_DetalleProduccion(string @cCodEmp, string @cAnno, string @cMes, string @cTipDoc, string @cNumDoc,
+                                                                                string @IN07ORDENTRABAJO);
+
+        //traer merma 
+        [SprocName("Spu_Pro_Trae_DetalleMermaLinea")]
+        public abstract List<MovimientoResponse> Spu_Pro_Trae_DetalleMermaLinea(string @cCodEmp, string @cAnno, string @cMes, string @cTipDoc, string @cNumDoc,
                                                                                 string @IN07ORDENTRABAJO);
 
         /*Eliminar un registro de la grilla del documento (gridControL) */
@@ -329,7 +383,10 @@ namespace Inv.DataAccess
         public abstract void sp_Pro_Del_DetalleProduccion( string @cCodEmp,string @cAnno, string @cMes, string @cTipDoc, string @cNumDoc, string @cTranMov, 
                                                             string @dFechaDoc, string @cArticulo, string @cUniMed, 
                                                             double @IN07ORDEN, out string @cMsgRetorno);
-        
+
+        [SprocName("Spu_Pro_Del_DetalleProduccionMermaLinea")]
+        public abstract void Spu_Pro_Del_DetalleProduccionMermaLinea(string @cCodEmp, string @cAnno, string @cMes, string @cTipDoc, string @cNumDoc,
+                                                            double @IN07ORDEN, out int @flag,out string @cMsgRetorno);
         [SprocName("Spu_Pro_Trae_PPStock")]
         public abstract List<Spu_Pro_Trae_PPStock> Spu_Pro_Trae_PPStock(string @IN07CODEMP, string @IN07CODALM);
 

@@ -28,22 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmfacturacab));
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.rpvFactura = new Telerik.WinControls.UI.RadPageView();
             this.pvGenerales = new Telerik.WinControls.UI.RadPageViewPage();
             this.rpGeneralesDatos = new Telerik.WinControls.UI.RadPanel();
+            this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
+            this.radLabel50 = new Telerik.WinControls.UI.RadLabel();
+            this.txttasaretencion = new Telerik.WinControls.UI.RadTextBox();
+            this.rbRetencionSi = new Telerik.WinControls.UI.RadRadioButton();
+            this.rbRetencionNo = new Telerik.WinControls.UI.RadRadioButton();
+            this.radLabel49 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel46 = new Telerik.WinControls.UI.RadLabel();
-            this.gpxDarBaja = new Telerik.WinControls.UI.RadGroupBox();
-            this.dtpFechaBaja = new Telerik.WinControls.UI.RadDateTimePicker();
-            this.txtMotivoBaja = new Telerik.WinControls.UI.RadTextBox();
-            this.radLabel35 = new Telerik.WinControls.UI.RadLabel();
-            this.radLabel36 = new Telerik.WinControls.UI.RadLabel();
-            this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
-            this.btnGuardarBaja = new Telerik.WinControls.UI.RadButton();
-            this.btnCancelarBaja = new Telerik.WinControls.UI.RadButton();
             this.radLabel48 = new Telerik.WinControls.UI.RadLabel();
             this.LblVendedorNombre = new Telerik.WinControls.UI.RadTextBox();
             this.txtcodvendedor = new Telerik.WinControls.UI.RadTextBox();
@@ -69,7 +67,6 @@
             this.radLabel42 = new Telerik.WinControls.UI.RadLabel();
             this.gridcuotas = new Telerik.WinControls.UI.RadGridView();
             this.radLabel41 = new Telerik.WinControls.UI.RadLabel();
-            this.txtCodigoAnexoEmisorFE = new Telerik.WinControls.UI.RadTextBox();
             this.txtTipoOperacionFE = new Telerik.WinControls.UI.RadTextBox();
             this.txtliquidacionnro = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel37 = new Telerik.WinControls.UI.RadLabel();
@@ -124,6 +121,15 @@
             this.radPanel5 = new Telerik.WinControls.UI.RadPanel();
             this.btnGuardarCopia = new Telerik.WinControls.UI.RadButton();
             this.btnCancelarCopia = new Telerik.WinControls.UI.RadButton();
+            this.gpxDarBaja = new Telerik.WinControls.UI.RadGroupBox();
+            this.dtpFechaBaja = new Telerik.WinControls.UI.RadDateTimePicker();
+            this.txtMotivoBaja = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel35 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel36 = new Telerik.WinControls.UI.RadLabel();
+            this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            this.btnGuardarBaja = new Telerik.WinControls.UI.RadButton();
+            this.btnCancelarBaja = new Telerik.WinControls.UI.RadButton();
+            this.txtCodigoAnexoEmisorFE = new Telerik.WinControls.UI.RadTextBox();
             this.pvExportacion = new Telerik.WinControls.UI.RadPageViewPage();
             this.rpExportacionDatos = new Telerik.WinControls.UI.RadPanel();
             this.txtExpNroprecinto = new Telerik.WinControls.UI.RadTextBox();
@@ -185,17 +191,14 @@
             this.pvGenerales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rpGeneralesDatos)).BeginInit();
             this.rpGeneralesDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
+            this.radPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel50)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txttasaretencion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbRetencionSi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbRetencionNo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel49)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel46)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gpxDarBaja)).BeginInit();
-            this.gpxDarBaja.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFechaBaja)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMotivoBaja)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel35)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel36)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
-            this.radPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGuardarBaja)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarBaja)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel48)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LblVendedorNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtcodvendedor)).BeginInit();
@@ -220,7 +223,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridcuotas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridcuotas.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel41)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoAnexoEmisorFE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTipoOperacionFE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtliquidacionnro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel37)).BeginInit();
@@ -278,6 +280,17 @@
             this.radPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardarCopia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelarCopia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gpxDarBaja)).BeginInit();
+            this.gpxDarBaja.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFechaBaja)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMotivoBaja)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel35)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel36)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
+            this.radPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGuardarBaja)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarBaja)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoAnexoEmisorFE)).BeginInit();
             this.pvExportacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rpExportacionDatos)).BeginInit();
             this.rpExportacionDatos.SuspendLayout();
@@ -373,8 +386,9 @@
             // 
             // rpGeneralesDatos
             // 
+            this.rpGeneralesDatos.Controls.Add(this.radPanel2);
+            this.rpGeneralesDatos.Controls.Add(this.radLabel49);
             this.rpGeneralesDatos.Controls.Add(this.radLabel46);
-            this.rpGeneralesDatos.Controls.Add(this.gpxDarBaja);
             this.rpGeneralesDatos.Controls.Add(this.radLabel48);
             this.rpGeneralesDatos.Controls.Add(this.LblVendedorNombre);
             this.rpGeneralesDatos.Controls.Add(this.txtcodvendedor);
@@ -393,7 +407,6 @@
             this.rpGeneralesDatos.Controls.Add(this.txtformapagosunat);
             this.rpGeneralesDatos.Controls.Add(this.gbpagocredito);
             this.rpGeneralesDatos.Controls.Add(this.radLabel41);
-            this.rpGeneralesDatos.Controls.Add(this.txtCodigoAnexoEmisorFE);
             this.rpGeneralesDatos.Controls.Add(this.txtTipoOperacionFE);
             this.rpGeneralesDatos.Controls.Add(this.txtliquidacionnro);
             this.rpGeneralesDatos.Controls.Add(this.radLabel37);
@@ -436,12 +449,70 @@
             this.rpGeneralesDatos.Controls.Add(this.radLabel1);
             this.rpGeneralesDatos.Controls.Add(this.txtsubplantilla);
             this.rpGeneralesDatos.Controls.Add(this.gpxCopiar);
+            this.rpGeneralesDatos.Controls.Add(this.gpxDarBaja);
+            this.rpGeneralesDatos.Controls.Add(this.txtCodigoAnexoEmisorFE);
             this.rpGeneralesDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rpGeneralesDatos.Location = new System.Drawing.Point(0, 0);
             this.rpGeneralesDatos.Name = "rpGeneralesDatos";
             this.rpGeneralesDatos.Size = new System.Drawing.Size(1181, 172);
             this.rpGeneralesDatos.TabIndex = 6;
             this.rpGeneralesDatos.Paint += new System.Windows.Forms.PaintEventHandler(this.rpGeneralesDatos_Paint);
+            // 
+            // radPanel2
+            // 
+            this.radPanel2.Controls.Add(this.radLabel50);
+            this.radPanel2.Controls.Add(this.txttasaretencion);
+            this.radPanel2.Controls.Add(this.rbRetencionSi);
+            this.radPanel2.Controls.Add(this.rbRetencionNo);
+            this.radPanel2.Location = new System.Drawing.Point(64, 109);
+            this.radPanel2.Name = "radPanel2";
+            this.radPanel2.Size = new System.Drawing.Size(250, 23);
+            this.radPanel2.TabIndex = 90;
+            // 
+            // radLabel50
+            // 
+            this.radLabel50.Location = new System.Drawing.Point(113, 3);
+            this.radLabel50.Name = "radLabel50";
+            this.radLabel50.Size = new System.Drawing.Size(32, 18);
+            this.radLabel50.TabIndex = 87;
+            this.radLabel50.Text = "Tasa ";
+            // 
+            // txttasaretencion
+            // 
+            this.txttasaretencion.Enabled = false;
+            this.txttasaretencion.Location = new System.Drawing.Point(145, 2);
+            this.txttasaretencion.Name = "txttasaretencion";
+            this.txttasaretencion.Size = new System.Drawing.Size(65, 20);
+            this.txttasaretencion.TabIndex = 86;
+            this.txttasaretencion.Tag = "0";
+            // 
+            // rbRetencionSi
+            // 
+            this.rbRetencionSi.Location = new System.Drawing.Point(3, 3);
+            this.rbRetencionSi.Name = "rbRetencionSi";
+            this.rbRetencionSi.Size = new System.Drawing.Size(29, 18);
+            this.rbRetencionSi.TabIndex = 59;
+            this.rbRetencionSi.TabStop = false;
+            this.rbRetencionSi.Text = "Si";
+            this.rbRetencionSi.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.rbRetencionSi_ToggleStateChanged);
+            // 
+            // rbRetencionNo
+            // 
+            this.rbRetencionNo.Location = new System.Drawing.Point(51, 3);
+            this.rbRetencionNo.Name = "rbRetencionNo";
+            this.rbRetencionNo.Size = new System.Drawing.Size(35, 18);
+            this.rbRetencionNo.TabIndex = 60;
+            this.rbRetencionNo.TabStop = false;
+            this.rbRetencionNo.Text = "No";
+            this.rbRetencionNo.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.rbRetencionNo_ToggleStateChanged);
+            // 
+            // radLabel49
+            // 
+            this.radLabel49.Location = new System.Drawing.Point(0, 111);
+            this.radLabel49.Name = "radLabel49";
+            this.radLabel49.Size = new System.Drawing.Size(56, 18);
+            this.radLabel49.TabIndex = 89;
+            this.radLabel49.Text = "Retencion";
             // 
             // radLabel46
             // 
@@ -450,89 +521,6 @@
             this.radLabel46.Size = new System.Drawing.Size(26, 18);
             this.radLabel46.TabIndex = 85;
             this.radLabel46.Text = "Imp";
-            // 
-            // gpxDarBaja
-            // 
-            this.gpxDarBaja.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this.gpxDarBaja.Controls.Add(this.dtpFechaBaja);
-            this.gpxDarBaja.Controls.Add(this.txtMotivoBaja);
-            this.gpxDarBaja.Controls.Add(this.radLabel35);
-            this.gpxDarBaja.Controls.Add(this.radLabel36);
-            this.gpxDarBaja.Controls.Add(this.radPanel1);
-            this.gpxDarBaja.HeaderText = "Dar baja de documento";
-            this.gpxDarBaja.Location = new System.Drawing.Point(133, 4);
-            this.gpxDarBaja.Name = "gpxDarBaja";
-            this.gpxDarBaja.Size = new System.Drawing.Size(233, 142);
-            this.gpxDarBaja.TabIndex = 74;
-            this.gpxDarBaja.Text = "Dar baja de documento";
-            // 
-            // dtpFechaBaja
-            // 
-            this.dtpFechaBaja.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaBaja.Location = new System.Drawing.Point(52, 26);
-            this.dtpFechaBaja.Name = "dtpFechaBaja";
-            this.dtpFechaBaja.Size = new System.Drawing.Size(86, 20);
-            this.dtpFechaBaja.TabIndex = 73;
-            this.dtpFechaBaja.TabStop = false;
-            this.dtpFechaBaja.Text = "01/03/2013";
-            this.dtpFechaBaja.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
-            // 
-            // txtMotivoBaja
-            // 
-            this.txtMotivoBaja.AutoSize = false;
-            this.txtMotivoBaja.Location = new System.Drawing.Point(52, 47);
-            this.txtMotivoBaja.Multiline = true;
-            this.txtMotivoBaja.Name = "txtMotivoBaja";
-            this.txtMotivoBaja.Size = new System.Drawing.Size(174, 64);
-            this.txtMotivoBaja.TabIndex = 29;
-            // 
-            // radLabel35
-            // 
-            this.radLabel35.Location = new System.Drawing.Point(5, 47);
-            this.radLabel35.Name = "radLabel35";
-            this.radLabel35.Size = new System.Drawing.Size(47, 18);
-            this.radLabel35.TabIndex = 28;
-            this.radLabel35.Text = "Motivo :";
-            // 
-            // radLabel36
-            // 
-            this.radLabel36.Location = new System.Drawing.Point(5, 26);
-            this.radLabel36.Name = "radLabel36";
-            this.radLabel36.Size = new System.Drawing.Size(41, 18);
-            this.radLabel36.TabIndex = 24;
-            this.radLabel36.Text = "Fecha :";
-            // 
-            // radPanel1
-            // 
-            this.radPanel1.Controls.Add(this.btnGuardarBaja);
-            this.radPanel1.Controls.Add(this.btnCancelarBaja);
-            this.radPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.radPanel1.Location = new System.Drawing.Point(2, 118);
-            this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(229, 22);
-            this.radPanel1.TabIndex = 72;
-            // 
-            // btnGuardarBaja
-            // 
-            this.btnGuardarBaja.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnGuardarBaja.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarBaja.Image")));
-            this.btnGuardarBaja.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGuardarBaja.Location = new System.Drawing.Point(185, 0);
-            this.btnGuardarBaja.Name = "btnGuardarBaja";
-            this.btnGuardarBaja.Size = new System.Drawing.Size(22, 22);
-            this.btnGuardarBaja.TabIndex = 31;
-            this.btnGuardarBaja.ThemeName = "Office2013Light";
-            // 
-            // btnCancelarBaja
-            // 
-            this.btnCancelarBaja.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCancelarBaja.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarBaja.Image")));
-            this.btnCancelarBaja.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancelarBaja.Location = new System.Drawing.Point(207, 0);
-            this.btnCancelarBaja.Name = "btnCancelarBaja";
-            this.btnCancelarBaja.Size = new System.Drawing.Size(22, 22);
-            this.btnCancelarBaja.TabIndex = 15;
-            this.btnCancelarBaja.ThemeName = "Office2013Light";
             // 
             // radLabel48
             // 
@@ -752,7 +740,7 @@
             // 
             // 
             // 
-            this.gridcuotas.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.gridcuotas.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.gridcuotas.Name = "gridcuotas";
             this.gridcuotas.Size = new System.Drawing.Size(255, 131);
             this.gridcuotas.TabIndex = 0;
@@ -765,14 +753,6 @@
             this.radLabel41.Size = new System.Drawing.Size(103, 18);
             this.radLabel41.TabIndex = 77;
             this.radLabel41.Text = "Forma Pago Sunat :";
-            // 
-            // txtCodigoAnexoEmisorFE
-            // 
-            this.txtCodigoAnexoEmisorFE.Location = new System.Drawing.Point(37, 142);
-            this.txtCodigoAnexoEmisorFE.Name = "txtCodigoAnexoEmisorFE";
-            this.txtCodigoAnexoEmisorFE.Size = new System.Drawing.Size(21, 20);
-            this.txtCodigoAnexoEmisorFE.TabIndex = 76;
-            this.txtCodigoAnexoEmisorFE.Visible = false;
             // 
             // txtTipoOperacionFE
             // 
@@ -834,7 +814,7 @@
             // 
             // radLabel15
             // 
-            this.radLabel15.Location = new System.Drawing.Point(29, 115);
+            this.radLabel15.Location = new System.Drawing.Point(29, 134);
             this.radLabel15.Name = "radLabel15";
             this.radLabel15.Size = new System.Drawing.Size(29, 18);
             this.radLabel15.TabIndex = 36;
@@ -843,11 +823,11 @@
             // TxtObservacion
             // 
             this.TxtObservacion.AutoSize = false;
-            this.TxtObservacion.Location = new System.Drawing.Point(64, 112);
+            this.TxtObservacion.Location = new System.Drawing.Point(64, 130);
             this.TxtObservacion.MaxLength = 100;
             this.TxtObservacion.Multiline = true;
             this.TxtObservacion.Name = "TxtObservacion";
-            this.TxtObservacion.Size = new System.Drawing.Size(343, 53);
+            this.TxtObservacion.Size = new System.Drawing.Size(343, 35);
             this.TxtObservacion.TabIndex = 37;
             this.TxtObservacion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtObservacion_KeyDown);
             // 
@@ -1266,6 +1246,97 @@
             this.btnCancelarCopia.Size = new System.Drawing.Size(22, 22);
             this.btnCancelarCopia.TabIndex = 15;
             this.btnCancelarCopia.ThemeName = "Office2013Light";
+            // 
+            // gpxDarBaja
+            // 
+            this.gpxDarBaja.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.gpxDarBaja.Controls.Add(this.dtpFechaBaja);
+            this.gpxDarBaja.Controls.Add(this.txtMotivoBaja);
+            this.gpxDarBaja.Controls.Add(this.radLabel35);
+            this.gpxDarBaja.Controls.Add(this.radLabel36);
+            this.gpxDarBaja.Controls.Add(this.radPanel1);
+            this.gpxDarBaja.HeaderText = "Dar baja de documento";
+            this.gpxDarBaja.Location = new System.Drawing.Point(133, 4);
+            this.gpxDarBaja.Name = "gpxDarBaja";
+            this.gpxDarBaja.Size = new System.Drawing.Size(233, 142);
+            this.gpxDarBaja.TabIndex = 74;
+            this.gpxDarBaja.Text = "Dar baja de documento";
+            // 
+            // dtpFechaBaja
+            // 
+            this.dtpFechaBaja.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaBaja.Location = new System.Drawing.Point(52, 26);
+            this.dtpFechaBaja.Name = "dtpFechaBaja";
+            this.dtpFechaBaja.Size = new System.Drawing.Size(86, 20);
+            this.dtpFechaBaja.TabIndex = 73;
+            this.dtpFechaBaja.TabStop = false;
+            this.dtpFechaBaja.Text = "01/03/2013";
+            this.dtpFechaBaja.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
+            // 
+            // txtMotivoBaja
+            // 
+            this.txtMotivoBaja.AutoSize = false;
+            this.txtMotivoBaja.Location = new System.Drawing.Point(52, 47);
+            this.txtMotivoBaja.Multiline = true;
+            this.txtMotivoBaja.Name = "txtMotivoBaja";
+            this.txtMotivoBaja.Size = new System.Drawing.Size(174, 64);
+            this.txtMotivoBaja.TabIndex = 29;
+            // 
+            // radLabel35
+            // 
+            this.radLabel35.Location = new System.Drawing.Point(5, 47);
+            this.radLabel35.Name = "radLabel35";
+            this.radLabel35.Size = new System.Drawing.Size(47, 18);
+            this.radLabel35.TabIndex = 28;
+            this.radLabel35.Text = "Motivo :";
+            // 
+            // radLabel36
+            // 
+            this.radLabel36.Location = new System.Drawing.Point(5, 26);
+            this.radLabel36.Name = "radLabel36";
+            this.radLabel36.Size = new System.Drawing.Size(41, 18);
+            this.radLabel36.TabIndex = 24;
+            this.radLabel36.Text = "Fecha :";
+            // 
+            // radPanel1
+            // 
+            this.radPanel1.Controls.Add(this.btnGuardarBaja);
+            this.radPanel1.Controls.Add(this.btnCancelarBaja);
+            this.radPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.radPanel1.Location = new System.Drawing.Point(2, 118);
+            this.radPanel1.Name = "radPanel1";
+            this.radPanel1.Size = new System.Drawing.Size(229, 22);
+            this.radPanel1.TabIndex = 72;
+            // 
+            // btnGuardarBaja
+            // 
+            this.btnGuardarBaja.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnGuardarBaja.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarBaja.Image")));
+            this.btnGuardarBaja.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnGuardarBaja.Location = new System.Drawing.Point(185, 0);
+            this.btnGuardarBaja.Name = "btnGuardarBaja";
+            this.btnGuardarBaja.Size = new System.Drawing.Size(22, 22);
+            this.btnGuardarBaja.TabIndex = 31;
+            this.btnGuardarBaja.ThemeName = "Office2013Light";
+            // 
+            // btnCancelarBaja
+            // 
+            this.btnCancelarBaja.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCancelarBaja.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarBaja.Image")));
+            this.btnCancelarBaja.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCancelarBaja.Location = new System.Drawing.Point(207, 0);
+            this.btnCancelarBaja.Name = "btnCancelarBaja";
+            this.btnCancelarBaja.Size = new System.Drawing.Size(22, 22);
+            this.btnCancelarBaja.TabIndex = 15;
+            this.btnCancelarBaja.ThemeName = "Office2013Light";
+            // 
+            // txtCodigoAnexoEmisorFE
+            // 
+            this.txtCodigoAnexoEmisorFE.Location = new System.Drawing.Point(37, 142);
+            this.txtCodigoAnexoEmisorFE.Name = "txtCodigoAnexoEmisorFE";
+            this.txtCodigoAnexoEmisorFE.Size = new System.Drawing.Size(21, 20);
+            this.txtCodigoAnexoEmisorFE.TabIndex = 76;
+            this.txtCodigoAnexoEmisorFE.Visible = false;
             // 
             // pvExportacion
             // 
@@ -1708,11 +1779,11 @@
             // 
             // 
             // 
-            gridViewTextBoxColumn1.HeaderText = "column1";
-            gridViewTextBoxColumn1.Name = "column1";
+            gridViewTextBoxColumn2.HeaderText = "column1";
+            gridViewTextBoxColumn2.Name = "column1";
             this.gridControlDetalle.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1});
-            this.gridControlDetalle.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            gridViewTextBoxColumn2});
+            this.gridControlDetalle.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.gridControlDetalle.Name = "gridControlDetalle";
             this.gridControlDetalle.Size = new System.Drawing.Size(1191, 187);
             this.gridControlDetalle.TabIndex = 5;
@@ -1845,18 +1916,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.rpGeneralesDatos)).EndInit();
             this.rpGeneralesDatos.ResumeLayout(false);
             this.rpGeneralesDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).EndInit();
+            this.radPanel2.ResumeLayout(false);
+            this.radPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel50)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txttasaretencion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbRetencionSi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbRetencionNo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel49)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel46)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gpxDarBaja)).EndInit();
-            this.gpxDarBaja.ResumeLayout(false);
-            this.gpxDarBaja.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFechaBaja)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMotivoBaja)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel35)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel36)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
-            this.radPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnGuardarBaja)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarBaja)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel48)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LblVendedorNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtcodvendedor)).EndInit();
@@ -1882,7 +1950,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridcuotas.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridcuotas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel41)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoAnexoEmisorFE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTipoOperacionFE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtliquidacionnro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel37)).EndInit();
@@ -1942,6 +2009,18 @@
             this.radPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardarCopia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelarCopia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gpxDarBaja)).EndInit();
+            this.gpxDarBaja.ResumeLayout(false);
+            this.gpxDarBaja.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFechaBaja)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMotivoBaja)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel35)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel36)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
+            this.radPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnGuardarBaja)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarBaja)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoAnexoEmisorFE)).EndInit();
             this.pvExportacion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rpExportacionDatos)).EndInit();
             this.rpExportacionDatos.ResumeLayout(false);
@@ -2162,6 +2241,12 @@
         private Telerik.WinControls.UI.RadLabel radLabel48;
         private Telerik.WinControls.UI.RadTextBox LblVendedorNombre;
         private Telerik.WinControls.UI.RadTextBox txtcodvendedor;
+        private Telerik.WinControls.UI.RadLabel radLabel49;
+        private Telerik.WinControls.UI.RadPanel radPanel2;
+        private Telerik.WinControls.UI.RadLabel radLabel50;
+        private Telerik.WinControls.UI.RadTextBox txttasaretencion;
+        private Telerik.WinControls.UI.RadRadioButton rbRetencionSi;
+        private Telerik.WinControls.UI.RadRadioButton rbRetencionNo;
 
     }
 }

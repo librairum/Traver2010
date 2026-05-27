@@ -222,6 +222,7 @@ namespace Com.UI.Win
             provision.MesOrdCom = mesOrdCom; // mes de orden de compra
             provision.AfectoDetraccion = chkAfectoDetraccion.Checked ? "S" : "N";
             provision.AfectoRet = rbAfectoRet.Checked ? "S" : "N";
+            provision.afectoPercepcion = chkAfectoPercepcion.Checked ? "S" : "N";
             provision.NroAutorizacion = ""; // el contro fue retirado del diseño
             provision.BienesoServicioSunat = txtbienoservicio.Text.Trim();
             provision.CentroCosto = txtCentroCosto.Text.Trim();
@@ -236,6 +237,11 @@ namespace Com.UI.Win
             LeerInventario(provision);
             //Detraccion
             LeerDetraccion(provision);
+
+            //percepcion
+            LeerPercepcion(provision);
+
+
             return provision;
         }
 
@@ -281,6 +287,8 @@ namespace Com.UI.Win
                 txtNroDocInventario.Enabled = false;
                 txtTipDocRespInventario.Enabled = false;
             }
+            txtimportepercepcion.Enabled = false;
+            txtimportepercepcion_equi.Enabled = false;
 
             if (esDocumentoContabilizado == true || esDocumentoInventariado == true)
             {
@@ -332,6 +340,13 @@ namespace Com.UI.Win
                         Util.ShowAlert("Ingrese Documento de Referencia");
                         return;
                     }
+                }
+
+                if (chkAfectoDetraccion.Checked == true 
+                    && chkAfectoPercepcion.Checked == true)
+                {
+                    Util.ShowAlert("Solo debe seleccionar una opcion : Detraccion o Percepcion");
+                    return;
                 }
                 //PENDIENTE
                 //if (txtCentroCosto.Text == "")
@@ -599,6 +614,11 @@ namespace Com.UI.Win
           //  lblProveedorNro.Text = NroProveedor;
             gpxCtaCte.Text = NroProveedor;
             lblNombreProvee.Text = NombreProveedor;
+            
+            //txttipopercepcion.Text = Util.GetCurrentCellText(filaOrdenCompra, "CO05PERCEPCIONTIPOPERACION");
+            //txtpercepcionporcentaje.Text = Util.GetCurrentCellText(filaOrdenCompra, "CO05PERCEPCIONPORCENTAJE");
+            //txtimportepercepcion.Text = Util.GetCurrentCellText(filaOrdenCompra, "CO05PERCEPCIONIMPORTE");
+            //txtimportepercepcion_equi.Text = Util.GetCurrentCellText(filaOrdenCompra, "CO05PERCEPCIONIMPORTE_EQUI");
            
 
         }
@@ -875,7 +895,13 @@ namespace Com.UI.Win
                 txtTipDocRespInventario.Enabled = activarControlInventario;
                 dtpFechaDocInventario.Enabled = activarControlInventario;
                 txtNroDocRespInventario.Enabled = activarControlInventario;
-                
+
+                // si  la factura de compra fue contabilizada ya no permite editar el campo de percepcion
+                txtpercepcionporcentaje.Enabled = activarControlContabilidad;
+                txttipopercepcion.Enabled   = activarControlContabilidad;
+                txtimportepercepcion.Enabled = activarControlContabilidad;
+                txtimportepercepcion_equi.Enabled = activarControlContabilidad;
+
                 //desactivar el control de igv
                 //txtPorIgv.Enabled = false;
                 //if (activarControlContabilidad) { 
@@ -892,6 +918,7 @@ namespace Com.UI.Win
                 if(activarControlContabilidad == false && activarControlInventario == false)
                 {
                     MuestrayOcultaDatos(false);
+                    
                 }
 
 
@@ -973,6 +1000,8 @@ namespace Com.UI.Win
             
             gpxDetraccion.Visible = chkAfectoDetraccion.Checked ? true : false;
 
+            gpxpercepcion.Visible = chkAfectoPercepcion.Checked ? true : false;
+
            
 
             HabilitaBotonPorNombre(BaseRegBotones.cbbCancelar);
@@ -1016,7 +1045,11 @@ namespace Com.UI.Win
                         break;
                     default: break;
                 }
-                gpxFlotante.Visible = false;                                     
+                gpxFlotante.Visible = false;    
+            //configurar estado de afecto retencion segun parametro de empresa
+                
+                 rbAfectoRet.Enabled = Logueo.FlagRetencion.Equals("S") ? true : false;
+                 rbNoAfectoRet.Enabled = Logueo.FlagRetencion.Equals("S") ? true : false;
         }
         private void CargarDatos(){
             string descripcionref;
@@ -1122,6 +1155,15 @@ namespace Com.UI.Win
                 //Cargar el flujo de la caja
                 string codigoProveedor = FrmParentConOC.codigoProveedor;
                // TraeSubFlujoPago(codigoProveedor, txtTipoDocumento.Text, txtnrodocumento.Text); 
+                if (Util.GetCurrentCellText(fila, "CO05AFECTOPERCEPCION") == "S")
+                {
+                    chkAfectoPercepcion.Checked = true;
+                }
+                
+                txttipopercepcion.Text = Util.GetCurrentCellText(fila, "CO05PERCEPCIONTIPOPERACION");
+                txtpercepcionporcentaje.Text = Util.GetCurrentCellText(fila, "CO05PERCEPCIONPORCENTAJE");
+                txtimportepercepcion.Text = Util.GetCurrentCellText(fila, "CO05PERCEPCIONIMPORTE");
+                txtimportepercepcion_equi.Text = Util.GetCurrentCellText(fila, "CO05PERCEPCIONIMPORTE_EQUI");
 
             }
             catch (Exception ex) {
@@ -1173,12 +1215,16 @@ namespace Com.UI.Win
             rbNoAfectoRet.Enabled = valor;
             chkCancelacion.Enabled = valor;
             chkAfectoDetraccion.Enabled = valor;
-
+            chkAfectoPercepcion.Enabled = valor;
             txtdocmodtipo.Enabled = valor;
             txtdocmodnumero.Enabled = valor;
             dtpdocmodfecha.Enabled = valor;
 
-
+            
+            txtpercepcionporcentaje.Enabled = false;
+            txtimportepercepcion.Enabled = false;
+            txtimportepercepcion_equi.Enabled = false;
+            //txttipopercepcion.Enabled = false;
             #region "resalta ayuda controles"
             Util.ResaltaAyudaPorEstado(txtTipoDocumento);
             Util.ResaltaAyudaPorEstado(txtbienoservicio);
@@ -1190,6 +1236,7 @@ namespace Com.UI.Win
             Util.ResaltaAyudaPorEstado(txttiposervicio);
             Util.ResaltaAyudaPorEstado(txtCentroCosto);
             Util.ResaltaAyudaPorEstado(txtdocmodtipo);
+            Util.ResaltaAyudaPorEstado(txttipopercepcion);
             #endregion
         }
         private void MuestrayOcultaDatos(bool valor) {
@@ -1207,7 +1254,7 @@ namespace Com.UI.Win
 
             chkCancelacion.Enabled = valor;
             chkAfectoDetraccion.Enabled = valor;
-
+            chkAfectoPercepcion.Enabled = valor;
             txtConcepto.Enabled = valor;
             txtbienoservicio.Enabled = valor;
 
@@ -1246,6 +1293,7 @@ namespace Com.UI.Win
             txtdocmodtipo.Enabled = valor;
             txtdocmodnumero.Enabled = valor;
             dtpdocmodfecha.Enabled = valor;
+            txttipopercepcion.Enabled = valor;
 
         }
         private void TraeSubFlujoPago(string CtaCte, string TipDoc,  string NroDoc) {
@@ -1332,6 +1380,14 @@ namespace Com.UI.Win
                     txtdocmodtipo.Text = datos[0]; //ccb02cod
                     txtdocmodtipo.Focus();
                     break;     
+                case enmAyuda.enmTipoPercepcion:
+                    txttipopercepcion.Text = datos[0];
+                    txttipopercepciondesc.Text = datos[1];
+                    txtpercepcionporcentaje.Text = datos[2];
+                    txttipopercepcion.Focus();
+                    //calculo percepcion
+                    this.CalcularImportePercepcion(decimal.Parse(this.txtpercepcionporcentaje.Text));
+                    break;
             }
             
         }
@@ -1406,6 +1462,13 @@ namespace Com.UI.Win
                     txtporcentaje.Text = Util.NumberFormat("0", formatonumero);
                 }
                 CalcularImporteDetraccion(decimal.Parse(txtporcentaje.Text.Trim()));
+                if (chkAfectoPercepcion.Checked) {
+                    if (!txtpercepcionporcentaje.Text.Trim().Equals("")) {
+                        CalcularImportePercepcion(decimal.Parse(txtpercepcionporcentaje.Text.Trim()));
+                    }
+                    
+                }
+                
 
             }
             catch (Exception ex)
@@ -1537,8 +1600,9 @@ namespace Com.UI.Win
         //chkAfectoDetraccion
         private void radCheckBox1_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
         {
+            
             gpxDetraccion.Visible = chkAfectoDetraccion.Checked;
-
+           
             //if (chkAfectacion.Checked) {
             //    gpxDerecha1.Visible = chkAfectacion.Checked;
             //}
@@ -1611,7 +1675,7 @@ namespace Com.UI.Win
         {
             try
             {
-                if (Estado == FormEstate.Edit) return;
+                //if (Estado == FormEstate.Edit) return;
 
                 //bool esFechaValida = ValidarFechaPeriodo(dtpFechaDocumento.Value, Logueo.Anio + Logueo.Mes);
                 //if (esFechaValida == false)
@@ -1699,6 +1763,65 @@ namespace Com.UI.Win
 
         #region "Metodos General"
 
+        #endregion
+        #region "Metodos percepcion"
+        private void LeerPercepcion(ProvisionFactura entidad)
+        {
+            
+            entidad.CO05PERCEPCIONTIPOPERACION = txttipopercepcion.Text.Trim();
+            entidad.CO05PERCEPCIONTIPOSERVICIO = "";
+            entidad.CO05PERCEPCIONPORCENTAJE = txtpercepcionporcentaje.Text == "" ? 0 : Convert.ToDouble(txtpercepcionporcentaje.Text);
+            //entidad.CO05PERCEPCIONPORCENTAJE = Convert.ToDouble(txtpercepcionporcentaje.Text);
+            entidad.CO05PERCEPCIONIMPORTE = txtimportepercepcion.Text == "" ? 0 : Convert.ToDouble(txtimportepercepcion.Text);
+            entidad.CO05PERCEPCIONIMPORTE_EQUI = txtimportepercepcion_equi.Text == "" ? 0 : Convert.ToDouble(txtimportepercepcion_equi.Text);
+            if (chkAfectoPercepcion.Checked)
+            {
+                entidad.afectoPercepcion = "S";
+            }
+            else
+            {
+                entidad.afectoPercepcion = "N";
+            }
+
+        }
+        private void CalcularImportePercepcion(decimal Porcentaje)
+        {
+            try
+            {
+                if (chkAfectoPercepcion.Checked == false) return;
+                if (txtTipoMoneda.Text != "S" && txtTipoMoneda.Text != "D")
+                {
+                    Util.ShowAlert("Debe Especificar Moneda"); return;
+                }
+                if (txtTipocambio.Text == "") { Util.ShowAlert("Tipo de cambio No Valido"); return; }
+                if (txtImporteDocumento.Text == "" || txtImporteDocumentoEquiv.Text == "") { Util.ShowAlert("Importe No Valido"); return; }
+                if (txtpercepcionporcentaje.Text == "") { Util.ShowAlert("Porcentaje No Valido"); return; }
+                if (Util.EsNumero(txtpercepcionporcentaje.Text) == false) { Util.ShowAlert("Porcentaje No Valido"); return; }
+                decimal factorPercepcion = (Porcentaje / 100) ;
+                decimal ImportePercepcion = Convert.ToDecimal(txtImporteDocumento.Text) * factorPercepcion;
+                // factorPercepcion;
+                
+                decimal ImportePercepcionOriginal = 0, ImportePercepcionEquivalente = 0;
+                
+                if (txtTipoMoneda.Text.ToUpper() == "S")
+                {
+                    ImportePercepcionOriginal = decimal.Round(ImportePercepcion, 2);
+                    ImportePercepcionEquivalente = decimal.Round(ImportePercepcion / decimal.Parse(txtTipocambio.Text), 2);
+                }
+                else if (txtTipoMoneda.Text.ToUpper() == "D")
+                {
+                    ImportePercepcionOriginal = decimal.Round(ImportePercepcion * decimal.Parse(txtTipocambio.Text), 2);
+                    ImportePercepcionEquivalente = decimal.Round(ImportePercepcion, 2);
+                }
+
+                txtimportepercepcion.Text = Util.NumberFormat(ImportePercepcionOriginal.ToString(), formatonumero);
+                txtimportepercepcion_equi.Text = Util.NumberFormat(ImportePercepcionEquivalente.ToString(), formatonumero);
+                
+            }
+            catch (Exception ex) { 
+            
+            }
+        }
         #endregion
         #region "Metodos Detraccion"
         private void CalcularImporteDetraccion(decimal Porcentaje)
@@ -2146,6 +2269,7 @@ namespace Com.UI.Win
             this.importeIgv = txtImporteIgv.Text;
             this.importeDocumento = txtImporteDocumento.Text;
             this.mesProvision = txtMesProvision.Text;
+            
             this.tieneDetraccion = chkAfectoDetraccion.Checked;
             this.concepto = txtConcepto.Text.Trim();
             this.asientoTipo = txtAsientoTipo.Text;            
@@ -2196,6 +2320,14 @@ namespace Com.UI.Win
 
          
             }
+        }
+        #endregion
+        #region "Percepcion"
+        private void CargarPercepcion(GridViewRowInfo fila) {
+            txttipopercepcion.Text = Util.GetCurrentCellText(fila, "CO05PERCEPCIONTIPOPERACION");
+           txtpercepcionporcentaje.Text = Util.GetCurrentCellText(fila, "CO05PERCEPCIONPORCENTAJE");
+            txtimportepercepcion.Text = Util.GetCurrentCellText(fila, "CO05PERCEPCIONIMPORTE");
+            txtimportepercepcion_equi.Text = Util.GetCurrentCellText(fila, "CO05PERCEPCIONIMPORTE_EQUI");
         }
         #endregion
         private string DameDescripcion(string codigo, string flag)
@@ -2520,6 +2652,106 @@ namespace Com.UI.Win
             string DescripcionConcepto = Util.GetCurrentCellText(row, "CO07DESCRIPCION");
             txtConcepto.Text = DescripcionConcepto;
             this.gpxFlotante.Visible = false;
+        }
+
+        private void txttipopercepcion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.F1) {
+                TraerAyuda(enmAyuda.enmTipoPercepcion);
+            }
+        }
+
+        private void txtpercepcionporcentaje_Leave(object sender, EventArgs e)
+        {
+            //if (txtpercepcionporcentaje.Text != "") {
+            //    if (txttipopercepcion.Text == "03") { 
+            //        if (txtpercepcionporcentaje.Text != "3.5" 
+            //                    && txtpercepcionporcentaje.Text != "5" 
+            //                    && txtpercepcionporcentaje.Text != "10") {
+            //                        Util.ShowAlert("Debe ingresar el valor de 3.5%, 5% o 10%");                                    
+            //                        txtpercepcionporcentaje.Text = "";
+            //                        return;
+            //        }
+            //    }
+            //    CalcularImportePercepcion(Convert.ToDecimal(this.txtpercepcionporcentaje.Text));
+            //}
+
+        }
+
+        private void rpIzquierda3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void chkAfectoPercepcion_ToggleStateChanged(object sender, StateChangedEventArgs args)
+        {
+            this.gpxpercepcion.Visible = chkAfectoPercepcion.Checked;
+            if (chkAfectoPercepcion.Checked == false) {
+                txttipopercepcion.Text = "";
+                txtpercepcionporcentaje.Text = "";
+                txtimportepercepcion.Text = "";
+                txtimportepercepcion_equi.Text = "";
+            }
+            //if (chkAfectoPercepcion.Checked && chkAfectoDetraccion.Checked) {
+            //    Util.ShowAlert("Debe seleccionar  una opcion : Afecto a detraccion o Afecto a percepcion");
+            //}
+        }
+
+        private void txtpercepcionporcentaje_TextChanged(object sender, EventArgs e)
+        {
+            //if (txtpercepcionporcentaje.Text != "")
+            //{
+            //    if (txttipopercepcion.Text == "03")
+            //    {
+            //        if (txtpercepcionporcentaje.Text != "3.5"
+            //                    && txtpercepcionporcentaje.Text != "5"
+            //                    && txtpercepcionporcentaje.Text != "10")
+            //        {
+            //            Util.ShowAlert("Debe ingresar el valor de 3.5%, 5% o 10%");
+            //            txtpercepcionporcentaje.Text = "";
+            //            return;
+            //        }
+            //    }
+            //    CalcularImportePercepcion(Convert.ToDecimal(this.txtpercepcionporcentaje.Text));
+            //}
+            
+        }
+
+        private void txttipopercepcion_TextChanged(object sender, EventArgs e)
+        {
+            string descripcion = "";
+            string codigoBusqueda = "16"+txttipopercepcion.Text.Trim();
+            descripcion = DameDescripcion(codigoBusqueda, "PERCEP");
+            //txttipooperacionDesc.Text = descripcion;
+            txttipopercepciondesc.Text = descripcion;
+        }
+
+        private void txttipopercepcion_Leave(object sender, EventArgs e)
+        {
+            //if (txtpercepcionporcentaje.Text.Trim().Equals("")== false)
+            //{
+            //    CalcularImportePercepcion(Convert.ToDecimal(txtpercepcionporcentaje.Text.Trim()));
+            //}
+        }
+
+        private void chkAfectoDetraccion_ToggleStateChanging(object sender, StateChangingEventArgs args)
+        {
+            //if (chkAfectoPercepcion.Checked)
+            //{
+            //    Util.ShowAlert("Debe seleccionar  una opcion : Afecto a detraccion o Afecto a percepcion");
+            //    chkAfectoPercepcion.Checked = false;
+            //    return;
+            //}
+        }
+
+        private void chkAfectoPercepcion_ToggleStateChanging(object sender, StateChangingEventArgs args)
+        {
+            //if (chkAfectoDetraccion.Checked)
+            //{
+            //    Util.ShowAlert("Debe seleccionar  una opcion : Afecto a detraccion o Afecto a percepcion");
+            //    chkAfectoDetraccion.Checked = false;
+            //    return;
+            //}
         }
 
         

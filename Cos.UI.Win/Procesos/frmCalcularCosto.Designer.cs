@@ -32,6 +32,7 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
             this.gridControl = new Telerik.WinControls.UI.RadGridView();
+            this.btnDistribuir = new Telerik.WinControls.UI.RadButton();
             this.rpDerecho = new Telerik.WinControls.UI.RadPanel();
             this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
             this.gridMovProduccion = new Telerik.WinControls.UI.RadGridView();
@@ -39,10 +40,10 @@
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.gridGastosContables = new Telerik.WinControls.UI.RadGridView();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            this.btnDistribuir = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl.MasterTemplate)).BeginInit();
             this.gridControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDistribuir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpDerecho)).BeginInit();
             this.rpDerecho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
@@ -55,7 +56,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridGastosContables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridGastosContables.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDistribuir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +71,15 @@
             this.gridControl.Name = "gridControl";
             this.gridControl.Size = new System.Drawing.Size(488, 411);
             this.gridControl.TabIndex = 3;
+            // 
+            // btnDistribuir
+            // 
+            this.btnDistribuir.Location = new System.Drawing.Point(177, 194);
+            this.btnDistribuir.Name = "btnDistribuir";
+            this.btnDistribuir.Size = new System.Drawing.Size(135, 23);
+            this.btnDistribuir.TabIndex = 3;
+            this.btnDistribuir.Text = "Procesar Costeo";
+            this.btnDistribuir.Click += new System.EventHandler(this.btnDistribuir_Click);
             // 
             // rpDerecho
             // 
@@ -150,14 +159,6 @@
             this.radLabel1.TabIndex = 1;
             this.radLabel1.Text = "Gastos Contables Importados";
             // 
-            // btnDistribuir
-            // 
-            this.btnDistribuir.Location = new System.Drawing.Point(177, 194);
-            this.btnDistribuir.Name = "btnDistribuir";
-            this.btnDistribuir.Size = new System.Drawing.Size(135, 23);
-            this.btnDistribuir.TabIndex = 3;
-            this.btnDistribuir.Text = "Procesar Costeo";
-            // 
             // frmCalcularCosto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,6 +178,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             this.gridControl.ResumeLayout(false);
             this.gridControl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDistribuir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpDerecho)).EndInit();
             this.rpDerecho.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).EndInit();
@@ -191,7 +193,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridGastosContables.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridGastosContables)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDistribuir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

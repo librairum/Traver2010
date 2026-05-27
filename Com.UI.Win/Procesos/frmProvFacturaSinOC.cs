@@ -98,6 +98,12 @@ namespace Com.UI.Win
                 CreateGridColumn(GridDetalle, "O.Compra Codigo", "Codigo", 0, "", 70, true, false, false);
                 CreateGridColumn(GridDetalle, "Ccm02Forpag", "Ccm02Forpag", 0, "", 70, true, false, false);
 
+                CreateGridColumn(GridDetalle, "CO05PERCEPCIONTIPOPERACION", "CO05PERCEPCIONTIPOPERACION", 0, "", 70, true, false, false);
+                CreateGridColumn(GridDetalle, "CO05PERCEPCIONPORCENTAJE", "CO05PERCEPCIONPORCENTAJE", 0, "", 70, true, false, false);
+                CreateGridColumn(GridDetalle, "CO05PERCEPCIONIMPORTE", "CO05PERCEPCIONIMPORTE", 0, "", 70, true, false, false);
+                CreateGridColumn(GridDetalle, "CO05PERCEPCIONIMPORTE_EQUI", "CO05PERCEPCIONIMPORTE_EQUI", 0, "", 70, true, false, false);
+                CreateGridColumn(GridDetalle, "CO05AFECTOPERCEPCION", "CO05AFECTOPERCEPCION", 0, "", 70, true, false, false);
+
                 
             }
             catch (Exception ex) {

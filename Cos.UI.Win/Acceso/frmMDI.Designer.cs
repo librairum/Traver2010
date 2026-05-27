@@ -100,9 +100,9 @@
             this.lblPerfil,
             this.radLabelElement2,
             this.lblNomEmpresa});
-            this.radStatusStrip1.Location = new System.Drawing.Point(0, 426);
+            this.radStatusStrip1.Location = new System.Drawing.Point(0, 581);
             this.radStatusStrip1.Name = "radStatusStrip1";
-            this.radStatusStrip1.Size = new System.Drawing.Size(1276, 36);
+            this.radStatusStrip1.Size = new System.Drawing.Size(1445, 27);
             this.radStatusStrip1.SizingGrip = false;
             this.radStatusStrip1.TabIndex = 1;
             this.radStatusStrip1.Text = "radStatusStrip1";
@@ -115,6 +115,7 @@
             this.radLabelElement1.AccessibleDescription = "Usuario:";
             this.radLabelElement1.AccessibleName = "Usuario:";
             this.radLabelElement1.Name = "radLabelElement1";
+            this.radStatusStrip1.SetSpring(this.radLabelElement1, false);
             this.radLabelElement1.Text = "Usuario:";
             this.radLabelElement1.TextWrap = true;
             // 
@@ -123,6 +124,7 @@
             this.lblUsuario.AccessibleDescription = "radLabelElement2";
             this.lblUsuario.AccessibleName = "radLabelElement2";
             this.lblUsuario.Name = "lblUsuario";
+            this.radStatusStrip1.SetSpring(this.lblUsuario, false);
             this.lblUsuario.Text = "radLabelElement2";
             this.lblUsuario.TextWrap = true;
             // 
@@ -131,6 +133,7 @@
             this.commandBarSeparator1.AccessibleDescription = "commandBarSeparator1";
             this.commandBarSeparator1.AccessibleName = "commandBarSeparator1";
             this.commandBarSeparator1.Name = "commandBarSeparator1";
+            this.radStatusStrip1.SetSpring(this.commandBarSeparator1, false);
             this.commandBarSeparator1.VisibleInOverflowMenu = false;
             // 
             // radLabelElement3
@@ -138,6 +141,7 @@
             this.radLabelElement3.AccessibleDescription = "Perfil:";
             this.radLabelElement3.AccessibleName = "Perfil:";
             this.radLabelElement3.Name = "radLabelElement3";
+            this.radStatusStrip1.SetSpring(this.radLabelElement3, false);
             this.radLabelElement3.Text = "Perfil:";
             this.radLabelElement3.TextWrap = true;
             // 
@@ -146,6 +150,7 @@
             this.lblPerfil.AccessibleDescription = "radLabelElement4";
             this.lblPerfil.AccessibleName = "radLabelElement4";
             this.lblPerfil.Name = "lblPerfil";
+            this.radStatusStrip1.SetSpring(this.lblPerfil, false);
             this.lblPerfil.Text = "radLabelElement4";
             this.lblPerfil.TextWrap = true;
             // 
@@ -156,6 +161,7 @@
             this.radLabelElement2.Alignment = System.Drawing.ContentAlignment.BottomRight;
             this.radLabelElement2.Name = "radLabelElement2";
             this.radLabelElement2.RightToLeft = false;
+            this.radStatusStrip1.SetSpring(this.radLabelElement2, false);
             this.radLabelElement2.Text = "Empresa";
             this.radLabelElement2.TextWrap = true;
             // 
@@ -164,6 +170,7 @@
             this.lblNomEmpresa.AccessibleDescription = "radLabelElement4";
             this.lblNomEmpresa.AccessibleName = "radLabelElement4";
             this.lblNomEmpresa.Name = "lblNomEmpresa";
+            this.radStatusStrip1.SetSpring(this.lblNomEmpresa, false);
             this.lblNomEmpresa.Text = "radLabelElement4";
             this.lblNomEmpresa.TextWrap = true;
             // 
@@ -174,7 +181,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 120);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1276, 306);
+            this.panel1.Size = new System.Drawing.Size(1445, 461);
             this.panel1.TabIndex = 2;
             // 
             // radDock1
@@ -191,7 +198,7 @@
             // 
             // 
             this.radDock1.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.radDock1.Size = new System.Drawing.Size(1274, 304);
+            this.radDock1.Size = new System.Drawing.Size(1443, 459);
             this.radDock1.SplitterWidth = 2;
             this.radDock1.TabIndex = 0;
             this.radDock1.TabStop = false;
@@ -431,7 +438,7 @@
             this.radRibbonBar1.RootElement.MinSize = new System.Drawing.Size(0, 120);
             this.radRibbonBar1.RootElement.ChildrenChanged += new Telerik.WinControls.ChildrenChangedEventHandler(this.radRibbonBar1_RootElement_ChildrenChanged);
             this.radRibbonBar1.ShowExpandButton = false;
-            this.radRibbonBar1.Size = new System.Drawing.Size(1276, 120);
+            this.radRibbonBar1.Size = new System.Drawing.Size(1445, 120);
             this.radRibbonBar1.StartButtonImage = ((System.Drawing.Image)(resources.GetObject("radRibbonBar1.StartButtonImage")));
             this.radRibbonBar1.StartMenuRightColumnItems.AddRange(new Telerik.WinControls.RadItem[] {
             this.radMenuItem1});
@@ -450,7 +457,7 @@
             this.radLabel3.BackColor = System.Drawing.Color.White;
             this.radLabel3.Location = new System.Drawing.Point(968, 95);
             this.radLabel3.Name = "radLabel3";
-            this.radLabel3.Size = new System.Drawing.Size(127, 26);
+            this.radLabel3.Size = new System.Drawing.Size(85, 18);
             this.radLabel3.TabIndex = 5;
             this.radLabel3.Text = "Lote de costeo :";
             // 
@@ -459,7 +466,7 @@
             this.cboLoteCosto.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
             this.cboLoteCosto.Location = new System.Drawing.Point(1054, 95);
             this.cboLoteCosto.Name = "cboLoteCosto";
-            this.cboLoteCosto.Size = new System.Drawing.Size(209, 27);
+            this.cboLoteCosto.Size = new System.Drawing.Size(209, 20);
             this.cboLoteCosto.TabIndex = 4;
             this.cboLoteCosto.SelectedIndexChanging += new Telerik.WinControls.UI.Data.PositionChangingEventHandler(this.cboLoteCosto_SelectedIndexChanging);
             this.cboLoteCosto.SelectedValueChanged += new System.EventHandler(this.cboLoteCosto_SelectedValueChanged);
@@ -470,7 +477,7 @@
             this.radLabel2.BackColor = System.Drawing.Color.White;
             this.radLabel2.Location = new System.Drawing.Point(1010, 60);
             this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(56, 26);
+            this.radLabel2.Size = new System.Drawing.Size(38, 18);
             this.radLabel2.TabIndex = 3;
             this.radLabel2.Text = "Linea :";
             // 
@@ -479,7 +486,7 @@
             this.radLabel1.BackColor = System.Drawing.Color.White;
             this.radLabel1.Location = new System.Drawing.Point(839, 58);
             this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(75, 26);
+            this.radLabel1.Size = new System.Drawing.Size(51, 18);
             this.radLabel1.TabIndex = 2;
             this.radLabel1.Text = "Periodo :";
             // 
@@ -488,7 +495,7 @@
             this.cboLinea.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
             this.cboLinea.Location = new System.Drawing.Point(1054, 60);
             this.cboLinea.Name = "cboLinea";
-            this.cboLinea.Size = new System.Drawing.Size(209, 27);
+            this.cboLinea.Size = new System.Drawing.Size(209, 20);
             this.cboLinea.TabIndex = 1;
             this.cboLinea.SelectedValueChanged += new System.EventHandler(this.cboLinea_SelectedValueChanged);
             // 
@@ -501,7 +508,7 @@
             // 
             // 
             this.cboperiodos.RootElement.Margin = new System.Windows.Forms.Padding(0);
-            this.cboperiodos.Size = new System.Drawing.Size(108, 27);
+            this.cboperiodos.Size = new System.Drawing.Size(108, 20);
             this.cboperiodos.TabIndex = 0;
             this.cboperiodos.SelectedIndexChanging += new Telerik.WinControls.UI.Data.PositionChangingEventHandler(this.cboperiodos_SelectedIndexChanging);
             this.cboperiodos.SelectedValueChanged += new System.EventHandler(this.cboperiodos_SelectedValueChanged);
@@ -524,9 +531,9 @@
             // 
             // frmMDI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1276, 462);
+            this.ClientSize = new System.Drawing.Size(1445, 608);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.radStatusStrip1);
             this.Controls.Add(this.radRibbonBar1);

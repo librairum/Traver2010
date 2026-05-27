@@ -178,5 +178,22 @@ namespace Inv.BusinessEntities
 
         [MapField("CO05DOCMODFECHA")]
         public Nullable<DateTime> DocModFecha { get; set; }
+
+        //Percepcion
+        [MapField("CO05PERCEPCIONTIPOPERACION")]
+        public string CO05PERCEPCIONTIPOPERACION  {get;set;}
+        [MapField("CO05PERCEPCIONTIPOSERVICIO")]
+        public string CO05PERCEPCIONTIPOSERVICIO {get;set;}
+        [MapField("CO05PERCEPCIONPORCENTAJE")]
+        public double CO05PERCEPCIONPORCENTAJE {get;set;}
+        [MapField("CO05PERCEPCIONIMPORTE")]
+        public double CO05PERCEPCIONIMPORTE {get;set;}
+        [MapField("CO05PERCEPCIONIMPORTE_EQUI")]
+        public double CO05PERCEPCIONIMPORTE_EQUI { get; set; }
+        [MapField("CO05AFECTOPERCEPCION")]
+        public string afectoPercepcion { get; set; }
+
+
+
     }
 }

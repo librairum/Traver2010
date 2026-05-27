@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProvFacturaDetOC));
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.gpxCtaCte = new Telerik.WinControls.UI.RadGroupBox();
             this.lblNombreProvee = new Telerik.WinControls.UI.RadLabel();
             this.rpIzquierda = new Telerik.WinControls.UI.RadPanel();
@@ -96,6 +96,7 @@
             this.txtTipoDocumento = new Telerik.WinControls.UI.RadTextBox();
             this.dtpFechaDocumento = new Telerik.WinControls.UI.RadDateTimePicker();
             this.txtnrodocumento = new Telerik.WinControls.UI.RadTextBox();
+            this.chkAfectoPercepcion = new Telerik.WinControls.UI.RadCheckBox();
             this.gpxDetraccion = new Telerik.WinControls.UI.RadGroupBox();
             this.txtimportedetraccion_equi = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel36 = new Telerik.WinControls.UI.RadLabel();
@@ -138,6 +139,17 @@
             this.radLabel14 = new Telerik.WinControls.UI.RadLabel();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.gpxDerecha2 = new Telerik.WinControls.UI.RadGroupBox();
+            this.gpxpercepcion = new Telerik.WinControls.UI.RadGroupBox();
+            this.txtimportepercepcion_equi = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel11 = new Telerik.WinControls.UI.RadLabel();
+            this.txtimportepercepcion = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel38 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel39 = new Telerik.WinControls.UI.RadLabel();
+            this.txtpercepcionporcentaje = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel40 = new Telerik.WinControls.UI.RadLabel();
+            this.txttipopercepciondesc = new Telerik.WinControls.UI.RadTextBox();
+            this.txttipopercepcion = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel42 = new Telerik.WinControls.UI.RadLabel();
             this.grdiCtaCte = new Telerik.WinControls.UI.RadGridView();
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gpxCtaCte)).BeginInit();
@@ -208,6 +220,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTipoDocumento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFechaDocumento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtnrodocumento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAfectoPercepcion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gpxDetraccion)).BeginInit();
             this.gpxDetraccion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtimportedetraccion_equi)).BeginInit();
@@ -255,6 +268,18 @@
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gpxDerecha2)).BeginInit();
             this.gpxDerecha2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gpxpercepcion)).BeginInit();
+            this.gpxpercepcion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtimportepercepcion_equi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtimportepercepcion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtpercepcionporcentaje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel40)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txttipopercepciondesc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txttipopercepcion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdiCtaCte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdiCtaCte.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -306,7 +331,7 @@
             // radCommandBar1
             // 
             this.radCommandBar1.Margin = new System.Windows.Forms.Padding(3);
-            this.radCommandBar1.Size = new System.Drawing.Size(847, 33);
+            this.radCommandBar1.Size = new System.Drawing.Size(828, 33);
             this.radCommandBar1.TabIndex = 0;
             // 
             // commandBarRowElement1
@@ -315,7 +340,7 @@
             this.commandBarRowElement1.BorderColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.commandBarRowElement1.BorderColor3 = System.Drawing.Color.White;
             this.commandBarRowElement1.BorderColor4 = System.Drawing.Color.White;
-            this.commandBarRowElement1.Bounds = new System.Drawing.Rectangle(0, 0, 845, 30);
+            this.commandBarRowElement1.Bounds = new System.Drawing.Rectangle(0, 0, 826, 30);
             this.commandBarRowElement1.DrawText = false;
             this.commandBarRowElement1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.commandBarRowElement1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
@@ -331,7 +356,7 @@
             this.gpxCtaCte.HeaderText = "";
             this.gpxCtaCte.Location = new System.Drawing.Point(0, 33);
             this.gpxCtaCte.Name = "gpxCtaCte";
-            this.gpxCtaCte.Size = new System.Drawing.Size(525, 458);
+            this.gpxCtaCte.Size = new System.Drawing.Size(525, 637);
             this.gpxCtaCte.TabIndex = 1;
             // 
             // lblNombreProvee
@@ -388,18 +413,20 @@
             this.rpIzquierda3.Controls.Add(this.txtTipoDocumento);
             this.rpIzquierda3.Controls.Add(this.dtpFechaDocumento);
             this.rpIzquierda3.Controls.Add(this.txtnrodocumento);
+            this.rpIzquierda3.Controls.Add(this.chkAfectoPercepcion);
             this.rpIzquierda3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rpIzquierda3.Location = new System.Drawing.Point(0, 0);
             this.rpIzquierda3.Name = "rpIzquierda3";
             this.rpIzquierda3.Size = new System.Drawing.Size(521, 486);
             this.rpIzquierda3.TabIndex = 0;
+            this.rpIzquierda3.Paint += new System.Windows.Forms.PaintEventHandler(this.rpIzquierda3_Paint);
             // 
             // gpxFlotante
             // 
             this.gpxFlotante.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
             this.gpxFlotante.Controls.Add(this.gridSugerencia);
             this.gpxFlotante.HeaderText = "Articulos Registrado";
-            this.gpxFlotante.Location = new System.Drawing.Point(239, 104);
+            this.gpxFlotante.Location = new System.Drawing.Point(239, 23);
             this.gpxFlotante.Name = "gpxFlotante";
             this.gpxFlotante.Size = new System.Drawing.Size(279, 71);
             this.gpxFlotante.TabIndex = 234;
@@ -414,11 +441,11 @@
             // 
             // 
             // 
-            gridViewTextBoxColumn1.HeaderText = "column1";
-            gridViewTextBoxColumn1.Name = "column1";
+            gridViewTextBoxColumn3.HeaderText = "column1";
+            gridViewTextBoxColumn3.Name = "column1";
             this.gridSugerencia.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1});
-            this.gridSugerencia.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            gridViewTextBoxColumn3});
+            this.gridSugerencia.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.gridSugerencia.Name = "gridSugerencia";
             this.gridSugerencia.Size = new System.Drawing.Size(275, 51);
             this.gridSugerencia.TabIndex = 224;
@@ -573,6 +600,7 @@
             this.chkAfectoDetraccion.Tag = "0";
             this.chkAfectoDetraccion.Text = "Afecto Detraccion";
             this.chkAfectoDetraccion.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.chkAfectoDetraccion.ToggleStateChanging += new Telerik.WinControls.UI.StateChangingEventHandler(this.chkAfectoDetraccion_ToggleStateChanging);
             this.chkAfectoDetraccion.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.radCheckBox1_ToggleStateChanged);
             // 
             // radPanel2
@@ -903,7 +931,6 @@
             this.dtpFechaPago.Name = "dtpFechaPago";
             this.dtpFechaPago.Size = new System.Drawing.Size(80, 20);
             this.dtpFechaPago.TabIndex = 5;
-            this.dtpFechaPago.TabStop = false;
             this.dtpFechaPago.Text = "01/03/2013";
             this.dtpFechaPago.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             // 
@@ -939,7 +966,6 @@
             this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
             this.dtpFechaVencimiento.Size = new System.Drawing.Size(80, 20);
             this.dtpFechaVencimiento.TabIndex = 4;
-            this.dtpFechaVencimiento.TabStop = false;
             this.dtpFechaVencimiento.Text = "01/03/2013";
             this.dtpFechaVencimiento.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             // 
@@ -977,7 +1003,6 @@
             this.dtpFechaDocumento.Name = "dtpFechaDocumento";
             this.dtpFechaDocumento.Size = new System.Drawing.Size(80, 20);
             this.dtpFechaDocumento.TabIndex = 3;
-            this.dtpFechaDocumento.TabStop = false;
             this.dtpFechaDocumento.Text = "01/03/2013";
             this.dtpFechaDocumento.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             this.dtpFechaDocumento.ValueChanged += new System.EventHandler(this.dtpFechaDocumento_ValueChanged);
@@ -992,6 +1017,19 @@
             this.txtnrodocumento.Size = new System.Drawing.Size(118, 23);
             this.txtnrodocumento.TabIndex = 2;
             this.txtnrodocumento.Leave += new System.EventHandler(this.txtnrodocumento_Leave);
+            // 
+            // chkAfectoPercepcion
+            // 
+            this.chkAfectoPercepcion.Location = new System.Drawing.Point(400, 141);
+            this.chkAfectoPercepcion.Name = "chkAfectoPercepcion";
+            this.chkAfectoPercepcion.Size = new System.Drawing.Size(111, 18);
+            this.chkAfectoPercepcion.TabIndex = 235;
+            this.chkAfectoPercepcion.TabStop = false;
+            this.chkAfectoPercepcion.Tag = "0";
+            this.chkAfectoPercepcion.Text = "Afecto Percepcion";
+            this.chkAfectoPercepcion.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.chkAfectoPercepcion.ToggleStateChanging += new Telerik.WinControls.UI.StateChangingEventHandler(this.chkAfectoPercepcion_ToggleStateChanging);
+            this.chkAfectoPercepcion.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.chkAfectoPercepcion_ToggleStateChanged);
             // 
             // gpxDetraccion
             // 
@@ -1010,9 +1048,9 @@
             this.gpxDetraccion.Controls.Add(this.txttipooperacion);
             this.gpxDetraccion.Controls.Add(this.radLabel31);
             this.gpxDetraccion.HeaderText = "Datos de detraccion";
-            this.gpxDetraccion.Location = new System.Drawing.Point(6, 264);
+            this.gpxDetraccion.Location = new System.Drawing.Point(6, 258);
             this.gpxDetraccion.Name = "gpxDetraccion";
-            this.gpxDetraccion.Size = new System.Drawing.Size(278, 142);
+            this.gpxDetraccion.Size = new System.Drawing.Size(278, 123);
             this.gpxDetraccion.TabIndex = 2;
             this.gpxDetraccion.Text = "Datos de detraccion";
             // 
@@ -1149,7 +1187,7 @@
             this.gpxInventario.Controls.Add(this.txtTipDocRespInventario);
             this.gpxInventario.Controls.Add(this.radLabel17);
             this.gpxInventario.HeaderText = "Inventarios";
-            this.gpxInventario.Location = new System.Drawing.Point(6, 109);
+            this.gpxInventario.Location = new System.Drawing.Point(6, 108);
             this.gpxInventario.Name = "gpxInventario";
             this.gpxInventario.Size = new System.Drawing.Size(278, 146);
             this.gpxInventario.TabIndex = 1;
@@ -1417,12 +1455,13 @@
             this.radPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel1.Location = new System.Drawing.Point(525, 33);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(322, 458);
+            this.radPanel1.Size = new System.Drawing.Size(303, 637);
             this.radPanel1.TabIndex = 1;
             // 
             // gpxDerecha2
             // 
             this.gpxDerecha2.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.gpxDerecha2.Controls.Add(this.gpxpercepcion);
             this.gpxDerecha2.Controls.Add(this.gpxInventario);
             this.gpxDerecha2.Controls.Add(this.gpxDetraccion);
             this.gpxDerecha2.Controls.Add(this.grdiCtaCte);
@@ -1431,20 +1470,128 @@
             this.gpxDerecha2.HeaderText = "";
             this.gpxDerecha2.Location = new System.Drawing.Point(0, 0);
             this.gpxDerecha2.Name = "gpxDerecha2";
-            this.gpxDerecha2.Size = new System.Drawing.Size(322, 458);
+            this.gpxDerecha2.Size = new System.Drawing.Size(303, 637);
             this.gpxDerecha2.TabIndex = 0;
+            // 
+            // gpxpercepcion
+            // 
+            this.gpxpercepcion.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.gpxpercepcion.Controls.Add(this.txtimportepercepcion_equi);
+            this.gpxpercepcion.Controls.Add(this.radLabel11);
+            this.gpxpercepcion.Controls.Add(this.txtimportepercepcion);
+            this.gpxpercepcion.Controls.Add(this.radLabel38);
+            this.gpxpercepcion.Controls.Add(this.radLabel39);
+            this.gpxpercepcion.Controls.Add(this.txtpercepcionporcentaje);
+            this.gpxpercepcion.Controls.Add(this.radLabel40);
+            this.gpxpercepcion.Controls.Add(this.txttipopercepciondesc);
+            this.gpxpercepcion.Controls.Add(this.txttipopercepcion);
+            this.gpxpercepcion.Controls.Add(this.radLabel42);
+            this.gpxpercepcion.HeaderText = "Datos de percepcion";
+            this.gpxpercepcion.Location = new System.Drawing.Point(6, 385);
+            this.gpxpercepcion.Name = "gpxpercepcion";
+            this.gpxpercepcion.Size = new System.Drawing.Size(278, 98);
+            this.gpxpercepcion.TabIndex = 76;
+            this.gpxpercepcion.Text = "Datos de percepcion";
+            // 
+            // txtimportepercepcion_equi
+            // 
+            this.txtimportepercepcion_equi.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtimportepercepcion_equi.Location = new System.Drawing.Point(198, 69);
+            this.txtimportepercepcion_equi.Name = "txtimportepercepcion_equi";
+            this.txtimportepercepcion_equi.Size = new System.Drawing.Size(50, 23);
+            this.txtimportepercepcion_equi.TabIndex = 12;
+            // 
+            // radLabel11
+            // 
+            this.radLabel11.Location = new System.Drawing.Point(163, 73);
+            this.radLabel11.Name = "radLabel11";
+            this.radLabel11.Size = new System.Drawing.Size(29, 18);
+            this.radLabel11.TabIndex = 11;
+            this.radLabel11.Text = "US$:";
+            // 
+            // txtimportepercepcion
+            // 
+            this.txtimportepercepcion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtimportepercepcion.Location = new System.Drawing.Point(94, 71);
+            this.txtimportepercepcion.Name = "txtimportepercepcion";
+            this.txtimportepercepcion.Size = new System.Drawing.Size(63, 23);
+            this.txtimportepercepcion.TabIndex = 3;
+            // 
+            // radLabel38
+            // 
+            this.radLabel38.Location = new System.Drawing.Point(66, 72);
+            this.radLabel38.Name = "radLabel38";
+            this.radLabel38.Size = new System.Drawing.Size(22, 18);
+            this.radLabel38.TabIndex = 9;
+            this.radLabel38.Text = " S/.";
+            // 
+            // radLabel39
+            // 
+            this.radLabel39.Location = new System.Drawing.Point(161, 72);
+            this.radLabel39.Name = "radLabel39";
+            this.radLabel39.Size = new System.Drawing.Size(15, 18);
+            this.radLabel39.TabIndex = 8;
+            this.radLabel39.Text = "%";
+            // 
+            // txtpercepcionporcentaje
+            // 
+            this.txtpercepcionporcentaje.Enabled = false;
+            this.txtpercepcionporcentaje.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpercepcionporcentaje.Location = new System.Drawing.Point(94, 47);
+            this.txtpercepcionporcentaje.Name = "txtpercepcionporcentaje";
+            this.txtpercepcionporcentaje.Size = new System.Drawing.Size(61, 23);
+            this.txtpercepcionporcentaje.TabIndex = 2;
+            this.txtpercepcionporcentaje.TextChanged += new System.EventHandler(this.txtpercepcionporcentaje_TextChanged);
+            this.txtpercepcionporcentaje.Leave += new System.EventHandler(this.txtpercepcionporcentaje_Leave);
+            // 
+            // radLabel40
+            // 
+            this.radLabel40.Location = new System.Drawing.Point(26, 49);
+            this.radLabel40.Name = "radLabel40";
+            this.radLabel40.Size = new System.Drawing.Size(64, 18);
+            this.radLabel40.TabIndex = 6;
+            this.radLabel40.Text = "Porcentaje :";
+            // 
+            // txttipopercepciondesc
+            // 
+            this.txttipopercepciondesc.Enabled = false;
+            this.txttipopercepciondesc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttipopercepciondesc.Location = new System.Drawing.Point(130, 22);
+            this.txttipopercepciondesc.Name = "txttipopercepciondesc";
+            this.txttipopercepciondesc.Size = new System.Drawing.Size(120, 23);
+            this.txttipopercepciondesc.TabIndex = 2;
+            this.txttipopercepciondesc.TabStop = false;
+            // 
+            // txttipopercepcion
+            // 
+            this.txttipopercepcion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttipopercepcion.Location = new System.Drawing.Point(94, 22);
+            this.txttipopercepcion.Name = "txttipopercepcion";
+            this.txttipopercepcion.Size = new System.Drawing.Size(30, 23);
+            this.txttipopercepcion.TabIndex = 0;
+            this.txttipopercepcion.TextChanged += new System.EventHandler(this.txttipopercepcion_TextChanged);
+            this.txttipopercepcion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txttipopercepcion_KeyDown);
+            this.txttipopercepcion.Leave += new System.EventHandler(this.txttipopercepcion_Leave);
+            // 
+            // radLabel42
+            // 
+            this.radLabel42.Location = new System.Drawing.Point(6, 24);
+            this.radLabel42.Name = "radLabel42";
+            this.radLabel42.Size = new System.Drawing.Size(84, 18);
+            this.radLabel42.TabIndex = 0;
+            this.radLabel42.Text = "Tipo operacion:";
             // 
             // grdiCtaCte
             // 
-            this.grdiCtaCte.Location = new System.Drawing.Point(3, 410);
+            this.grdiCtaCte.Location = new System.Drawing.Point(3, 569);
             // 
             // 
             // 
-            gridViewTextBoxColumn2.HeaderText = "column1";
-            gridViewTextBoxColumn2.Name = "column1";
+            gridViewTextBoxColumn4.HeaderText = "column1";
+            gridViewTextBoxColumn4.Name = "column1";
             this.grdiCtaCte.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn2});
-            this.grdiCtaCte.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            gridViewTextBoxColumn4});
+            this.grdiCtaCte.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.grdiCtaCte.Name = "grdiCtaCte";
             this.grdiCtaCte.Size = new System.Drawing.Size(281, 100);
             this.grdiCtaCte.TabIndex = 75;
@@ -1456,7 +1603,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 491);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(828, 670);
             this.Controls.Add(this.radPanel1);
             this.Controls.Add(this.gpxCtaCte);
             this.Margin = new System.Windows.Forms.Padding(3);
@@ -1544,6 +1692,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTipoDocumento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFechaDocumento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtnrodocumento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAfectoPercepcion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gpxDetraccion)).EndInit();
             this.gpxDetraccion.ResumeLayout(false);
             this.gpxDetraccion.PerformLayout();
@@ -1594,6 +1743,19 @@
             this.radPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gpxDerecha2)).EndInit();
             this.gpxDerecha2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gpxpercepcion)).EndInit();
+            this.gpxpercepcion.ResumeLayout(false);
+            this.gpxpercepcion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtimportepercepcion_equi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtimportepercepcion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtpercepcionporcentaje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel40)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txttipopercepciondesc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txttipopercepcion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel42)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdiCtaCte.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdiCtaCte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -1710,5 +1872,17 @@
         private Telerik.WinControls.UI.RadGroupBox gpxFlotante;
         internal Telerik.WinControls.UI.RadGridView gridSugerencia;
         private Telerik.WinControls.UI.RadLabel lblNombreProvee;
+        private Telerik.WinControls.UI.RadGroupBox gpxpercepcion;
+        private Telerik.WinControls.UI.RadTextBox txtimportepercepcion_equi;
+        private Telerik.WinControls.UI.RadLabel radLabel11;
+        private Telerik.WinControls.UI.RadTextBox txtimportepercepcion;
+        private Telerik.WinControls.UI.RadLabel radLabel38;
+        private Telerik.WinControls.UI.RadLabel radLabel39;
+        private Telerik.WinControls.UI.RadTextBox txtpercepcionporcentaje;
+        private Telerik.WinControls.UI.RadLabel radLabel40;
+        private Telerik.WinControls.UI.RadTextBox txttipopercepciondesc;
+        private Telerik.WinControls.UI.RadTextBox txttipopercepcion;
+        private Telerik.WinControls.UI.RadLabel radLabel42;
+        protected internal Telerik.WinControls.UI.RadCheckBox chkAfectoPercepcion;
     }
 }

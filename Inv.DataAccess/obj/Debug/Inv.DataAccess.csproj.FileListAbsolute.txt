@@ -239,6 +239,6 @@ D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.DataAccess\bin\Debug\In
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.DataAccess\bin\Debug\BLToolkit.4.dll
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.DataAccess\bin\Debug\Inv.BusinessEntities.dll
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.DataAccess\bin\Debug\Inv.BusinessEntities.pdb
-D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.DataAccess\obj\Debug\Inv.DataAccess.csprojResolveAssemblyReference.cache
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.DataAccess\obj\Debug\Inv.DataAccess.dll
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.DataAccess\obj\Debug\Inv.DataAccess.pdb
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.DataAccess\obj\Debug\Inv.DataAccess.csprojResolveAssemblyReference.cache

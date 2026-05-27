@@ -545,6 +545,7 @@ namespace Fac.UI.Win
                     txttipoventa.Text = Util.GetCurrentCellText(row, "FAC04CODTIPOVENTA");
                     
                     ActivarDesactivarTab(txttipoventa.Text.Trim());
+                    
 
                     //====================================== 'DATOS DE EXPORTACION =========================================
                     // Condiciones de Embarque

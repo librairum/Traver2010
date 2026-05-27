@@ -1678,7 +1678,7 @@ out  @cMsgRetorno );
 
         #endregion
         #region "validacion factura"
-
+        //metodo para validar si el documento debe aplicar solo de retencion o detracion
         public bool validarRegimenRecaudacion(DocumentoFA documentoFactura, 
             out string mensaje) {
                 bool estado = false;
@@ -1699,6 +1699,7 @@ out  @cMsgRetorno );
             }
             return estado;
         }
+        // otbener el valor de retencion del sistema de ventas
         public void obtenerValorRetencionDefecto(out string flagRetencion, out string tasaRetencion)
         {
             tasaRetencion ="";

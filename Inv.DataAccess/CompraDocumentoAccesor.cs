@@ -38,7 +38,7 @@ namespace Inv.DataAccess
         [SprocName("Spu_Com_Trae_Orden_Compra")]
         public abstract List<DodcumentoOrdenCompra> Spu_Com_Trae_Orden_Compra(string @cCodemp, string @cAno,  
         string @cMes ,   string @cTipAna , string @cTipOrden );
-
+        
         [SprocName("Spu_Com_Dame_Nro_Orden")]
         public abstract void Spu_Com_Dame_Nro_Orden(string @cCodemp, string @Anio, string @cTipo, out string @cNroOrden);
 

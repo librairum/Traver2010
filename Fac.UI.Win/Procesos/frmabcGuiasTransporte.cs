@@ -7670,6 +7670,14 @@ namespace Fac.UI.Win
             //ARMAR EL NOMBRE DE LA GUIA
             string Guia = Logueo.RucEmpresa + "-" + guia_tipo + "-" + guia_serie + "-" + guia_numero;
 
+            //if (contenedor='' And   nrobultos=0) : ingrse : exit
+            string totalBultosPallet = dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString();
+            string numeroContenedor = dt.Rows[0]["Shipment_TransportHandlingUnit_Package_ID__"].ToString();
+            if (totalBultosPallet.Equals("") && numeroContenedor.Equals(""))
+            {
+                Util.ShowAlert("Debe ingresar numero de cajas o numero de contenedor");
+                return;
+            }
             try
             {
 
@@ -8064,12 +8072,31 @@ namespace Fac.UI.Win
                 shipment.GrossWeightMeasure.Add(gross);
 
                 //AGREGADO 13.5 TotalTransportHandlingUnitQuantity
-                shipment.TotalTransportHandlingUnitQuantity = new List<TotalTransportHandlingUnitQuantity>();
-                TotalTransportHandlingUnitQuantity totaltransport = new TotalTransportHandlingUnitQuantity();
-                totaltransport._ = dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString();
+                #region "codigo antiguo"
+                
+                //shipment.TotalTransportHandlingUnitQuantity = new List<TotalTransportHandlingUnitQuantity>();
+                //TotalTransportHandlingUnitQuantity totaltransport = new TotalTransportHandlingUnitQuantity();
+                //totaltransport._ = dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString();
+                //shipment.TotalTransportHandlingUnitQuantity.Add(totaltransport);
+                #endregion
+                 //numero de bultos y pallet
+                //shipment.TotalTransportHandlingUnitQuantity.Add(totaltransport);
 
-                shipment.TotalTransportHandlingUnitQuantity.Add(totaltransport);
 
+                //si numero de contenedor es vacio
+                if (dt.Rows[0]["Shipment_TransportHandlingUnit_Package_ID__"].ToString().Equals("")
+                    && !dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString().Equals(""))
+                {
+                    // si numero de contenedor es vacio y total bultos o pallets diferente de vacio , 
+                    //entonces agregar a json el total de bultos o pallets a json
+                    shipment.TotalTransportHandlingUnitQuantity = new List<TotalTransportHandlingUnitQuantity>();
+                    TotalTransportHandlingUnitQuantity totaltransport = new TotalTransportHandlingUnitQuantity();
+                    totaltransport._ = dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString();
+                    shipment.TotalTransportHandlingUnitQuantity.Add(totaltransport);
+
+                }
+              
+                
                 // 13.6 SpecialInstructions
                 shipment.SpecialInstructions = new List<SpecialInstructions>();
 
@@ -8518,11 +8545,22 @@ namespace Fac.UI.Win
                 Package package = new Package();
                 shipmentTransportHandlingUnit.Package.Add(package);
 
-                package.ID = new List<Package_>();
-                Package_ package_ = new Package_();
-                package_._ = dt.Rows[0]["Shipment_TransportHandlingUnit_Package_ID__"].ToString();
-                package.ID.Add(package_);
-
+                #region "codigo original"
+                //package.ID = new List<Package_>();
+                //Package_ package_ = new Package_();
+                //package_._ = dt.Rows[0]["Shipment_TransportHandlingUnit_Package_ID__"].ToString();
+                //package.ID.Add(package_);
+                #endregion
+                //si  total de bulto o pallet es vacio o cero, entonces agregar numero de contener a json
+                if (dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString().Equals("")
+                    || dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString().Equals("0"))
+                {
+                    package.ID = new List<Package_>();
+                    Package_ package_ = new Package_();
+                    package_._ = dt.Rows[0]["Shipment_TransportHandlingUnit_Package_ID__"].ToString();
+                    package.ID.Add(package_);
+                }
+               
                 package.TraceID = new List<TraceID>();
                 TraceID traceid = new TraceID();
                 traceid._ = dt.Rows[0]["Shipment_TransportHandlingUnit_Package_TraceID_"].ToString();
@@ -9341,7 +9379,16 @@ namespace Fac.UI.Win
             string guia_serie = txtserie.Text;
             //ARMAR EL NOMBRE DE LA GUIA
             string Guia = Logueo.RucEmpresa + "-" + guia_tipo + "-" + guia_serie + "-" + guia_numero;
-
+            //validar para exportacion el valor cantidad de bultos y numero de contenedor
+           
+           
+            string totalBultosPallet = dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString();
+            string numeroContenedor = dt.Rows[0]["Shipment_TransportHandlingUnit_Package_ID__"].ToString();
+            if (totalBultosPallet.Equals("") && numeroContenedor.Equals(""))
+            {
+                Util.ShowAlert("Debe ingresar numero de cajas o numero de contenedor");
+                return;
+            }
             try
             {
 
@@ -9727,11 +9774,21 @@ namespace Fac.UI.Win
                 gross.unitCode = dt.Rows[0]["Shipment_GrossWeightMeasure_unitCode"].ToString();
                 shipment.GrossWeightMeasure.Add(gross);
 
-                shipment.TotalTransportHandlingUnitQuantity = new List<TotalTransportHandlingUnitQuantity>();
-                TotalTransportHandlingUnitQuantity totaltransport = new TotalTransportHandlingUnitQuantity();
-                totaltransport._ = dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString();
+                //AGREGADO 13.5 TotalTransportHandlingUnitQuantity
+                // numero de bultos y pallet
+                if (dt.Rows[0]["Shipment_TransportHandlingUnit_Package_ID__"].ToString().Equals("") &&
+                        !dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString().Equals(""))
+                {
+                    // si numero de contenedor es vacio y total bultos o pallets diferente de vacio , entonces agregar a json
+                    shipment.TotalTransportHandlingUnitQuantity = new List<TotalTransportHandlingUnitQuantity>();
+                    TotalTransportHandlingUnitQuantity totaltransport = new TotalTransportHandlingUnitQuantity();
+                    totaltransport._ = dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString();
+                    shipment.TotalTransportHandlingUnitQuantity.Add(totaltransport);
 
-                shipment.TotalTransportHandlingUnitQuantity.Add(totaltransport);
+                }
+                
+
+                
 
                 // 13.6 SpecialInstructions
                 shipment.SpecialInstructions = new List<SpecialInstructions>();
@@ -10148,12 +10205,20 @@ namespace Fac.UI.Win
                 transporthand.Package = new List<Package>();
                 Package package = new Package();
                 transporthand.Package.Add(package);
-
-                package.ID = new List<Package_>();
-                Package_ package_ = new Package_();
-                package_._ = dt.Rows[0]["Shipment_TransportHandlingUnit_Package_ID__"].ToString();
-                package.ID.Add(package_);
-
+                #region "codigo original"
+                //package.ID = new List<Package_>();
+                //Package_ package_ = new Package_();
+                //package_._ = dt.Rows[0]["Shipment_TransportHandlingUnit_Package_ID__"].ToString();
+                //package.ID.Add(package_);
+                #endregion
+                if (!dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString().Equals("")
+                    || dt.Rows[0]["Shipment_TotalTransportHandlingUnitQuantity__"].ToString().Equals("0"))
+                {
+                    package.ID = new List<Package_>();
+                    Package_ package_ = new Package_();
+                    package_._ = dt.Rows[0]["Shipment_TransportHandlingUnit_Package_ID__"].ToString();
+                    package.ID.Add(package_);
+                }
                 package.TraceID = new List<TraceID>();
                 TraceID traceid = new TraceID();
                 traceid._ = dt.Rows[0]["Shipment_TransportHandlingUnit_Package_TraceID_"].ToString();
@@ -22656,11 +22721,11 @@ namespace Fac.UI.Win
                     return false;
                 }
 
-                if (txtcontenedor.Text == "")
-                {
-                    Util.ShowAlert("Ingresar contenedor");
-                    return false;
-                }
+                //if (txtcontenedor.Text == "")
+                //{
+                //    Util.ShowAlert("Ingresar contenedor");
+                //    return false;
+                //}
                 if (txtprecinto.Text == "")
                 {
                     Util.ShowAlert("Ingresar precinto");

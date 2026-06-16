@@ -3,4 +3,3 @@ D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\bin\Re
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\bin\Release\BLToolkit.4.dll
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\obj\Release\Inv.BusinessEntities.dll
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\obj\Release\Inv.BusinessEntities.pdb
-D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Inv.BusinessEntities\obj\Release\Inv.BusinessEntities.csprojResolveAssemblyReference.cache

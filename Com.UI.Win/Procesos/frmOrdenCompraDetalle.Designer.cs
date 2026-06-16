@@ -181,6 +181,7 @@
             // 
             // radCommandBar1
             // 
+            this.radCommandBar1.Location = new System.Drawing.Point(0, 257);
             this.radCommandBar1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.radCommandBar1.Size = new System.Drawing.Size(841, 33);
             this.radCommandBar1.Click += new System.EventHandler(this.radCommandBar1_Click);
@@ -763,7 +764,6 @@
             // 
             // radPanel1
             // 
-            this.radPanel1.Controls.Add(this.gpxObservacion);
             this.radPanel1.Controls.Add(this.txtEntregaDesc);
             this.radPanel1.Controls.Add(this.txtEntregaCod);
             this.radPanel1.Controls.Add(this.txtIGVPorcentaje);
@@ -821,8 +821,9 @@
             this.radPanel1.Controls.Add(this.txtProveedorRuc);
             this.radPanel1.Controls.Add(this.radLabel9);
             this.radPanel1.Controls.Add(this.dtpFechaEntrega);
+            this.radPanel1.Controls.Add(this.gpxObservacion);
             this.radPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radPanel1.Location = new System.Drawing.Point(0, 33);
+            this.radPanel1.Location = new System.Drawing.Point(0, 0);
             this.radPanel1.Name = "radPanel1";
             this.radPanel1.Size = new System.Drawing.Size(841, 257);
             this.radPanel1.TabIndex = 0;
@@ -903,8 +904,8 @@
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "Detalle Orden Compra";
             this.Load += new System.EventHandler(this.frmOrdenCompraDetalle_Load);
-            this.Controls.SetChildIndex(this.radCommandBar1, 0);
             this.Controls.SetChildIndex(this.radPanel1, 0);
+            this.Controls.SetChildIndex(this.radCommandBar1, 0);
             this.Controls.SetChildIndex(this.rpBotones, 0);
             this.Controls.SetChildIndex(this.gridControlDetalle, 0);
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).EndInit();

@@ -1,0 +1,636 @@
+{
+  "_D": "urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2",
+  "_A": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+  "_B": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+  "_E": "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2",
+  "DespatchAdvice": [
+    {
+      "UBLVersionID": [
+        {
+          "_": "2.1"
+        }
+      ],
+      "CustomizationID": [
+        {
+          "_": "2.0"
+        }
+      ],
+      "ID": [
+        {
+          "_": "T112-0000468"
+        }
+      ],
+      "IssueDate": [
+        {
+          "_": "2026-06-11"
+        }
+      ],
+      "IssueTime": [
+        {
+          "_": "00:00:00"
+        }
+      ],
+      "DespatchAdviceTypeCode": [
+        {
+          "_": "09"
+        }
+      ],
+      "Note": [
+        {
+          "_": "BOOKING: EBKG17208987 TUCE: 15M24046851E"
+        },
+        {
+          "_": "400/396-10",
+          "languageID": "B"
+        },
+        {
+          "_": "INTERNACIONAL",
+          "languageID": "C"
+        },
+        {
+          "_": "LAM",
+          "languageID": "D"
+        }
+      ],
+      "LineCountNumeric": [
+        {
+          "_": "1"
+        }
+      ],
+      "AdditionalDocumentReference": [
+        {
+          "ID": [
+            {
+              "_": "118-2026-40-54655"
+            }
+          ],
+          "DocumentTypeCode": [
+            {
+              "_": "50"
+            }
+          ],
+          "DocumentType": [
+            {
+              "_": "Declaración Aduanera de Mercancías"
+            }
+          ]
+        }
+      ],
+      "Signature": [
+        {
+          "ID": [
+            {
+              "_": "IDSignature"
+            }
+          ],
+          "SignatoryParty": [
+            {
+              "PartyIdentification": [
+                {
+                  "ID": [
+                    {
+                      "_": "20420310383"
+                    }
+                  ]
+                }
+              ],
+              "PartyName": [
+                {
+                  "Name": [
+                    {
+                      "_": "MINERA DEISI S.A.C"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "DigitalSignatureAttachment": [
+            {
+              "ExternalReference": [
+                {
+                  "URI": [
+                    {
+                      "_": "IDSignature"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DespatchSupplierParty": [
+        {
+          "Party": [
+            {
+              "PartyIdentification": [
+                {
+                  "ID": [
+                    {
+                      "_": "20420310383",
+                      "schemeID": "6"
+                    }
+                  ]
+                }
+              ],
+              "PostalAddress": [
+                {
+                  "ID": [
+                    {
+                      "_": "150131"
+                    }
+                  ],
+                  "StreetName": [
+                    {
+                      "_": "AV JOSE GALVEZ BARRENECHEA 592 OF. 301 SAN ISIDRO"
+                    }
+                  ],
+                  "CityName": [
+                    {
+                      "_": "LIMA"
+                    }
+                  ],
+                  "CountrySubentity": [
+                    {
+                      "_": "LIMA"
+                    }
+                  ],
+                  "District": [
+                    {
+                      "_": "SAN ISIDRO"
+                    }
+                  ],
+                  "Country": [
+                    {
+                      "IdentificationCode": [
+                        {
+                          "_": "PE"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "PartyLegalEntity": [
+                {
+                  "RegistrationName": [
+                    {
+                      "_": "MINERA DEISI S.A.C"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DeliveryCustomerParty": [
+        {
+          "Party": [
+            {
+              "PartyIdentification": [
+                {
+                  "ID": [
+                    {
+                      "_": "20507646051",
+                      "schemeID": "6"
+                    }
+                  ]
+                }
+              ],
+              "PostalAddress": [
+                {
+                  "ID": [
+                    {
+                      "_": "150120"
+                    }
+                  ],
+                  "StreetName": [
+                    {
+                      "_": "AV. ANTONIO MIRO QUESADA NRO. 425 LIMA - LIMA - MAGDALENA DEL MAR"
+                    }
+                  ],
+                  "CityName": [
+                    {
+                      "_": "LIMA"
+                    }
+                  ],
+                  "CountrySubentity": [
+                    {
+                      "_": "LIMA"
+                    }
+                  ],
+                  "District": [
+                    {
+                      "_": "MAGDALENA DEL MAR"
+                    }
+                  ],
+                  "Country": [
+                    {
+                      "IdentificationCode": [
+                        {
+                          "_": "PE"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "PartyLegalEntity": [
+                {
+                  "RegistrationName": [
+                    {
+                      "_": "TERMINALES PORTUARIOS PERUANOS S.A.C."
+                    }
+                  ]
+                }
+              ],
+              "Contact": [
+                {
+                  "ElectronicMail": [
+                    {
+                      "_": "nephtal@mineradeisi.com,asistente_almacen@mineradeisi.com"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Shipment": [
+        {
+          "ID": [
+            {
+              "_": "SUNAT_Envio"
+            }
+          ],
+          "HandlingCode": [
+            {
+              "_": "09"
+            }
+          ],
+          "HandlingInstructions": [
+            {
+              "_": "Exportacion"
+            }
+          ],
+          "GrossWeightMeasure": [
+            {
+              "_": "22606.000",
+              "unitCode": "KGM"
+            }
+          ],
+          "TotalTransportHandlingUnitQuantity": [
+            {
+              "_": "0"
+            }
+          ],
+          "SpecialInstructions": [
+            {
+              "_": "SUNAT_Envio_IndicadorTrasladoTotalDAMoDS"
+            },
+            {
+              "_": "SUNAT_Envio_IndicadorVehiculoConductoresTransp"
+            }
+          ],
+          "ShipmentStage": [
+            {
+              "TransportModeCode": [
+                {
+                  "_": "01"
+                }
+              ],
+              "TransitPeriod": [
+                {
+                  "StartDate": [
+                    {
+                      "_": "2026-06-11"
+                    }
+                  ]
+                }
+              ],
+              "CarrierParty": [
+                {
+                  "PartyIdentification": [
+                    {
+                      "ID": [
+                        {
+                          "_": "20612434868",
+                          "schemeID": "6"
+                        }
+                      ]
+                    }
+                  ],
+                  "PartyLegalEntity": [
+                    {
+                      "RegistrationName": [
+                        {
+                          "_": "TRANSPORTES REMUZGO S.A.C."
+                        }
+                      ],
+                      "CompanyID": [
+                        {
+                          "_": "15151476CNG"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DriverPerson": [
+                {
+                  "ID": [
+                    {
+                      "_": "48575981",
+                      "schemeID": "1"
+                    }
+                  ],
+                  "FirstName": [
+                    {
+                      "_": "FREDDY OLIVER"
+                    }
+                  ],
+                  "FamilyName": [
+                    {
+                      "_": "CASTRO CORONEL"
+                    }
+                  ],
+                  "JobTitle": [
+                    {
+                      "_": "Principal"
+                    }
+                  ],
+                  "IdentityDocumentReference": [
+                    {
+                      "ID": [
+                        {
+                          "_": "Q48575981"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "Delivery": [
+            {
+              "DeliveryAddress": [
+                {
+                  "ID": [
+                    {
+                      "_": "070101"
+                    }
+                  ],
+                  "AddressTypeCode": [
+                    {
+                      "_": "0016",
+                      "listID": "20507646051"
+                    }
+                  ],
+                  "CityName": [
+                    {
+                      "_": "CALLAO"
+                    }
+                  ],
+                  "CountrySubentity": [
+                    {
+                      "_": "CALLAO"
+                    }
+                  ],
+                  "District": [
+                    {
+                      "_": "CALLAO"
+                    }
+                  ],
+                  "AddressLine": [
+                    {
+                      "Line": [
+                        {
+                          "_": "AV. NESTOR GAMBETTA KM. 14.3 LTE.\"B\" EX FUNDO MARQUEZ"
+                        }
+                      ]
+                    }
+                  ],
+                  "Country": [
+                    {
+                      "IdentificationCode": [
+                        {
+                          "_": "PE"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Despatch": [
+                {
+                  "DespatchAddress": [
+                    {
+                      "ID": [
+                        {
+                          "_": "150601"
+                        }
+                      ],
+                      "CityName": [
+                        {
+                          "_": "HUARAL"
+                        }
+                      ],
+                      "CountrySubentity": [
+                        {
+                          "_": "LIMA"
+                        }
+                      ],
+                      "District": [
+                        {
+                          "_": "HUARAL"
+                        }
+                      ],
+                      "AddressLine": [
+                        {
+                          "Line": [
+                            {
+                              "_": "PARCELA N° 55A PREDIO PROGRESO HUARAL"
+                            }
+                          ]
+                        }
+                      ],
+                      "Country": [
+                        {
+                          "IdentificationCode": [
+                            {
+                              "_": "PE"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "TransportHandlingUnit": [
+            {
+              "TransportEquipment": [
+                {
+                  "ID": [
+                    {
+                      "_": "C2D867"
+                    }
+                  ],
+                  "ApplicableTransportMeans": [
+                    {
+                      "RegistrationNationalityID": [
+                        {
+                          "_": "15M24041639E"
+                        }
+                      ]
+                    }
+                  ],
+                  "AttachedTransportEquipment": [
+                    {
+                      "ID": [
+                        {
+                          "_": "D3R974"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Package": [
+                {
+                  "ID": [
+                    {
+                      "_": "MSNU372875-1"
+                    }
+                  ],
+                  "TraceID": [
+                    {
+                      "_": "009TP048171 / FX45551795"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "FirstArrivalPortLocation": [
+            {
+              "ID": [
+                {
+                  "_": "   "
+                }
+              ],
+              "LocationTypeCode": [
+                {
+                  "_": "1"
+                }
+              ],
+              "Name": [
+                {
+                  "_": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DespatchLine": [
+        {
+          "ID": [
+            {
+              "_": "1"
+            }
+          ],
+          "Note": [
+            {
+              "_": "MT2"
+            }
+          ],
+          "DeliveredQuantity": [
+            {
+              "_": "624.63",
+              "unitCode": "ZZ"
+            }
+          ],
+          "OrderLineReference": [
+            {
+              "LineID": [
+                {
+                  "_": 1
+                }
+              ]
+            }
+          ],
+          "Item": [
+            {
+              "Description": [
+                {
+                  "_": "BALDOSAS DE TRAVERTINO MIX  29CM X LARGOS LIBRES X  1CM, ARENADO SUAVE P/T "
+                }
+              ],
+              "SellersItemIdentification": [
+                {
+                  "ID": [
+                    {
+                      "_": "BAMX00ESPESP100WAESXXPXXXX"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ID": [
+            {
+              "_": "2"
+            }
+          ],
+          "Note": [
+            {
+              "_": "MT2"
+            }
+          ],
+          "DeliveredQuantity": [
+            {
+              "_": "252",
+              "unitCode": "ZZ"
+            }
+          ],
+          "OrderLineReference": [
+            {
+              "LineID": [
+                {
+                  "_": 2
+                }
+              ]
+            }
+          ],
+          "Item": [
+            {
+              "Description": [
+                {
+                  "_": "BALDOSAS DE TRAVERTINO WAYNA PICCHU  30CM X 60CM X 1CM, MATE P/T"
+                }
+              ],
+              "SellersItemIdentification": [
+                {
+                  "ID": [
+                    {
+                      "_": "BAWP00ESPESPESPMAES00PBA01"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

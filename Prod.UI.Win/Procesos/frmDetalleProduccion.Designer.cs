@@ -2157,9 +2157,9 @@
             // 
             // splitPanel2
             // 
+            this.splitPanel2.Controls.Add(this.popupMermaLinea);
             this.splitPanel2.Controls.Add(this.gridControl);
             this.splitPanel2.Controls.Add(this.rpMenuDetalle);
-            this.splitPanel2.Controls.Add(this.popupMermaLinea);
             this.splitPanel2.Location = new System.Drawing.Point(0, 260);
             this.splitPanel2.Name = "splitPanel2";
             // 

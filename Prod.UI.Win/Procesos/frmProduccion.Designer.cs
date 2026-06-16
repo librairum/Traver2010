@@ -46,7 +46,7 @@
             // 
             // toolBar
             // 
-            this.toolBar.Size = new System.Drawing.Size(689, 59);
+            this.toolBar.Size = new System.Drawing.Size(689, 33);
             // 
             // rbIngreso
             // 
@@ -72,13 +72,13 @@
             // gridControl
             // 
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl.Location = new System.Drawing.Point(0, 87);
+            this.gridControl.Location = new System.Drawing.Point(0, 61);
             // 
             // 
             // 
             this.gridControl.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(689, 324);
+            this.gridControl.Size = new System.Drawing.Size(689, 350);
             this.gridControl.TabIndex = 4;
             this.gridControl.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.gridControl_CellDoubleClick);
             // 
@@ -87,7 +87,7 @@
             this.radPanel1.Controls.Add(this.rbIngreso);
             this.radPanel1.Controls.Add(this.rbSalida);
             this.radPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radPanel1.Location = new System.Drawing.Point(0, 59);
+            this.radPanel1.Location = new System.Drawing.Point(0, 33);
             this.radPanel1.Name = "radPanel1";
             this.radPanel1.Size = new System.Drawing.Size(689, 28);
             this.radPanel1.TabIndex = 5;

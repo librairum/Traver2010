@@ -950,6 +950,28 @@ namespace Com.UI.Win.Procesos
             #endregion
 
         }
+
+        private decimal RedondearSUNAT(decimal valor, int decimales = 2)
+        {
+            // Redondeo estándar AwayFromZero
+            decimal resultado = Math.Round(valor, decimales, MidpointRounding.AwayFromZero);
+
+            // Si se pide 1 decimal, evaluar el tercer decimal
+            if (decimales == 1)
+            {
+                string texto = valor.ToString("F3"); // 3 decimales visibles
+                int tercerDecimal = int.Parse(texto.Substring(texto.IndexOf('.') + 2, 1));
+
+                // Si el tercer decimal < 5, mantener el valor con 2 decimales
+                if (tercerDecimal < 5)
+                {
+                    return Math.Round(valor, 2, MidpointRounding.AwayFromZero);
+                }
+            }
+
+            return resultado;
+        }
+
         private void CalcularTotales()
         {
             try
@@ -957,6 +979,7 @@ namespace Com.UI.Win.Procesos
                 decimal ValorBruto, ValorInafecto, ValorIgv, ValorTotal;
                 decimal ValorBrutoEquivalente, ValorInafectoEquivalente,
                              ValorIgvEquivalente, ValorTotalEquivalente;
+                //calcular todo los importe de origen
 
                 //No procesar calculo tota en modo editar
                 //if (Estado == FormEstate.Edit) return;
@@ -970,10 +993,10 @@ namespace Com.UI.Win.Procesos
                     txtImporteInafecto.Text = Util.NumberFormat("0", formatonumero);
                 }
 
-                ValorBruto = decimal.Parse(txtImporteAfecto.Text);
-                ValorInafecto = decimal.Parse(txtImporteInafecto.Text);
-                ValorIgv = (ValorBruto * decimal.Parse(txtPorIgv.Text)) / 100;
-                ValorTotal = ValorBruto + ValorInafecto + ValorIgv;
+                ValorBruto = this.RedondearSUNAT(decimal.Parse(txtImporteAfecto.Text));
+                ValorInafecto = this.RedondearSUNAT(decimal.Parse(txtImporteInafecto.Text));
+                ValorIgv = this.RedondearSUNAT((ValorBruto * decimal.Parse(txtPorIgv.Text)) / 100);
+                ValorTotal = this.RedondearSUNAT(ValorBruto + ValorInafecto + ValorIgv);
 
                 
                 txtImporteIgv.Text = Util.NumberFormat(ValorIgv.ToString(), formatonumero);                
@@ -981,39 +1004,54 @@ namespace Com.UI.Win.Procesos
                 
 
                 //ValorBrutoEquivalente = 
-                decimal tipoCambio = decimal.Parse(txtTipocambio.Text);
+                decimal tipoCambio = this.RedondearSUNAT(decimal.Parse(txtTipocambio.Text));
 
                 if (txtTipoMoneda.Text.ToUpper() == "S")
                 {
                     //decimal.Parse(ValorBruto / tipoCambio, 2);
-                    ValorBrutoEquivalente = decimal.Round((ValorBruto / tipoCambio), 2);
+                    ValorBrutoEquivalente = this.RedondearSUNAT((ValorBruto / tipoCambio));
                 }
                 else
                 {
-                    ValorBrutoEquivalente = decimal.Round((ValorBruto * tipoCambio), 2);
+                    ValorBrutoEquivalente = this.RedondearSUNAT((ValorBruto * tipoCambio));
                 }
+
+                //calculo de valores equivalente
+
                 txtImporteAfectoEquiv.Text = Util.NumberFormat(ValorBrutoEquivalente.ToString(), formatonumero);
                 //txtImporteAfectoEquiv.Text = Util.AsignarNumeroFormateado(ValorBrutoEquivalente);
                 //txtImporteAfectoEquiv.Text = ValorBrutoEquivalente.ToString();
 
 
 
-                if (txtTipoMoneda.Text.ToUpper() == "S")
+                
+                
+                //18
+                //ValorIgvEquivalente = Convert.ToDecimal(txtImporteIgv.Text) * (decimal.Parse(txtPorIgv.Text) / 100);
+                //ValorIgvEquivalente =  decimal.Round((ValorBrutoEquivalente * decimal.Parse(txtPorIgv.Text)) / 100);
+                //ValorTotalEquivalente = decimal.Round(ValorBrutoEquivalente + ValorInafectoEquivalente + ValorIgvEquivalente,2);
+                
+             
+
+                if (txtTipoMoneda.Text.Equals("S"))
                 {
-                    ValorInafectoEquivalente = decimal.Round((ValorInafecto / tipoCambio), 2);
+                    ValorInafectoEquivalente = this.RedondearSUNAT(ValorInafecto / tipoCambio);
+                    ValorIgvEquivalente = this.RedondearSUNAT(ValorIgv / tipoCambio);
+                    ValorTotalEquivalente = this.RedondearSUNAT((ValorTotal / tipoCambio));
                 }
                 else
                 {
-                    ValorInafectoEquivalente = decimal.Round((ValorInafecto * tipoCambio), 2);
+                    ValorInafectoEquivalente = this.RedondearSUNAT((ValorInafecto * tipoCambio));
+                    ValorIgvEquivalente = this.RedondearSUNAT(ValorIgv * tipoCambio);
+                    ValorTotalEquivalente = this.RedondearSUNAT((ValorTotal * tipoCambio));
                 }
 
-
-                ValorIgvEquivalente = (ValorBrutoEquivalente * decimal.Parse(txtPorIgv.Text)) / 100;
-                ValorTotalEquivalente = ValorBrutoEquivalente + ValorInafectoEquivalente + ValorIgvEquivalente;
-                
-                txtImporteInafectoEquiv.Text = Util.NumberFormat(ValorInafectoEquivalente.ToString(), formatonumero);
+                txtImporteInafectoEquiv.Text = Util.NumberFormat(ValorInafectoEquivalente.ToString(),formatonumero);
                 txtImporteIgvEquiv.Text = Util.NumberFormat(ValorIgvEquivalente.ToString(), formatonumero);
-                txtImporteDocumentoEquiv.Text = Util.NumberFormat(ValorTotalEquivalente.ToString(), formatonumero);
+                txtImporteDocumentoEquiv.Text = Util.NumberFormat(ValorTotalEquivalente.ToString(),formatonumero);
+                //txtImporteInafectoEquiv.Text = Util.NumberFormat(ValorInafectoEquivalente.ToString(), formatonumero);
+                //txtImporteIgvEquiv.Text = Util.NumberFormat(ValorIgvEquivalente.ToString(), formatonumero);
+                //txtImporteDocumentoEquiv.Text = Util.NumberFormat(ValorTotalEquivalente.ToString(), formatonumero);
                 
 
 
@@ -2353,8 +2391,16 @@ namespace Com.UI.Win.Procesos
             }
             else
             {
+                //recalcular el valor importeDocumento Equivalente.
                 txtImporteDocumento.Text = Util.NumberFormat(txtImporteDocumento.Text.Trim(), formatonumero);
+                //if (txtTipoMoneda.Text.Equals("S")) {
+                //    decimal tc = decimal.Round(decimal.Parse(txtTipocambio.Text));
+                //    decimal importeDocumento = ((decimal.Parse(txtImporteDocumento.Text) * decimal.Parse(txtPorIgv.Text)) / 100)/tc;
+                //    txtImporteDocumentoEquiv.Text = Util.NumberFormat(importeDocumento.ToString());
+                //}
+                
             }
+            // generar valor equivalente
         }
 
         private void txtImporteIgvEquiv_Leave(object sender, EventArgs e)

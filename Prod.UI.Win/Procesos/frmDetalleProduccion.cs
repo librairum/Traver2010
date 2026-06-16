@@ -2958,7 +2958,10 @@ namespace Prod.UI.Win.Procesos
 
                 this.gridControl.Focus();
 
-
+                if (this._esActividaFaja == true) {
+                    Util.ShowAlert("Para agregar detalle, debe generar a traves de la ventana merma");
+                    return;
+                }
                 esInsercion = false;
                 if (this.txtCodTipoDocumento.Text == "")
                 {

@@ -122,3 +122,4 @@ D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Release\es-4
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Release\es-PE\Fac.UI.Win.resources.dll
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Release\Fac.UI.Win.exe
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Release\Fac.UI.Win.pdb
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Release\Fac.UI.Win.frmRepGuiaHistorico.resources

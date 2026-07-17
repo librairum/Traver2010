@@ -119,6 +119,13 @@ namespace Inv.BusinessLogic
         { 
             return Accessor.TraeAyudaOrdenCompra(@cCodEmp, @cAno, @cMes, @cTipo, @cTipAna, @cCampo, @cFiltro);
         }
+
+
+        public DataTable TraeCanastillaTrazabilidad(string @empresa, string @anio, string @mes, string @lineacod, string @nrocaja)
+        {
+            return Accessor.TraeCanastillaTrazabilidad(empresa, anio, mes, lineacod, nrocaja);
+        }
+        
         #region  Detalle de documento
 
         public void InsertarDetalle(Movimiento mov, double tipoCambio, string moneda, out int cflagReturn, out string cMsgRetorno)
@@ -1711,6 +1718,20 @@ out  @cMsgRetorno );
             
         }
         #endregion
+        public DataTable TraerCanastillaProdcuccionNivel1(string @codigoEmpresa, string @nroOrdentrabajo, string @nroCajaMP)
+        {
+            return Accessor.TraerCanastillaProdcuccionNivel1(@codigoEmpresa, @nroOrdentrabajo, @nroCajaMP);
+        }
+        public DataTable TraerCanastilaProduccionNivel2(string @codigoEmpresa, string @llaveIngreso, string @nroCanastillaAnterior) {
+            return Accessor.TraerCanastilaProduccionNivel2(@codigoEmpresa, @llaveIngreso, @nroCanastillaAnterior);
+        }
+
+        public DataTable TraerProduccionHistorico(string codigoEmpresa, string fechaInicio, 
+            string fechaFin, string flag)
+        {
+            return Accessor.TraerHistoricoProduccion(codigoEmpresa, fechaInicio, fechaFin, flag);
+        }
+
         #region Accessor
 
         private static DocumentoAccesor Accessor

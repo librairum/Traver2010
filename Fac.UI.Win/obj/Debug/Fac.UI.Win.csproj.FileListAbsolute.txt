@@ -4107,7 +4107,6 @@ D:\trabajo\traver deisi\Traver2010\Fac.UI.Win\obj\Debug\Fac.UI.Win.frmMDI.es-PE.
 D:\trabajo\traver deisi\Traver2010\Fac.UI.Win\obj\Debug\Fac.UI.Win.frmRepConsultaxcliente.es-PE.resources
 D:\trabajo\traver deisi\Traver2010\Fac.UI.Win\obj\Debug\Fac.UI.Win.csproj.GenerateResource.Cache
 D:\trabajo\traver deisi\Traver2010\Fac.UI.Win\obj\Debug\Fac.UI.Win.exe.licenses
-<<<<<<< HEAD
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\bin\Debug\Fac.UI.Win.exe.config
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Debug\Fac.UI.Win.csproj.ResolveComReference.cache
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\bin\Debug\App.config
@@ -4232,8 +4231,6 @@ D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Debug\es-PE\Fac.UI.Win.resources.dll
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Debug\Fac.UI.Win.exe
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Debug\Fac.UI.Win.pdb
-=======
->>>>>>> 11f3bb7778f5f03ddbdf830cb87aec0b8f366295
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\bin\Debug\Fac.UI.Win.exe.config
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Debug\Fac.UI.Win.csproj.ResolveComReference.cache
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Debug\Fac.UI.Win.exe
@@ -4358,3 +4355,4 @@ D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Debug\Fac.UI
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Debug\Fac.UI.Win.exe.licenses
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Debug\es-419\Fac.UI.Win.resources.dll
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Debug\es-PE\Fac.UI.Win.resources.dll
+D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\Fac.UI.Win\obj\Debug\Fac.UI.Win.frmRepGuiaHistorico.resources

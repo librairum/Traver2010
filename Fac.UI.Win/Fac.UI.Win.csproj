@@ -114,6 +114,11 @@
     </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Librerias\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Outlook">
       <HintPath>Librerias\Microsoft.Office.Interop.Outlook.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -308,6 +313,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RptGuiaRemision.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\frmRepGuiaHistorico.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reporte\frmRepGuiasCantera.cs">
       <SubType>Form</SubType>
@@ -889,6 +897,9 @@
     <EmbeddedResource Include="Reportes\RptGuiaRemision.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptGuiaRemision1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\frmRepGuiaHistorico.resx">
+      <DependentUpon>frmRepGuiaHistorico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\frmRepGuiasCantera.resx">
       <DependentUpon>frmRepGuiasCantera.cs</DependentUpon>

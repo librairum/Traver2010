@@ -171,18 +171,18 @@
             // 
             // radCommandBar1
             // 
-            this.radCommandBar1.Size = new System.Drawing.Size(769, 33);
+            this.radCommandBar1.Size = new System.Drawing.Size(769, 64);
             // 
             // gridControl
             // 
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl.Location = new System.Drawing.Point(0, 356);
+            this.gridControl.Location = new System.Drawing.Point(0, 387);
             // 
             // 
             // 
             this.gridControl.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(769, 141);
+            this.gridControl.Size = new System.Drawing.Size(769, 110);
             this.gridControl.TabIndex = 5;
             this.gridControl.CellEditorInitialized += new Telerik.WinControls.UI.GridViewCellEventHandler(this.gridControl_CellEditorInitialized);
             this.gridControl.CellEndEdit += new Telerik.WinControls.UI.GridViewCellEventHandler(this.gridControl_CellEndEdit);
@@ -196,7 +196,7 @@
             this.rpBotones.Controls.Add(this.radPanel1);
             this.rpBotones.Controls.Add(this.radGroupBox1);
             this.rpBotones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rpBotones.Location = new System.Drawing.Point(0, 33);
+            this.rpBotones.Location = new System.Drawing.Point(0, 64);
             this.rpBotones.Name = "rpBotones";
             this.rpBotones.Size = new System.Drawing.Size(769, 291);
             this.rpBotones.TabIndex = 0;
@@ -301,7 +301,7 @@
             this.dtpFechaDoc.Size = new System.Drawing.Size(86, 20);
             this.dtpFechaDoc.TabIndex = 7;
             this.dtpFechaDoc.TabStop = false;
-            this.dtpFechaDoc.Text = "3/1/2013";
+            this.dtpFechaDoc.Text = "01/03/2013";
             this.dtpFechaDoc.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             this.dtpFechaDoc.Leave += new System.EventHandler(this.dtpFechaDoc_Leave);
             // 
@@ -533,7 +533,7 @@
             this.dtpDocModFecha.Size = new System.Drawing.Size(93, 20);
             this.dtpDocModFecha.TabIndex = 31;
             this.dtpDocModFecha.TabStop = false;
-            this.dtpDocModFecha.Text = "3/1/2013";
+            this.dtpDocModFecha.Text = "01/03/2013";
             this.dtpDocModFecha.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             // 
             // txtDireccion
@@ -660,7 +660,7 @@
             // 
             this.radPanel3.Controls.Add(this.btnAdd);
             this.radPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radPanel3.Location = new System.Drawing.Point(0, 324);
+            this.radPanel3.Location = new System.Drawing.Point(0, 355);
             this.radPanel3.Name = "radPanel3";
             this.radPanel3.Size = new System.Drawing.Size(769, 32);
             this.radPanel3.TabIndex = 71;
@@ -700,7 +700,7 @@
             this.dtpFechaBaja.Size = new System.Drawing.Size(86, 20);
             this.dtpFechaBaja.TabIndex = 73;
             this.dtpFechaBaja.TabStop = false;
-            this.dtpFechaBaja.Text = "3/1/2013";
+            this.dtpFechaBaja.Text = "01/03/2013";
             this.dtpFechaBaja.Value = new System.DateTime(2013, 3, 1, 0, 0, 0, 0);
             // 
             // txtMotivoBaja

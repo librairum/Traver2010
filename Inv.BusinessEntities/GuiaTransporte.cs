@@ -272,6 +272,16 @@ namespace Inv.BusinessEntities
          public string FAC34NROREGISTROMTC {get;set;}
          
 
+         //nombre de producto reporte historica guia remision
+         public string FAC35DESCPROD { get; set; }
+
+         public string FAC35UNIMED {get;set;}
+         public string FAC35CANTIDAD
+         {
+             get;
+             set;
+         }
+
 
     }
 }

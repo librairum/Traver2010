@@ -950,7 +950,7 @@ namespace Com.UI.Win.Procesos
             #endregion
 
         }
-
+        #region "nuevo codigo ajuste redondeo 26/06/2026"
         private decimal RedondearSUNAT(decimal valor, int decimales = 2)
         {
             // Redondeo estándar AwayFromZero
@@ -1077,6 +1077,98 @@ namespace Com.UI.Win.Procesos
             }
 
         }
+        #endregion
+
+        #region "codigo original"
+        //private void CalcularTotales()
+        //{
+
+        //    try
+        //    {
+        //        decimal ValorBruto, ValorInafecto, ValorIgv, ValorTotal;
+        //        decimal ValorBrutoEquivalente, ValorInafectoEquivalente,
+        //                     ValorIgvEquivalente, ValorTotalEquivalente;
+
+        //        //No procesar calculo tota en modo editar
+        //        //if (Estado == FormEstate.Edit) return;
+        //        if (txtImporteAfecto.Text == "")
+        //        {
+        //            txtImporteAfecto.Text = Util.NumberFormat("0", formatonumero);
+        //        }
+
+        //        if (txtImporteInafecto.Text == "")
+        //        {
+
+        //            txtImporteInafecto.Text = Util.NumberFormat("0", formatonumero);
+        //        }
+
+        //        ValorBruto = decimal.Parse(txtImporteAfecto.Text);
+        //        ValorInafecto = decimal.Parse(txtImporteInafecto.Text);
+        //        ValorIgv = (ValorBruto * decimal.Parse(txtPorIgv.Text)) / 100;
+        //        ValorTotal = ValorBruto + ValorInafecto + ValorIgv;
+
+        //        txtImporteIgv.Text = Util.NumberFormat(ValorIgv.ToString(), formatonumero);
+        //        txtImporteDocumento.Text = Util.NumberFormat(ValorTotal.ToString(), formatonumero);
+
+
+        //        decimal tipoCambio = decimal.Parse(txtTipocambio.Text);
+
+        //        if (txtTipoMoneda.Text == "S")
+        //        {
+        //            ValorBrutoEquivalente = decimal.Round((ValorBruto / tipoCambio), 2);
+        //        }
+        //        else
+        //        {
+        //            ValorBrutoEquivalente = decimal.Round((ValorBruto * tipoCambio), 2);
+        //        }
+
+
+        //        //txtImporteAfectoEquiv.Text = ValorBrutoEquivalente.ToString();
+
+
+
+        //        if (txtTipoMoneda.Text == "S")
+        //        {
+        //            ValorInafectoEquivalente = decimal.Round((ValorInafecto / tipoCambio), 2);
+        //        }
+        //        else
+        //        {
+        //            ValorInafectoEquivalente = decimal.Round((ValorInafecto * tipoCambio), 2);
+        //        }
+
+
+        //        ValorIgvEquivalente = (ValorBrutoEquivalente * decimal.Parse(txtPorIgv.Text)) / 100;
+        //        ValorTotalEquivalente = ValorBrutoEquivalente + ValorInafectoEquivalente + ValorIgvEquivalente;
+        //        txtImporteAfectoEquiv.Text = Util.NumberFormat(ValorBrutoEquivalente.ToString(), formatonumero);
+        //        txtImporteInafectoEquiv.Text = Util.NumberFormat(ValorInafectoEquivalente.ToString(), formatonumero);
+        //        txtImporteIgvEquiv.Text = Util.NumberFormat(ValorIgvEquivalente.ToString(), formatonumero);
+        //        txtImporteDocumentoEquiv.Text = Util.NumberFormat(ValorTotalEquivalente.ToString(), formatonumero);
+
+
+        //        //VerificaRetencion();
+        //        if (txtporcentaje.Text == "")
+        //        {
+        //            txtporcentaje.Text = Util.NumberFormat("0", formatonumero);
+        //        }
+        //        CalcularImporteDetraccion(txtporcentaje.Text.Trim());
+        //        if (chkAfectoPercepcion.Checked)
+        //        {
+        //            if (!txtpercepcionporcentaje.Text.Trim().Equals(""))
+        //            {
+        //                CalcularImportePercepcion(decimal.Parse(txtpercepcionporcentaje.Text.Trim()));
+        //            }
+
+        //        }
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Util.ShowError("Error en calcular totales");
+        //    }
+
+        //}
+        #endregion
         private void AsignaRetencionMontoEquivalente(bool esMontoEquivalente = false)
         {
             if (esMontoEquivalente)

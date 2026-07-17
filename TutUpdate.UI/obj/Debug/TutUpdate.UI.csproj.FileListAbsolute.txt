@@ -268,7 +268,6 @@ D:\trabajo\traver deisi\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.Propertie
 D:\trabajo\traver deisi\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csproj.GenerateResource.Cache
 D:\trabajo\traver deisi\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.exe
 D:\trabajo\traver deisi\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.pdb
-<<<<<<< HEAD
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.exe.config
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.exe
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.pdb
@@ -279,8 +278,6 @@ D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\o
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.csproj.GenerateResource.Cache
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.exe
 D:\PROYECTOS_29082024\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\obj\Debug\TutUpdate.UI.pdb
-=======
->>>>>>> 11f3bb7778f5f03ddbdf830cb87aec0b8f366295
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.exe.config
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.exe
 D:\Deisi\LOGISTICA\github\Traver2010Final\Traver2010\TutUpdate.UI\bin\Debug\TutUpdate.UI.pdb

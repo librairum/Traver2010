@@ -375,8 +375,9 @@ namespace Fac.UI.Win
                     return frmRepGuiasCantera.Instance(this);
                case "FRMPLANTILLAXVOUCHER":
                     return frmPlantillaXVoucher.Instance(this);
-              
-                    
+
+                case "FRMREPGUIAHISTORICO":
+                    return frmRepGuiaHistorico.Instance(this);
             }
             return null;
         }

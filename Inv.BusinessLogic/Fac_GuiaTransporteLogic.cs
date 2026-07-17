@@ -244,6 +244,11 @@ public void Spu_Fact_Upd_FAC35_DETGUIA(string @FAC35CODEMP, string @FAC01COD, st
            return Accessor.Spu_Fact_Trae_DocRelacionxGui(@FAC34CODEMP, @FAC01COD, @FAC34NROGUIA);
         }
 
+        public List<GuiaTransporte> Spu_Fac_Trae_GuiaRemisionHistorico(string @FAC34CODEMP,  
+            string fechainicio, string fechafin, string flag)
+        {
+            return Accessor.Spu_Fac_Trae_GuiaRemisionHistorico(@FAC34CODEMP, fechainicio, fechafin, flag);
+        }
         #region "Importacion"
         public void InsertarGuiasTransporte(GuiaTransporte cabecera, DetalleGuiaTransporte detalle, int contador, int item,
             string contratista, string labor, string usuario, out int flag, out string mensaje)

@@ -15,9 +15,9 @@ namespace Prod.UI.Win
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+
             Application.Run(new Acceso.frmLogin());
-            //Application.Run(new FrmOptimizacionUsoBloques());
+            //Application.Run(new frmJerarquia());
         }
     }
 }

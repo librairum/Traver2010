@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmfacturacab));
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.rpvFactura = new Telerik.WinControls.UI.RadPageView();
             this.pvGenerales = new Telerik.WinControls.UI.RadPageViewPage();
             this.rpGeneralesDatos = new Telerik.WinControls.UI.RadPanel();
@@ -119,16 +119,12 @@
             this.radLabel38 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel39 = new Telerik.WinControls.UI.RadLabel();
             this.radPanel5 = new Telerik.WinControls.UI.RadPanel();
-            this.btnGuardarCopia = new Telerik.WinControls.UI.RadButton();
-            this.btnCancelarCopia = new Telerik.WinControls.UI.RadButton();
             this.gpxDarBaja = new Telerik.WinControls.UI.RadGroupBox();
             this.dtpFechaBaja = new Telerik.WinControls.UI.RadDateTimePicker();
             this.txtMotivoBaja = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel35 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel36 = new Telerik.WinControls.UI.RadLabel();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
-            this.btnGuardarBaja = new Telerik.WinControls.UI.RadButton();
-            this.btnCancelarBaja = new Telerik.WinControls.UI.RadButton();
             this.txtCodigoAnexoEmisorFE = new Telerik.WinControls.UI.RadTextBox();
             this.pvExportacion = new Telerik.WinControls.UI.RadPageViewPage();
             this.rpExportacionDatos = new Telerik.WinControls.UI.RadPanel();
@@ -185,6 +181,10 @@
             this.btnNuevoGuia = new Telerik.WinControls.UI.RadButton();
             this.btnEditar = new Telerik.WinControls.UI.RadButton();
             this.btnAdd = new Telerik.WinControls.UI.RadButton();
+            this.btnGuardarCopia = new Telerik.WinControls.UI.RadButton();
+            this.btnCancelarCopia = new Telerik.WinControls.UI.RadButton();
+            this.btnGuardarBaja = new Telerik.WinControls.UI.RadButton();
+            this.btnCancelarBaja = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radCommandBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpvFactura)).BeginInit();
             this.rpvFactura.SuspendLayout();
@@ -278,8 +278,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel39)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).BeginInit();
             this.radPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGuardarCopia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarCopia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gpxDarBaja)).BeginInit();
             this.gpxDarBaja.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFechaBaja)).BeginInit();
@@ -288,8 +286,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel36)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGuardarBaja)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarBaja)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoAnexoEmisorFE)).BeginInit();
             this.pvExportacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rpExportacionDatos)).BeginInit();
@@ -351,6 +347,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnNuevoGuia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGuardarCopia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarCopia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGuardarBaja)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarBaja)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -378,10 +378,10 @@
             // 
             this.pvGenerales.BackColor = System.Drawing.Color.White;
             this.pvGenerales.Controls.Add(this.rpGeneralesDatos);
-            this.pvGenerales.ItemSize = new System.Drawing.SizeF(103F, 27F);
-            this.pvGenerales.Location = new System.Drawing.Point(5, 31);
+            this.pvGenerales.ItemSize = new System.Drawing.SizeF(101F, 25F);
+            this.pvGenerales.Location = new System.Drawing.Point(5, 29);
             this.pvGenerales.Name = "pvGenerales";
-            this.pvGenerales.Size = new System.Drawing.Size(1181, 172);
+            this.pvGenerales.Size = new System.Drawing.Size(1181, 174);
             this.pvGenerales.Text = "Datos Generales";
             // 
             // rpGeneralesDatos
@@ -454,7 +454,7 @@
             this.rpGeneralesDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rpGeneralesDatos.Location = new System.Drawing.Point(0, 0);
             this.rpGeneralesDatos.Name = "rpGeneralesDatos";
-            this.rpGeneralesDatos.Size = new System.Drawing.Size(1181, 172);
+            this.rpGeneralesDatos.Size = new System.Drawing.Size(1181, 174);
             this.rpGeneralesDatos.TabIndex = 6;
             this.rpGeneralesDatos.Paint += new System.Windows.Forms.PaintEventHandler(this.rpGeneralesDatos_Paint);
             // 
@@ -740,7 +740,7 @@
             // 
             // 
             // 
-            this.gridcuotas.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.gridcuotas.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.gridcuotas.Name = "gridcuotas";
             this.gridcuotas.Size = new System.Drawing.Size(255, 131);
             this.gridcuotas.TabIndex = 0;
@@ -1225,28 +1225,6 @@
             this.radPanel5.Size = new System.Drawing.Size(265, 22);
             this.radPanel5.TabIndex = 72;
             // 
-            // btnGuardarCopia
-            // 
-            this.btnGuardarCopia.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnGuardarCopia.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarCopia.Image")));
-            this.btnGuardarCopia.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGuardarCopia.Location = new System.Drawing.Point(221, 0);
-            this.btnGuardarCopia.Name = "btnGuardarCopia";
-            this.btnGuardarCopia.Size = new System.Drawing.Size(22, 22);
-            this.btnGuardarCopia.TabIndex = 31;
-            this.btnGuardarCopia.ThemeName = "Office2013Light";
-            // 
-            // btnCancelarCopia
-            // 
-            this.btnCancelarCopia.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCancelarCopia.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarCopia.Image")));
-            this.btnCancelarCopia.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancelarCopia.Location = new System.Drawing.Point(243, 0);
-            this.btnCancelarCopia.Name = "btnCancelarCopia";
-            this.btnCancelarCopia.Size = new System.Drawing.Size(22, 22);
-            this.btnCancelarCopia.TabIndex = 15;
-            this.btnCancelarCopia.ThemeName = "Office2013Light";
-            // 
             // gpxDarBaja
             // 
             this.gpxDarBaja.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
@@ -1308,28 +1286,6 @@
             this.radPanel1.Size = new System.Drawing.Size(229, 22);
             this.radPanel1.TabIndex = 72;
             // 
-            // btnGuardarBaja
-            // 
-            this.btnGuardarBaja.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnGuardarBaja.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarBaja.Image")));
-            this.btnGuardarBaja.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGuardarBaja.Location = new System.Drawing.Point(185, 0);
-            this.btnGuardarBaja.Name = "btnGuardarBaja";
-            this.btnGuardarBaja.Size = new System.Drawing.Size(22, 22);
-            this.btnGuardarBaja.TabIndex = 31;
-            this.btnGuardarBaja.ThemeName = "Office2013Light";
-            // 
-            // btnCancelarBaja
-            // 
-            this.btnCancelarBaja.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCancelarBaja.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarBaja.Image")));
-            this.btnCancelarBaja.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancelarBaja.Location = new System.Drawing.Point(207, 0);
-            this.btnCancelarBaja.Name = "btnCancelarBaja";
-            this.btnCancelarBaja.Size = new System.Drawing.Size(22, 22);
-            this.btnCancelarBaja.TabIndex = 15;
-            this.btnCancelarBaja.ThemeName = "Office2013Light";
-            // 
             // txtCodigoAnexoEmisorFE
             // 
             this.txtCodigoAnexoEmisorFE.Location = new System.Drawing.Point(37, 142);
@@ -1341,7 +1297,7 @@
             // pvExportacion
             // 
             this.pvExportacion.Controls.Add(this.rpExportacionDatos);
-            this.pvExportacion.ItemSize = new System.Drawing.SizeF(131F, 27F);
+            this.pvExportacion.ItemSize = new System.Drawing.SizeF(129F, 25F);
             this.pvExportacion.Location = new System.Drawing.Point(5, 31);
             this.pvExportacion.Name = "pvExportacion";
             this.pvExportacion.Size = new System.Drawing.Size(1262, 172);
@@ -1394,7 +1350,7 @@
             // 
             this.txtExpNroprecinto.Location = new System.Drawing.Point(560, 141);
             this.txtExpNroprecinto.Name = "txtExpNroprecinto";
-            this.txtExpNroprecinto.Size = new System.Drawing.Size(340, 18);
+            this.txtExpNroprecinto.Size = new System.Drawing.Size(340, 20);
             this.txtExpNroprecinto.TabIndex = 34;
             this.txtExpNroprecinto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpNroprecinto_KeyDown);
             // 
@@ -1402,7 +1358,7 @@
             // 
             this.radLabel29.Location = new System.Drawing.Point(488, 141);
             this.radLabel29.Name = "radLabel29";
-            this.radLabel29.Size = new System.Drawing.Size(65, 17);
+            this.radLabel29.Size = new System.Drawing.Size(66, 18);
             this.radLabel29.TabIndex = 33;
             this.radLabel29.Text = "Precinto N°:";
             // 
@@ -1410,7 +1366,7 @@
             // 
             this.txtExpContainer.Location = new System.Drawing.Point(560, 119);
             this.txtExpContainer.Name = "txtExpContainer";
-            this.txtExpContainer.Size = new System.Drawing.Size(341, 18);
+            this.txtExpContainer.Size = new System.Drawing.Size(341, 20);
             this.txtExpContainer.TabIndex = 32;
             this.txtExpContainer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpContainer_KeyDown);
             // 
@@ -1418,7 +1374,7 @@
             // 
             this.radLabel28.Location = new System.Drawing.Point(481, 121);
             this.radLabel28.Name = "radLabel28";
-            this.radLabel28.Size = new System.Drawing.Size(72, 17);
+            this.radLabel28.Size = new System.Drawing.Size(73, 18);
             this.radLabel28.TabIndex = 31;
             this.radLabel28.Text = "Container N°:";
             // 
@@ -1426,7 +1382,7 @@
             // 
             this.txtExpAccountNumber.Location = new System.Drawing.Point(560, 97);
             this.txtExpAccountNumber.Name = "txtExpAccountNumber";
-            this.txtExpAccountNumber.Size = new System.Drawing.Size(131, 18);
+            this.txtExpAccountNumber.Size = new System.Drawing.Size(131, 20);
             this.txtExpAccountNumber.TabIndex = 30;
             this.txtExpAccountNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpAccountNumber_KeyDown);
             // 
@@ -1434,7 +1390,7 @@
             // 
             this.radLabel27.Location = new System.Drawing.Point(459, 99);
             this.radLabel27.Name = "radLabel27";
-            this.radLabel27.Size = new System.Drawing.Size(94, 17);
+            this.radLabel27.Size = new System.Drawing.Size(95, 18);
             this.radLabel27.TabIndex = 29;
             this.radLabel27.Text = "Account number :";
             // 
@@ -1442,7 +1398,7 @@
             // 
             this.txtExpBankCode.Location = new System.Drawing.Point(560, 75);
             this.txtExpBankCode.Name = "txtExpBankCode";
-            this.txtExpBankCode.Size = new System.Drawing.Size(131, 18);
+            this.txtExpBankCode.Size = new System.Drawing.Size(131, 20);
             this.txtExpBankCode.TabIndex = 28;
             this.txtExpBankCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpBankCode_KeyDown);
             // 
@@ -1450,7 +1406,7 @@
             // 
             this.radLabel26.Location = new System.Drawing.Point(489, 77);
             this.radLabel26.Name = "radLabel26";
-            this.radLabel26.Size = new System.Drawing.Size(65, 17);
+            this.radLabel26.Size = new System.Drawing.Size(65, 18);
             this.radLabel26.TabIndex = 27;
             this.radLabel26.Text = "Bank Code :";
             // 
@@ -1458,7 +1414,7 @@
             // 
             this.txtExpLC.Location = new System.Drawing.Point(560, 53);
             this.txtExpLC.Name = "txtExpLC";
-            this.txtExpLC.Size = new System.Drawing.Size(131, 18);
+            this.txtExpLC.Size = new System.Drawing.Size(131, 20);
             this.txtExpLC.TabIndex = 26;
             this.txtExpLC.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpLC_KeyDown);
             // 
@@ -1466,7 +1422,7 @@
             // 
             this.radLabel25.Location = new System.Drawing.Point(445, 55);
             this.radLabel25.Name = "radLabel25";
-            this.radLabel25.Size = new System.Drawing.Size(108, 17);
+            this.radLabel25.Size = new System.Drawing.Size(109, 18);
             this.radLabel25.TabIndex = 25;
             this.radLabel25.Text = "L/C Entidad/ Issued :";
             // 
@@ -1474,7 +1430,7 @@
             // 
             this.txtExpCD.Location = new System.Drawing.Point(560, 31);
             this.txtExpCD.Name = "txtExpCD";
-            this.txtExpCD.Size = new System.Drawing.Size(225, 18);
+            this.txtExpCD.Size = new System.Drawing.Size(225, 20);
             this.txtExpCD.TabIndex = 24;
             this.txtExpCD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpCD_KeyDown);
             // 
@@ -1482,7 +1438,7 @@
             // 
             this.radLabel24.Location = new System.Drawing.Point(397, 33);
             this.radLabel24.Name = "radLabel24";
-            this.radLabel24.Size = new System.Drawing.Size(156, 17);
+            this.radLabel24.Size = new System.Drawing.Size(157, 18);
             this.radLabel24.TabIndex = 23;
             this.radLabel24.Text = "CD /  Documentary Credit N° :";
             // 
@@ -1491,14 +1447,14 @@
             this.LblHelp10.Enabled = false;
             this.LblHelp10.Location = new System.Drawing.Point(597, 9);
             this.LblHelp10.Name = "LblHelp10";
-            this.LblHelp10.Size = new System.Drawing.Size(94, 18);
+            this.LblHelp10.Size = new System.Drawing.Size(94, 20);
             this.LblHelp10.TabIndex = 22;
             // 
             // radLabel23
             // 
             this.radLabel23.Location = new System.Drawing.Point(402, 11);
             this.radLabel23.Name = "radLabel23";
-            this.radLabel23.Size = new System.Drawing.Size(151, 17);
+            this.radLabel23.Size = new System.Drawing.Size(152, 18);
             this.radLabel23.TabIndex = 20;
             this.radLabel23.Text = "Banco Local / Preuvian bank :";
             // 
@@ -1506,7 +1462,7 @@
             // 
             this.txtExpBancoLocal.Location = new System.Drawing.Point(560, 8);
             this.txtExpBancoLocal.Name = "txtExpBancoLocal";
-            this.txtExpBancoLocal.Size = new System.Drawing.Size(31, 18);
+            this.txtExpBancoLocal.Size = new System.Drawing.Size(31, 20);
             this.txtExpBancoLocal.TabIndex = 21;
             this.txtExpBancoLocal.Tag = "";
             this.txtExpBancoLocal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpBancoLocal_KeyDown);
@@ -1517,14 +1473,14 @@
             this.LblHelp12.Enabled = false;
             this.LblHelp12.Location = new System.Drawing.Point(202, 141);
             this.LblHelp12.Name = "LblHelp12";
-            this.LblHelp12.Size = new System.Drawing.Size(131, 18);
+            this.LblHelp12.Size = new System.Drawing.Size(131, 20);
             this.LblHelp12.TabIndex = 19;
             // 
             // radLabel22
             // 
             this.radLabel22.Location = new System.Drawing.Point(26, 141);
             this.radLabel22.Name = "radLabel22";
-            this.radLabel22.Size = new System.Drawing.Size(132, 17);
+            this.radLabel22.Size = new System.Drawing.Size(133, 18);
             this.radLabel22.TabIndex = 17;
             this.radLabel22.Text = "Puerto  de Destino / por :";
             // 
@@ -1532,7 +1488,7 @@
             // 
             this.txtExpPuertoEmbarqueDes.Location = new System.Drawing.Point(165, 141);
             this.txtExpPuertoEmbarqueDes.Name = "txtExpPuertoEmbarqueDes";
-            this.txtExpPuertoEmbarqueDes.Size = new System.Drawing.Size(31, 18);
+            this.txtExpPuertoEmbarqueDes.Size = new System.Drawing.Size(31, 20);
             this.txtExpPuertoEmbarqueDes.TabIndex = 18;
             this.txtExpPuertoEmbarqueDes.Tag = "";
             this.txtExpPuertoEmbarqueDes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpPuertoEmbarqueDes_KeyDown);
@@ -1543,14 +1499,14 @@
             this.LblHelp9.Enabled = false;
             this.LblHelp9.Location = new System.Drawing.Point(202, 119);
             this.LblHelp9.Name = "LblHelp9";
-            this.LblHelp9.Size = new System.Drawing.Size(131, 18);
+            this.LblHelp9.Size = new System.Drawing.Size(131, 20);
             this.LblHelp9.TabIndex = 16;
             // 
             // radLabel21
             // 
             this.radLabel21.Location = new System.Drawing.Point(44, 119);
             this.radLabel21.Name = "radLabel21";
-            this.radLabel21.Size = new System.Drawing.Size(114, 17);
+            this.radLabel21.Size = new System.Drawing.Size(115, 18);
             this.radLabel21.TabIndex = 14;
             this.radLabel21.Text = "Puerto de embarque :";
             // 
@@ -1558,7 +1514,7 @@
             // 
             this.txtExpPuertoEmbarque.Location = new System.Drawing.Point(165, 119);
             this.txtExpPuertoEmbarque.Name = "txtExpPuertoEmbarque";
-            this.txtExpPuertoEmbarque.Size = new System.Drawing.Size(31, 18);
+            this.txtExpPuertoEmbarque.Size = new System.Drawing.Size(31, 20);
             this.txtExpPuertoEmbarque.TabIndex = 15;
             this.txtExpPuertoEmbarque.Tag = "9";
             this.txtExpPuertoEmbarque.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpPuertoEmbarque_KeyDown);
@@ -1569,14 +1525,14 @@
             this.LblHelp8.Enabled = false;
             this.LblHelp8.Location = new System.Drawing.Point(202, 97);
             this.LblHelp8.Name = "LblHelp8";
-            this.LblHelp8.Size = new System.Drawing.Size(131, 18);
+            this.LblHelp8.Size = new System.Drawing.Size(131, 20);
             this.LblHelp8.TabIndex = 13;
             // 
             // radLabel20
             // 
             this.radLabel20.Location = new System.Drawing.Point(19, 97);
             this.radLabel20.Name = "radLabel20";
-            this.radLabel20.Size = new System.Drawing.Size(139, 17);
+            this.radLabel20.Size = new System.Drawing.Size(140, 18);
             this.radLabel20.TabIndex = 11;
             this.radLabel20.Text = "Condiciones de despacho :";
             // 
@@ -1584,7 +1540,7 @@
             // 
             this.txtExpConDespacho.Location = new System.Drawing.Point(165, 97);
             this.txtExpConDespacho.Name = "txtExpConDespacho";
-            this.txtExpConDespacho.Size = new System.Drawing.Size(31, 18);
+            this.txtExpConDespacho.Size = new System.Drawing.Size(31, 20);
             this.txtExpConDespacho.TabIndex = 12;
             this.txtExpConDespacho.Tag = "8";
             this.txtExpConDespacho.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpConDespacho_KeyDown);
@@ -1595,14 +1551,14 @@
             this.LblHelp7.Enabled = false;
             this.LblHelp7.Location = new System.Drawing.Point(202, 75);
             this.LblHelp7.Name = "LblHelp7";
-            this.LblHelp7.Size = new System.Drawing.Size(131, 18);
+            this.LblHelp7.Size = new System.Drawing.Size(131, 20);
             this.LblHelp7.TabIndex = 10;
             // 
             // radLabel19
             // 
             this.radLabel19.Location = new System.Drawing.Point(77, 75);
             this.radLabel19.Name = "radLabel19";
-            this.radLabel19.Size = new System.Drawing.Size(81, 17);
+            this.radLabel19.Size = new System.Drawing.Size(82, 18);
             this.radLabel19.TabIndex = 8;
             this.radLabel19.Text = "Cond. de pago:";
             // 
@@ -1610,7 +1566,7 @@
             // 
             this.txtExpCondPago.Location = new System.Drawing.Point(165, 75);
             this.txtExpCondPago.Name = "txtExpCondPago";
-            this.txtExpCondPago.Size = new System.Drawing.Size(31, 18);
+            this.txtExpCondPago.Size = new System.Drawing.Size(31, 20);
             this.txtExpCondPago.TabIndex = 9;
             this.txtExpCondPago.Tag = "7";
             this.txtExpCondPago.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpCondPago_KeyDown);
@@ -1620,7 +1576,7 @@
             // 
             this.txtExpConEmbarque.Location = new System.Drawing.Point(165, 8);
             this.txtExpConEmbarque.Name = "txtExpConEmbarque";
-            this.txtExpConEmbarque.Size = new System.Drawing.Size(168, 18);
+            this.txtExpConEmbarque.Size = new System.Drawing.Size(168, 20);
             this.txtExpConEmbarque.TabIndex = 1;
             this.txtExpConEmbarque.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpConEmbarque_KeyDown);
             // 
@@ -1628,7 +1584,7 @@
             // 
             this.radLabel18.Location = new System.Drawing.Point(7, 8);
             this.radLabel18.Name = "radLabel18";
-            this.radLabel18.Size = new System.Drawing.Size(151, 17);
+            this.radLabel18.Size = new System.Drawing.Size(152, 18);
             this.radLabel18.TabIndex = 0;
             this.radLabel18.Text = "Conocimiento de embarque :";
             // 
@@ -1637,14 +1593,14 @@
             this.LblHelp6.Enabled = false;
             this.LblHelp6.Location = new System.Drawing.Point(202, 53);
             this.LblHelp6.Name = "LblHelp6";
-            this.LblHelp6.Size = new System.Drawing.Size(131, 18);
+            this.LblHelp6.Size = new System.Drawing.Size(131, 20);
             this.LblHelp6.TabIndex = 7;
             // 
             // radLabel17
             // 
             this.radLabel17.Location = new System.Drawing.Point(72, 53);
             this.radLabel17.Name = "radLabel17";
-            this.radLabel17.Size = new System.Drawing.Size(87, 17);
+            this.radLabel17.Size = new System.Drawing.Size(87, 18);
             this.radLabel17.TabIndex = 5;
             this.radLabel17.Text = "Pais de destino :";
             // 
@@ -1652,7 +1608,7 @@
             // 
             this.txtExpPaisDestino.Location = new System.Drawing.Point(165, 53);
             this.txtExpPaisDestino.Name = "txtExpPaisDestino";
-            this.txtExpPaisDestino.Size = new System.Drawing.Size(31, 18);
+            this.txtExpPaisDestino.Size = new System.Drawing.Size(31, 20);
             this.txtExpPaisDestino.TabIndex = 6;
             this.txtExpPaisDestino.Tag = "6";
             this.txtExpPaisDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpPaisDestino_KeyDown);
@@ -1663,14 +1619,14 @@
             this.LblHelp5.Enabled = false;
             this.LblHelp5.Location = new System.Drawing.Point(202, 31);
             this.LblHelp5.Name = "LblHelp5";
-            this.LblHelp5.Size = new System.Drawing.Size(131, 18);
+            this.LblHelp5.Size = new System.Drawing.Size(131, 20);
             this.LblHelp5.TabIndex = 4;
             // 
             // radLabel16
             // 
             this.radLabel16.Location = new System.Drawing.Point(76, 31);
             this.radLabel16.Name = "radLabel16";
-            this.radLabel16.Size = new System.Drawing.Size(82, 17);
+            this.radLabel16.Size = new System.Drawing.Size(83, 18);
             this.radLabel16.TabIndex = 2;
             this.radLabel16.Text = "Pais de origen :";
             // 
@@ -1678,7 +1634,7 @@
             // 
             this.txtExpPaisOrigen.Location = new System.Drawing.Point(165, 31);
             this.txtExpPaisOrigen.Name = "txtExpPaisOrigen";
-            this.txtExpPaisOrigen.Size = new System.Drawing.Size(31, 18);
+            this.txtExpPaisOrigen.Size = new System.Drawing.Size(31, 20);
             this.txtExpPaisOrigen.TabIndex = 3;
             this.txtExpPaisOrigen.Tag = "5";
             this.txtExpPaisOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtExpPaisOrigen_KeyDown);
@@ -1779,11 +1735,11 @@
             // 
             // 
             // 
-            gridViewTextBoxColumn2.HeaderText = "column1";
-            gridViewTextBoxColumn2.Name = "column1";
+            gridViewTextBoxColumn1.HeaderText = "column1";
+            gridViewTextBoxColumn1.Name = "column1";
             this.gridControlDetalle.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn2});
-            this.gridControlDetalle.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            gridViewTextBoxColumn1});
+            this.gridControlDetalle.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.gridControlDetalle.Name = "gridControlDetalle";
             this.gridControlDetalle.Size = new System.Drawing.Size(1191, 187);
             this.gridControlDetalle.TabIndex = 5;
@@ -1884,6 +1840,50 @@
             this.btnAdd.ThemeName = "Windows8";
             this.toolTip.SetToolTip(this.btnAdd, "Agregar detalle");
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnGuardarCopia
+            // 
+            this.btnGuardarCopia.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnGuardarCopia.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarCopia.Image")));
+            this.btnGuardarCopia.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnGuardarCopia.Location = new System.Drawing.Point(221, 0);
+            this.btnGuardarCopia.Name = "btnGuardarCopia";
+            this.btnGuardarCopia.Size = new System.Drawing.Size(22, 22);
+            this.btnGuardarCopia.TabIndex = 31;
+            this.btnGuardarCopia.ThemeName = "Office2013Light";
+            // 
+            // btnCancelarCopia
+            // 
+            this.btnCancelarCopia.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCancelarCopia.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarCopia.Image")));
+            this.btnCancelarCopia.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCancelarCopia.Location = new System.Drawing.Point(243, 0);
+            this.btnCancelarCopia.Name = "btnCancelarCopia";
+            this.btnCancelarCopia.Size = new System.Drawing.Size(22, 22);
+            this.btnCancelarCopia.TabIndex = 15;
+            this.btnCancelarCopia.ThemeName = "Office2013Light";
+            // 
+            // btnGuardarBaja
+            // 
+            this.btnGuardarBaja.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnGuardarBaja.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarBaja.Image")));
+            this.btnGuardarBaja.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnGuardarBaja.Location = new System.Drawing.Point(185, 0);
+            this.btnGuardarBaja.Name = "btnGuardarBaja";
+            this.btnGuardarBaja.Size = new System.Drawing.Size(22, 22);
+            this.btnGuardarBaja.TabIndex = 31;
+            this.btnGuardarBaja.ThemeName = "Office2013Light";
+            // 
+            // btnCancelarBaja
+            // 
+            this.btnCancelarBaja.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCancelarBaja.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarBaja.Image")));
+            this.btnCancelarBaja.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCancelarBaja.Location = new System.Drawing.Point(207, 0);
+            this.btnCancelarBaja.Name = "btnCancelarBaja";
+            this.btnCancelarBaja.Size = new System.Drawing.Size(22, 22);
+            this.btnCancelarBaja.TabIndex = 15;
+            this.btnCancelarBaja.ThemeName = "Office2013Light";
             // 
             // frmfacturacab
             // 
@@ -2007,8 +2007,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel39)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).EndInit();
             this.radPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnGuardarCopia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarCopia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gpxDarBaja)).EndInit();
             this.gpxDarBaja.ResumeLayout(false);
             this.gpxDarBaja.PerformLayout();
@@ -2018,8 +2016,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel36)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnGuardarBaja)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarBaja)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodigoAnexoEmisorFE)).EndInit();
             this.pvExportacion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rpExportacionDatos)).EndInit();
@@ -2084,6 +2080,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnNuevoGuia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGuardarCopia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarCopia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGuardarBaja)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarBaja)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

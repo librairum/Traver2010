@@ -766,6 +766,9 @@ namespace Prod.UI.Win.Procesos
             //insertar merma de subproceso Linea
             var alm = ActividadNivel1Logic.Instance.TraerAlmacenxDefecto(Logueo.CodigoEmpresa, txtCodProceso.Text.Trim());
             lblAlmxDefecto.Text = alm.in09codigo;
+            if (alm.procesofaja == null) {
+                alm.procesofaja = "S";
+            }
             this._esActividaFaja = alm.procesofaja.Equals("S") ? true : false;
             //activar boton de agregar merma linea
             this.btnInsertarMermaLinea.Enabled = _esActividaFaja;

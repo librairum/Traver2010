@@ -180,6 +180,12 @@
     <Compile Include="Comunes\FormViewReport.Designer.cs">
       <DependentUpon>FormViewReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmJerarquia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmJerarquia.Designer.cs">
+      <DependentUpon>frmJerarquia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maestros\frmValoresxDefecto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +329,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RptTransacPPRes.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\frmProduccionHistorico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\frmProduccionHistorico.Designer.cs">
+      <DependentUpon>frmProduccionHistorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\frmTrazabilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\frmTrazabilidad.Designer.cs">
+      <DependentUpon>frmTrazabilidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Reporte\FrmRepSaldoMP.cs">
       <SubType>Form</SubType>
@@ -638,6 +656,9 @@
     <EmbeddedResource Include="Comunes\FormViewReport.resx">
       <DependentUpon>FormViewReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmJerarquia.resx">
+      <DependentUpon>frmJerarquia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Maestros\frmValoresxDefecto.resx">
       <DependentUpon>frmValoresxDefecto.cs</DependentUpon>
     </EmbeddedResource>
@@ -725,6 +746,12 @@
     <EmbeddedResource Include="Reportes\RptTransacPPRes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptTransacPPRes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\frmProduccionHistorico.resx">
+      <DependentUpon>frmProduccionHistorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\frmTrazabilidad.resx">
+      <DependentUpon>frmTrazabilidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\FrmRepSaldoMP.resx">
       <DependentUpon>FrmRepSaldoMP.cs</DependentUpon>

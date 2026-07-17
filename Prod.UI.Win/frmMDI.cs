@@ -291,6 +291,12 @@ namespace Prod.UI.Win
                         case "FRMREPSALDOMP":
                             mostrarFormulario(formulario);
                             break;
+                        case "FRMTRAZABILIDAD":
+                            mostrarFormulario(formulario);
+                            break;
+                        case "FRMPRODUCCIONHISTORICO":
+                            mostrarFormulario(formulario);
+                            break;
                         default:                        
                             this.Close();
                             break;
@@ -382,6 +388,10 @@ namespace Prod.UI.Win
                     return frmValoresxDefecto.Instance(this);
                 case "FRMREPSALDOMP":
                     return FrmRepSaldoMP.Instance(this);
+                case"FRMTRAZABILIDAD":
+                    return frmTrazabilidad.Instance(this);
+                case "FRMPRODUCCIONHISTORICO":
+                    return frmProduccionHistorico.Instance(this);
             }
 
             return null;

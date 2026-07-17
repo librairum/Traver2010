@@ -60,8 +60,8 @@ namespace Inv.DataAccess
         public abstract List<DodcumentoOrdenCompra> TraeAyudaOrdenCompra(string @cCodEmp, string @cAno, string @cMes, string @cTipo,
         string @cTipAna, string @cCampo, string @cFiltro);
 
-        
-
+        [SprocName("Spu_Pro_Trae_CanastillaTrazabilidad")]
+        public abstract DataTable TraeCanastillaTrazabilidad(string @empresa, string @anio, string @mes, string @lineacod, string @nrocaja);
         #region Detalle de documento
 
         [SprocName("sp_Inv_Ins_Detalle_Documento_Can")]
@@ -1153,7 +1153,21 @@ out int @flagReturn  ,
 out string @cMsgRetorno 
             );
 
-  
+
+
+        [SprocName("Spu_Pro_Trae_CanastillaPrimerNivel")]
+        public abstract DataTable TraerCanastillaProdcuccionNivel1(string @codigoEmpresa, string @nroOrdentrabajo, string @nroCajaMP);
+        
+        [SprocName("Spu_pro_Trae_NodosSegundoNivel")]
+        public abstract DataTable TraerCanastilaProduccionNivel2(string @codigoEmpresa, string @llaveIngreso, string @nroCanastillaAnterior);
+
+        [SprocName("Spu_Pro_Rep_TraeHistoricoProduccion")]
+        public abstract DataTable TraerHistoricoProduccion(string codigoEmpresa, string fechaInicio, string fechaFin, string @flag);
+
+
     }
+
+
+    
 }
 

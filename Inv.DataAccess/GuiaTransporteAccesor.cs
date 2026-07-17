@@ -152,7 +152,9 @@ namespace Inv.DataAccess
 
         public abstract string Spu_Fact_Del_FAC34_GUIAREMISION(string @FAC34CODEMP, string @FAC01COD, string @FAC34NROGUIA,string flag, out string msgretorno);
 
-      
+        [SprocName("Spu_Fac_Trae_GuiaRemisionHistorico")]
+        public abstract List<GuiaTransporte> Spu_Fac_Trae_GuiaRemisionHistorico(string @FAC34CODEMP, 
+            string fechainicio, string fechafin, string flag);
 
         #region "Importacion"
         [SprocName("Spu_Fac_Ins_GuiasImportar")]
